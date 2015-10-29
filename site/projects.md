@@ -15,8 +15,8 @@ __In progress:__
 
 __Complete:__
 
+*   [bigword](https://github.com/nickspinale/bigword) - Library for treating bit arrays with statically known size as heterogeneous Church-encoded vectors.
 *   [bencode](https://github.com/nickspinale/bencode) - Fast and flexible parsers and builders for BEncoded data.
-*   [bigword](https://github.com/nickspinale/bigword) - Fixed-size bit vectors using GHC's type-level naturals, useful for cryptography.
 *   [mod-n](https://github.com/nickspinale/mod-n) - Integers under a modulus, using GHC's type-level naturals.
 *   [n-vector](https://github.com/nickspinale/n-vector) - Fixed-length unboxed vectors.
 *   [recall](https://github.com/nickspinale/recall) - A typeclass for memoization, based on a paper by Simon Peyton Jones.
@@ -26,12 +26,12 @@ __Complete:__
 ## Hackathon projects
 
 *   [GetGrub](https://github.com/kevinkowalew/GetGrub)
-    *   An application for crowdsourcing food-related errands - connects lazy hungry people with less lazy people.
-    *   Built with two frontends: iOS and the browser.
+    *   A peer-focused web application to facilitate favors and coordinate food-related errands.
+    *   Includes both a browser and iOS frontend, with a Parse-based backend.
 
 *   [targethelp](https://github.com/chetaldrich/targethelp)
-    *   Allows target customers to contact employees via SMS.
-    *   Messages can be dispatched to employees directly, or displayed on a central monitor.
+    *   Integrates SMS into a web service for streamlining customer-employee communication at Target.
+    *   Placed top 20 at University of Minnesota Hackathon 2014.
 
 ## Other
 

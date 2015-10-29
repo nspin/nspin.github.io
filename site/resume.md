@@ -11,10 +11,10 @@ title: Resume
 **Carleton College**, *Northfield, MN* | *September 2014 -- Present*
 
 
-*   Overall GPA: 3.75
+*   Overall GPA: 3.76
 *   Math/CS GPA: 4.0
 *   BA in Computer Science and Mathematics expected in June 2018
-*   Relevant coursework: Data Structures, Programming Languages, Math Structures, Calculus III
+*   Relevant coursework: Data Structures, Programming Languages, Computer Organization and Architecture, Math Structures, Abstract Algebra, Calculus III
 
 **Flathead Valley Community College**, *Kalispell, MT* |  *August -- May 2013*
 
@@ -34,22 +34,22 @@ title: Resume
 *June – September 2015*
 
 *   Contributed to the schematics of an inference engine for modeling and analyzing corporate structure.
-*   Built and maintained an Enterprise Java backend that integrated with a relational database and exposed a REST API.
+*   Built and maintained an Enterprise Java backend that interfaced with a relational database and exposed a REST API.
 *   Designed a frontend using Angular.js that demonstrated our software’s modeling capabilities to potential investors.
 
 **Writer and Founding Member**, *CarlTV, Carleton College, Northfield, MN*
 
 *September 2015 – Present*
 
-*   Involved in the scripting and production of Daily-Show like satire program.
+*   Involved in the scripting and production of *Daily Show*-like satire program.
 *   Helped to re-charter the organization, and recruit a new generation of members.
 
 **Lab Assistant**, *Carleton College CS Department, Northfield, MN*
 
 *September 2015 – Present*
 
-*   Aid fellow Compute Science students in developing problem solving skills and algorithmic intuition.
-*   Identify, explain, and help correct bugs in student’s Python, Java, C, and Scheme programs.
+*   Aided fellow Computer Science students in developing problem solving skills and algorithmic intuition.
+*   Identified, explained, and helped correct bugs in student’s Python, Java, C, and Scheme programs.
 
 **Driver’s Assistant**, *United Parcel Service, Watertown, MA*
 
@@ -60,11 +60,11 @@ title: Resume
 
 **English Teacher**, *Colegio Salesiano Don Bosco, Masaya, Nicaragua*
 
-*Summer 2014*
+*May – July 2014*
 
 *   Taught English classes of up to fifty students from grades four to six in an economically struggling neighborhood.
 *   Assisted in teaching upper-level English to adults, specializing in idiom usage and accent.
-*   Organized, publicized, and lead open language exchange groups for city's residents.
+*   Organized, publicized, and lead open language exchange groups for the city's residents.
 
 **Pantry and Warehouse Volunteer**, *Kalispell Food Bank, Kalispell, MT*
 
@@ -78,7 +78,7 @@ title: Resume
 
 **[bigword](https://github.com/nickspinale/bigword)**, *September 2015*
 
-*   Haskell library for dealing with bit-vectors with statically known size as heterogeneous Church-encoded vectors.
+*   Haskell library for treating bit arrays with statically known size as heterogeneous Church-encoded vectors.
 *   Useful for secure, type-safe cryptography and networking by allowing for more static analysis.
 *   One component of [htorrent](github.com/nickspinale/htorrent), an in-progress open source BitTorrent client in pure Haskell.
 
@@ -90,7 +90,7 @@ title: Resume
 **[targethelp](https://github.com/chetaldrich/targethelp)**, *November 2014*
 
 *   Integrates SMS into a web-service for streamlining customer-employee communication at Target.
-*   Top 20, University of Minnesota Hackathon 2014.
+*   Placed top 20, University of Minnesota Hackathon 2014.
 
 ## Skills
 
@@ -116,5 +116,4 @@ title: Resume
 
 **Natural Languages**
 
-*   Fluent English
-*   Conversational Spanish
+*   Working proficiency in Spanish
