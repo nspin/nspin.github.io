@@ -1,0 +1,25 @@
+#resume-template ul + p {
+    /* background-color: #555555; */
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+/* #resume-template h2 + h4 { */
+/*     /1* background-color: #555555; *1/ */
+/*     margin: 0px 0px 0px 0px; */
+/*     padding: 0px 0px 0px 0px; */
+/* } */
+#resume-template p + p {
+    /* background-color: #555555; */
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+#resume-template h2 + p {
+    /* background-color: #555555; */
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+/* #resume-template h4 + p { */
+/*     /1* background-color: #555555; *1/ */
+/*     margin: 0px 0px 0px 0px; */
+/*     padding: 0px 0px 0px 0px; */
+/* } */

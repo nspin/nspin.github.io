@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <head>
+
+        <title>Nick Spinale - Using Hakyll</title>
+
+        <link rel="stylesheet" type="text/css" href="/css/base.css">
+        <link rel="stylesheet" type="text/css" href="/css/layout.css">
+        <link rel="stylesheet" type="text/css" href="/css/special.css">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="Personal website of Nick Spinale.">
+
+    </head>
+    <body>
+
+        <div id="navigation">
+
+            <h1><a href="/">Nick Spinale</a></h1>
+
+            <a href="/projects.html">Projects</a>
+            <a href="/articles.html">Articles</a>
+            <a href="/resume.html"  >Resume  </a>
+            <a href="/contact.html" >Contact </a>
+
+        </div>
+
+        <div id="content">
+    <h1 style="margin-bottom: 8px">Using Hakyll</h1>
+<span class="soft">2015-10-24 &mdash; A description of the tool used to build what you are looking at now.</span>
+
+<hr>
+
+<!-- <div> -->
+<div style="padding-top: 3px">
+
+<p>A static website is basically a bunch of files meant to be served by directory. You could think if it as a pure mapping from filepaths to files, where most filepaths map to a default 404 page. Pages can’t be generated on the fly, but there is one serious benefit to a static website: they’re really really easy to mantain and host. There are a lot of companies that will serve a static directory for you, and getting this set up is super easy because you don’t have to worry about <em>any</em> server logic. Github, for example, will serve your static site from a repository called <em>username</em>.github.io for free under the domain of the same name. That’s how this site is hosted.</p>
+<p>What’s more, there are a bunch of tools for ‘compiling’ directories of static files from other files. Some names you might have heard of are Jekyll, Middleman, and Octopress. I chose to use on called <a href="http://jaspervdj.be/hakyll">Hakyll</a>. Hakyll isn’t actually an executable or a script. It’s just a library consisting of a EDLS for describing transformations of static files. So, this website consists of a bunch of html, css, and markdown files and templates, and a Haskell program that describes the process these files go through to become the static files being served to you now. Its source can be found here: <a href="http://github.com/nickspinale/website">github.com/nickspinale/website</a>.</p>
+<p>Hakyll is a really great approach to the static website problem, remeniscent of how projects such as xmonad and yi approach configuration. Learn more about it <a href="http://jaspervdj.be/hakyll">here</a>, or check out its source <a href="http://github.com/jaspervdj/hakyll">here</a>.</p>
+
+</div>
+
+
+    <div id="footer">
+        Find me on <a href="https://github.com/nickspinale">GitHub</a> or <a href="https://www.linkedin.com/in/nickspinale">LinkedIn</a>.
+    </div>
+</div>
+
+
+    </body>
+</html>
