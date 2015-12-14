@@ -11,7 +11,7 @@ title: Resume
 **Carleton College**, *Northfield, MN* | *September 2014 -- Present*
 
 
-*   Overall GPA: 3.76
+*   Overall GPA: 3.74
 *   Math/CS GPA: 4.0
 *   BA in Computer Science and Mathematics expected in June 2018
 *   Relevant coursework: Data Structures, Programming Languages, Computer Organization and Architecture, Math Structures, Abstract Algebra, Calculus III
@@ -29,6 +29,12 @@ title: Resume
 
 ## Work Experience and Leadership
 
+**Winter Extern**, *Datrium, Sunnyvale, CA*
+
+*December 2015 – Present*
+
+*   Write utilities to test a cutting edge flash storage system.
+
 **Software Engineering Intern**, *Pismo Investments, Waltham, MA*
 
 *June – September 2015*
@@ -37,19 +43,19 @@ title: Resume
 *   Built and maintained an Enterprise Java backend that interfaced with a relational database and exposed a REST API.
 *   Designed a frontend using Angular.js that demonstrated our software’s modeling capabilities to potential investors.
 
-**Writer and Founding Member**, *CarlTV, Carleton College, Northfield, MN*
-
-*September 2015 – Present*
-
-*   Involved in the scripting and production of *Daily Show*-like satire program.
-*   Helped to re-charter the organization, and recruit a new generation of members.
-
 **Lab Assistant**, *Carleton College CS Department, Northfield, MN*
 
 *September 2015 – Present*
 
 *   Aided fellow Computer Science students in developing problem solving skills and algorithmic intuition.
 *   Identified, explained, and helped correct bugs in student’s Python, Java, C, and Scheme programs.
+
+**Writer and Founding Member**, *CarlTV, Carleton College, Northfield, MN*
+
+*September 2015 – Present*
+
+*   Involved in the scripting and production of *Daily Show*-like satire program.
+*   Helped to re-charter the organization, and recruit a new generation of members.
 
 **Driver’s Assistant**, *United Parcel Service, Watertown, MA*
 
