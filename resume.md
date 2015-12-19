@@ -31,7 +31,7 @@ title: Resume
 *December 2015*
 
 *   Worked with a team of experienced engineers on a cutting-edge virtualized storage system.
-*   Build debugging utilities for deserializing intermediate data from a long-running space reclamation process.
+*   Built debugging utilities for deserializing intermediate data from a long-running space reclamation process.
 
 **Software Engineering Intern**, *Pismo Investments, Waltham, MA*
 
