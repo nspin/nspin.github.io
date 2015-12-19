@@ -11,15 +11,12 @@ title: Resume
 **Carleton College**, *Northfield, MN* | *September 2014 -- Present*
 
 
-*   Overall GPA: 3.74
-*   Math/CS GPA: 4.0
 *   BA in Computer Science and Mathematics expected in June 2018
-*   Relevant coursework: Data Structures, Programming Languages, Computer Organization and Architecture, Math Structures, Abstract Algebra, Calculus III
+*   Relevant coursework: Data Structures, Programming Languages, Computer Organization and Architecture, Math Structures, Advanced Linear Algebra, Abstract Algebra, Multivariable Calculus
 
 **Flathead Valley Community College**, *Kalispell, MT* |  *August -- May 2013*
 
 
-*   Overall GPA: 4.0
 *   Relevant coursework: Programming with Java I and II, Linear Algebra, Calculus I and II
 
 ## Honors
@@ -29,11 +26,12 @@ title: Resume
 
 ## Work Experience and Leadership
 
-**Winter Extern**, *Datrium, Sunnyvale, CA*
+**Software Engineering Extern**, *Datrium, Sunnyvale, CA*
 
-*December 2015 – Present*
+*December 2015*
 
-*   Write utilities to test a cutting edge flash storage system.
+*   Worked with a team of experienced engineers on a cutting-edge virtualized storage system.
+*   Build debugging utilities for deserializing intermediate data from a long-running space reclamation process.
 
 **Software Engineering Intern**, *Pismo Investments, Waltham, MA*
 
