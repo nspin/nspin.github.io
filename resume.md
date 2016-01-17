@@ -11,13 +11,13 @@ title: Resume
 **Carleton College**, *Northfield, MN* | *September 2014 -- Present*
 
 
-*   BA in Computer Science and Mathematics expected in June 2018
-*   Relevant coursework: Data Structures, Programming Languages, Computer Organization and Architecture, Abstract Algebra, Math Structures, Multivariable Calculus
+*   BA in Mathematics and Computer Science expected in June 2018
+*   Relevant coursework: Data Structures, Programming Languages, Mathematical Structures, Multivariable Calculus, Computer Organization and Architecture (currently taking), Abstract Algebra (currently taking),
 
 **Flathead Valley Community College**, *Kalispell, MT* |  *August -- May 2013*
 
 
-*   Relevant coursework: Programming with Java I and II, Linear Algebra, Calculus I and II
+*   Relevant coursework: Linear Algebra, Programming with Java I and II, Calculus I and II
 
 ## Honors
 
@@ -43,7 +43,7 @@ title: Resume
 
 **Lab Assistant**, *Carleton College CS Department, Northfield, MN*
 
-*September 2015 – Present*
+*September – November 2015*
 
 *   Aided fellow Computer Science students in developing problem solving skills and algorithmic intuition.
 *   Identified, explained, and helped correct bugs in student’s Python, Java, C, and Scheme programs.
