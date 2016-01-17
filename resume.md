@@ -12,7 +12,7 @@ title: Resume
 
 
 *   BA in Computer Science and Mathematics expected in June 2018
-*   Relevant coursework: Data Structures, Programming Languages, Computer Organization and Architecture, Math Structures, Advanced Linear Algebra, Abstract Algebra, Multivariable Calculus
+*   Relevant coursework: Data Structures, Programming Languages, Computer Organization and Architecture, Abstract Algebra, Math Structures, Multivariable Calculus
 
 **Flathead Valley Community College**, *Kalispell, MT* |  *August -- May 2013*
 
