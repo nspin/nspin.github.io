@@ -9,13 +9,21 @@ title: Resume
 ## Education
 
 **Carleton College**, *Northfield, MN* | *September 2014 -- Present*
-
+**Overall GPA: 3.7, Major GPA: 4.0**
 
 *   BA in Mathematics and Computer Science expected in June 2018
-*   Relevant coursework: Data Structures, Programming Languages, Mathematical Structures, Multivariable Calculus, Computer Organization and Architecture (currently taking), Abstract Algebra (currently taking),
+*   Relevant coursework:
+        Data Structures,
+        Programming Languages,
+        Computer Organization and Architecture,
+        Mathematical Structures,
+        Multivariable Calculus,
+        Abstract Algebra,
+        Computability and Complexity (in progress),
+        Operating Systems (in progress)
 
 **Flathead Valley Community College**, *Kalispell, MT* |  *August -- May 2013*
-
+**GPA: 4.0**
 
 *   Relevant coursework: Linear Algebra, Programming with Java I and II, Calculus I and II
 
