@@ -2,6 +2,33 @@
 title: Home
 ---
 
+<style>
+    #contact a {
+        border: none;
+        color: #333;
+    }
+    .contact-icon {
+        font-size: 1.25em;
+    }
+    #contact-left {
+        padding-right: 10px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    #contact-right {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    @media all and (max-width: 600px) {
+        .small-center {
+            text-align: center;
+        }
+        .small-center ul {
+            text-align: left;
+        }
+    }
+</style>
+
 <h1 class="small-center">About Me</h1>
 
 <div id="contact" class="small-center">
@@ -9,20 +36,43 @@ title: Home
         <img src="images/portrait.jpg" alt="Portrait" style="height: 128px; border-radius: 5%; margin: 0px">
     </div>
     <div id="contact-right">
-        <table id="contact-table">
-            <tr>
-                <td><i class="contact-icon fa fa-envelope"></i></td>
-                <td>spinalen@carleton.edu</td>
-            </tr>
-            <tr>
-                <td><i class="contact-icon fa fa-github"></i></big></td>
-                <td>github.com/nickspinale</td>
-            </tr>
-            <tr>
-                <td><i class="contact-icon fa fa-linkedin"></i></td>
-                <td>linkedin.com/in/nickspinale</td>
-            </tr>
-        </table>
+
+        <ul class="fa-ul">
+            <li>
+                <a href="spinalen@carleton.edu">
+                    <i class="fa fa-li fa-envelope"></i>
+                    spinalen@carleton.edu
+                </a>
+            </li>
+            <li>
+                <a href="github.com/nickspinale">
+                    <i class="fa fa-li fa-github"></i>
+                    github.com/nickspinale
+                </a>
+            </li>
+            <li>
+                <a href="linkedin.com/in/nickspinale">
+                    <i class="fa fa-li fa-linkedin"></i>
+                    linkedin.com/in/nickspinale
+                </a>
+            </li>
+        </ul>
+
+        <!-- <table id="contact-table"> -->
+        <!--     <tr> -->
+        <!--         <td><i class="contact-icon fa fa-envelope"></i></td> -->
+        <!--         <td>spinalen@carleton.edu</td> -->
+        <!--     </tr> -->
+        <!--     <tr> -->
+        <!--         <td><i class="contact-icon fa fa-github"></i></big></td> -->
+        <!--         <td>github.com/nickspinale</td> -->
+        <!--     </tr> -->
+        <!--     <tr> -->
+        <!--         <td><i class="contact-icon fa fa-linkedin"></i></td> -->
+        <!--         <td>linkedin.com/in/nickspinale</td> -->
+        <!--     </tr> -->
+        <!-- </table> -->
+
     </div>
 </div>
 
@@ -40,26 +90,3 @@ title: Home
         hackathon projects, and experiments in the BitTorrent overlay network.
     </p>
 </div>
-
-<style>
-    #contact-table {
-        list-style: none;
-    }
-    .contact-icon {
-        font-size: 1.25em;
-    }
-    #contact-left {
-        padding-right: 10px;
-        display: inline-block;
-        vertical-align: middle;
-    }
-    #contact-right {
-        display: inline-block;
-        vertical-align: middle;
-    }
-    @media all and (max-width: 600px) {
-        .small-center {
-          text-align: center;
-        }
-    }
-</style>
