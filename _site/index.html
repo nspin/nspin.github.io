@@ -7,6 +7,7 @@
         <link rel="stylesheet" type="text/css" href="/css/base.css">
         <link rel="stylesheet" type="text/css" href="/css/layout.css">
         <link rel="stylesheet" type="text/css" href="/css/special.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
@@ -16,38 +17,76 @@
     <body>
 
         <div id="navigation">
-
             <h1><a href="/">Nick Spinale</a></h1>
-
             <a href="/projects.html">Projects</a>
             <a href="/articles.html">Articles</a>
-            <a href="/resume.html"  >Resume  </a>
-            <a href="/contact.html" >Contact </a>
-
+            <a href="/resume.pdf">Resume</a>
         </div>
 
         <div id="content">
+
     <h1>About Me</h1>
 
-<div>
+<style>
+    #contact-table {
+        list-style: none;
+    }
+    .contact-icon {
+        font-size: 1.25em;
+    }
+    #contact-left {
+        padding-right: 10px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    #contact-right {
+        display: inline-block;
+        vertical-align: middle;
+    }
+</style>
 
-    <div style="float: right; padding-left: 36px">
-        <img src="images/portrait.jpg" alt="Portrait" style="border-radius: 5%; margin: 0px">
+<div id="contact">
+    <div id="contact-left">
+        <img src="images/portrait.jpg" alt="Portrait" style="height: 128px; border-radius: 5%; margin: 0px">
     </div>
-
-    <div>
-        <p>Hello - I'm Nick.</p>
-        <p>I study Mathematics and Computer Science at <a href="http://www.carleton.edu">Carleton College</a>.</p>
-        <p>I am interested in functional programming, lambda calculus, dependent types, distributed systems, data mining, secure deployment, and cryptography.</p>
-        <p>My work so far includes a number of <a href="http://www.haskell.org">Haskell</a> libraries, hackathon projects, and experiments in the BitTorrent overlay network.</p>
+    <div id="contact-right">
+        <table id="contact-table">
+            <tr>
+                <td><i class="contact-icon fa fa-envelope"></i></td>
+                <td>spinalen@carleton.edu</td>
+            </tr>
+            <tr>
+                <td><i class="contact-icon fa fa-github"></i></big></td>
+                <td>github.com/nickspinale</td>
+            </tr>
+            <tr>
+                <td><i class="contact-icon fa fa-linkedin"></i></td>
+                <td>linkedin.com/in/nickspinale</td>
+            </tr>
+        </table>
     </div>
+</div>
 
+<div id="bio">
+    <p>
+        I study Mathematics and Computer Science at <a href="http://www.carleton.edu">Carleton College</a>,
+        and work at <a href="https://www.carvesystems.com">Carve Systems</a>.
+    </p>
+    <p>
+        I am interested in functional programming, lambda calculus, dependent types,
+        distributed systems, data mining, secure deployment, and cryptography.
+    </p>
+    <p>
+        My work so far includes a number of <a href="http://www.haskell.org">Haskell</a> libraries,
+        hackathon projects, and experiments in the BitTorrent overlay network.
+    </p>
 </div>
 
 
-    <div id="footer">
-        Find me on <a href="https://www.linkedin.com/in/nickspinale">LinkedIn</a> or <a href="https://github.com/nickspinale">GitHub</a>.
-    </div>
+    <!-- <div id="footer"> -->
+    <!--     Find me on <a href="https://www.linkedin.com/in/nickspinale">LinkedIn</a> or <a href="https://github.com/nickspinale">GitHub</a>. -->
+    <!-- </div> -->
+
 </div>
 
 

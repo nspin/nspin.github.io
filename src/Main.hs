@@ -25,19 +25,29 @@ main = hakyllWith config $ do
                 >>= loadAndApplyTemplate "templates/content.html" defaultContext
                 >>= loadAndApplyTemplate "templates/default.html" defaultContext
 
-    -- static files
     match "images/*" $ do
         route idRoute
         compile copyFileCompiler
+
     match "css/*" $ do
         route idRoute
         compile copyFileCompiler
 
-    match ( "index.html"
-          ) $ do
+    match "resume.pdf" $ do
+        route idRoute
+        compile copyFileCompiler
+
+    match "index.html" $ do
         route $ idRoute
         compile $ do
             getResourceBody
+                >>= loadAndApplyTemplate "templates/content.html" defaultContext
+                >>= loadAndApplyTemplate "templates/default.html" defaultContext
+
+    match "projects.md" $ do
+        route $ setExtension ".html"
+        compile $ do
+            pandocCompiler
                 >>= loadAndApplyTemplate "templates/content.html" defaultContext
                 >>= loadAndApplyTemplate "templates/default.html" defaultContext
 
@@ -61,23 +71,6 @@ main = hakyllWith config $ do
                 >>= loadAndApplyTemplate "templates/content.html" ctx
                 >>= loadAndApplyTemplate "templates/default.html" ctx
     
-
-    match  (   "projects.md"
-          .||. "contact.md"
-           ) $ do
-        route $ setExtension ".html"
-        compile $ do
-            pandocCompiler
-                >>= loadAndApplyTemplate "templates/content.html" defaultContext
-                >>= loadAndApplyTemplate "templates/default.html" defaultContext
-
-    match  "resume.md" $ do
-        route $ setExtension ".html"
-        compile $ do
-            pandocCompiler
-                >>= loadAndApplyTemplate "templates/resume.html" defaultContext
-                >>= loadAndApplyTemplate "templates/content.html" defaultContext
-                >>= loadAndApplyTemplate "templates/default.html" defaultContext
 
     match "templates/*" $ do
         compile templateCompiler
