@@ -1,0 +1,4 @@
+#!/bin/sh
+for f in $(find $(dirname $0)/../resume -name 'nickspinale-resume-*.pdf'); do
+    cp "$f" site/resume.pdf
+done
