@@ -23,10 +23,6 @@ div#content {
     margin: 12px;
 }
 
-div#content #contact {
-    margin-top: 24px;
-}
-
 @media all and (min-width: 822px) {
 
     div#navigation {
