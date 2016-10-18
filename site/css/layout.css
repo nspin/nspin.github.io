@@ -27,19 +27,6 @@ div#content #contact {
     margin-top: 24px;
 }
 
-@media all and (max-width: 600px) {
-
-    div#content h1 {
-      text-align: center;
-    }
-
-    div#content #contact {
-      text-align: center;
-    }
-
-}
-
-
 @media all and (min-width: 822px) {
 
     div#navigation {

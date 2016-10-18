@@ -24,27 +24,9 @@
         </div>
 
         <div id="content">
-            <h1>About Me</h1>
+            <h1 class="small-center">About Me</h1>
 
-<style>
-    #contact-table {
-        list-style: none;
-    }
-    .contact-icon {
-        font-size: 1.25em;
-    }
-    #contact-left {
-        padding-right: 10px;
-        display: inline-block;
-        vertical-align: middle;
-    }
-    #contact-right {
-        display: inline-block;
-        vertical-align: middle;
-    }
-</style>
-
-<div id="contact">
+<div id="contact" class="small-center">
     <div id="contact-left">
         <img src="images/portrait.jpg" alt="Portrait" style="height: 128px; border-radius: 5%; margin: 0px">
     </div>
@@ -80,6 +62,29 @@
         hackathon projects, and experiments in the BitTorrent overlay network.
     </p>
 </div>
+
+<style>
+    #contact-table {
+        list-style: none;
+    }
+    .contact-icon {
+        font-size: 1.25em;
+    }
+    #contact-left {
+        padding-right: 10px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    #contact-right {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    @media all and (max-width: 600px) {
+        .small-center {
+          text-align: center;
+        }
+    }
+</style>
 
         </div>
 
