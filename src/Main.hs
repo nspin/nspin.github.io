@@ -1,8 +1,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 
+import           Control.Monad
 import           Data.Monoid
 import           Hakyll
--- import qualified Text.Pandoc as P
 
 config :: Configuration
 config = defaultConfiguration { providerDirectory = "site" }
@@ -10,67 +10,38 @@ config = defaultConfiguration { providerDirectory = "site" }
 main :: IO ()
 main = hakyllWith config $ do
 
-    match "CNAME" $ do
-        route idRoute
-        compile copyFileCompiler
+    let copies = [ "CNAME"
+                 , "favicon.ico"
+                 , "images/*"
+                 , "css/*"
+                 , "resume.pdf"
+                 ]
 
-    match "favicon.ico" $ do
-        route idRoute
-        compile copyFileCompiler
+    forM copies $ flip match (route idRoute >> compile copyFileCompiler)
 
-    match "404.md" $ do
-        route $ setExtension ".html"
-        compile $ do
-            pandocCompiler
-                >>= loadAndApplyTemplate "templates/content.html" defaultContext
-                >>= loadAndApplyTemplate "templates/default.html" defaultContext
+    match "templates/*" $ compile templateCompiler
 
-    match "images/*" $ do
-        route idRoute
-        compile copyFileCompiler
+    let stack ctx tmplts = foldl (>=>) return $ map (flip loadAndApplyTemplate ctx) tmplts
 
-    match "css/*" $ do
-        route idRoute
-        compile copyFileCompiler
-
-    match "resume.pdf" $ do
-        route idRoute
-        compile copyFileCompiler
+    match "404.html" $ do
+        route $ idRoute
+        compile $ getResourceBody >>= stack defaultContext ["templates/content.html"]
 
     match "index.html" $ do
         route $ idRoute
-        compile $ do
-            getResourceBody
-                >>= loadAndApplyTemplate "templates/content.html" defaultContext
-                >>= loadAndApplyTemplate "templates/default.html" defaultContext
+        compile $ getResourceBody >>= stack defaultContext ["templates/content.html"]
 
     match "projects.md" $ do
         route $ setExtension ".html"
-        compile $ do
-            pandocCompiler
-                >>= loadAndApplyTemplate "templates/content.html" defaultContext
-                >>= loadAndApplyTemplate "templates/default.html" defaultContext
+        compile $ pandocCompiler >>= stack defaultContext ["templates/content.html"]
 
     match "articles/*" $ do
         route $ setExtension ".html"
-        compile $ do
-            pandocCompiler
-                >>= loadAndApplyTemplate "templates/article.html" defaultContext
-                >>= loadAndApplyTemplate "templates/content.html" defaultContext
-                >>= loadAndApplyTemplate "templates/default.html" defaultContext
+        compile $ pandocCompiler >>= stack defaultContext ["templates/article.html", "templates/content.html"]
 
     create ["articles.html"] $ do
         route idRoute
-        compile $ do
-            articles <- loadAll "articles/*"
-            let ctx =  constField "title" "Articles"
-                    <> listField "articles" defaultContext (return articles)
-                    <> defaultContext
-            makeItem ""
-                >>= loadAndApplyTemplate "templates/articles.html" ctx
-                >>= loadAndApplyTemplate "templates/content.html" ctx
-                >>= loadAndApplyTemplate "templates/default.html" ctx
-    
-
-    match "templates/*" $ do
-        compile templateCompiler
+        let ctx =  constField "title" "Articles"
+                <> listField "articles" defaultContext (loadAll "articles/*")
+                <> defaultContext
+        compile $ makeItem "" >>= stack ctx ["templates/articles.html", "templates/content.html"]

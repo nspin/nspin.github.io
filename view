@@ -1,0 +1,5 @@
+#!/bin/sh
+nix-build
+./result/bin/site clean
+./result/bin/site build
+./result/bin/site watch
