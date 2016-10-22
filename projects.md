@@ -8,6 +8,7 @@ I've worked on a number of Haskell libraries. Here is an incomplete list.
 
 __In progress:__
 
+*   [xhb-monad](/articles/xhb-monad.html) - The core of a collection of libraries build on top of [xhb](https://hackage.haskell.org/package/xhb)
 *   [htorrent](https://github.com/nickspinale/htorrent) - Will someday be a full-featured BitTorrent client and library written and extensible in pure haskell.
 *   [aether](https://github.com/nickspinale/aether) - A slim mainline BitTorrent distributed hashtable implementation.
 
@@ -23,15 +24,10 @@ __Complete:__
 
 ## Hackathon projects
 
-*   [GetGrub](https://github.com/kevinkowalew/GetGrub)
-    *   A peer-focused web application to facilitate favors and coordinate food-related errands.
-    *   Includes both a browser and iOS frontend, with a Parse-based backend.
-
-*   [targethelp](https://github.com/chetaldrich/targethelp)
-    *   Integrates SMS into a web service for streamlining customer-employee communication at Target.
-    *   Placed top 20 at University of Minnesota Hackathon 2014.
+*   [git-audio](https://github.com/nickspinale/git-audio) - Allows a developer to record verbal commit messages.
 
 ## Other
 
+*   [TwitchPlaysPokemonGo](https://www.twitch.tv/twitchpokemongo) - A Pokemon Go playing bot that was a meme for a short period of time. Created with some 2016 [hackNY](http://hackny.org) fellows.
 *   [wikipath](https://github.com/nickspinale/wikipath) - Various implementations of the 'wikipedia game' (finding the shortest path between two articles using only internal links) in both Haskell and Python.
 *   [brainf--k](https://github.com/nickspinale/brainf--k) - A tin brainf--k interpreter written in Haskell.
