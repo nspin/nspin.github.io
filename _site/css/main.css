@@ -6,7 +6,7 @@ body {
   margin: 0px;
   padding: 0px 0px 0px 0px;
 }
-@media all and (min-width: 820px) {
+@media all and (min-width: 822px) {
   #navigation {
     position: fixed;
     left: 0;
@@ -20,13 +20,13 @@ body {
     display: block;
   }
   #content {
-    margin-left: 175px;
+    margin-left: 176px;
     margin-top: 13px;
-    width: 645px;
+    width: 646px;
     padding-top: 17px;
   }
 }
-@media all and (max-width: 819px) {
+@media all and (max-width: 821px) {
   #navigation {
     margin-top: 24px;
     text-align: center;
