@@ -29,14 +29,14 @@ body {
 }
 @media all and (max-width: 821px) {
   #navigation {
-    margin-top: 24px;
+    padding-top: 7px;
     text-align: center;
   }
   #navigation-down a {
     margin: 0px 6px 0px 6px;
   }
   #content {
-    margin-top: 13px;
+    margin-top: 12px;
     margin-left: 12px;
     margin-right: 12px;
   }
