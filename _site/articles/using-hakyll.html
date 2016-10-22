@@ -23,16 +23,22 @@
     </head>
     <body>
 
-        <div id="navigation">
-            <h1><a href="/">Nick Spinale</a></h1>
-            <div id="navigation-down">
-                <a href="/projects.html">Projects</a>
-                <a href="/articles.html">Articles</a>
-                <a href="/resume.pdf">Resume</a>
+        <!-- made up tags used to weaken css associations -->
+
+        <ns-navigation>
+            <div id="navigation">
+                <h1><a href="/">Nick Spinale</a></h1>
+                <div id="navigation-down">
+                    <a href="/projects.html">Projects</a>
+                    <a href="/articles.html">Articles</a>
+                    <a href="/resume.pdf">Resume</a>
+                </div>
             </div>
-        </div><!--
-        --><div id="content">
-            <h1 class="article-title">Using Hakyll</h1>
+        </ns-navigation>
+
+        <ns-content>
+            <div id="content">
+                <h1 class="article-title">Using Hakyll</h1>
 <span class="soft">
     2015-10-24 &mdash; A description of the tool used to build what you are looking at now.
 </span>
@@ -45,7 +51,8 @@
 <p>Hakyll is a really great approach to the static website problem, remeniscent of how projects such as xmonad and yi approach configuration. Learn more about it <a href="http://jaspervdj.be/hakyll">here</a>, or check out its source <a href="http://github.com/jaspervdj/hakyll">here</a>.</p>
 </div>
 
-        </div>
+            </div>
+        </ns-content>
 
     </body>
 </html>

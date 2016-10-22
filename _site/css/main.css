@@ -1,12 +1,10 @@
 html {
   margin: 0px;
   padding: 0px;
-  height: 100%;
 }
 body {
   margin: 0px;
   padding: 0px 0px 0px 0px;
-  height: 100%;
 }
 @media all and (min-width: 820px) {
   #navigation {
@@ -37,7 +35,7 @@ body {
     margin: 0px 6px 0px 6px;
   }
   #content {
-    margin-top: 12px;
+    margin-top: 13px;
     margin-left: 12px;
     margin-right: 12px;
   }
@@ -68,106 +66,106 @@ h3 {
 a {
   text-decoration: none;
 }
-#navigation a {
+ns-navigation a {
   color: #333;
 }
-#content a {
+ns-content a {
   color: #111;
   border-bottom: 1px solid #555;
 }
-#content h1,
-#content h2,
-#content h3 {
+ns-content h1,
+ns-content h2,
+ns-content h3 {
   margin: 0px 0px 18px 0px;
   padding: 24px 0px 0px 0px;
 }
-#content p {
+ns-content p {
   margin: 18px 0px 18px 0px;
 }
-#content img {
+ns-content img {
   margin: 12px 0px 12px 0px;
   max-width: 100%;
 }
-#content ul:not(.fa-ul) {
+ns-content ul {
   margin: 18px 0px 18px 0px;
   padding-left: 18px;
 }
-#content div.figure a {
+ns-content div.figure a {
   border: none;
 }
-#content a img {
+ns-content a img {
   margin-bottom: 0px;
 }
-#content pre {
+ns-content pre {
   font-size: 14px;
   margin-left: 18px;
   overflow: auto;
 }
-#content pre code {
+ns-content pre code {
   background-color: transparent;
   padding: 0px;
   margin: 0px;
 }
-#content code {
+ns-content code {
   background-color: #e6e6e6;
   padding: 0px 4px 0px 4px;
   margin: 0px 2px 0px 2px;
   color: black;
 }
-#content blockquote {
+ns-content blockquote {
   font-style: italic;
   margin-left: 18px;
   padding: 6px 6px 6px 54px;
 }
-#content .soft,
-#content .caption {
+ns-content .soft,
+ns-content .caption {
   font-style: italic;
   color: #555;
 }
-#content div.figure {
+ns-content div.figure {
   text-align: center;
 }
-#content div.figure p {
+ns-content div.figure p {
   margin-top: 6px;
 }
-#content #portrait {
+ns-content #portrait {
   height: 128px;
   border-radius: 5%;
   margin: 0px;
 }
-#content #contact a {
+ns-content #contact a {
   border: none;
   color: #333;
 }
-#content .contact-icon {
+ns-content .contact-icon {
   font-size: 1.25em;
 }
-#content #contact-left {
+ns-content #contact-left {
   padding-right: 10px;
   display: inline-block;
   vertical-align: middle;
 }
-#content #contact-right {
+ns-content #contact-right {
   display: inline-block;
   vertical-align: middle;
 }
-#content #contact {
+ns-content #contact {
   margin-top: 24px;
 }
 @media all and (max-width: 600px) {
-  #content #contact-left {
+  ns-content #contact-left {
     padding-right: 0px;
   }
-  #content .small-center {
+  ns-content .small-center {
     text-align: center;
   }
-  #content .small-center ul {
+  ns-content .small-center ul {
     text-align: left;
   }
 }
-#content .article-title {
+ns-content .article-title {
   margin-bottom: 8px;
 }
-#content .article-body {
+ns-content .article-body {
   padding-top: 3px;
 }
