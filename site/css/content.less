@@ -1,54 +1,68 @@
-html {
-    margin: 0px;
+a {
+    color: #111;
+    border-bottom: 1px solid #555;
+}
+
+// h1, h2, h3 {
+//     margin: 0px 0px 18px 0px;
+//     padding: 24px 0px 0px 0px;
+// }
+
+p, ul {
+    margin: 18px 0px 18px 0px;
+}
+
+img {
+    margin: 12px 0px 12px 0px;
+    max-width: 100%;
+}
+
+ul {
+    padding-left: 18px;
+}
+
+div.figure a {
+    border: none;
+}
+
+a img {
+    margin-bottom: 0px;
+}
+
+pre {
+    font-size: 14px;
+    margin-left: 18px;
+    overflow: auto;
+}
+
+pre code {
+    background-color: transparent;
     padding: 0px;
-    height: 100%;
-}
-
-body {
     margin: 0px;
-    padding: 0px 0px 0px 0px;
-    height: 100%;
 }
 
-div#navigation {
+code {
+    background-color: #e6e6e6;
+    padding: 0px 4px 0px 4px;
+    margin: 0px 2px 0px 2px;
+    color: black;
+}
+
+blockquote {
+    font-style: italic;
+    margin-left: 18px;
+    padding: 6px 6px 6px 54px;
+}
+
+.soft, .caption {
+    font-style: italic;
+    color: #555;
+}
+
+div.figure {
     text-align: center;
 }
 
-div#navigation a {
-    border: none;
-    margin: 0px 6px 0px 6px;
-}
-
-div#content {
-    margin: 12px;
-}
-
-@media all and (min-width: 822px) {
-
-    div#navigation {
-        background: none;
-        float: left;
-        left: 0px;
-        margin: 0px 0px 0px 18px;
-        position: fixed;
-        top: 0px;
-        width: 102px;
-    }
-
-    div#navigation h1, div#navigation a {
-        display: block;
-        text-align: right;
-    }
-
-    div#navigation a {
-        color: #333;
-        margin: 6px 0px 6px 0px;
-    }
-
-    div#content {
-        margin: 6px 0px 0px 140px;
-        padding: 24px 36px 0px 36px;
-        width: 648px;
-    }
-
+div.figure p {
+    margin-top: 6px;
 }
