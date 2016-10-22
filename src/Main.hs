@@ -19,9 +19,9 @@ main = hakyllWith config $ do
 
     forM copies $ flip match (route idRoute >> compile copyFileCompiler)
 
-    match "templates/*" $ compile templateCompiler
-
     let stack ctx tmplts = foldl (>=>) return $ map (flip loadAndApplyTemplate ctx) tmplts
+
+    match "templates/*" $ compile templateCompiler
 
     match "404.html" $ do
         route $ idRoute
