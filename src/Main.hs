@@ -12,9 +12,8 @@ main = hakyllWith config $ do
 
     let copies = [ "CNAME"
                  , "favicon.ico"
-                 , "images/*"
-                 , "css/*"
                  , "resume.pdf"
+                 , "images/*"
                  ]
 
     forM copies $ flip match (route idRoute >> compile copyFileCompiler)
@@ -45,3 +44,14 @@ main = hakyllWith config $ do
                 <> listField "articles" defaultContext (loadAll "articles/*")
                 <> defaultContext
         compile $ makeItem "" >>= stack ctx ["templates/articles.html", "templates/content.html"]
+
+    match "css/*.less" $ do
+        compile getResourceBody
+
+    d <- makePatternDependency "css/*.less"
+    rulesExtraDependencies [d] $ create ["css/main.css"] $ do
+        route idRoute
+        compile $ loadBody "css/all.less"
+            >>= makeItem
+            >>= withItemBody 
+              (unixFilter "lessc" ["-", "--include-path=site/css"])
