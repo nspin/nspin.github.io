@@ -2,50 +2,13 @@
 title: Home
 ---
 
-<style>
-    #contact a {
-        border: none;
-        color: #333;
-    }
-    #contact {
-        margin-top: 24px;
-    }
-    .contact-icon {
-        font-size: 1.25em;
-    }
-    #contact-left {
-        padding-right: 10px;
-        display: inline-block;
-        vertical-align: middle;
-    }
-    #contact-right {
-        display: inline-block;
-        vertical-align: middle;
-    }
-    @media all and (max-width: 600px) {
-        #contact-left {
-            padding-right: 0px;
-        }
-        #contact-right {
-            # margin-top: -10px;
-        }
-        h1.small-center {
-            # margin-bottom: 30px;
-        }
-        .small-center {
-            text-align: center;
-        }
-        .small-center ul {
-            text-align: left;
-        }
-    }
-</style>
+<link rel="stylesheet" type="text/css" href="/css/index.css">
 
 <h1 class="small-center">About Me</h1>
 
 <div id="contact" class="small-center">
     <div id="contact-left">
-        <img src="images/portrait.jpg" alt="Portrait" style="height: 128px; border-radius: 5%; margin: 0px">
+        <img id="portrait" src="images/portrait.jpg" alt="Portrait">
     </div>
     <div id="contact-right">
         <ul class="fa-ul">
