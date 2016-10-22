@@ -8,11 +8,10 @@ body {
   padding: 0px 0px 0px 0px;
   height: 100%;
 }
-@media all and (min-width: 822px) {
+@media all and (min-width: 820px) {
   #navigation {
     display: inline-block;
     vertical-align: top;
-    padding: 0px;
     margin-right: 0px;
     margin-top: 10px;
     width: 120px;
@@ -25,14 +24,13 @@ body {
   #content {
     display: inline-block;
     vertical-align: top;
-    padding: 0px;
     margin-left: 55px;
     margin-top: 10px;
-    width: 682px;
-    padding-top: 24px;
+    width: 645px;
+    padding-top: 17px;
   }
 }
-@media all and (max-width: 821px) {
+@media all and (max-width: 819px) {
   #navigation {
     text-align: center;
   }
@@ -40,6 +38,7 @@ body {
     margin: 0px 6px 0px 6px;
   }
   #content {
+    margin-top: 12px;
     margin-left: 12px;
     margin-right: 12px;
   }
@@ -77,9 +76,22 @@ a {
   color: #111;
   border-bottom: 1px solid #555;
 }
+#content h1,
+#content h2,
+#content h3 {
+  margin: 0px 0px 18px 0px;
+  padding: 24px 0px 0px 0px;
+}
+#content p {
+  margin: 18px 0px 18px 0px;
+}
 #content img {
   margin: 12px 0px 12px 0px;
   max-width: 100%;
+}
+#content ul {
+  margin: 18px 0px 18px 0px;
+  padding-left: 18px;
 }
 #content div.figure a {
   border: none;
@@ -139,6 +151,9 @@ a {
 #content #contact-right {
   display: inline-block;
   vertical-align: middle;
+}
+#content #contact {
+  margin-top: 24px;
 }
 @media all and (max-width: 600px) {
   #content #contact-left {
