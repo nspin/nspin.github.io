@@ -26,9 +26,10 @@ body {
     display: inline-block;
     vertical-align: top;
     padding: 0px;
-    margin-left: 40px;
+    margin-left: 55px;
     margin-top: 10px;
     width: 682px;
+    padding-top: 24px;
   }
 }
 @media all and (max-width: 821px) {
@@ -47,6 +48,7 @@ html {
   background-color: #fff;
   font-size: 16px;
   font-family: sans-serif;
+  line-height: 24px;
 }
 body {
   color: #333;
@@ -75,16 +77,9 @@ a {
   color: #111;
   border-bottom: 1px solid #555;
 }
-#content p,
-#content ul {
-  margin: 18px 0px 18px 0px;
-}
 #content img {
   margin: 12px 0px 12px 0px;
   max-width: 100%;
-}
-#content ul {
-  padding-left: 18px;
 }
 #content div.figure a {
   border: none;
@@ -124,44 +119,41 @@ a {
 #content div.figure p {
   margin-top: 6px;
 }
-#portrait {
+#content #portrait {
   height: 128px;
   border-radius: 5%;
   margin: 0px;
 }
-#contact a {
+#content #contact a {
   border: none;
   color: #333;
 }
-#contact {
-  margin-top: 24px;
-}
-.contact-icon {
+#content .contact-icon {
   font-size: 1.25em;
 }
-#contact-left {
+#content #contact-left {
   padding-right: 10px;
   display: inline-block;
   vertical-align: middle;
 }
-#contact-right {
+#content #contact-right {
   display: inline-block;
   vertical-align: middle;
 }
 @media all and (max-width: 600px) {
-  #contact-left {
+  #content #contact-left {
     padding-right: 0px;
   }
-  .small-center {
+  #content .small-center {
     text-align: center;
   }
-  .small-center ul {
+  #content .small-center ul {
     text-align: left;
   }
 }
-.article-title {
+#content .article-title {
   margin-bottom: 8px;
 }
-.article-body {
+#content .article-body {
   padding-top: 3px;
 }
