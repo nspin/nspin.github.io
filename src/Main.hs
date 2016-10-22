@@ -33,7 +33,7 @@ main = hakyllWith config $ do
 
     match "projects.md" $ do
         route $ setExtension ".html"
-        compile $ pandocCompiler >>= stack defaultContext ["templates/content.html"]
+        compile $ pandocCompiler >>= stack defaultContext ["templates/projects.html", "templates/content.html"]
 
     match "articles/*" $ do
         route $ setExtension ".html"

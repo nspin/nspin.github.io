@@ -2,10 +2,6 @@
 title: Projects
 ---
 
-# Projects
-
-I learn by doing. Here is some of what I've done.
-
 ## Haskell libraries
 
 I've worked on a number of Haskell libraries. Here is an incomplete list.
