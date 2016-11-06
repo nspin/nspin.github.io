@@ -1,5 +1,6 @@
 #!/bin/sh
 cp "$(dirname $0)/../resume/nickspinale-resume.pdf" site/resume.pdf
+cp "$(dirname $0)/../resume/nickspinale-resume.pdf" _site/resume.pdf
 # for f in $(find $(dirname $0)/../resume -name 'nickspinale-resume-*.pdf'); do
 #     cp "$f" site/resume.pdf
 # done
