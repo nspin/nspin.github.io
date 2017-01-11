@@ -1,2 +1,2 @@
 #!/bin/sh
-./result/bin/site $@
+runghc src/Main.hs $@
