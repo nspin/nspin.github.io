@@ -2,17 +2,23 @@
 title: Projects
 ---
 
-## Haskell libraries
+## Newer
 
-I've worked on a number of Haskell libraries. Here is an incomplete list.
+*   [leftpad.ko](https://github.com/nickspinale/leftpad.ko) - The infamous leftPad() implemented as a kernel module.
+*   [vim-signed-local-rc](https://github.com/nickspinale/vim-signed-local-rc) - Library for treating bit arrays with statically known size as heterogeneous Church-encoded vectors.
 
-__In progress:__
+For [xhb](https://hackage.haskell.org/package/xhb) ([article about these libraries](/articles/xhb-monad.html)):
 
-*   [xhb-monad](/articles/xhb-monad.html) - The core of a collection of libraries build on top of [xhb](https://hackage.haskell.org/package/xhb)
-*   [htorrent](https://github.com/nickspinale/htorrent) - Will someday be a full-featured BitTorrent client and library written and extensible in pure haskell.
-*   [aether](https://github.com/nickspinale/aether) - A slim mainline BitTorrent distributed hashtable implementation.
+*   [xhb-monad](https://github.com/nickspinale/xhb-monad) - Monad transformer for [xhb](https://hackage.haskell.org/package/xhb) server connections.
+*   [xhb-requests](https://github.com/nickspinale/xhb-requests) - Classes and generated instances for a uniform interface to [xhb](https://hackage.haskell.org/package/xhb).
+*   [xhb-event-queue](https://github.com/nickspinale/xhb-event-queue) - Monad transformer over xhb-monad for event handling.
+*   [xhb-mapping-state](https://github.com/nickspinale/xhb-mapping-state) - Monad transformer over xhb-monad for keeping track of key, mod, and pointer mappings.
 
-__Complete:__
+## Older
+
+*   [chuck-compositions](https://github.com/nickspinale/chuck-compositions) - Some bad music written in the strongly-timed programming language ChucK
+
+Haskell libraries:
 
 *   [bigword](https://github.com/nickspinale/bigword) - Library for treating bit arrays with statically known size as heterogeneous Church-encoded vectors.
 *   [bencode](https://github.com/nickspinale/bencode) - Fast and flexible parsers and builders for BEncoded data.
@@ -22,12 +28,12 @@ __Complete:__
 *   [24-bit](https://github.com/nickspinale/24-bit) - Word24 and Int24 types, build from GHC.Prim.
 *   [rc4](https://github.com/nickspinale/rc4) - The RC4 stream cipher implemented in pure Haskell.
 
-## Hackathon projects
+Hackathon projects:
 
-*   [git-audio](https://github.com/nickspinale/git-audio) - Allows a developer to record verbal commit messages.
+*   [git-audio](https://github.com/nickspinale/git-audio) - Allows a developer to record and play back verbal commit messages.
 
-## Other
+Fun things:
 
 *   [TwitchPlaysPokemonGo](https://www.twitch.tv/twitchpokemongo) - A Pokemon Go playing bot that was a meme for a short period of time. Created with some 2016 [hackNY](http://hackny.org) fellows.
 *   [wikipath](https://github.com/nickspinale/wikipath) - Various implementations of the 'wikipedia game' (finding the shortest path between two articles using only internal links) in both Haskell and Python.
-*   [brainf--k](https://github.com/nickspinale/brainf--k) - A tin brainf--k interpreter written in Haskell.
+*   [brainf--k](https://github.com/nickspinale/brainf--k) - A tiny brainf--k interpreter written in Haskell.
