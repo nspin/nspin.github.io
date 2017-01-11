@@ -2,6 +2,11 @@
 title: Projects
 ---
 
+This is an incomplete list of libraries, tools, and experiments I've worked on.
+Most exist for for personal use or educational purposes.
+Some are well documented, others are not.
+All can be found on my [github](https://github.com/nickspinale).
+
 ## Newer
 
 *   [leftpad.ko](https://github.com/nickspinale/leftpad.ko) - The infamous leftPad() implemented as a kernel module.
