@@ -5,7 +5,7 @@ title: Projects
 ## Newer
 
 *   [leftpad.ko](https://github.com/nickspinale/leftpad.ko) - The infamous leftPad() implemented as a kernel module.
-*   [vim-signed-local-rc](https://github.com/nickspinale/vim-signed-local-rc) - Library for treating bit arrays with statically known size as heterogeneous Church-encoded vectors.
+*   [vim-signed-local-rc](https://github.com/nickspinale/vim-signed-local-rc) - Vim plugin for loading an RSA-signed project-local vimrc
 
 For [xhb](https://hackage.haskell.org/package/xhb) ([article about these libraries](/articles/xhb-monad.html)):
 
