@@ -1,7 +1,7 @@
 ---
 id: xhb-monad
 title: xhb-monad
-description: A set of libraries build on top of xhb.
+description: A set of abstraction layers for xhb.
 date: 2016-07-22
 ---
 
@@ -104,3 +104,5 @@ xhb-mapping-state is an example of this.
 (*haddock [here](/xhb-mapping-state)*)
 
 <!-- *   [xhb-keysyms](/xhb-keysyms) -->
+
+`TODO`
