@@ -9,6 +9,9 @@ All can be found on my [github](https://github.com/nickspinale).
 
 ## Newer
 
+*   [bus-data](https://github.com/nickspinale/bus-data) - Code used to reverse engineer a compressed and obfuscated AJAX protocol.
+*   [botnet](https://github.com/nickspinale/botnet) - Infrastructure for an experimental JavaScript botnet.
+*   [routor](https://github.com/nickspinale/routor) - A Tor controller that allows paths to be chosen on a stream-by-stream basis.
 *   [leftpad.ko](https://github.com/nickspinale/leftpad.ko) - The infamous leftPad() implemented as a kernel module.
 *   [vim-signed-local-rc](https://github.com/nickspinale/vim-signed-local-rc) - Vim plugin for loading an RSA-signed project-local vimrc.
 
