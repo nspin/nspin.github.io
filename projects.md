@@ -9,6 +9,7 @@ All can be found on my [github](https://github.com/nickspinale) page.
 
 ## Newer
 
+*   [haskell-tls-mitm](https://github.com/nickspinale/haskell-tls-mitm) - A Haskell library and tool for TLS man-in-the-middle attacks.
 *   [bus-data](https://github.com/nickspinale/bus-data) - Code used to reverse engineer a compressed and obfuscated AJAX protocol.
 *   [botnet](https://github.com/nickspinale/botnet) - Infrastructure for an experimental JavaScript botnet.
 *   [routor](https://github.com/nickspinale/routor) - Tor controller that allows paths to be chosen on a stream-by-stream basis.
