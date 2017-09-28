@@ -9,14 +9,19 @@ All can be found on my [github](https://github.com/nspin) page.
 
 ## Newer
 
-*   [haskell-tls-mitm](https://github.com/nspin/haskell-tls-mitm) - A Haskell library and tool for TLS man-in-the-middle attacks.
-*   [bus-data](https://github.com/nspin/bus-data) - Code used to reverse engineer a compressed and obfuscated AJAX protocol.
-*   [botnet](https://github.com/nspin/botnet) - Infrastructure for an experimental JavaScript botnet.
+*   [Malice](https://github.com/nspin/malice) - Haskell framework that provides abstractions and protocol-specific attacks for intercepting and modifying network traffic.
+It leverages the power of Haskell's type system to define an embedded DSL for describing the actions of Eve and Mallory.
+In effect, it allows a man or woman in the middle to write code that is as close to pure evil as possible.
+
+<!-- this comment prevents pandoc from inserting an unecessary <p> tag inside the last <li> -->
+
 *   [routor](https://github.com/nspin/routor) - Tor controller that allows paths to be chosen on a stream-by-stream basis.
+*   [botnet](https://github.com/nspin/botnet) - Infrastructure for an experimental JavaScript botnet.
+*   [bus-data](https://github.com/nspin/bus-data) - Code used to reverse engineer a compressed and obfuscated AJAX protocol.
 *   [leftpad.ko](https://github.com/nspin/leftpad.ko) - The infamous leftPad() implemented as a kernel module.
 *   [vim-signed-local-rc](https://github.com/nspin/vim-signed-local-rc) - Vim plugin for loading an RSA-signed project-local vimrc.
 
-For [xhb](https://hackage.haskell.org/package/xhb) ([article about these libraries](/articles/xhb-monad.html)):
+For [wmonad](https://github.com/nspin/wmonad) ([article about these libraries](/articles/xhb-monad.html)):
 
 *   [xhb-monad](https://github.com/nspin/xhb-monad) - Monad transformer for [xhb](https://hackage.haskell.org/package/xhb) server connections.
 *   [xhb-requests](https://github.com/nspin/xhb-requests) - Classes and generated instances for a uniform interface to [xhb](https://hackage.haskell.org/package/xhb).
