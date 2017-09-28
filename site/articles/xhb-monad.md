@@ -16,7 +16,7 @@ Nevertheless, I believe it hold great promise in the future of X programming in 
 I've been working on a set of libraries that allows for layers of abstraction to be staked on top of the low-level xhb bindings.
 This post will become more fleshed out as I find time to finish up and document the actual libraries, but here's an overview.
 
-## [xhb-requests](https://github.com/nickspinale/xhb-requests)
+## [xhb-requests](https://github.com/nspin/xhb-requests)
 
 (*haddock [here](/xhb-requests)*)
 
@@ -41,7 +41,7 @@ queryTextExtents :: Connection -> FONTABLE -> [CHAR2B] -> IO (Receipt QueryTextE
 ```
 
 Nevertheless, thanks to disciplined code generation, xhb has a clean and uniform code base.
-The (in progress) [xhb-requests](https://github.com/nickspinale/xhb-requests) package wraps all of these generated request functions in two classes:
+The (in progress) [xhb-requests](https://github.com/nspin/xhb-requests) package wraps all of these generated request functions in two classes:
 
 ```haskell
 class Request a where
@@ -54,7 +54,7 @@ class RequestWithReply a b | a -> b, b -> a where
 The instances of this class are generated from the xhb code that is itself generated from XML, which sounds ugly, but it worked quite well.
 This is the foundation for xhb-monad.
 
-## [xhb-monad](https://github.com/nickspinale/xhb-monad)
+## [xhb-monad](https://github.com/nspin/xhb-monad)
 
 (*haddock [here](/xhb-monad)*)
 
@@ -99,7 +99,7 @@ This abstraction allows for *pure* X logic.
 It also lets us isolate unwieldy layers of computation and bits of state in the usual `mtl` way.
 xhb-mapping-state is an example of this.
 
-## [xhb-mapping-state](https://github.com/nickspinale/xhb-mapping-state)
+## [xhb-mapping-state](https://github.com/nspin/xhb-mapping-state)
 
 (*haddock [here](/xhb-mapping-state)*)
 

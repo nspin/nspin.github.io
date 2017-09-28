@@ -47,7 +47,7 @@
     <p>X11 programming in Haskell has traditionally been done using the <a href="https://hackage.haskell.org/package/X11-1.6.1.2">X11 package</a>. Many of these bindings were written by hand and, due to their reliance on FFI, are susceptible to some threading issues. <a href="https://hackage.haskell.org/package/xhb">xhb</a>, a newer package, provides low-level bindings to X11 based on the same XML as <a href="https://xcb.freedesktop.org/">xcb</a>.</p>
 <p>It doesn’t seem as though much has been done with XHB yet. In fact, at the time of writing (Aug 22, 2016), exactly two packages on Hackage depend on xhb. Nevertheless, I believe it hold great promise in the future of X programming in Haskell.</p>
 <p>I’ve been working on a set of libraries that allows for layers of abstraction to be staked on top of the low-level xhb bindings. This post will become more fleshed out as I find time to finish up and document the actual libraries, but here’s an overview.</p>
-<h2 id="xhb-requests"><a href="https://github.com/nickspinale/xhb-requests">xhb-requests</a></h2>
+<h2 id="xhb-requests"><a href="https://github.com/nspin/xhb-requests">xhb-requests</a></h2>
 <p>(<em>haddock <a href="/xhb-requests">here</a></em>)</p>
 <p>Most generated functions in xhb have types similar to those below:</p>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">createWindow ::</span> <span class="dt">Connection</span> <span class="ot">-&gt;</span> <span class="dt">CreateWindow</span> <span class="ot">-&gt;</span> <span class="dt">IO</span> ()
@@ -57,14 +57,14 @@
 <p>Some functions are a bit different (request parameters don’t live inside a dedicated type, but are passed directly to the function):</p>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">configureWindow ::</span> <span class="dt">Connection</span> <span class="ot">-&gt;</span> <span class="dt">WINDOW</span> <span class="ot">-&gt;</span> <span class="dt">ValueParam</span> <span class="dt">Word16</span> <span class="ot">-&gt;</span> <span class="dt">IO</span> ()
 <span class="ot">queryTextExtents ::</span> <span class="dt">Connection</span> <span class="ot">-&gt;</span> <span class="dt">FONTABLE</span> <span class="ot">-&gt;</span> [<span class="dt">CHAR2B</span>] <span class="ot">-&gt;</span> <span class="dt">IO</span> (<span class="dt">Receipt</span> <span class="dt">QueryTextExtentsReply</span>)</code></pre></div>
-<p>Nevertheless, thanks to disciplined code generation, xhb has a clean and uniform code base. The (in progress) <a href="https://github.com/nickspinale/xhb-requests">xhb-requests</a> package wraps all of these generated request functions in two classes:</p>
+<p>Nevertheless, thanks to disciplined code generation, xhb has a clean and uniform code base. The (in progress) <a href="https://github.com/nspin/xhb-requests">xhb-requests</a> package wraps all of these generated request functions in two classes:</p>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">class</span> <span class="dt">Request</span> a <span class="kw">where</span>
 <span class="ot">    requestIO ::</span> a <span class="ot">-&gt;</span> <span class="dt">Connection</span> <span class="ot">-&gt;</span> <span class="dt">IO</span> ()
 
 <span class="kw">class</span> <span class="dt">RequestWithReply</span> a b <span class="fu">|</span> a <span class="ot">-&gt;</span> b, b <span class="ot">-&gt;</span> a <span class="kw">where</span>
 <span class="ot">    requestWithReplyIO ::</span> a <span class="ot">-&gt;</span> <span class="dt">Connection</span> <span class="ot">-&gt;</span> <span class="dt">IO</span> (<span class="dt">IO</span> (<span class="dt">Either</span> <span class="dt">SomeError</span> b))</code></pre></div>
 <p>The instances of this class are generated from the xhb code that is itself generated from XML, which sounds ugly, but it worked quite well. This is the foundation for xhb-monad.</p>
-<h2 id="xhb-monad"><a href="https://github.com/nickspinale/xhb-monad">xhb-monad</a></h2>
+<h2 id="xhb-monad"><a href="https://github.com/nspin/xhb-monad">xhb-monad</a></h2>
 <p>(<em>haddock <a href="/xhb-monad">here</a></em>)</p>
 <p>This package defines the following class:</p>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">class</span> <span class="dt">Monad</span> x <span class="ot">=&gt;</span> <span class="dt">XContext</span> x <span class="kw">where</span>
@@ -95,7 +95,7 @@
 <span class="co">--- mtl stuff also</span>
 <span class="kw">instance</span> <span class="dt">MonadFoo</span> <span class="dt">Bar</span> <span class="kw">where</span><span class="fu">...</span></code></pre></div>
 <p>This abstraction allows for <em>pure</em> X logic. It also lets us isolate unwieldy layers of computation and bits of state in the usual <code>mtl</code> way. xhb-mapping-state is an example of this.</p>
-<h2 id="xhb-mapping-state"><a href="https://github.com/nickspinale/xhb-mapping-state">xhb-mapping-state</a></h2>
+<h2 id="xhb-mapping-state"><a href="https://github.com/nspin/xhb-mapping-state">xhb-mapping-state</a></h2>
 <p>(<em>haddock <a href="/xhb-mapping-state">here</a></em>)</p>
 <!-- *   [xhb-keysyms](/xhb-keysyms) -->
 <p><code>TODO</code></p>
