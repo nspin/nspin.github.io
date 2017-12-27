@@ -9,7 +9,7 @@ All can be found on my [github](https://github.com/nspin) page.
 
 ## Newer
 
-*   [hs-arm](https://github.com/nspin/hs-arm) Haskell (dis)assembler and analyzer generated from the machine-readable ARMv8.3-A specification
+*   [hs-arm](https://github.com/nspin/hs-arm) Haskell (dis)assembler and analyzer generated from the machine-readable ARMv8.3-A specification.
 
 <!-- this comment prevents pandoc from inserting an unecessary <p> tag inside the last <li> -->
 
