@@ -9,13 +9,13 @@ All can be found on my [github](https://github.com/nspin) page.
 
 ## Newer
 
-*   [hs-arm](https://github.com/nspin/hs-arm) Haskell (dis)assembler and analyzer generated from the machine-readable ARMv8.3-A specification.
-
-<!-- this comment prevents pandoc from inserting an unecessary <p> tag inside the last <li> -->
-
 *   [Malice](https://github.com/nspin/malice) - Haskell framework that provides abstractions and protocol-specific attacks for intercepting and modifying network traffic.
 It leverages the power of Haskell's type system to define an embedded DSL for describing the actions of Eve and Mallory.
 In effect, it allows a man or woman in the middle to write code that is as close to pure evil as possible.
+
+<!-- this comment prevents pandoc from inserting an unecessary <p> tag inside the last <li> -->
+
+*   [hs-arm](https://github.com/nspin/hs-arm) Haskell (dis)assembler and analyzer generated from the machine-readable ARMv8.3-A specification.
 
 <!-- this comment prevents pandoc from inserting an unecessary <p> tag inside the last <li> -->
 
