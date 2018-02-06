@@ -1,0 +1,41 @@
+#portrait {
+    height: 128px;
+    border-radius: 5%;
+    margin: 0px
+}
+
+#contact a {
+    border: none;
+    color: #333;
+}
+
+.contact-icon {
+    font-size: 1.25em;
+}
+
+#contact-left {
+    padding-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#contact-right {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#contact {
+    margin-top: 24px;
+}
+
+@media all and (max-width: 600px) {
+    #contact-left {
+        padding-right: 0px;
+    }
+    .small-center {
+        text-align: center;
+    }
+    .small-center ul {
+        text-align: left;
+    }
+}

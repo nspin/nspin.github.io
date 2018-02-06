@@ -1,0 +1,72 @@
+ns-content a[href] {
+    color: #111;
+    border-bottom: 1px solid #555;
+}
+
+ns-content h1,
+ns-content h2,
+ns-content h3 {
+    margin: 0px 0px 18px 0px;
+    padding: 24px 0px 0px 0px;
+}
+
+ns-content p {
+    margin: 18px 0px 18px 0px;
+}
+
+ns-content img {
+    margin: 12px 0px 12px 0px;
+    max-width: 100%;
+}
+
+ns-content ul {
+    margin: 18px 0px 18px 0px;
+    padding-left: 18px;
+}
+
+ns-content div.figure a {
+    border: none;
+}
+
+ns-content a img {
+    margin-bottom: 0px;
+}
+
+ns-content pre {
+    font-size: 14px;
+    margin-left: 18px;
+    overflow: auto;
+}
+
+ns-content pre code {
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px;
+}
+
+ns-content code {
+    background-color: #e6e6e6;
+    padding: 0px 4px 0px 4px;
+    margin: 0px 2px 0px 2px;
+    color: black;
+}
+
+ns-content blockquote {
+    font-style: italic;
+    margin-left: 18px;
+    padding: 6px 6px 6px 54px;
+}
+
+ns-content .soft,
+ns-content .caption {
+    font-style: italic;
+    color: #555;
+}
+
+ns-content div.figure {
+    text-align: center;
+}
+
+ns-content div.figure p {
+    margin-top: 6px;
+}
