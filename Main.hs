@@ -48,5 +48,5 @@ main = hakyllWith config $ do
         compile $ getResourceBody >>= loadAndApplyTemplate "templates/content.html" defaultContext
     pandoc = pandocCompilerWith defaultHakyllReaderOptions $
         defaultHakyllWriterOptions
-            {  writerHTMLMathMethod = MathJax ""
+            { writerHTMLMathMethod = MathJax ""
             }
