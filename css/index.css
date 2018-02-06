@@ -1,7 +1,7 @@
 #portrait {
-  height: 128px;
-  border-radius: 5%;
-  margin: 0px
+    height: 128px;
+    border-radius: 5%;
+    margin: 0px
 }
 
 #contact a {
@@ -31,12 +31,6 @@
 @media all and (max-width: 600px) {
     #contact-left {
         padding-right: 0px;
-    }
-    #contact-right {
-        // margin-top: -10px;
-    }
-    h1.small-center {
-        // margin-bottom: 30px;
     }
     .small-center {
         text-align: center;
