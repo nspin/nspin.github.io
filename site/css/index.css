@@ -4,13 +4,8 @@
     margin: 0px
 }
 
-#contact a {
-    border: none;
-    color: #333;
-}
-
-.contact-icon {
-    font-size: 1.25em;
+#contact {
+    margin-top: 24px;
 }
 
 #contact-left {
@@ -24,8 +19,9 @@
     vertical-align: middle;
 }
 
-#contact {
-    margin-top: 24px;
+#contact-right a {
+    border: none;
+    color: #333;
 }
 
 @media all and (max-width: 600px) {
