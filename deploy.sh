@@ -1,1 +1,1 @@
-git subtree push --prefix _site origin master
+git subtree push --prefix site origin master

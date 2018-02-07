@@ -2,24 +2,28 @@
 <html>
     <head>
 
-        <title>Nick Spinale - xhb-monad</title>
+        <title>Nick Spinale -  xhb-monad </title>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
         <meta name="description" content="Personal website of Nick Spinale.">
 
         <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-          ga('create', 'UA-86175905-1', 'auto');
-          ga('send', 'pageview');
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-86175905-1', 'auto');
+            ga('send', 'pageview');
         </script>
 
         <link rel="stylesheet" type="text/css" href="/css/base.css">
         <link rel="stylesheet" type="text/css" href="/css/content.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
+        
+    <link rel="stylesheet" type="text/css" href="/css/article.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+
 
     </head>
     <body>
@@ -35,16 +39,16 @@
 
         <ns-content>
             <div id="content">
-                <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
-<link rel="stylesheet" type="text/css" href="/css/article.css">
+                
 
 <h1 class="article-title">xhb-monad</h1>
 <span class="soft">
-    2016-07-22 &mdash; A set of abstraction layers for xhb.
+    Jul 22 2016 &mdash; A set of abstraction layers for xhb.
 </span>
 <hr>
 <div class="article-body">
-    <p>X11 programming in Haskell has traditionally been done using the <a href="https://hackage.haskell.org/package/X11-1.6.1.2">X11 package</a>. Many of these bindings were written by hand and, due to their reliance on FFI, are susceptible to some threading issues. <a href="https://hackage.haskell.org/package/xhb">xhb</a>, a newer package, provides low-level bindings to X11 based on the same XML as <a href="https://xcb.freedesktop.org/">xcb</a>.</p>
+
+<p>X11 programming in Haskell has traditionally been done using the <a href="https://hackage.haskell.org/package/X11-1.6.1.2">X11 package</a>. Many of these bindings were written by hand and, due to their reliance on FFI, are susceptible to some threading issues. <a href="https://hackage.haskell.org/package/xhb">xhb</a>, a newer package, provides low-level bindings to X11 based on the same XML as <a href="https://xcb.freedesktop.org/">xcb</a>.</p>
 <p>It doesn’t seem as though much has been done with XHB yet. In fact, at the time of writing (Aug 22, 2016), exactly two packages on Hackage depend on xhb. Nevertheless, I believe it hold great promise in the future of X programming in Haskell.</p>
 <p>I’ve been working on a set of libraries that allows for layers of abstraction to be staked on top of the low-level xhb bindings. This post will become more fleshed out as I find time to finish up and document the actual libraries, but here’s an overview.</p>
 <h2 id="xhb-requests"><a href="https://github.com/nspin/xhb-requests">xhb-requests</a></h2>
@@ -99,7 +103,10 @@
 <p>(<em>haddock <a href="/xhb-mapping-state">here</a></em>)</p>
 <!-- *   [xhb-keysyms](/xhb-keysyms) -->
 <p><code>TODO</code></p>
+
+
 </div>
+
 
             </div>
         </ns-content>

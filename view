@@ -1,6 +1,0 @@
-#!/bin/sh
-set -e
-nix-build
-./result/bin/site clean
-./result/bin/site build
-./result/bin/site watch

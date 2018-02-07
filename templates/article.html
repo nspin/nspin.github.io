@@ -1,0 +1,23 @@
+{% extends 'templates/content.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block before %}
+    <link rel="stylesheet" type="text/css" href="/css/article.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+{% endblock %}
+
+{% block content %}
+
+<h1 class="article-title">{{ title }}</h1>
+<span class="soft">
+    {{ date }} &mdash; {{ description }}
+</span>
+<hr>
+<div class="article-body">
+
+{{ body }}
+
+</div>
+
+{% endblock %}

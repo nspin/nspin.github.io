@@ -1,0 +1,20 @@
+{% extends 'templates/content.html' %}
+
+{% block title %} Articles {% endblock %}
+
+{% block content %}
+
+<h1>Articles</h1>
+<ul>
+    {% for article in articles %}
+    <li>
+        <p>
+            <span class="soft">{{ article.date }}</span>&nbsp
+            <a href="/articles/{{ article.id }}.html">{{ article.title }}</a>: {{ article.description }}
+        </p>
+    </li>
+    {% endfor %}
+    <p><i>(more coming soon)</i></p>
+</ul>
+
+{% endblock %}
