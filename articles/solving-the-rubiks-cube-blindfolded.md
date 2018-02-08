@@ -1,24 +1,24 @@
-Solving the cube blindfolded is a fun, medetative exercise. One can also use it to fool others into thinking one is special in some way. In reality, solving the cube blindfolded doesn't even require an above-average memory. All that's necessary is a solid understanding of the basic properties of the cube, and a fair bit of practice.
+Solving the cube blindfolded is a medetative exercise. Contrary to what you might expect, it doesn't even require an above-average memory. All that's necessary is a solid understanding of the basic properties of the cube, and a fair bit of practice.
 
 This article doesn't assume any knowledge of cube theory, but a reader might find some basic undergraduate math (e.g. group theory) useful.
+
+Furthermore, this article is not a tutorial, but rather an in-depth exploration.
 
 # Preliminaries
 
 ## The Game
 
 * I give you a cube in an arbitrary state
-* You inspect the cube (the memorization phase)
+* You inspect the cube (the *morization* phase)
 * You don the blindfold
-* You solve the cube (the execution phase)
+* You solve the cube (the *execution* phase)
 
-We can try to optimize for different timing schemes.
-That is, we could try to minimize the time of the memorization phase, the execution phase, or the game as a whole.
-The method I present is tailored for the last scheme.
+It's that simple.
 
 ## Notation
 
 We always consider the cube as having a fixed orientation.
-Relative to a fixed orientation, the cube has 6 faces:
+Relative to that fixed orientation, the cube has 6 faces:
 
 * `U`p
 * `D`own
@@ -27,67 +27,81 @@ Relative to a fixed orientation, the cube has 6 faces:
 * `F`ront
 * `B`ack
 
-We can consider the cube as being composed of either pieces or stickers.
-In the first model, the cube is thought of as a 3x3x3 grid of pieces, or "cubelets".
-The pieces belong to one face, edge pieces belong to two faces, and corner pieces belong to three faces.
-In other words, center pieces have one sticker, edge pieces have two stickers, and corner pieces have three stickers.
-Pieces have both position (where on the grid they lie) and orientation (which faces their stickers lie on).
-The 6 center pieces each have one orientation, the 12 edge pieces each have two orientations, and 8 corner pieces each have three orientations.
-
-In the second model, each face contains 9 stickers locations.
-A sticker location is either a "center" (at the center of the face), an "edge" (adjascent to the center by an edge), or a "corner" (adjascent to the center by a corner).
+Each face contains 9 stickers locations.
+A sticker location is either a center (at the center of the face), an edge (adjascent to the center by an edge), or a corner (adjascent to the center by a corner).
 We specify sticker locations of each type differently:
 
-* Center stickers are specified by the face they are on (e.g. `L` is the sticker location at the center of the `L` face).
-* Edge stickers are specified by the face they are on, and then the face they boarder (e.g. `LU` is the sticker location on the `L` face adjascent the the `U` face).
-* Corner stickers are specified by the face they are on, and then the two faces they boarder, in clockwise order around the corner clubelet (e.g. `LUF` is the sticker location on the `L` that boarders both the `U` and `F` faces).
+* Center stickers are specified by the face they lie on (e.g. `L` is the sticker location at the center of the `L` face).
+* Edge stickers are specified by the face they lie on, and then the face they boarder (e.g. `LU` is the sticker location on the `L` face adjascent the the `U` face).
+* Corner stickers are specified by the face they lie on, and then the two faces they boarder, in clockwise order around the corner piece (e.g. `LUF` is the sticker location on the `L` that boarders both the `U` and `F` faces).
 
-We can modify the state of the cube by a variety of turns allowed by the its mechanics.
-The most basic turns correspond to clockwise turns of the 6 faces.
+The cube is composed of pieces.
+Center pieces contain one sticker, edge pieces two, and corner pieces three.
+One sticker location on each piece location is designated as the primay sticker location, which we use to specify that piece location.
+Primary sticker location are determined as follows:
+
+* Centers: the only sticker location
+* Edges: the sticker location on the `U` or `D` face if such a sticker location exists, or the sticker location on the `F` or `B` face otherwise
+* Corners: the sticker location on the `U` or `D` face
+
+We can modify the state of the cube by the turns its mechanics permit.
+The most basic turns correspond to the 6 faces.
+We denote the clockwise turn of a face by the name of the face itself.
 For example, the turn denoted `U` is a clockwise turn of `U` face from the perspective of looking at that face from outside of the cube.
 
-Double layer turns effect both a face and the layer behind that face.
-They are denoted by the lower-case equivalent of their corresponding face turn.
-For example, `u` denotes a simultaneous clockwise turn of the `U` face and the slice beneath it.
-
-"Slice" turns each effect one of the center layers of the cube:
-
-* `M`: Turn the "middle" slice behind the `L` face in the same direction as `L`
-* `E`: Turn the "equator" slice behind the `D` face in the same direction as `D`
-* `S`: Turn the "slice" slice behind the `F` face in the same direction as `F`
-
-Finally, we can rotate the entire cube 90 degrees about the `x`, `y`, or `z` axes.
-These turns are denoted by the corresponding axes.
+We also consider rotations of the entire cube about its axes as modifying the its state.
+We denote the clockwise rotations about the `x`, `y`, and `z` axes in the directions of `R`, `U`, and `F` respectively as `x`, `y`, and `z` respectively.
 
 To invert a turn, we append a `'`, which we pronounce "inverse" or "prime".
 For example, `U'` denotes a counter-clockwise turn of the `U` face.
 A numerical suffix denotes repetition of a turn.
 For these simple turns, the only suffix that really makes sense is `2` (for example, `U3 = U'` and `U1337 = U`).
 We can also invert and repeat sequences of moves.
-For example, `(U F)3 = U F U F U F` and `(U F' R')' = R F U'`.
+For example, `x' (U F)3 = x' U F U F U F` and `(U F' z R')' = R z' F U'`.
 
-The widget below demonstrates the all of the turns mentioned so far.
+For convenience, we have names for other turns as well.
+I will mention their mnemonics, but their mechanics, along with those of those already mentioned, are best observed in the widget below.
+
+Double layer turns effect both a face and the layer behind that face. They are denoted by the lower-case equivalent of their corresponding face turn. For example, `u` denotes a simultaneous clockwise turn of the `U` face and the layer beneath it.
+
+Slice turns just effect an inner layer:
+
+* `M`: Turn the *middle* layer behind the `L` face in the same direction as `L`
+* `E`: Turn the *equator* layer behind the `D` face in the same direction as `D`
+* `S`: Turn the *slice* layer behind the `F` face in the same direction as `F`
 
 <p style="text-align: center;"><iframe height="530px" width="300px" scrolling="no" frameborder="0" src="https://ruwix.com/widget/notation-3d/"></iframe></p>
 
+The effects of certain moves can be achieved by combinations of different moves. For example, `M = x' L' R`.
+It is not hard to see how `z` can be written in terms of `x` and `y`.
+Furthermore, it is both interesting and non-obvious that any face turn can be written in terms of the five others.
+By the end of this article, you will be able to construct a proof of that fact without much trouble at all!
+So, the effect of any sequence of moves can be achieved with a sequence of only `{U, D, L, R, F, x, y}`.
+
 ## The Cube Group
 
-The cube has state, and turns modify this state.
-Two different sequences of moves can have the same effect on the cube's state (e.g. `U D F2 B F'` and `B F U' D U2`).
-We can view such an "effect" on the cube's state in a variety of equivalent ways.
-For example, we could consider an effect as a permutation of sticker locations, or as a permutation and re-orientation of peice locations.
+Effects on the cube's state have a group structure.
+<!-- We shall consider a sequence of groups describing these effects, each a subgroup of the last.
+ -->
 
-These effects have a group structure under composition.
-We shall refer to this as the cube group.
-Common ways of denoting its elements are as permutations of stickers or sequences of turns.
-For example, the sequence of turns `U` is equivalent to the sticker permutation `(UL UF UR UB)(LU FU RU BU)(ULB UFL URF UBR)(LBU FLU RFU BRU)(BUL LUF FUR RUB)`
+One approach to using the cube is rearranging the stickers on the surface of the cube.
+Accordingly, we can consider effects on the state of the cube (accomplished by a sequence of turns or otherwise) as permutations of sticker locations.
+For example, the `U` turn corresponds to the permutation `(UL UF UR UB)(LU FU RU BU)(ULB UFL URF UBR)(LBU FLU RFU BRU)(BUL LUF FUR RUB)`.
+However, not every element of this group can be realized within the mechanical constraints of the cube.
+For example, there is no sequence of turns to swap the `F` sticker with the `BDR` sticker.
 
-The elements of the cube group act on the states of the cube.
-However, in general, we will specify states of the cube *relative* to a particular "solved" state (for example, that in which the entire `U` face is white, the entire `F` face is green, etc.).
-In this sense, states are in direct correspondence with effects.
-For example, the state specified by the sequence of turns `(U F)3 D'` is the state resulting from applying that sequence of turns to the solved state.
+We are really only interested in certain subgroups of the sticker permutations, such as those generated by `{U, D, L, R, F, B}` and `{U, D, L, R, F, B, x, y, z}`.
+Let's find other ways of thinking about these subgroups that shed more light on their structure.
 
-Interestingly, each face turn can be expressed in terms of the five others, so the cube group is generated by the turns `{U, D, L, R, F, x, y}`.
+Another approach to using the cube is disassembling and rearranging its pieces.
+From this perspective, we consider effects on the state of the cube as a rearrangement of pieces.
+The effects we can have on the state of the cube in this universe are a strict subgroup of those in the sticker rearrangement case.
+
+Formalizing this perspective is more complicated than simply declaring an isomporphism to $S_{54}$. We do so by considering piece permutation and orientation separately.
+
+`TODO`
+
+<!-- Interestingly, each face turn can be expressed in terms of the five others, so the cube group is generated by the turns `{U, D, L, R, F, x, y}`.
 
 Here are a few important properties of the cube group (proofs are left out for now):
 
@@ -98,7 +112,12 @@ Here are a few important properties of the cube group (proofs are left out for n
 However, informally, every element that could exist given these restrictions does.
 Perhaps someday I'll add more precision to this statement, but its consequence is that the order of the cube group is:
 
-$$|G| = \frac{8! 12!}{2} 3^7 2^{11} = 43,252,003,274,489,856,000$$
+$$|G| = \frac{8! 12!}{2} 3^7 2^{11} = 43,252,003,274,489,856,000$$ -->
+
+The elements of the cube group act on the states of the cube.
+However, in general, we will specify states of the cube *relative* to a particular "solved" state (for example, that in which the entire `U` face is white, the entire `F` face is green, etc.).
+In this sense, states are in direct correspondence with effects.
+For example, the state specified by the sequence of turns `(U F)3 D'` is the state resulting from applying that sequence of turns to the solved state.
 
 # Strategy Overview
 
