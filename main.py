@@ -3,8 +3,12 @@ import os.path
 import sys
 import time
 import subprocess
+import urllib
+import posixpath
 from glob import glob
+from threading import Thread
 from collections import defaultdict, namedtuple
+from http.server import SimpleHTTPRequestHandler, HTTPServer
 from jinja2 import Environment, FileSystemLoader
 
 Action = namedtuple('Action', ['inputs', 'outputs', 'run', 'msg'])
@@ -123,7 +127,42 @@ for article in articles:
         make_article(article)
         )
 
+
+class L0lHTTPRequestHandler(SimpleHTTPRequestHandler):
+    def translate_path(self, path):
+        path = path.split('?',1)[0]
+        path = path.split('#',1)[0]
+        trailing_slash = path.rstrip().endswith('/')
+        try:
+            path = urllib.parse.unquote(path, errors='surrogatepass')
+        except UnicodeDecodeError:
+            path = urllib.parse.unquote(path)
+        path = posixpath.normpath(path)
+        words = path.split('/')
+        words = filter(None, words)
+        path = os.path.join(os.getcwd(), 'site')
+        for word in words:
+            if os.path.dirname(word) or word in (os.curdir, os.pardir):
+                continue
+            path = os.path.join(path, word)
+        if trailing_slash:
+            path += '/'
+        return path
+
+def serve():
+    server_address = ('', 8000)
+    L0lHTTPRequestHandler.protocol_version = "HTTP/1.0"
+    with HTTPServer(server_address, L0lHTTPRequestHandler) as httpd:
+        sa = httpd.socket.getsockname()
+        serve_message = "Serving HTTP on {host} port {port} (http://{host}:{port}/) ..."
+        print(serve_message.format(host=sa[0], port=sa[1]))
+        httpd.serve_forever()
+
+
 def main():
+
+    Thread(target=serve, daemon=True).start()
+
     while True:
         site.update()
         time.sleep(.2)
