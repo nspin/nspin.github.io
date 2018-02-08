@@ -98,15 +98,15 @@ Here are a few important properties of the cube group (proofs are left out for n
 However, informally, every element that could exist given these restrictions does.
 Perhaps someday I'll add more precision to this statement, but its consequence is that the order of the cube group is:
 
-$$|G| = \frac{8! 12! 3^7 2^{11}}{2} = 43,252,003,274,489,856,000$$
+$$|G| = \frac{8! 12!}{2} 3^7 2^{11} = 43,252,003,274,489,856,000$$
 
 # Strategy Overview
 
-When I hand you a scrambled cube, you need to gather enough information about its state to be able to execute a solution once you don the blindfold. Here, a solution is a group element whose effect on the scrambled state is returning to the solved state. To execute a group element means to express it as a sequence of turns (and perhaps physically execute those turns).
+When I hand you a scrambled cube, you need to gather enough information about its state to be able to execute a solution once you don the blindfold. Here, a solution is a group element whose effect on the scrambled state is returning it to the solved state. To execute a group element means to express it as a sequence of turns (and perhaps physically execute those turns).
 
-A very difficult approach is to actually construct a solution by imagining the turns and their effects on the cube. This approach might be good for minimizing execution time (you could spend a really long time in the memorization phase finding a short solution).
+A very difficult approach is to use the memorization phase to construct a solution as a sequence of turns by solving the cube using a non-blindfolded approach in your imagination. This approach might be good for minimizing execution time (you could spend a really long time in the memorization phase finding a short solution), but requires special talents. While some people are capable of using this approach, I am not.
 
-The easier approach which the remainder of this article describes involves memorizing the solution (that is, the group element corresponding to the inverse of the state of the cube) as a permutation of stickers, breaking that permutation down into the product of simpler permutations (3-cycles), and then executing those permutation one at a time.
+An easier approach, which the remainder of this article describes, involves memorizing the solution (that is, the group element corresponding to the inverse of the state of the cube) as a permutation of stickers, breaking that permutation down into the product of simpler permutations (elements which have a small effect on the state of the cube), and then executing those permutation one at a time.
 
 To accomplish this, we need to nail down a few details:
 
@@ -120,7 +120,7 @@ We'll encounter many other details as we go along, but this is the general idea.
 # Executing Simple Permutations
 
 First, let's consider ways of executing simple permutations (permutations that don't involve many stickers or pieces).
-Which simple permutations are easiest to execute will inform how we choose to break up a solution.
+Which simple permutations are easiest to execute will inform how we choose to break up solutions.
 
 ## "Algorithms"
 

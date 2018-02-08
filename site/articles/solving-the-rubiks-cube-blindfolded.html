@@ -104,11 +104,11 @@
 <li>The orientations of any 11 edge pieces determine the orientation of the last</li>
 </ul>
 <p>However, informally, every element that could exist given these restrictions does. Perhaps someday I’ll add more precision to this statement, but its consequence is that the order of the cube group is:</p>
-<p><span class="math display">\[|G| = \frac{8! 12! 3^7 2^{11}}{2} = 43,252,003,274,489,856,000\]</span></p>
+<p><span class="math display">\[|G| = \frac{8! 12!}{2} 3^7 2^{11} = 43,252,003,274,489,856,000\]</span></p>
 <h1 id="strategy-overview">Strategy Overview</h1>
-<p>When I hand you a scrambled cube, you need to gather enough information about its state to be able to execute a solution once you don the blindfold. Here, a solution is a group element whose effect on the scrambled state is returning to the solved state. To execute a group element means to express it as a sequence of turns (and perhaps physically execute those turns).</p>
-<p>A very difficult approach is to actually construct a solution by imagining the turns and their effects on the cube. This approach might be good for minimizing execution time (you could spend a really long time in the memorization phase finding a short solution).</p>
-<p>The easier approach which the remainder of this article describes involves memorizing the solution (that is, the group element corresponding to the inverse of the state of the cube) as a permutation of stickers, breaking that permutation down into the product of simpler permutations (3-cycles), and then executing those permutation one at a time.</p>
+<p>When I hand you a scrambled cube, you need to gather enough information about its state to be able to execute a solution once you don the blindfold. Here, a solution is a group element whose effect on the scrambled state is returning it to the solved state. To execute a group element means to express it as a sequence of turns (and perhaps physically execute those turns).</p>
+<p>A very difficult approach is to use the memorization phase to construct a solution as a sequence of turns by solving the cube using a non-blindfolded approach in your imagination. This approach might be good for minimizing execution time (you could spend a really long time in the memorization phase finding a short solution), but requires special talents. While some people are capable of using this approach, I am not.</p>
+<p>An easier approach, which the remainder of this article describes, involves memorizing the solution (that is, the group element corresponding to the inverse of the state of the cube) as a permutation of stickers, breaking that permutation down into the product of simpler permutations (elements which have a small effect on the state of the cube), and then executing those permutation one at a time.</p>
 <p>To accomplish this, we need to nail down a few details:</p>
 <ul>
 <li>How to actually observe this permutation given the scrambled cube</li>
@@ -118,7 +118,7 @@
 </ul>
 <p>We’ll encounter many other details as we go along, but this is the general idea.</p>
 <h1 id="executing-simple-permutations">Executing Simple Permutations</h1>
-<p>First, let’s consider ways of executing simple permutations (permutations that don’t involve many stickers or pieces). Which simple permutations are easiest to execute will inform how we choose to break up a solution.</p>
+<p>First, let’s consider ways of executing simple permutations (permutations that don’t involve many stickers or pieces). Which simple permutations are easiest to execute will inform how we choose to break up solutions.</p>
 <h2 id="algorithms">“Algorithms”</h2>
 <h2 id="commutators">Commutators</h2>
 <h2 id="conjugation">Conjugation</h2>
