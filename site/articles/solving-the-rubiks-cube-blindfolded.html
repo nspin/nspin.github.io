@@ -49,51 +49,86 @@
 <hr>
 <div class="article-body">
 
+<p>Solving the cube blindfolded is a fun, medetative exercise. One can also use it to fool others into thinking one is special in some way. In reality, solving the cube blindfolded doesn’t even require an above-average memory. All that’s necessary is a solid understanding of the basic properties of the cube, and a fair bit of practice.</p>
+<p>This article doesn’t assume any knowledge of cube theory, but a reader might find some basic undergraduate math (e.g. group theory) useful.</p>
+<h1 id="preliminaries">Preliminaries</h1>
+<h2 id="the-game">The Game</h2>
+<ul>
+<li>I give you a cube in an arbitrary state</li>
+<li>You inspect the cube (the memorization phase)</li>
+<li>You don the blindfold</li>
+<li>You solve the cube (the execution phase)</li>
+</ul>
+<p>We can try to optimize for different timing schemes. That is, we could try to minimize the time of the memorization phase, the execution phase, or the game as a whole. The method I present is tailored for the last scheme.</p>
+<h2 id="notation">Notation</h2>
+<p>We always consider the cube as having a fixed orientation. Relative to a fixed orientation, the cube has 6 faces:</p>
+<ul>
+<li><code>U</code>p</li>
+<li><code>D</code>own</li>
+<li><code>L</code>eft</li>
+<li><code>R</code>ight</li>
+<li><code>F</code>ront</li>
+<li><code>B</code>ack</li>
+</ul>
+<p>Each face contains 9 stickers locations. A sticker location is either a “center” (at the center of the face), an “edge” (adjascent to the center by an edge), or a “corner” (adjascent to the center by a corner). We specify sticker locations of each type differently:</p>
+<ul>
+<li>Center stickers are specified by the face they are on (e.g. <code>L</code> is the sticker location at the center of the <code>L</code> face).</li>
+<li>Edge stickers are specified by the face they are on, and then the face they boarder (e.g. <code>LU</code> is the sticker location on the <code>L</code> face adjascent the the <code>U</code> face).</li>
+<li>Corner stickers are specified by the face they are on, and then the two faces they boarder, in clockwise order around the corner clubelet (e.g. <code>LUF</code> is the sticker location on the <code>L</code> that boarders both the <code>U</code> and <code>F</code> faces).</li>
+</ul>
+<p>We can modify the state of the cube by a variety of turns allowed by the its mechanics. The most basic turns correspond to clockwise turns of the 6 faces. For example, the turn denoted <code>U</code> is a clockwise turn of <code>U</code> face from the perspective of looking at that face from outside of the cube.</p>
+<p>Double layer turns effect both a face and the layer behind that face. They are denoted by the lower-case equivalent of their corresponding face turn. For example, <code>u</code> denotes a simultaneous clockwise turn of the <code>U</code> face and the slice beneath it.</p>
+<p>“Slice” turns each effect one of the center layers of the cube:</p>
+<ul>
+<li><code>M</code>: Turn the “middle” slice behind the <code>L</code> face in the same direction as <code>L</code></li>
+<li><code>E</code>: Turn the “equator” slice behind the <code>D</code> face in the same direction as <code>D</code></li>
+<li><code>S</code>: Turn the “slice” slice behind the <code>F</code> face in the same direction as <code>F</code></li>
+</ul>
+<p>Finally, we can rotate the entire cube 90 degrees about the <code>x</code>, <code>y</code>, or <code>z</code> axes. These turns are denoted by the corresponding axes.</p>
+<p>To invert a turn, we append a <code>'</code>, which we pronounce “inverse” or “prime”. For example, <code>U'</code> denotes a counter-clockwise turn of the <code>U</code> face. A numerical suffix denotes repetition of a turn. For these simple turns, the only suffix that really makes sense is <code>2</code> (for example, <code>U3 = U'</code> and <code>U1337 = U</code>). We can also invert and repeat sequences of moves. For example, <code>(U F)3 = U F U F U F</code> and <code>(U F' R')' = R F U'</code>.</p>
+<p>The widget below demonstrates the all of the turns mentioned so far.</p>
+<p style="text-align: center;">
+<iframe height="530px" width="300px" scrolling="no" frameborder="0" src="https://ruwix.com/widget/notation-3d/">
+</iframe>
+</p>
+<h2 id="the-cube-group">The Cube Group</h2>
+<h1 id="strategy-overview">Strategy Overview</h1>
+<!-- # Executing 3-Cycles
+
+## Commutators
+
+## Conjugates
+
+## Repeated Transpositions
+
+# Twisting and Flipping
+
+## Twisting
+
+## Flipping
+
+# Executing a Solution
+
+## Corners
+
+## Edges
+
+# Memorization
+
+# Larger Cubes
+
+# Additional Resources -->
 <p><code>IN PROGRESS</code></p>
 <p>In the meantime, check out this video in which a younger version of me solves a 4x4x4 cube blindfolded:</p>
-<style>
-    .auto-resizable-iframe {
-      /*max-width: 560px;*/
-      max-width: 646px;
-      margin: 0px auto;
-    }
-    .auto-resizable-iframe > div {
-      position: relative;
-      padding-bottom: 56.25%; /* 16:9 */
-      height: 0px;
-    }
-    .auto-resizable-iframe iframe {
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      width: 100%;
-      height: 100%;
-    }
-</style>
-<div class="auto-resizable-iframe">
+<div class="content-auto-resizable-iframe-full">
 <div>
-<iframe src="https://www.youtube-nocookie.com/embed/UA_jAeGeYKY?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+<iframe src="https://www.youtube-nocookie.com/embed/UA_jAeGeYKY?rel=0&amp;showinfo=0" frameborder="0" allow="encrypted-media" allowfullscreen>
 </iframe>
 </div>
 </div>
-<h1 id="preliminaries">Preliminaries</h1>
-<h2 id="the-game">The Game</h2>
-<h2 id="notation">Notation</h2>
-<h2 id="the-cube-group">The Cube Group</h2>
-<h1 id="strategy-overview">Strategy Overview</h1>
-<h1 id="executing-3-cycles">Executing 3-Cycles</h1>
-<h2 id="commutators">Commutators</h2>
-<h2 id="conjugates">Conjugates</h2>
-<h2 id="repeated-transpositions">Repeated Transpositions</h2>
-<h1 id="twisting-and-flipping">Twisting and Flipping</h1>
-<h2 id="twisting">Twisting</h2>
-<h2 id="flipping">Flipping</h2>
-<h1 id="executing-a-solution">Executing a Solution</h1>
-<h2 id="corners">Corners</h2>
-<h2 id="edges">Edges</h2>
-<h1 id="memorization">Memorization</h1>
-<h1 id="larger-cubes">Larger Cubes</h1>
-<h1 id="additional-resources">Additional Resources</h1>
+<p>
+ 
+</p>
 
 
 </div>
