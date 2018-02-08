@@ -76,15 +76,15 @@ Article = namedtuple('Article', ['id', 'title', 'description', 'date'])
 
 articles = [
     Article(
-        'blindfolded-cubing',
-        "How to Solve Rubik's Cube Blindfolded",
-        'An explanation for anyone who likes math.',
-        'Feb 2 2018',
+        'solving-the-rubiks-cube-blindfolded',
+        "Solving the Rubik's Cube Blindfolded",
+        'A math-based explanation from scratch.',
+        'Feb 02 2018',
         ),
     Article(
-        'xhb-monad',
-        'xhb-monad',
-        'A set of abstraction layers for xhb.',
+        'pure-x11-logic-in-haskell',
+        'Pure X11 Logic in Haskell',
+        'A set of libraries providing a pure interface to XHB.',
         'Jul 22 2016',
         ),
     ]
