@@ -33,6 +33,10 @@ We can modify the state of the cube by a variety of "moves" allowed by the its m
 The most basic moves correspond to clockwise turns of the 6 faces.
 So, the move denoted `U` is a clockwise turn of `U` face from the perspective of looking at that face from outside of the cube.
 
+<p style="text-align: center;"><iframe height="530px" width="300px" scrolling="no" frameborder="0" src="/cube-moves-widget"></iframe></p>
+
+<!-- <p style="text-align: center;"><iframe height="530px" width="300px" scrolling="no" frameborder="0" src="https://ruwix.com/widget/notation-3d/"></iframe></p> -->
+
 <!-- * `U` - up
 * `D` - down
 * `L` - left
