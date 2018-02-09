@@ -47,8 +47,9 @@ a {
     }
 
     #content {
-        margin-left: 176px;
+        padding-left: 176px;
         padding-top: 30px;
+        padding-bottom: 12px;
         width: 646px;
     }
 
@@ -66,10 +67,7 @@ a {
     }
 
     #content {
-        margin-top: 12px;
-        margin-left: 12px;
-        margin-right: 12px;
-        width: 100%;
+        padding: 12px;
     }
 
 }
