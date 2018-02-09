@@ -10,3 +10,7 @@ ns-content .article-body h1 {
     border-bottom: 1px solid #CCC;
     padding-bottom: 3px;
 }
+
+/*ns-content p > span.math.display {
+    overflow: auto;
+}*/

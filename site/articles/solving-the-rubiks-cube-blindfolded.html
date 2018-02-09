@@ -62,7 +62,7 @@
 </ul>
 <p>It’s that simple.</p>
 <h2 id="notation">Notation</h2>
-<p>We always consider the cube as having a fixed orientation. Relative to that fixed orientation, the cube has 6 faces:</p>
+<p>The cube has 6 faces:</p>
 <ul>
 <li><code>U</code>p</li>
 <li><code>D</code>own</li>
@@ -77,16 +77,16 @@
 <li>Edge stickers are specified by the face they lie on, and then the face they boarder (e.g. <code>LU</code> is the sticker location on the <code>L</code> face adjascent the the <code>U</code> face).</li>
 <li>Corner stickers are specified by the face they lie on, and then the two faces they boarder, in clockwise order around the corner piece (e.g. <code>LUF</code> is the sticker location on the <code>L</code> that boarders both the <code>U</code> and <code>F</code> faces).</li>
 </ul>
-<p>The cube is composed of pieces. Center pieces contain one sticker, edge pieces two, and corner pieces three. One sticker location on each piece location is designated as the primay sticker location, which we use to specify that piece location. Primary sticker location are determined as follows:</p>
+<p>The cube is composed of 26 piece locations. Center piece locations contain one sticker location, edges two, and corners three. One sticker location on each piece location is designated as the primay sticker location, which we use to specify that piece location. Primary sticker location are determined as follows:</p>
 <ul>
 <li>Centers: the only sticker location</li>
 <li>Edges: the sticker location on the <code>U</code> or <code>D</code> face if such a sticker location exists, or the sticker location on the <code>F</code> or <code>B</code> face otherwise</li>
 <li>Corners: the sticker location on the <code>U</code> or <code>D</code> face</li>
 </ul>
-<p>We can modify the state of the cube by the turns its mechanics permit. The most basic turns correspond to the 6 faces. We denote the clockwise turn of a face by the name of the face itself. For example, the turn denoted <code>U</code> is a clockwise turn of <code>U</code> face from the perspective of looking at that face from outside of the cube.</p>
-<p>We also consider rotations of the entire cube about its axes as modifying the its state. We denote the clockwise rotations about the <code>x</code>, <code>y</code>, and <code>z</code> axes in the directions of <code>R</code>, <code>U</code>, and <code>F</code> respectively as <code>x</code>, <code>y</code>, and <code>z</code> respectively.</p>
-<p>To invert a turn, we append a <code>'</code>, which we pronounce “inverse” or “prime”. For example, <code>U'</code> denotes a counter-clockwise turn of the <code>U</code> face. A numerical suffix denotes repetition of a turn. For these simple turns, the only suffix that really makes sense is <code>2</code> (for example, <code>U3 = U'</code> and <code>U1337 = U</code>). We can also invert and repeat sequences of moves. For example, <code>x' (U F)3 = x' U F U F U F</code> and <code>(U F' z R')' = R z' F U'</code>.</p>
-<p>For convenience, we have names for other turns as well. I will mention their mnemonics, but their mechanics, along with those of those already mentioned, are best observed in the widget below.</p>
+<p>We can modify the state of the cube by the turns its mechanism permits. The most basic turns correspond to the 6 faces. We denote the clockwise turn of a face by the name of the face itself. For example, the turn denoted <code>U</code> is a clockwise turn of <code>U</code> face from the perspective of looking at that face from outside of the cube.</p>
+<p>We also consider rotations of the entire cube about its axes as modifying the its state. We denote the clockwise rotations about the <code>x</code>, <code>y</code>, and <code>z</code> axes in the directions of <code>R</code>, <code>U</code>, and <code>F</code> respectively as <code>x</code>, <code>y</code>, and <code>z</code>.</p>
+<p>To invert a turn, we append a <code>'</code>, which we pronounce “inverse” or “prime”. For example, <code>U'</code> denotes a counter-clockwise turn of the <code>U</code> face. A numerical suffix denotes repetition of a turn. We can also invert and repeat sequences of turns. For example, <code>x' (U F)3 = x' U F U F U F</code> and <code>(U F' z R')' = R z' F U'</code>.</p>
+<p>I will mention a few additional turns, but their mechanics, along with those already mentioned, are best observed in the widget below.</p>
 <p>Double layer turns effect both a face and the layer behind that face. They are denoted by the lower-case equivalent of their corresponding face turn. For example, <code>u</code> denotes a simultaneous clockwise turn of the <code>U</code> face and the layer beneath it.</p>
 <p>Slice turns just effect an inner layer:</p>
 <ul>
@@ -98,28 +98,49 @@
 <iframe height="530px" width="300px" scrolling="no" frameborder="0" src="https://ruwix.com/widget/notation-3d/">
 </iframe>
 </p>
-<p>The effects of certain moves can be achieved by combinations of different moves. For example, <code>M = x' L' R</code>. It is not hard to see how <code>z</code> can be written in terms of <code>x</code> and <code>y</code>. Furthermore, it is both interesting and non-obvious that any face turn can be written in terms of the five others. By the end of this article, you will be able to construct a proof of that fact without much trouble at all! So, the effect of any sequence of moves can be achieved with a sequence of only <code>{U, D, L, R, F, x, y}</code>.</p>
+<p>The effects of certain turns can be achieved by combinations of different turns. For example, <code>M = x' L' R</code>. It is not hard to see how <code>z</code> can be written in terms of <code>x</code> and <code>y</code>. Furthermore, it is both interesting and non-obvious that any face turn can be written in terms of the five others. By the end of this article, you will be able to construct a proof of that fact without much trouble at all! So, the effect of any sequence of moves can be achieved with a sequence of turns drawn only from <code>&lt;U, D, L, R, F, x, y&gt;</code>.</p>
 <h2 id="the-cube-group">The Cube Group</h2>
-<p>Effects on the cube’s state have a group structure. <!-- We shall consider a sequence of groups describing these effects, each a subgroup of the last.
- --></p>
-<p>One approach to using the cube is rearranging the stickers on the surface of the cube. Accordingly, we can consider effects on the state of the cube (accomplished by a sequence of turns or otherwise) as permutations of sticker locations. For example, the <code>U</code> turn corresponds to the permutation <code>(UL UF UR UB)(LU FU RU BU)(ULB UFL URF UBR)(LBU FLU RFU BRU)(BUL LUF FUR RUB)</code>. However, not every element of this group can be realized within the mechanical constraints of the cube. For example, there is no sequence of turns to swap the <code>F</code> sticker with the <code>BDR</code> sticker.</p>
-<p>We are really only interested in certain subgroups of the sticker permutations, such as those generated by <code>{U, D, L, R, F, B}</code> and <code>{U, D, L, R, F, B, x, y, z}</code>. Let’s find other ways of thinking about these subgroups that shed more light on their structure.</p>
-<p>Another approach to using the cube is disassembling and rearranging its pieces. From this perspective, we consider effects on the state of the cube as a rearrangement of pieces. The effects we can have on the state of the cube in this universe are a strict subgroup of those in the sticker rearrangement case.</p>
-<p>Formalizing this perspective is more complicated than simply declaring an isomporphism to <span class="math inline">\(S_{54}\)</span>. We do so by considering piece permutation and orientation separately.</p>
-<p><code>TODO</code></p>
-<!-- Interestingly, each face turn can be expressed in terms of the five others, so the cube group is generated by the turns `{U, D, L, R, F, x, y}`.
+<p>Let <span class="math inline">\(K\)</span> denote the set containing the 54 sticker locations on the cube. The cube’s state is a map from <span class="math inline">\(K\)</span> to physical stickers. The objects we wish to study are the effects on this state that can be realized within the mechanical constraints of the cube. Such effects can be thought of as permutations of <span class="math inline">\(K\)</span>. For example, the <code>U</code> turn corresponds to the permutation <code>(UL UF UR UB)(LU FU RU BU)(ULB UFL URF UBR)(LBU FLU RFU BRU)(BUL LUF FUR RUB)</code>.</p>
+<p>However, there are many permutations on <span class="math inline">\(K\)</span> that do not make sense in the context of the puzzle. For example, there is no sequence of turns to swap the <code>FD</code> sticker with the <code>BDR</code> sticker. We are really only interested in certain subgroups of <span class="math inline">\(S_K\)</span> (the symmetric group on <span class="math inline">\(K\)</span>), such as those generated by the turns <code>&lt;U, D, L, R, F, B&gt;</code> or <code>&lt;U, D, L, R, F, B, x, y, z&gt;</code>.</p>
+<!-- Let's investigate ways of thinking about these subgroups that shed more light on their structure. -->
+<p>Consider the subgroup of <span class="math inline">\(S_K\)</span> whose elements are effects achievable by disassembling the cube into its 26 pieces (6 centers, 12 edges, and 8 corners) and then rearranging them. In order to understand this structure of this group, we must consider piece permutation and piece orientation separately.</p>
+<p>For example, the <code>R</code> turn causes the following piece permutation, where pieces, as described above, are specified by their primary sticker locations: <code>(URF UBR DRB DFR)(UR BR DR FR)</code>. Additionally, for each edge piece moved, the sticker that was in the primary sticker location of that piece location may or may not be in the primary sticker location of its new piece location. For each corner piece moved, the sticker that was in the primary sticker location of that piece location may be either 0, 1, or 2 clockwise piece twists removed from the primary sticker location of its new piece location. This representation of group elements is a bit unweildy, but it will soon shed light on some important properties of the subgroups we care about.</p>
+<p>Let <span class="math inline">\(P_t\)</span> denote the set of center pieces, <span class="math inline">\(P_e\)</span> the edges, and <span class="math inline">\(P_c\)</span> the corners. We can specify an element of the piece rearrangement subgroup as <span class="math inline">\((\pi, \sigma, \tau, o_e, o_c)\)</span> where:</p>
+<ul>
+<li><span class="math inline">\(\pi \in S_{P_t}\)</span> is a permutation of center pieces</li>
+<li><span class="math inline">\(\sigma \in S_{P_e}\)</span> is a permutation of edge pieces</li>
+<li><span class="math inline">\(\tau \in S_{P_c}\)</span> is a permutation of corner pieces</li>
+<li><span class="math inline">\(o_e : P_e \rightarrow \mathbb{Z}/2\mathbb{Z}\)</span> maps edge pieces to their new orientations</li>
+<li><span class="math inline">\(o_c : P_c \rightarrow \mathbb{Z}/3\mathbb{Z}\)</span> maps corner pieces to their new orientations</li>
+</ul>
+<p>Applying <span class="math inline">\((\pi_1, \sigma_1, \tau_1, {o_e}_1, {o_c}_1)\)</span> and then <span class="math inline">\((\pi_2, \sigma_2, \tau_2, {o_e}_2, {o_c}_2)\)</span> is equivalent to applying <span class="math inline">\((\pi_2 \circ \pi_1, \sigma_2 \circ \sigma_1, \tau_2 \circ \tau_1, {o_e}_1 + ({o_e}_2 \circ \sigma_1), {o_c}_1 + ({o_c}_2 \circ \tau_1))%formytexteditor_\)</span></p>
+<!-- For convenience, we fix orders for $P_e$ and $P_c$:
 
-Here are a few important properties of the cube group (proofs are left out for now):
+* $P_e$: `UL UR UF UB DL DR DF DB FL FR BL BR`
+* $P_c$: `ULB URF UFL UBR DLF DRB DFR DBL`
 
-* Permutations of pieces are always even
-* The orientations of any 7 corner pieces determine the orientation of the last
-* The orientations of any 11 edge pieces determine the orientation of the last
-
-However, informally, every element that could exist given these restrictions does.
-Perhaps someday I'll add more precision to this statement, but its consequence is that the order of the cube group is:
-
-$$|G| = \frac{8! 12!}{2} 3^7 2^{11} = 43,252,003,274,489,856,000$$ -->
-<p>The elements of the cube group act on the states of the cube. However, in general, we will specify states of the cube <em>relative</em> to a particular “solved” state (for example, that in which the entire <code>U</code> face is white, the entire <code>F</code> face is green, etc.). In this sense, states are in direct correspondence with effects. For example, the state specified by the sequence of turns <code>(U F)3 D'</code> is the state resulting from applying that sequence of turns to the solved state.</p>
+To write down an element of the piece rearrangement group, we need to write down $\pi$, $\sigma$, and $\tau$ in cycle notation, and then write down $o_e$ and $o_c$ as tuples according to the orders of $P_e$ and $P_c$. -->
+<p>Below are the elements corresponding to the basic face turns:</p>
+<pre><code>                                                     o_e                               o_c
+       \pi, \sigma, and \tau         UL UR UF UB DL DR DF DB FL FR BL BR ULB URF UFL UBR DLF DRB DFR DBL 
+U | (UL UB UR UF)(ULB UBR URF UFL) | 0  0  0  0  0  0  0  0  0  0  0  0 | 0   0   0   0   0   0   0   0
+D | (DL DF DR DB)(DLF DBL DFR DRB) | 0  0  0  0  0  0  0  0  0  0  0  0 | 0   0   0   0   0   0   0   0
+L | (UL FL DL BL)(ULB UFL DLF DBL) | 0  0  0  0  0  0  0  0  0  0  0  0 | 1   0   2   0   1   0   0   2
+R | (UR BR DR FR)(URF UBR DRB DFR) | 0  0  0  0  0  0  0  0  0  0  0  0 | 0   1   0   2   0   1   2   0
+F |
+B |                                             ... TODO ...</code></pre>
+<p>The table above reveals some important properties of the <code>&lt;U, D, L, R, F, B&gt;</code> subgroup. First of all, every piece permutation of this generating set is even, so all piece permutations in the subgroup are even. This means that there is no sequence of face turns that swaps the positions of just two pieces with no side effects.</p>
+<p>Secondly, for each face turn, the total edge flip is 0 modulo 2 and the total corner twist is 0 modulo 3. The total edge flip of the composition of two elements is the sum of those elements’ edge flips, and the same is true for corner twists. So, all elements have total edge flip of 0 modulo 2 and total corner twist of 0 modulo 3. This means that there is no sequence of face turns that only flips a single edge or twists a single corner.</p>
+<p>There do exist, however, sequences of face turns, which we will examine later, to accomplish the following:</p>
+<ul>
+<li>Cycle any three edges</li>
+<li>Cycle any three corners</li>
+<li>Transpose any two edges and transpose any two corners simultaneously</li>
+<li>Flip any two edges</li>
+<li>Twist one corner clockwise and another counter-clockwise</li>
+</ul>
+<p>From these fundimental sequences of turns, we can construct elements of the <code>&lt;U, D, L, R, F, B&gt;</code> subgroup with arbitrary even permutations and arbitrary corner and edge orientations that sum to 0. There are <span class="math inline">\(\frac{8!12!}{2}\)</span> even permutations, <span class="math inline">\(2^{11}\)</span> legal edge orientations, and <span class="math inline">\(3^7\)</span> legal corner orientations. So, the order of the <code>&lt;U, D, L, R, F, B&gt;</code> subgroup is:</p>
+<p><span class="math display">\[\frac{8! 12!}{2} 2^{11} 3^7 = 43,252,003,274,489,856,000\]</span></p>
 <h1 id="strategy-overview">Strategy Overview</h1>
 <p>When I hand you a scrambled cube, you need to gather enough information about its state to be able to execute a solution once you don the blindfold. Here, a solution is a group element whose effect on the scrambled state is returning it to the solved state. To execute a group element means to express it as a sequence of turns (and perhaps physically execute those turns).</p>
 <p>A very difficult approach is to use the memorization phase to construct a solution as a sequence of turns by solving the cube using a non-blindfolded approach in your imagination. This approach might be good for minimizing execution time (you could spend a really long time in the memorization phase finding a short solution), but requires special talents. While some people are capable of using this approach, I am not.</p>
