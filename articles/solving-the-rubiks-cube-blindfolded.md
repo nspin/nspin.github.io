@@ -9,7 +9,7 @@ Furthermore, this article is not a tutorial, but rather an in-depth exploration.
 ## The Game
 
 * I give you a cube in an arbitrary state
-* You inspect the cube (the *morization* phase)
+* You inspect the cube (the *memorization* phase)
 * You don the blindfold
 * You solve the cube (the *execution* phase)
 
@@ -37,7 +37,7 @@ We specify sticker locations of each type differently:
 The cube is composed of 26 piece locations.
 Center piece locations contain one sticker location, edges two, and corners three.
 One sticker location on each piece location is designated as the primay sticker location, which we use to specify that piece location.
-Primary sticker location are determined as follows:
+Primary sticker locations are determined as follows:
 
 * Centers: the only sticker location
 * Edges: the sticker location on the `U` or `D` face if such a sticker location exists, or the sticker location on the `F` or `B` face otherwise
@@ -153,7 +153,7 @@ The elements of $S_K$ act on the states of the cube. However, in general, we wil
 
 When I hand you a scrambled cube, you need to gather enough information about its state to be able to execute a solution once you don the blindfold. Here, a solution is a group element whose effect on the scrambled state is returning it to the solved state. To execute a group element means to express it as a sequence of turns (and perhaps physically execute those turns).
 
-A very difficult approach is to use the memorization phase to construct a solution as a sequence of turns by solving the cube using a non-blindfolded approach in your imagination. This approach might be good for minimizing execution time (you could spend a really long time in the memorization phase finding a short solution), but requires special talents. While some people are capable of using this approach, I am not.
+A very difficult approach is to use the memorization phase to construct a solution as a sequence of turns by solving the cube using a normal method in your imagination. This approach might be good for minimizing execution time (you could spend a really long time in the memorization phase finding a short solution), but requires special talents. While some people are capable of using this approach, I am not.
 
 An easier approach, which the remainder of this article describes, involves memorizing the solution (that is, the group element corresponding to the inverse of the state of the cube) as a permutation of stickers, breaking that permutation down into the product of simpler permutations (elements which have a small effect on the state of the cube), and then executing those permutation one at a time.
 
