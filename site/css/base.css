@@ -9,6 +9,7 @@ html {
     font-size: 16px;
     font-family: sans-serif;
     line-height: 24px;
+    /*line-height: 1.5; xx*/
 }
 
 body {
@@ -27,6 +28,10 @@ a {
     text-decoration: none;
     color: #333;
 }
+
+/*#navigation {
+    line-height: 24px;
+}xx*/
 
 /* + 50? */
 
@@ -48,6 +53,7 @@ a {
 
     #content {
         padding-left: 176px;
+        /*padding-top: 23px; xx*/
         padding-top: 30px;
         padding-bottom: 12px;
         width: 646px;
