@@ -56,7 +56,7 @@
 <h2 id="the-game">The Game</h2>
 <ul>
 <li>I give you a cube in an arbitrary state</li>
-<li>You inspect the cube (the <em>morization</em> phase)</li>
+<li>You inspect the cube (the <em>memorization</em> phase)</li>
 <li>You don the blindfold</li>
 <li>You solve the cube (the <em>execution</em> phase)</li>
 </ul>
@@ -77,7 +77,7 @@
 <li>Edge stickers are specified by the face they lie on, and then the face they boarder (e.g. <code>LU</code> is the sticker location on the <code>L</code> face adjascent the the <code>U</code> face).</li>
 <li>Corner stickers are specified by the face they lie on, and then the two faces they boarder, in clockwise order around the corner piece (e.g. <code>LUF</code> is the sticker location on the <code>L</code> that boarders both the <code>U</code> and <code>F</code> faces).</li>
 </ul>
-<p>The cube is composed of 26 piece locations. Center piece locations contain one sticker location, edges two, and corners three. One sticker location on each piece location is designated as the primay sticker location, which we use to specify that piece location. Primary sticker location are determined as follows:</p>
+<p>The cube is composed of 26 piece locations. Center piece locations contain one sticker location, edges two, and corners three. One sticker location on each piece location is designated as the primay sticker location, which we use to specify that piece location. Primary sticker locations are determined as follows:</p>
 <ul>
 <li>Centers: the only sticker location</li>
 <li>Edges: the sticker location on the <code>U</code> or <code>D</code> face if such a sticker location exists, or the sticker location on the <code>F</code> or <code>B</code> face otherwise</li>
@@ -144,7 +144,7 @@ B |                                             ... TODO ...</code></pre>
 <p>The elements of <span class="math inline">\(S_K\)</span> act on the states of the cube. However, in general, we will specify states of the cube relative to a particular “solved” state (for example, that in which the entire <code>U</code> face is white, the entire <code>F</code> face is green, etc.). In this sense, states are in direct correspondence with effects. For example, the state specified by the sequence of turns <code>(U F)3 D'</code> is the state resulting from applying that sequence of turns to the solved state.</p>
 <h1 id="strategy-overview">Strategy Overview</h1>
 <p>When I hand you a scrambled cube, you need to gather enough information about its state to be able to execute a solution once you don the blindfold. Here, a solution is a group element whose effect on the scrambled state is returning it to the solved state. To execute a group element means to express it as a sequence of turns (and perhaps physically execute those turns).</p>
-<p>A very difficult approach is to use the memorization phase to construct a solution as a sequence of turns by solving the cube using a non-blindfolded approach in your imagination. This approach might be good for minimizing execution time (you could spend a really long time in the memorization phase finding a short solution), but requires special talents. While some people are capable of using this approach, I am not.</p>
+<p>A very difficult approach is to use the memorization phase to construct a solution as a sequence of turns by solving the cube using a normal method in your imagination. This approach might be good for minimizing execution time (you could spend a really long time in the memorization phase finding a short solution), but requires special talents. While some people are capable of using this approach, I am not.</p>
 <p>An easier approach, which the remainder of this article describes, involves memorizing the solution (that is, the group element corresponding to the inverse of the state of the cube) as a permutation of stickers, breaking that permutation down into the product of simpler permutations (elements which have a small effect on the state of the cube), and then executing those permutation one at a time.</p>
 <p>To accomplish this, we need to nail down a few details:</p>
 <ul>
