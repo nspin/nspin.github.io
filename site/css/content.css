@@ -35,7 +35,7 @@ ns-content a img {
 ns-content pre {
     font-size: 14px;
     margin-left: 18px;
-    overflow: auto;
+    /*overflow: auto;*/
 }
 
 ns-content pre code {
