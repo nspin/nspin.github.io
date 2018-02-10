@@ -28,8 +28,12 @@
     }
 
     window.addEventListener("scroll", updateNavigation);
+    window.addEventListener("wheel", updateNavigation);
     window.addEventListener("resize", updateNavigation);
-    window.addEventListener("ontouchmove", updateNavigation);
+    window.addEventListener("change", updateNavigation);
+    window.addEventListener("touchmove", updateNavigation);
+    window.addEventListener("touchstart", updateNavigation);
+    window.addEventListener("touchcancel", updateNavigation);
 
     // bad
     setInterval(updateNavigation, 20);

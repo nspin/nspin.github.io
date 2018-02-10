@@ -8,8 +8,7 @@ html {
     background-color: #fff;
     font-size: 16px;
     font-family: sans-serif;
-    line-height: 24px;
-    /*line-height: 1.5; xx*/
+    line-height: 1.6;
 }
 
 body {
@@ -24,14 +23,36 @@ h1 { font-size: 26px; }
 h2 { font-size: 22px; }
 h3 { font-size: 18px; }
 
-a {
+a[href] {
     text-decoration: none;
-    color: #333;
+    color: #111;
+    border-bottom: 1px solid #555;
 }
 
-/*#navigation {
-    line-height: 24px;
-}xx*/
+ul {
+    padding-left: 18px;
+}
+
+pre {
+    font-size: 14px;
+    margin-left: 18px;
+}
+
+pre code {
+    background-color: transparent;
+}
+
+code {
+    background-color: #e7e7e7;
+    color: black;
+}
+
+.soft, .caption {
+    font-style: italic;
+    color: #555;
+}
+
+/* *** */
 
 /* + 50? */
 
@@ -46,15 +67,22 @@ a {
         text-align: right;
     }
 
+    #navigation-logo {
+        z-index: 1;
+        line-height: 24px;
+        margin-bottom: 26px;
+    }
+
     a.navigation-entry {
-        margin: 6px 0px 6px 0px;
+        margin-top: 6px;
+        margin-bottom: 6px;
         display: block;
     }
 
     #content {
-        padding-left: 176px;
-        /*padding-top: 23px; xx*/
-        padding-top: 30px;
+        margin-left: 120px;
+        padding-left: 56px;
+        padding-top: 28px;
         padding-bottom: 12px;
         width: 646px;
     }
@@ -64,26 +92,47 @@ a {
 @media all and (max-width: 821px) {
 
     #navigation {
-        position: fixed;
-        left: 0;
-        top: 0;
         padding-top: 7px;
         text-align: center;
         width: 100%;
-    }
-
-    #navigation-content {
+        line-height: 24px;
     }
 
     a.navigation-entry {
-        margin: 0px 6px 0px 6px;
+        margin-top: 6px;
+        margin-bottom: 6px;
     }
 
     #content {
-        padding-top: 100px;
+        padding-top: 12px;
         padding-left: 12px;
         padding-right: 12px;
         padding-bottom: 12px;
     }
 
+}
+
+/* *** */
+
+a.navigation-entry {
+    color: #333;
+    border-bottom: none;
+}
+
+.content-auto-resizable-iframe-full {
+    /*max-width: 560px;*/
+    max-width: 646px;
+    margin: 0px auto;
+}
+.content-auto-resizable-iframe-full > div {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0px;
+}
+.content-auto-resizable-iframe-full iframe {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
 }

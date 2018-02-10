@@ -1,16 +1,13 @@
-ns-content .article-title {
+/*.article-title {
     margin-bottom: 8px;
 }
 
-ns-content .article-body {
+.article-body {
     padding-top: 3px;
 }
-
-ns-content .article-body h1 {
+*/
+/*ns-content .article-body h1 {
     border-bottom: 1px solid #CCC;
     padding-bottom: 3px;
 }
-
-/*ns-content p > span.math.display {
-    overflow: auto;
-}*/
+*/
