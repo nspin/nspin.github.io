@@ -5,3 +5,9 @@
 .article-body h1 {
     border-bottom: 1px solid #CCC;
 }
+
+@media all and (max-width: 821px) {
+    .article-title {
+        margin-bottom: 0px;
+    }
+}

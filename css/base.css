@@ -92,7 +92,7 @@ code {
 
     #navigation-content {
         position: sticky;
-        left: 0;
+        left: 0; /* TODO: (100% - 220px)/2 */
         width: 220px;
         margin: 0 auto;
         padding-top: 7px;
