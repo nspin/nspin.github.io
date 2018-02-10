@@ -1,37 +1,37 @@
-#portrait {
+#content #index #portrait {
     height: 128px;
     border-radius: 5%;
     margin: 0px
 }
 
-#contact {
+#content #index #contact {
     margin-top: 24px;
 }
 
-#contact-left {
+#content #index #contact-left {
     padding-right: 10px;
     display: inline-block;
     vertical-align: middle;
 }
 
-#contact-right {
+#content #index #contact-right {
     display: inline-block;
     vertical-align: middle;
 }
 
-#contact-right a {
+#content #index #contact-right a {
     border: none;
     color: #333;
 }
 
 @media all and (max-width: 600px) {
-    #contact-left {
+    #content #index #contact-left {
         padding-right: 0px;
     }
-    .small-center {
+    #content #index .small-center {
         text-align: center;
     }
-    .small-center ul {
+    #content #index .small-center ul {
         text-align: left;
     }
 }
