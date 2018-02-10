@@ -29,6 +29,10 @@
 
     window.addEventListener("scroll", updateNavigation);
     window.addEventListener("resize", updateNavigation);
+    window.addEventListener("ontouchmove", updateNavigation);
+
+    // bad
+    setInterval(updateNavigation, 20);
 
   });
 
