@@ -1,86 +1,86 @@
-#content a[href] {
+ns-content a[href] {
     color: #111;
     border-bottom: 1px solid #555;
 }
 
-#content h1,
-#content h2,
-#content h3 {
+ns-content h1,
+ns-content h2,
+ns-content h3 {
     margin: 0px 0px 18px 0px;
     padding: 24px 0px 0px 0px;
 }
 
-#content p {
+ns-content p {
     margin: 18px 0px 18px 0px;
 }
 
-#content img {
+ns-content img {
     margin: 12px 0px 12px 0px;
     max-width: 100%;
 }
 
-#content ul {
+ns-content ul {
     margin: 18px 0px 18px 0px;
     padding-left: 18px;
 }
 
-#content div.figure a {
+ns-content div.figure a {
     border: none;
 }
 
-#content a img {
+ns-content a img {
     margin-bottom: 0px;
 }
 
-#content pre {
+ns-content pre {
     font-size: 14px;
     margin-left: 18px;
 }
 
-#content pre code {
+ns-content pre code {
     background-color: transparent;
     padding: 0px;
     margin: 0px;
 }
 
-#content code {
+ns-content code {
     background-color: #e7e7e7;
     padding: 0px 4px 0px 4px;
     margin: 0px 2px 0px 2px;
     color: black;
 }
 
-#content blockquote {
+ns-content blockquote {
     font-style: italic;
     margin-left: 18px;
     padding: 6px 6px 6px 54px;
 }
 
-#content .soft,
-#content .caption {
+ns-content .soft,
+ns-content .caption {
     font-style: italic;
     color: #555;
 }
 
-#content div.figure {
+ns-content div.figure {
     text-align: center;
 }
 
-#content div.figure p {
+ns-content div.figure p {
     margin-top: 6px;
 }
 
-#content .content-auto-resizable-iframe-full {
+ns-content .content-auto-resizable-iframe-full {
     /*max-width: 560px;*/
     max-width: 646px;
     margin: 0px auto;
 }
-#content .content-auto-resizable-iframe-full > div {
+ns-content .content-auto-resizable-iframe-full > div {
     position: relative;
     padding-bottom: 56.25%; /* 16:9 */
     height: 0px;
 }
-#content .content-auto-resizable-iframe-full iframe {
+ns-content .content-auto-resizable-iframe-full iframe {
     position: absolute;
     top: 0px;
     left: 0px;
