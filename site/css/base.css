@@ -64,8 +64,15 @@ a {
 @media all and (max-width: 821px) {
 
     #navigation {
+        position: fixed;
+        left: 0;
+        top: 0;
         padding-top: 7px;
         text-align: center;
+        width: 100%;
+    }
+
+    #navigation-content {
     }
 
     a.navigation-entry {
@@ -73,7 +80,10 @@ a {
     }
 
     #content {
-        padding: 12px;
+        padding-top: 100px;
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-bottom: 12px;
     }
 
 }
