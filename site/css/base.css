@@ -13,6 +13,7 @@ html {
 
 body {
     color: #333;
+    overflow: visible;
 }
 
 h1, h2, h3 {
@@ -59,8 +60,8 @@ code {
 @media all and (min-width: 822px) {
 
     #navigation {
-        position: fixed;
-        left: 0;
+        position: sticky;
+        float: left;
         top: 0;
         padding-top: 13px;
         width: 120px;
@@ -68,7 +69,6 @@ code {
     }
 
     #navigation-logo {
-        z-index: 1;
         line-height: 24px;
         margin-bottom: 26px;
     }
@@ -80,27 +80,29 @@ code {
     }
 
     #content {
-        margin-left: 120px;
-        padding-left: 56px;
+        width: 646px;
+        padding-left: 176px;
         padding-top: 28px;
         padding-bottom: 12px;
-        width: 646px;
     }
 
 }
 
 @media all and (max-width: 821px) {
 
-    #navigation {
+    #navigation-content {
+        position: sticky;
+        left: 0;
+        width: 220px;
+        margin: 0 auto;
         padding-top: 7px;
         text-align: center;
-        width: 100%;
         line-height: 24px;
     }
 
     a.navigation-entry {
-        margin-top: 6px;
-        margin-bottom: 6px;
+        margin-left: 6px;
+        margin-right: 6px;
     }
 
     #content {
