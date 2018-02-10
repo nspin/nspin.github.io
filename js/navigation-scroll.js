@@ -1,20 +1,35 @@
 (function(window, document){
+
   document.addEventListener("DOMContentLoaded", function(event) {
-    var supportPageOffset = window.pageXOffset !== undefined;
-    var isCSS1Compat = ((document.compatMode || "") === "CSS1Compat");
+
+    var getScroll =
+      (window.pageXOffset !== undefined)
+        ? { x: function() { return window.pageXOffset; },
+            y: function() { return window.pageYOffset; }
+          }
+        : ((document.compatMode || "") === "CSS1Compat")
+          ? { x: function() { return document.documentElement.scrollLeft; },
+              y: function() { return document.documentElement.scrollTop; }
+            }
+          : { x: function() { return document.body.scrollLeft; },
+              y: function() { return document.body.scrollTop; }
+            }
+      ;
+
+    var media = window.matchMedia("(max-width: 821px)");
     var navigation = document.getElementById("navigation");
-    function getX() {
-      return supportPageOffset ? window.pageXOffset : isCSS1Compat ? document.documentElement.scrollLeft : document.body.scrollLeft;
-    }
-    function getY() {
-      return supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
-    }
-    window.addEventListener("scroll", function(e) {  
-      if (document.documentElement.clientWidth < 822) {
-        navigation.style.top = -getY() + "px";
+
+    function updateNavigation(e) {
+      if (media.matches) {
+        navigation.style.top = -getScroll.y() + "px";
       } else {
-        navigation.style.left = -getX() + "px";
+        navigation.style.left = -getScroll.x() + "px";
       }
-    });
+    }
+
+    window.addEventListener("scroll", updateNavigation);
+    window.addEventListener("resize", updateNavigation);
+
   });
+
 })(window, document);
