@@ -1,87 +1,86 @@
-ns-content a[href] {
+#content a[href] {
     color: #111;
     border-bottom: 1px solid #555;
 }
 
-ns-content h1,
-ns-content h2,
-ns-content h3 {
+#content h1,
+#content h2,
+#content h3 {
     margin: 0px 0px 18px 0px;
     padding: 24px 0px 0px 0px;
 }
 
-ns-content p {
+#content p {
     margin: 18px 0px 18px 0px;
 }
 
-ns-content img {
+#content img {
     margin: 12px 0px 12px 0px;
     max-width: 100%;
 }
 
-ns-content ul {
+#content ul {
     margin: 18px 0px 18px 0px;
     padding-left: 18px;
 }
 
-ns-content div.figure a {
+#content div.figure a {
     border: none;
 }
 
-ns-content a img {
+#content a img {
     margin-bottom: 0px;
 }
 
-ns-content pre {
+#content pre {
     font-size: 14px;
     margin-left: 18px;
-    /*overflow: auto;*/
 }
 
-ns-content pre code {
+#content pre code {
     background-color: transparent;
     padding: 0px;
     margin: 0px;
 }
 
-ns-content code {
+#content code {
     background-color: #e7e7e7;
     padding: 0px 4px 0px 4px;
     margin: 0px 2px 0px 2px;
     color: black;
 }
 
-ns-content blockquote {
+#content blockquote {
     font-style: italic;
     margin-left: 18px;
     padding: 6px 6px 6px 54px;
 }
 
-ns-content .soft,
-ns-content .caption {
+#content .soft,
+#content .caption {
     font-style: italic;
     color: #555;
 }
 
-ns-content div.figure {
+#content div.figure {
     text-align: center;
 }
 
-ns-content div.figure p {
+#content div.figure p {
     margin-top: 6px;
 }
 
-ns-content .content-auto-resizable-iframe-full {
+#content .content-auto-resizable-iframe-full {
     /*max-width: 560px;*/
     max-width: 646px;
     margin: 0px auto;
 }
-ns-content .content-auto-resizable-iframe-full > div {
+#content .content-auto-resizable-iframe-full > div {
     position: relative;
     padding-bottom: 56.25%; /* 16:9 */
     height: 0px;
 }
-ns-content .content-auto-resizable-iframe-full iframe {
+#content .content-auto-resizable-iframe-full iframe {
     position: absolute;
     top: 0px;
     left: 0px;
