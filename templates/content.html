@@ -1,13 +1,10 @@
 <!doctype html>
 <html>
     <head>
-
         <title>Nick Spinale - {% block title %}{% endblock %}</title>
-
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
         <meta name="description" content="Personal website of Nick Spinale.">
-
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -16,30 +13,28 @@
             ga('create', 'UA-86175905-1', 'auto');
             ga('send', 'pageview');
         </script>
-
         <link rel="stylesheet" type="text/css" href="/css/base.css">
 
-        <!-- <script src="/js/scroll.js"></script> -->
-
-        {% block before %}{% endblock %}
+{% block before %}{% endblock %}
 
     </head>
     <body>
-
-        <div id="navigation">
-            <div id="navigation-content">
-                <a href="/"><div id="navigation-logo"><h1>Nick Spinale</h1></div></a>
-                <div id="navigation-list">
-                    <a class="navigation-entry" href="/articles.html">Articles</a>
-                    <a class="navigation-entry" href="/projects.html">Projects</a>
-                    <a class="navigation-entry" href="/resume.pdf">Resume</a>
+        <div>
+            <div id="navigation">
+                <div id="navigation-content">
+                    <a href="/"><div id="navigation-logo"><h1>Nick Spinale</h1></div></a>
+                    <div id="navigation-list">
+                        <a class="navigation-entry" href="/articles.html">Articles</a>
+                        <a class="navigation-entry" href="/projects.html">Projects</a>
+                        <a class="navigation-entry" href="/resume.pdf">Resume</a>
+                    </div>
                 </div>
             </div>
-        </div>
+            <div id="content">
 
-        <div id="content">
-            {% block content %}{% endblock %}
-        </div>
+{% block content %}{% endblock %}
 
+            </div>
+        </div>
     </body>
 </html>
