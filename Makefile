@@ -12,12 +12,12 @@ clean:
 	-rm $(ALL_TARGS)
 	-rmdir site/articles
 
-site/articles.html: templates/content.html templates/articles.html builder.py articles.py
-	$(PYTHON3) builder.py articles > $@
+site/articles.html: templates/content.html templates/articles.html interpolate.py articles.py
+	$(PYTHON3) interpolate.py articles > $@
 
-$(PAGE_TARGS): site/%: pages/% templates/content.html builder.py
-	$(PYTHON3) builder.py page $< > $@
+$(PAGE_TARGS): site/%: pages/% templates/content.html interpolate.py
+	$(PYTHON3) interpolate.py page $< > $@
 
-$(ARTICLE_TARGS): site/articles/%.html: articles/%.md templates/content.html templates/article.html builder.py articles.py
+$(ARTICLE_TARGS): site/articles/%.html: articles/%.md templates/content.html templates/article.html interpolate.py articles.py
 	mkdir -p site/articles
-	pandoc --read=markdown --write=html --mathjax articles/$*.md | $(PYTHON3) builder.py article $* > $@
+	pandoc --read=markdown --write=html --mathjax articles/$*.md | $(PYTHON3) interpolate.py article $* > $@
