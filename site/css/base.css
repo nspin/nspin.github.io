@@ -2,8 +2,6 @@ body {
     margin: 0px;
     padding: 0px;
 
-    /*overflow-y: scroll;*/
-
     /*background-color: #fdf6e3;*/
     /*background-color: #fffcf3;*/
     background-color: #fffff8;
@@ -103,6 +101,9 @@ a.navigation-entry {
 }
 
 @media all and (min-width: 920px) {
+    body {
+        overflow-y: scroll;
+    }
     #top-level {
         margin: 0 auto;
         width: 920px;
@@ -110,6 +111,9 @@ a.navigation-entry {
 }
 
 @media all and (max-width: 859px) and (min-width: 700px) {
+    body {
+        overflow-y: scroll;
+    }
     #top-level {
         margin: 0 auto;
         width: 700px;
@@ -119,10 +123,11 @@ a.navigation-entry {
 @media all and (max-width: 859px) {
 
     #navigation-content {
-        position: sticky;
-        left: 0; /* TODO: (100% - 220px)/2 */
-        width: 235px;
-        margin: 0 auto;
+        /*position: sticky;*/
+        /*TODO: (100% - 220px)/2*/
+        /*left: 0;*/
+        /*width: 235px;*/
+        /*margin: 0 auto;*/
         padding-top: 7px;
         text-align: center;
         line-height: 1;

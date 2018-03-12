@@ -19,9 +19,7 @@ def do_article(article_id):
     with open('articles/{}.md'.format(article_id), 'r') as f:
         body = f.read()
     env.get_template('templates/article.html').stream({
-        'title': article.title,
-        'date': article.date,
-        'description': article.description,
+        'meta': article,
         'body': sys.stdin.read(),
     }).dump(sys.stdout)
 

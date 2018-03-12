@@ -1,17 +1,19 @@
 {% extends 'templates/content.html' %}
 
-{% block title %}{{ title }}{% endblock %}
+{% block title %}{{ meta.title }}{% endblock %}
 
 {% block before %}
     <link rel="stylesheet" type="text/css" href="/css/article.css">
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+    {% if meta.has_math %}
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+    {% endif %}
 {% endblock %}
 
 {% block content %}
 
-<h1 class="article-title">{{ title }}</h1>
+<h1 class="article-title">{{ meta.title }}</h1>
 <span class="soft">
-    {{ date }} &mdash; {{ description }}
+    {{ meta.date }} &mdash; {{ meta.desc }}
 </span>
 <div class="article-body">
 
