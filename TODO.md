@@ -2,5 +2,6 @@
 
 * subresource integrity
 * -fPIC
-* better watch?
+* better watch
 * bigger font
+* tls
