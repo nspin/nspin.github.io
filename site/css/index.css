@@ -19,7 +19,7 @@ a.contact-entry {
     border: none;
 }
 
-@media all and (max-width: 869px) {
+@media all and (max-width: 859px) {
     h1.small-center {
         margin-bottom: 12px;
     }
