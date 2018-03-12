@@ -43,16 +43,26 @@ pre {
 }
 
 code {
-    /*font-size: 16px;*/
     background-color: #e7e7e0;
 }
 
 pre code {
+    font-size: 16px;
     background-color: transparent;
 }
 
 .soft, .caption {
     color: #555;
+}
+
+
+@media all and (max-width: 739px) {
+    body {
+        font-size: 16px;
+    }
+    pre code {
+        font-size: 14px;
+    }
 }
 
 /* *** */
@@ -73,7 +83,7 @@ a.navigation-entry {
 
 /* *** */
 
-@media all and (min-width: 860px) {
+@media all and (min-width: 900px) {
 
     #navigation {
         position: sticky;
@@ -94,13 +104,13 @@ a.navigation-entry {
     }
 
     #content {
-        width: 700px;
+        width: 740px;
         padding-left: 160px;
     }
 
 }
 
-@media all and (min-width: 920px) {
+@media all and (min-width: 960px) {
     body {
         overflow-y: scroll;
     }
@@ -110,17 +120,17 @@ a.navigation-entry {
     }
 }
 
-@media all and (max-width: 859px) and (min-width: 700px) {
+@media all and (max-width: 899px) and (min-width: 740px) {
     body {
         overflow-y: scroll;
     }
     #top-level {
         margin: 0 auto;
-        width: 700px;
+        width: 740px;
     }
 }
 
-@media all and (max-width: 859px) {
+@media all and (max-width: 899px) {
 
     #navigation-content {
         /*position: sticky;*/
