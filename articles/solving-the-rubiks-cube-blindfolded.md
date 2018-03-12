@@ -176,7 +176,7 @@ Which simple permutations are easiest to execute will inform how we choose to br
 
 ### Conjugation
 
-### 3-Cycles from Conjugated Double Transpositions
+### 3-Cycles from Conjugated Double-Transpositions
 
 ## Executing a Solution
 
@@ -190,6 +190,8 @@ Which simple permutations are easiest to execute will inform how we choose to br
 
 In the meantime, check out this video in which a younger version of me solves a 4x4x4 cube blindfolded:
 
-<div class="content-auto-resizable-iframe-full"><div>
+<div class="content-auto-resizable-iframe-full">
+<div>
 <iframe src="https://www.youtube-nocookie.com/embed/UA_jAeGeYKY?rel=0&amp;showinfo=0" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
-</div></div>
+</div>
+</div>
