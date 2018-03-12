@@ -1,13 +1,7 @@
-.article-body {
-    padding-top: 3px;
-}
-
 .article-body h1 {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #888;
 }
 
-@media all and (max-width: 821px) {
-    .article-title {
-        margin-bottom: 0px;
-    }
+.article-title {
+    margin-bottom: 0px;
 }
