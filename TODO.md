@@ -3,5 +3,5 @@
 * subresource integrity
 * -fPIC
 * better watch
-* bigger font
+* increase column width
 * tls

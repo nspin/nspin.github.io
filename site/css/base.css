@@ -2,7 +2,7 @@ body {
     margin: 0px;
     padding: 0px;
 
-    overflow-y: scroll;
+    /*overflow-y: scroll;*/
 
     /*background-color: #fdf6e3;*/
     /*background-color: #fffcf3;*/
@@ -15,9 +15,9 @@ body {
     /*font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;*/
 }
 
-h1, h2, h3, h4 {
-    /*font-family: medium-content-sans-serif-font, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;*/
-}
+/*h1, h2, h3, h4 {
+    font-family: medium-content-sans-serif-font, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+}*/
 
 h1, h2 {
     font-weight: normal;
@@ -75,18 +75,18 @@ a.navigation-entry {
 
 /* *** */
 
-@media all and (min-width: 860px) {
+@media all and (min-width: 870px) {
 
-    #top-level {
+/*    #top-level {
         margin: 0 auto;
-        width: 860px;
-    }
+        width: 870px;
+    }*/
 
     #navigation {
         position: sticky;
         float: left;
         top: 12px;
-        width: 100px;
+        width: 110px;
         text-align: right;
     }
 
@@ -102,19 +102,19 @@ a.navigation-entry {
 
     #content {
         width: 700px;
-        padding-left: 150px;
+        padding-left: 160px;
     }
 
 }
 
-@media all and (max-width: 859px) and (min-width: 700px) {
+@media all and (max-width: 869px) and (min-width: 700px) {
     #top-level {
         margin: 0 auto;
         width: 700px;
     }
 }
 
-@media all and (max-width: 859px) {
+@media all and (max-width: 869px) {
 
     #navigation-content {
         position: sticky;
