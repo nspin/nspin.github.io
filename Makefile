@@ -20,13 +20,13 @@ $(STATIC_TARGS): $(BUILD_DIR)/%: static/%
 	$(dir_guard)
 	cp $< $@
 
-$(BUILD_DIR)/articles.html: templates/content.html templates/articles.html interpolate.py articles.py
-	$(dir_guard)
-	python3 interpolate.py articles > $@
-
 $(BUILD_DIR)/%: pages/% templates/content.html interpolate.py
 	$(dir_guard)
 	python3 interpolate.py page $< > $@
+
+$(BUILD_DIR)/articles.html: templates/content.html templates/articles.html interpolate.py articles.py
+	$(dir_guard)
+	python3 interpolate.py articles > $@
 
 $(BUILD_DIR)/articles/%.html: articles/%.md templates/content.html templates/article.html interpolate.py articles.py
 	$(dir_guard)
