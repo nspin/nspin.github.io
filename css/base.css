@@ -75,12 +75,7 @@ a.navigation-entry {
 
 /* *** */
 
-@media all and (min-width: 870px) {
-
-/*    #top-level {
-        margin: 0 auto;
-        width: 870px;
-    }*/
+@media all and (min-width: 860px) {
 
     #navigation {
         position: sticky;
@@ -107,14 +102,21 @@ a.navigation-entry {
 
 }
 
-@media all and (max-width: 869px) and (min-width: 700px) {
+@media all and (min-width: 920px) {
+    #top-level {
+        margin: 0 auto;
+        width: 920px;
+    }
+}
+
+@media all and (max-width: 859px) and (min-width: 700px) {
     #top-level {
         margin: 0 auto;
         width: 700px;
     }
 }
 
-@media all and (max-width: 869px) {
+@media all and (max-width: 859px) {
 
     #navigation-content {
         position: sticky;
