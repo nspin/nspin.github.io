@@ -9,9 +9,9 @@ Nevertheless, I believe it hold great promise in the future of X programming in 
 I've been working on a set of libraries that allows for layers of abstraction to be staked on top of the low-level xhb bindings.
 This post will become more fleshed out as I find time to finish up and document the actual libraries, but here's an overview.
 
-## [xhb-requests](https://github.com/nspin/xhb-requests)
+## xhb-requests
 
-(*haddock [here](/xhb-requests)*)
+(*[source](https://github.com/nspin/xhb-requests), [docs](/xhb-requests)*)
 
 Most generated functions in xhb have types similar to those below:
 
@@ -47,9 +47,9 @@ class RequestWithReply a b | a -> b, b -> a where
 The instances of this class are generated from the xhb code that is itself generated from XML, which sounds ugly, but it worked quite well.
 This is the foundation for xhb-monad.
 
-## [xhb-monad](https://github.com/nspin/xhb-monad)
+## xhb-monad
 
-(*haddock [here](/xhb-monad)*)
+(*[source](https://github.com/nspin/xhb-monad), [docs](/xhb-monad)*)
 
 This package defines the following class:
 
@@ -92,9 +92,9 @@ This abstraction allows for *pure* X logic.
 It also lets us isolate unwieldy layers of computation and bits of state in the usual `mtl` way.
 xhb-mapping-state is an example of this.
 
-## [xhb-mapping-state](https://github.com/nspin/xhb-mapping-state)
+## xhb-mapping-state
 
-(*haddock [here](/xhb-mapping-state)*)
+(*[source](https://github.com/nspin/xhb-mapping-state), [docs](/xhb-mapping-state)*)
 
 <!-- *   [xhb-keysyms](/xhb-keysyms) -->
 

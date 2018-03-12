@@ -2,11 +2,11 @@ body {
     margin: 0px;
     padding: 0px;
 
+    overflow-y: scroll;
+
     /*background-color: #fdf6e3;*/
     /*background-color: #fffcf3;*/
     background-color: #fffff8;
-
-    overflow-y: scroll;
 
     color: #000;
     font-size: 18px;
@@ -15,18 +15,18 @@ body {
     /*font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;*/
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
     /*font-family: medium-content-sans-serif-font, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;*/
-    /*font-weight: normal;*/
 }
 
-h1 {
-    /*font-weight: normal;*/
+h1, h2 {
+    font-weight: normal;
 }
 
-h1 { font-size: 26px; }
-h2 { font-size: 22px; }
+h1 { font-size: 28px; }
+h2 { font-size: 25px; }
 h3 { font-size: 20px; }
+h4 { font-size: 18px; }
 
 a[href] {
     color: #000;
@@ -44,26 +44,20 @@ pre {
     padding-left: 18px;
 }
 
+code {
+    font-size: 16px;
+    background-color: #e7e7e0;
+}
+
 pre code {
     background-color: transparent;
 }
 
-code {
-    font-size: 16px;
-    background-color: #e7e7e7;
-}
-
 .soft, .caption {
-    /*font-style: italic;*/
     color: #555;
 }
 
 /* *** */
-
-h1.navigation-header {
-    font-weight: normal;
-    font-size: 26px;
-}
 
 a.navigation-entry {
     color: #333;
@@ -73,6 +67,10 @@ a.navigation-entry {
 #content {
     padding-top: 12px;
     padding-bottom: 12px;
+}
+
+#content h2 {
+    border-bottom: 1px solid #aaa;
 }
 
 /* *** */
@@ -94,7 +92,6 @@ a.navigation-entry {
 
     #navigation-logo {
         line-height: 1;
-        margin-bottom: 26px;
     }
 
     a.navigation-entry {
@@ -126,7 +123,7 @@ a.navigation-entry {
         margin: 0 auto;
         padding-top: 7px;
         text-align: center;
-        line-height: 24px;
+        line-height: 1;
     }
 
     a.navigation-entry {
@@ -144,7 +141,6 @@ a.navigation-entry {
 /* *** */
 
 .content-auto-resizable-iframe-full {
-    /*max-width: 560px;*/
     max-width: 646px;
     margin: 0px auto;
 }

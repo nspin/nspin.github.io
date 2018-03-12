@@ -4,9 +4,9 @@ This article doesn't assume any knowledge of cube theory, but a reader will find
 
 Furthermore, this article is not a tutorial, but rather an in-depth exploration.
 
-# Preliminaries
+## Preliminaries
 
-## The Game
+### The Game
 
 * I give you a cube in an arbitrary state
 * You inspect the cube (the *memorization* phase)
@@ -15,7 +15,7 @@ Furthermore, this article is not a tutorial, but rather an in-depth exploration.
 
 It's that simple.
 
-## Notation
+### Notation
 
 The cube has 6 faces:
 
@@ -74,7 +74,7 @@ It is not hard to see how `z` can be written in terms of `x` and `y`.
 Furthermore, it is both interesting and non-obvious that any face turn can be written in terms of the five others.
 So, the effect of any sequence of moves can be achieved with a sequence of turns drawn only from `<U, D, L, R, F, x, y>`.
 
-## The Cube Group
+### The Cube Group
 
 Let $K$ denote the set containing the 54 sticker locations on the cube.
 The cube's state is a map from $K$ to physical stickers.
@@ -148,7 +148,7 @@ To summarize, we've considered the following groups, each a subgroup of the last
 
 The elements of $S_K$ act on the states of the cube. However, in general, we specify states of the cube relative to a particular “solved” state (for example, that in which the entire `U` face is white, the entire `F` face is green, etc.). In this sense, states are in direct correspondence with effects. For example, the state specified by the sequence of turns `(U F)3 D'` is the state resulting the application of that sequence of turns to the solved state.
 
-# Strategy Overview
+## Strategy Overview
 
 When I hand you a scrambled cube, you need to gather enough information about its state to be able to execute a solution once you don the blindfold. Here, a solution is a group element whose effect on the scrambled state is returning it to the solved state. To execute a group element means to express it as a sequence of turns (and perhaps physically execute those turns).
 
@@ -165,26 +165,26 @@ To accomplish this, we need to nail down a few details:
 
 We'll encounter many other details as we go along, but this is the general idea.
 
-# Executing Simple Permutations
+## Executing Simple Permutations
 
 First, let's consider ways of executing simple permutations (permutations that don't involve many stickers or pieces).
 Which simple permutations are easiest to execute will inform how we choose to break up solutions.
 
-## "Algorithms"
+### "Algorithms"
 
-## Commutators
+### Commutators
 
-## Conjugation
+### Conjugation
 
-## 3-Cycles from Conjugated Double Transpositions
+### 3-Cycles from Conjugated Double Transpositions
 
-# Executing a Solution
+## Executing a Solution
 
-# Memorization
+## Memorization
 
-# Larger Cubes
+## Larger Cubes
 
-# Additional Resources
+## Additional Resources
 
 `IN PROGRESS`
 
