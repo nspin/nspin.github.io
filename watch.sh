@@ -4,7 +4,7 @@ set -e
 
 trap 'kill $(jobs -p)' EXIT
 
-cd site
+cd _build
 python3 -m http.server &
 cd ..
 
