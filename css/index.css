@@ -1,7 +1,3 @@
-#contact {
-    /*margin-top: 24px;*/
-}
-
 #contact-left {
     padding-right: 20px;
     display: inline-block;
@@ -16,22 +12,16 @@
 #contact-right {
     display: inline-block;
     vertical-align: middle;
+    text-align: left;
 }
 
 a.contact-entry {
     border: none;
 }
 
-/*a.contact-entry > i.fa {
-    padding-right: 2px;
-}*/
-
-@media all and (max-width: 859px) {
+@media all and (max-width: 869px) {
     h1.small-center {
-        margin-bottom: 0px;
-    }
-    #contact {
-        margin-top: 12px;
+        margin-bottom: 12px;
     }
 }
 
@@ -41,8 +31,5 @@ a.contact-entry {
     }
     .small-center {
         text-align: center;
-    }
-    #contact-right {
-        text-align: left;
     }
 }
