@@ -3,7 +3,7 @@
 }
 
 .article-body h1 {
-    border-bottom: 1px solid #CCC;
+    border-bottom: 1px solid #ccc;
 }
 
 @media all and (max-width: 821px) {
