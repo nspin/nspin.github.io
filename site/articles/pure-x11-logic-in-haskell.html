@@ -22,10 +22,10 @@
 
     </head>
     <body>
-        <div>
+        <div id="top-level">
             <div id="navigation">
                 <div id="navigation-content">
-                    <a href="/"><div id="navigation-logo"><h1>Nick Spinale</h1></div></a>
+                    <a href="/"><div id="navigation-logo"><h1 class="navigation-header">Nick Spinale</h1></div></a>
                     <div id="navigation-list">
                         <a class="navigation-entry" href="/articles.html">Articles</a>
                         <a class="navigation-entry" href="/projects.html">Projects</a>
@@ -41,7 +41,7 @@
 <span class="soft">
     Jul 22 2016 &mdash; A set of libraries providing a pure interface to XHB.
 </span>
-<hr>
+<!-- <hr> -->
 <div class="article-body">
 
 <p>X11 programming in Haskell has traditionally been done using the <a href="https://hackage.haskell.org/package/X11-1.6.1.2">X11 package</a>. Many of these bindings were written by hand and, due to their reliance on FFI, are susceptible to some threading issues. <a href="https://hackage.haskell.org/package/xhb">xhb</a>, a newer package, provides low-level bindings to X11 based on the same XML as <a href="https://xcb.freedesktop.org/">xcb</a>.</p>

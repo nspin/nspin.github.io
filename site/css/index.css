@@ -1,16 +1,16 @@
-#portrait {
-    height: 128px;
-    border-radius: 5%;
-}
-
 #contact {
     margin-top: 24px;
 }
 
 #contact-left {
-    padding-right: 10px;
+    padding-right: 20px;
     display: inline-block;
     vertical-align: middle;
+}
+
+#portrait {
+    height: 128px;
+    border-radius: 5%;
 }
 
 #contact-right {
@@ -18,12 +18,15 @@
     vertical-align: middle;
 }
 
-#contact-right a {
+a.contact-entry {
     border: none;
-    color: #333;
 }
 
-@media all and (max-width: 821px) {
+/*a.contact-entry > i.fa {
+    padding-right: 2px;
+}*/
+
+@media all and (max-width: 859px) {
     h1.small-center {
         margin-bottom: 0px;
     }
@@ -32,15 +35,14 @@
     }
 }
 
-
-@media all and (max-width: 600px) {
+@media all and (max-width: 700px) {
     #contact-left {
-        padding-right: 0px;
+        padding-right: 5px;
     }
     .small-center {
         text-align: center;
     }
-    .small-center ul {
+    #contact-right {
         text-align: left;
     }
 }

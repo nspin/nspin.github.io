@@ -7,7 +7,7 @@ articles = [
         'solving-the-rubiks-cube-blindfolded',
         "Solving the Rubik's Cube Blindfolded",
         'A math-based explanation from scratch.',
-        'Feb 02 2018',
+        'Feb 2 2018',
         ),
     Article(
         'pure-x11-logic-in-haskell',
