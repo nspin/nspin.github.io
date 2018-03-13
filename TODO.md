@@ -1,8 +1,3 @@
 # TODO
 
-* -fPIC
-* better watch
-* increase column width
-* tls
-
-* switch to gcp when gcp gets managed certs
+* switch to gcp once gcp load balancer supports managed certs
