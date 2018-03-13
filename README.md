@@ -1,1 +1,1 @@
-Source of my personal website, [nickspinale.com](http://nickspinale.com).
+Source of my personal website, [https://www.nickspinale.com](https://www.nickspinale.com).
