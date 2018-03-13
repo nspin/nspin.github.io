@@ -55,16 +55,6 @@ pre code {
     color: #555;
 }
 
-
-@media all and (max-width: 739px) {
-    body {
-        font-size: 16px;
-    }
-    pre code {
-        font-size: 14px;
-    }
-}
-
 /* *** */
 
 a.navigation-entry {
@@ -110,13 +100,13 @@ a.navigation-entry {
 
 }
 
-@media all and (min-width: 960px) {
+@media all and (min-width: 1060px) {
     body {
         overflow-y: scroll;
     }
     #top-level {
         margin: 0 auto;
-        width: 920px;
+        width: 1060px;
     }
 }
 
@@ -153,6 +143,15 @@ a.navigation-entry {
         padding-right: 12px;
     }
 
+}
+
+@media all and (max-width: 739px) {
+    #content {
+        font-size: 16px;
+    }
+    pre code {
+        font-size: 14px;
+    }
 }
 
 /* *** */
