@@ -20,19 +20,17 @@ $(STATIC_TARGS): $(BUILD_DIR)/%: static/%
 	$(dir_guard)
 	cp $< $@
 
-interpolate = python3 interpolate.py $(BUILD_DIR) $@
-
 $(BUILD_DIR)/%: pages/% templates/content.html interpolate.py
 	$(dir_guard)
-	$(interpolate) page $<
+	python3 interpolate.py page $< > $@
 
 $(BUILD_DIR)/articles.html: templates/content.html templates/articles.html interpolate.py articles.py
 	$(dir_guard)
-	$(interpolate) articles
+	python3 interpolate.py articles > $@
 
 $(BUILD_DIR)/articles/%.html: articles/%.md templates/content.html templates/article.html interpolate.py articles.py
 	$(dir_guard)
-	pandoc --read=markdown --write=html --mathjax articles/$*.md | $(interpolate) article $*
+	pandoc --read=markdown --write=html --mathjax articles/$*.md | python3 interpolate.py article $* > $@
 
 
 .PHONY: deploy

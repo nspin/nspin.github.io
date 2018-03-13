@@ -4,7 +4,11 @@ set -e
 
 trap 'kill $(jobs -p)' EXIT
 
+make
+
+cd _build
 python3 -m http.server &
+cd ..
 
 # lol
 while true; do
