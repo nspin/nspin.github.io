@@ -1,6 +1,6 @@
 BUILD_DIR     := _build
 
-STATIC_TARGS  := $(patsubst static/%,$(BUILD_DIR)/%,$(shell find static/ -type f))
+STATIC_TARGS  := $(patsubst static/%,$(BUILD_DIR)/%,$(shell find static/ -type f -not -path '*/\.*'))
 PAGE_TARGS    := $(patsubst pages/%,$(BUILD_DIR)/%,$(wildcard pages/*))
 ARTICLE_TARGS := $(patsubst articles/%.md,$(BUILD_DIR)/articles/%.html,$(wildcard articles/*))
 ALL_TARGS     := $(STATIC_TARGS) $(PAGE_TARGS) $(ARTICLE_TARGS) $(BUILD_DIR)/articles.html
@@ -35,6 +35,7 @@ $(BUILD_DIR)/articles/%.html: articles/%.md templates/content.html templates/art
 
 .PHONY: deploy
 deploy:
+	aws s3 sync $(BUILD_DIR) s3://www.nickspinale.com
 	git subtree push --prefix $(BUILD_DIR) origin master
 
 .PHONY: resume
