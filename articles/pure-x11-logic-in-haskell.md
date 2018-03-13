@@ -11,7 +11,7 @@ This post will become more fleshed out as I find time to finish up and document 
 
 ## xhb-requests
 
-(*[source](https://github.com/nspin/xhb-requests), [docs](/xhb-requests)*)
+(*[source](https://github.com/nspin/xhb-requests), [docs](https://nspin.github.io/xhb-requests)*)
 
 Most generated functions in xhb have types similar to those below:
 
@@ -49,7 +49,7 @@ This is the foundation for xhb-monad.
 
 ## xhb-monad
 
-(*[source](https://github.com/nspin/xhb-monad), [docs](/xhb-monad)*)
+(*[source](https://github.com/nspin/xhb-monad), [docs](https://nspin.github.io/xhb-monad)*)
 
 This package defines the following class:
 
@@ -94,7 +94,7 @@ xhb-mapping-state is an example of this.
 
 ## xhb-mapping-state
 
-(*[source](https://github.com/nspin/xhb-mapping-state), [docs](/xhb-mapping-state)*)
+(*[source](https://github.com/nspin/xhb-mapping-state), [docs](https://nspin.github.io/xhb-mapping-state)*)
 
 <!-- *   [xhb-keysyms](/xhb-keysyms) -->
 
