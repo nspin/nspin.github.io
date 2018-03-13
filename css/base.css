@@ -78,7 +78,9 @@ a.navigation-entry {
     #navigation {
         position: sticky;
         float: left;
-        top: 12px;
+        /*top: 12px;*/
+        top: 0px;
+        padding-top: 12px;
         width: 110px;
         text-align: right;
     }
