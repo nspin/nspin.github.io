@@ -35,7 +35,6 @@ $(BUILD_DIR)/articles/%.html: articles/%.md templates/content.html templates/art
 
 .PHONY: deploy
 deploy:
-	aws s3 sync $(BUILD_DIR) s3://www.nickspinale.com
 	git subtree push --prefix $(BUILD_DIR) origin master
 
 .PHONY: resume
