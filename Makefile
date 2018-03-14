@@ -33,10 +33,6 @@ $(BUILD_DIR)/articles/%.html: articles/%.md templates/content.html templates/art
 	pandoc --read=markdown --write=html --mathjax articles/$*.md | python3 interpolate.py article $* > $@
 
 
-.PHONY: deploy
-deploy:
-	git subtree push --prefix $(BUILD_DIR) origin master
-
 .PHONY: resume
 resume:
 	cp ../resume/nick-spinale-resume.pdf $(BUILD_DIR)/resume.pdf
