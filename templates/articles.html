@@ -12,7 +12,7 @@
             {{ article.title }}
             <br>
             <span class="soft">
-                {{ article.date }} &mdash; {{ article.desc }}
+                {{ article.date.__format__('%Y, %b %e') }} &mdash; {{ article.desc }}
             </span>
         </p>
     </a>
