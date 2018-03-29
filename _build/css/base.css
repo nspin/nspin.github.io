@@ -9,8 +9,12 @@ body {
     color: #000;
     font-size: 18px;
     line-height: 1.4;
-    font-family: palatino;
-    /*font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;*/
+    font-family: Palatino, Georgia, sans-serif;
+    /*font-family: medium-content-serif-font;*/
+    /*font-family: Cambria;*/
+    /*font-family: "Times New Roman";*/
+    /*font-family: Times;*/
+    /*font-family: serif;*/
 }
 
 h1, h2, h3, h4 {
