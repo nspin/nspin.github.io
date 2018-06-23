@@ -1,9 +1,14 @@
 import sys
-from jinja2 import Environment, FileSystemLoader
+from jinja2 import Environment, FileSystemLoader, Markup
 
 import articles
 
 env = Environment(loader=FileSystemLoader('.'))
+
+def include_raw(path):
+    return Markup(env.loader.get_source(env, path)[0])
+
+env.globals['include_raw'] = include_raw
 
 def article_by_id(article_id):
     for article in articles.articles:
