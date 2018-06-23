@@ -30,6 +30,7 @@ a.pgp-info:hover {
 
 #pgp pre {
     padding: 0px;
+    overflow-y: scroll;
 }
 
 @media all and (max-width: 899px) {
