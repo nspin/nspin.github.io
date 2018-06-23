@@ -19,6 +19,19 @@ a.contact-entry {
     border: none;
 }
 
+a.pgp-info {
+    border: none;
+    display: inline-block;
+}
+
+a.pgp-info:hover {
+    color: #007f00;
+}
+
+#pgp pre {
+    padding: 0px;
+}
+
 @media all and (max-width: 899px) {
     h1.small-center {
         margin-bottom: 12px;
