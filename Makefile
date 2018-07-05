@@ -22,15 +22,15 @@ $(STATIC_TARGS): $(BUILD_DIR)/%: static/%
 
 $(BUILD_DIR)/%: pages/% templates/content.html interpolate.py
 	$(dir_guard)
-	python3 interpolate.py page $< > $@
+	python3 interpolate.py $(BUILD_DIR) $@ page $<
 
 $(BUILD_DIR)/articles.html: templates/content.html templates/articles.html interpolate.py articles.py
 	$(dir_guard)
-	python3 interpolate.py articles > $@
+	python3 interpolate.py $(BUILD_DIR) $@ articles
 
 $(BUILD_DIR)/articles/%.html: articles/%.md templates/content.html templates/article.html interpolate.py articles.py
 	$(dir_guard)
-	pandoc --read=markdown --write=html --mathjax articles/$*.md | python3 interpolate.py article $* > $@
+	pandoc --read=markdown --write=html --mathjax articles/$*.md | python3 interpolate.py $(BUILD_DIR) $@ article $*
 
 
 .PHONY: resume

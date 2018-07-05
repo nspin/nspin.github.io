@@ -1,14 +1,8 @@
 import sys
+import os.path
 from jinja2 import Environment, FileSystemLoader, Markup
 
 import articles
-
-env = Environment(loader=FileSystemLoader('.'))
-
-def include_raw(path):
-    return Markup(env.loader.get_source(env, path)[0])
-
-env.globals['include_raw'] = include_raw
 
 def article_by_id(article_id):
     for article in articles.articles:
@@ -16,31 +10,52 @@ def article_by_id(article_id):
             return article
     raise Exception('invalid article id: ' + article_id)
 
-def do_page(template_name):
-    env.get_template(template_name).stream().dump(sys.stdout)
+class Interpolator(object):
 
-def do_article(article_id):
-    article = article_by_id(article_id)
-    with open('articles/{}.md'.format(article_id), 'r') as f:
-        body = f.read()
-    env.get_template('templates/article.html').stream({
-        'meta': article,
-        'body': sys.stdin.read(),
-    }).dump(sys.stdout)
+    def __init__(self, build_dir, output_path):
+        self.build_dir = build_dir
+        self.output_path = output_path
+        self.env = Environment(loader=FileSystemLoader('.'))
+        def include_raw(path):
+            return Markup(self.env.loader.get_source(self.env, path)[0])
+        self.env.globals['include_raw'] = include_raw
 
-def do_articles():
-    env.get_template('templates/articles.html').stream({
-        'articles': articles.articles,
-    }).dump(sys.stdout)
+    def interpolate(self, template_name, data):
+        def path_to(abs_path):
+            assert abs_path.startswith('/')
+            rel_path = os.path.relpath(self.build_dir + abs_path, os.path.dirname(self.output_path))
+            sys.stderr.write('[interpolate] in {}, {} is {}\n'.format(os.path.join('/', os.path.relpath(self.output_path, self.build_dir)), abs_path, rel_path))
+            return rel_path
+        with open(self.output_path, 'w') as f:
+            self.env.get_template(template_name).stream(dict(path_to=path_to, **data)).dump(f)
+
+    def page(self, template_name):
+        self.interpolate(template_name, {})
+
+    def article(self, article_id):
+        self.interpolate('templates/article.html', {
+            'meta': article_by_id(article_id),
+            'body': sys.stdin.read(),
+        })
+
+    def articles(self):
+        self.interpolate('templates/articles.html', {
+            'articles': articles.articles,
+        })
 
 def main():
-    op = sys.argv[1]
+    build_dir = sys.argv[1]
+    output_path = sys.argv[2]
+    op = sys.argv[3]
+    interpolator = Interpolator(build_dir, output_path)
     if op == 'page':
-        do_page(sys.argv[2])
+        template_name = sys.argv[4]
+        interpolator.page(template_name)
     elif op == 'article':
-        do_article(sys.argv[2])
+        article_id = sys.argv[4]
+        interpolator.article(article_id)
     elif op == 'articles':
-        do_articles()
+        interpolator.articles()
     else:
         exit('! invalid op')
 

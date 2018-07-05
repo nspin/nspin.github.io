@@ -3,8 +3,8 @@
 {% block title %}Home{% endblock %}
 
 {% block before %}
-    <link rel="stylesheet" type="text/css" href="/css/index.css">
-    <link rel="stylesheet" href="/third-party/fontawesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ path_to('/css/index.css') }}">
+    <link rel="stylesheet" href="{{ path_to('/third-party/fontawesome/css/fontawesome-all.min.css') }}">
 {% endblock %}
 
 {% block content %}
@@ -15,7 +15,7 @@
 
     <div id="contact" class="small-center">
         <div id="contact-left">
-            <img id="portrait" src="/images/portrait.jpg" alt="Portrait">
+            <img id="portrait" src="{{ path_to('/images/portrait.jpg') }}" alt="Portrait">
         </div>
         <div id="contact-right">
             <p>
@@ -73,7 +73,7 @@
 
       <pre><code>Fingerprint:  4192 C799 FA1E 646F 55F6  FAD5 2EE5 D25E 181E BD4B
 
-<a class="pgp-info" href="/nickspinale-181EBD4B-public.asc">{{ include_raw('static/nickspinale-181EBD4B-public.asc') }}</a></code></pre>
+<a class="pgp-info" href="{{ path_to('/nickspinale-181EBD4B-public.asc') }}">{{ include_raw('static/nickspinale-181EBD4B-public.asc') }}</a></code></pre>
 
     </div>
 
