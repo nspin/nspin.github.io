@@ -15,6 +15,8 @@ clean:
 
 
 dir_guard = @mkdir -p $(@D)
+interpolate = python3 interpolate.py $(BUILD_DIR) $@
+
 
 $(STATIC_TARGS): $(BUILD_DIR)/%: static/%
 	$(dir_guard)
@@ -22,17 +24,18 @@ $(STATIC_TARGS): $(BUILD_DIR)/%: static/%
 
 $(BUILD_DIR)/%: pages/% templates/content.html interpolate.py
 	$(dir_guard)
-	python3 interpolate.py $(BUILD_DIR) $@ page $<
+	$(interpolate) page $<
 
 $(BUILD_DIR)/articles.html: templates/content.html templates/articles.html interpolate.py articles.py
 	$(dir_guard)
-	python3 interpolate.py $(BUILD_DIR) $@ articles
+	$(interpolate) articles
 
 $(BUILD_DIR)/articles/%.html: articles/%.md templates/content.html templates/article.html interpolate.py articles.py
 	$(dir_guard)
-	pandoc --read=markdown --write=html --mathjax articles/$*.md | python3 interpolate.py $(BUILD_DIR) $@ article $*
+	pandoc --read=markdown --write=html --mathjax articles/$*.md | $(interpolate) article $*
 
 
 .PHONY: resume
 resume:
-	cp ../resume/nick-spinale-resume.pdf $(BUILD_DIR)/resume.pdf
+	cp ../resume/nick-spinale-resume.pdf static/resume.pdf
+	cp static/resume.pdf $(BUILD_DIR)

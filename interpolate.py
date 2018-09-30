@@ -24,7 +24,7 @@ class Interpolator(object):
         def path_to(abs_path):
             assert abs_path.startswith('/')
             rel_path = os.path.relpath(self.build_dir + abs_path, os.path.dirname(self.output_path))
-            sys.stderr.write('[interpolate] in {}, {} is {}\n'.format(os.path.join('/', os.path.relpath(self.output_path, self.build_dir)), abs_path, rel_path))
+            # sys.stderr.write('[interpolate] in {}, {} is {}\n'.format(os.path.join('/', os.path.relpath(self.output_path, self.build_dir)), abs_path, rel_path))
             return rel_path
         with open(self.output_path, 'w') as f:
             self.env.get_template(template_name).stream(dict(path_to=path_to, **data)).dump(f)
@@ -48,16 +48,7 @@ def main():
     output_path = sys.argv[2]
     op = sys.argv[3]
     interpolator = Interpolator(build_dir, output_path)
-    if op == 'page':
-        template_name = sys.argv[4]
-        interpolator.page(template_name)
-    elif op == 'article':
-        article_id = sys.argv[4]
-        interpolator.article(article_id)
-    elif op == 'articles':
-        interpolator.articles()
-    else:
-        exit('! invalid op')
+    getattr(interpolator, op)(*sys.argv[4:])
 
 if __name__ == '__main__':
     main()
