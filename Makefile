@@ -1,12 +1,12 @@
 BUILD_DIR     := _build
 
-STATIC_TARGS  := $(patsubst static/%,$(BUILD_DIR)/%,$(shell find static/ -type f -not -path '*/\.*'))
-PAGE_TARGS    := $(patsubst pages/%,$(BUILD_DIR)/%,$(wildcard pages/*))
-MD_TARGS      := $(patsubst md/%.md,$(BUILD_DIR)/%.html,$(wildcard md/*))
-ARTICLE_TARGS := $(patsubst articles/%.md,$(BUILD_DIR)/articles/%.html,$(wildcard articles/*))
-ALL_TARGS     := $(STATIC_TARGS) $(PAGE_TARGS) $(MD_TARGS) $(ARTICLE_TARGS) $(BUILD_DIR)/articles.html
+STATIC_TARGS  := $(patsubst static/%,$(BUILD_DIR)/%,$(shell find static -type f -not -path '*/\.*'))
+HTML_TARGS    := $(patsubst dynamic/%.html,$(BUILD_DIR)/%.html,$(shell find dynamic -name '*.html'))
+MD_TARGS      := $(patsubst dynamic/%.md,$(BUILD_DIR)/%.html,$(shell find dynamic -name '*.md'))
+ALL_TARGS     := $(STATIC_TARGS) $(HTML_TARGS) $(MD_TARGS) $(BUILD_DIR)/articles.html
 
-TEMPLATES     := $(wildcard templates/*)
+ARTICLE_SRCS  := $(wildcard dynamic/articles/*.html)
+TEMPLATES     := $(wildcard templates/*.html)
 
 
 .PHONY: all
@@ -25,19 +25,15 @@ $(STATIC_TARGS): $(BUILD_DIR)/%: static/%
 	$(dir_guard)
 	cp $< $@
 
-$(BUILD_DIR)/%.html: pages/%.html $(TEMPLATES) interpolate.py
+$(BUILD_DIR)/%.html: dynamic/%.html $(TEMPLATES) interpolate.py
 	$(dir_guard)
-	$(interpolate) page $<
+	$(interpolate) html $<
 
-$(BUILD_DIR)/%.html: md/%.md $(TEMPLATES) interpolate.py
+$(BUILD_DIR)/%.html: dynamic/%.md $(TEMPLATES) interpolate.py
 	$(dir_guard)
 	$(interpolate) md $<
 
-$(BUILD_DIR)/articles/%.html: articles/%.md $(TEMPLATES) interpolate.py
-	$(dir_guard)
-	$(interpolate) article $<
-
-$(BUILD_DIR)/articles.html: $(ARTICLE_TARGS) $(TEMPLATES) interpolate.py
+$(BUILD_DIR)/articles.html: $(ARTICLE_SRCS) $(TEMPLATES) interpolate.py
 	$(dir_guard)
 	$(interpolate) articles
 

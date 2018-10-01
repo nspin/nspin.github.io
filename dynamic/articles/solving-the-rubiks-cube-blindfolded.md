@@ -1,4 +1,5 @@
 ---
+template: templates/article.html
 title: Solving the Rubik's Cube Blindfolded
 desc: A math-based explanation from scratch.
 date: 2018-02-02
