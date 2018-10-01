@@ -21,7 +21,7 @@ dir_guard = @mkdir -p $(@D)
 interpolate = python3 interpolate.py $(BUILD_DIR) $@
 
 
-$(STATIC_TARGS): $(BUILD_DIR)/%: static/%
+$(BUILD_DIR)/%: static/%
 	$(dir_guard)
 	cp $< $@
 
