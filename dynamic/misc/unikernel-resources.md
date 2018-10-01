@@ -11,7 +11,7 @@ I can't think of a good single sentence definition of the word "unikernel". Ther
 
 However, just because that's such an unsatisfying introduction, here are a few single-sentence approximations of what a unikernel is, none of which capture the whole picture:
 
-- A unikernel is a “library operating system”. That is, it's a library that serves as the interface between application code and the metal, thus, in some sense, serving as an operating system.
+- A unikernel is a "library operating system". That is, it's a library that serves as the interface between application code and the metal, thus, in some sense, serving as an operating system.
 - A unikernel is an application that interfaces directly with the metal. That is, an application that runs without an operating system.
 - A unikernel is to the hypervisor as a userspace process is to a microkernel.
 
@@ -21,11 +21,11 @@ Before anything else, one must understand the basic activities of kernel code, i
 
 - What environment is provided to it by the hardware?
 - What does it need to do to set itself up?
-- What abstractions does it provide to its “clients” (userspace programs)?
+- What abstractions does it provide to its "clients" (userspace programs)?
     - Specifically, what environment does it provide to its clients?
     - How does it provide that environment?
 
-Modern architectures (x86*, Arm*-A) are quite complicated (esp. the former). The best to approach these questions that I've found is by starting with a simple architecture. The Arm-v{7,8}-M architectures lack virtual memory (an important part of the environment a kernel provides to its clients), but studying them is a great way to approach all of this.
+Modern architectures (x86\*, Arm\*-A) are quite complicated (esp. the former). The best to approach these questions that I've found is by starting with a simple architecture. The Arm-v{7,8}-M architectures lack virtual memory (an important part of the environment a kernel provides to its clients), but studying them is a great way to approach all of this.
 
 My recommendation is to learn about the Cortex-M3 processor (implements Arm-v7-M), then learn about virtual memory and page tables, and then learn about the the Linux boot process. I think that this would provide a good foundation.
 
@@ -56,7 +56,7 @@ This paper has a good section on page tables in x86.
 
 ## Microkernels
 
-There many ways to design an operating system kernel. Linux is a "monolithic kernel", meaning that the kernel itself (the program/trusted code that runs in a privileged execution mode) is big and contains all of the logic and drivers it needs. I'd recommend checking out the Linux “kernel module” system.
+There many ways to design an operating system kernel. Linux is a "monolithic kernel", meaning that the kernel itself (the program/trusted code that runs in a privileged execution mode) is big and contains all of the logic and drivers it needs. I'd recommend checking out the Linux "kernel module" system.
 
 In the microkernel design, code running in kernel space is kept to a minimum. Drivers, for example, run as userspace programs. This design has many benefits, including modularity and security. Device drivers are very complicated and are often not written by those who work on the kernel itself, and they are usually the most vulnerable components of an operating system. Having them run in userspace reduces the kernel's exposure to vulnerabilities in drivers.
 
@@ -65,7 +65,7 @@ There are at least two microkernels worth looking at:
 - In the early days, Linux and Minix were battling for a spot in the mainstream. Minix was (and still is) a microkernel, and is worth reading about.
 - L4 is a specification for a microkernel. It has a "formally verified" implementation (SeL4), which is very cool, and illustrates a security benefit of modularity (the core you have to worry about is smaller, so you can do crazy things like formally verify it).
 
-Checking out these microkernels, along with a Google search of “microkernel” should do the trick. The ideas here aren't too crazy with a good foundation from the last section.
+Checking out these microkernels, along with a Google search of "microkernel" should do the trick. The ideas here aren't too crazy with a good foundation from the last section.
 
 ## Hypervisors
 
