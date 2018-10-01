@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Nick Spinale - Unikernel Resources</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Personal website of Nick Spinale.">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-86175905-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+        <link rel="stylesheet" type="text/css" href="css/base.css">
+
+
+    
+    
+
+
+    </head>
+    <body>
+        <div id="top-level">
+            <div id="navigation">
+                <div id="navigation-content">
+                    <a href="."><div id="navigation-logo"><h2 class="navigation-header">Nick Spinale</h2></div></a>
+                    <div id="navigation-list">
+                        <a class="navigation-entry" href="articles.html">Articles</a>
+                        <a class="navigation-entry" href="projects.html">Projects</a>
+                        <a class="navigation-entry" href="resume.pdf">Resume</a>
+                    </div>
+                </div>
+            </div>
+            <div id="content">
+
+
+    <h1 id="unikernel-resources">Unikernel Resources</h1>
+<h2 id="introduction">Introduction</h2>
+<p>I can’t think of a good single sentence definition of the word “unikernel”. There are a few different ways to think about what a unikernel is, and I think it’s best to arrive at an understanding after gathering the necessary background.</p>
+<p>However, just because that’s such an unsatisfying introduction, here are a few single-sentence approximations of what a unikernel is, none of which capture the whole picture:</p>
+<ul>
+<li>A unikernel is a “library operating system”. That is, it’s a library that serves as the interface between application code and the metal, thus, in some sense, serving as an operating system.</li>
+<li>A unikernel is an application that interfaces directly with the metal. That is, an application that runs without an operating system.</li>
+<li>A unikernel is to the hypervisor as a userspace process is to a microkernel.</li>
+</ul>
+<h2 id="kernels-in-general">Kernels in general</h2>
+<p>Before anything else, one must understand the basic activities of kernel code, in the “usual” sense of a kernel, running on actual bare metal (no hypervisor - but we haven’t talked about hypervisors yet). That is, system code running at a privileged execution level (whatever that means for the architecture at hand: ring 0 for x86-64, EL1 for Arm, etc.):</p>
+<ul>
+<li>What environment is provided to it by the hardware?</li>
+<li>What does it need to do to set itself up?</li>
+<li>What abstractions does it provide to its “clients” (userspace programs)?
+<ul>
+<li>Specifically, what environment does it provide to its clients?</li>
+<li>How does it provide that environment?</li>
+</ul></li>
+</ul>
+<p>Modern architectures (x86<em>, Arm</em>-A) are quite complicated (esp. the former). The best to approach these questions that I’ve found is by starting with a simple architecture. The Arm-v{7,8}-M architectures lack virtual memory (an important part of the environment a kernel provides to its clients), but studying them is a great way to approach all of this.</p>
+<p>My recommendation is to learn about the Cortex-M3 processor (implements Arm-v7-M), then learn about virtual memory and page tables, and then learn about the the Linux boot process. I think that this would provide a good foundation.</p>
+<p>Here are some resources:</p>
+<h4 id="cortex-m3">Cortex-M3</h4>
+<p><a href="https://www.amazon.com/Definitive-Guide-Cortex%C2%AE-M3-Cortex%C2%AE-M4-Processors/dp/0124080820">The Definitive Guide to ARM Cortex-M3 and Cortex-M4 Processors</a>: A very well-written book. I could only find old editions online, but I own a hard copy and would be more than happy to lend it out.</p>
+<h4 id="virtual-memory">Virtual Memory</h4>
+<p><a href="http://ac.aua.am/Arm/Public/2017-Spring-Computer-Organization/Textbooks/ComputerOrganizationAndDesign5thEdition2014.pdf">Computer Organization and Design</a>: The book from Org and Arch at Carleton. This book has lots of good info on the hardware-software interface, including paging and virtual memory.</p>
+<p><a href="https://www.akkadia.org/drepper/cpumemory.pdf" class="uri">https://www.akkadia.org/drepper/cpumemory.pdf</a>: This paper has a good section on page tables in x86.</p>
+<h4 id="linux-boot-process">Linux Boot Process</h4>
+<p><a href="https://en.wikipedia.org/wiki/Linux_startup_process" class="uri">https://en.wikipedia.org/wiki/Linux_startup_process</a></p>
+<p><a href="https://www.ibm.com/developerworks/library/l-linuxboot/" class="uri">https://www.ibm.com/developerworks/library/l-linuxboot/</a></p>
+<p><a href="https://www.ibm.com/developerworks/library/l-initrd/" class="uri">https://www.ibm.com/developerworks/library/l-initrd/</a></p>
+<p>(Recursive) Google search</p>
+<h2 id="microkernels">Microkernels</h2>
+<p>There many ways to design an operating system kernel. Linux is a “monolithic kernel”, meaning that the kernel itself (the program/trusted code that runs in a privileged execution mode) is big and contains all of the logic and drivers it needs. I’d recommend checking out the Linux “kernel module” system.</p>
+<p>In the microkernel design, code running in kernel space is kept to a minimum. Drivers, for example, run as userspace programs. This design has many benefits, including modularity and security. Device drivers are very complicated and are often not written by those who work on the kernel itself, and they are usually the most vulnerable components of an operating system. Having them run in userspace reduces the kernel’s exposure to vulnerabilities in drivers.</p>
+<p>There are at least two microkernels worth looking at:</p>
+<ul>
+<li>In the early days, Linux and Minix were battling for a spot in the mainstream. Minix was (and still is) a microkernel, and is worth reading about.</li>
+<li>L4 is a specification for a microkernel. It has a “formally verified” implementation (SeL4), which is very cool, and illustrates a security benefit of modularity (the core you have to worry about is smaller, so you can do crazy things like formally verify it).</li>
+</ul>
+<p>Checking out these microkernels, along with a Google search of “microkernel” should do the trick. The ideas here aren’t too crazy with a good foundation from the last section.</p>
+<h2 id="hypervisors">Hypervisors</h2>
+<p>The essential role of an operating system kernel is to provide an application with access to hardware resources. One way to view an application is a collection of cooperating threads of execution. Here, I mean thread of execution in the hardware sense - a context, the thing you context switch. In a typical deployment of an application running on Linux, you</p>
+<h2 id="unikernels">Unikernels</h2>
+<p>p</p>
+
+
+
+            </div>
+        </div>
+    </body>
+</html>
