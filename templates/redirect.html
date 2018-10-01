@@ -1,0 +1,17 @@
+{% extends 'templates/content.html' %}
+
+{% block title %}Redirecting...{% endblock %}
+
+{% block before %}
+    <meta http-equiv="refresh" content="0; url={{ path_to(target) }}">
+    <script>
+        window.location.href = "{{ path_to(target) }}"
+    </script>
+{% endblock %}
+
+{% block content %}
+    <h1>Redirecting...</h1>
+    <p>
+        If you are not redirected automatically, click <a href="{{ path_to(target) }}">here</a>
+    <p>
+{% endblock %}

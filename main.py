@@ -17,7 +17,7 @@ def compile_md(md_path):
     return {
         'meta': meta,
         'body': body
-    }
+        }
 
 class Interpolator(object):
 
@@ -54,6 +54,11 @@ class Interpolator(object):
         self.interpolate('templates/articles.html', {
             'articles': list(sorted(go(), key=lambda x: x['meta']['date'], reverse=True)),
         })
+
+    def redirect(self, target):
+        self.interpolate('templates/redirect.html', {
+            'target': target
+            })
 
 def main():
     build_dir = sys.argv[1]

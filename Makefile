@@ -3,7 +3,8 @@ BUILD_DIR     := _build
 STATIC_TARGS  := $(patsubst static/%,$(BUILD_DIR)/%,$(shell find static -type f -not -path '*/\.*'))
 HTML_TARGS    := $(patsubst dynamic/%.html,$(BUILD_DIR)/%.html,$(shell find dynamic -name '*.html'))
 MD_TARGS      := $(patsubst dynamic/%.md,$(BUILD_DIR)/%.html,$(shell find dynamic -name '*.md'))
-ALL_TARGS     := $(STATIC_TARGS) $(HTML_TARGS) $(MD_TARGS) $(BUILD_DIR)/articles.html
+REDIR_TARGS   := $(patsubst redirects/%,$(BUILD_DIR)/%,$(shell find redirects -type f -not -path '*/\.*'))
+ALL_TARGS     := $(STATIC_TARGS) $(HTML_TARGS) $(MD_TARGS) $(REDIR_TARGS) $(BUILD_DIR)/articles.html
 
 ARTICLE_SRCS  := $(wildcard dynamic/articles/*.html)
 TEMPLATES     := $(wildcard templates/*.html)
@@ -36,6 +37,10 @@ $(BUILD_DIR)/%.html: dynamic/%.md $(TEMPLATES) main.py
 $(BUILD_DIR)/articles.html: $(ARTICLE_SRCS) $(TEMPLATES) main.py
 	$(dir_guard)
 	$(py) articles
+
+$(BUILD_DIR)/%: redirects/% $(TEMPLATES) main.py
+	$(dir_guard)
+	$(py) redirect $(shell cat $<)
 
 
 .PHONY: resume
