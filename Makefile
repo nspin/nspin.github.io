@@ -18,24 +18,24 @@ clean:
 
 
 dir_guard = @mkdir -p $(@D)
-interpolate = python3 interpolate.py $(BUILD_DIR) $@
+py = python3 main.py $(BUILD_DIR) $@
 
 
 $(BUILD_DIR)/%: static/%
 	$(dir_guard)
 	cp $< $@
 
-$(BUILD_DIR)/%.html: dynamic/%.html $(TEMPLATES) interpolate.py
+$(BUILD_DIR)/%.html: dynamic/%.html $(TEMPLATES) main.py
 	$(dir_guard)
-	$(interpolate) html $<
+	$(py) html $<
 
-$(BUILD_DIR)/%.html: dynamic/%.md $(TEMPLATES) interpolate.py
+$(BUILD_DIR)/%.html: dynamic/%.md $(TEMPLATES) main.py
 	$(dir_guard)
-	$(interpolate) md $<
+	$(py) md $<
 
-$(BUILD_DIR)/articles.html: $(ARTICLE_SRCS) $(TEMPLATES) interpolate.py
+$(BUILD_DIR)/articles.html: $(ARTICLE_SRCS) $(TEMPLATES) main.py
 	$(dir_guard)
-	$(interpolate) articles
+	$(py) articles
 
 
 .PHONY: resume
