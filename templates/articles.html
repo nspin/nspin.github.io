@@ -9,10 +9,10 @@
 {% for article in articles %}
     <a href="{{ path_to('/articles/{}.html'.format(article.id)) }}">
         <p>
-            {{ article.title }}
+            {{ article.meta.title }}
             <br>
             <span class="soft">
-                {{ article.date.__format__('%Y, %b %e') }} &mdash; {{ article.desc }}
+                {{ article.meta.date.__format__('%Y, %b %e') }} &mdash; {{ article.meta.desc }}
             </span>
         </p>
     </a>

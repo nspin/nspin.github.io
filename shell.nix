@@ -4,5 +4,6 @@ with import <nixpkgs> {}; stdenv.mkDerivation {
     pandoc
     python3
     python3Packages.jinja2
+    python3Packages.pyyaml
   ];
 }

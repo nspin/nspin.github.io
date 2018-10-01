@@ -1,14 +1,23 @@
+import re
 import sys
+import glob
 import os.path
+from subprocess import check_output
+
+import yaml
 from jinja2 import Environment, FileSystemLoader, Markup
 
-import articles
+def get_md_meta(md_path):
+    with open(md_path) as f:
+        return next(yaml.load_all(f))
 
-def article_by_id(article_id):
-    for article in articles.articles:
-        if article.id == article_id:
-            return article
-    raise Exception('invalid article id: ' + article_id)
+def compile_md(md_path):
+    meta = get_md_meta(md_path)
+    body = check_output(['pandoc', '--read=markdown', '--write=html', '--mathjax', md_path], encoding='utf8')
+    return {
+        'meta': meta,
+        'body': body
+    }
 
 class Interpolator(object):
 
@@ -24,7 +33,6 @@ class Interpolator(object):
         def path_to(abs_path):
             assert abs_path.startswith('/')
             rel_path = os.path.relpath(self.build_dir + abs_path, os.path.dirname(self.output_path))
-            # sys.stderr.write('[interpolate] in {}, {} is {}\n'.format(os.path.join('/', os.path.relpath(self.output_path, self.build_dir)), abs_path, rel_path))
             return rel_path
         with open(self.output_path, 'w') as f:
             self.env.get_template(template_name).stream(dict(path_to=path_to, **data)).dump(f)
@@ -32,15 +40,23 @@ class Interpolator(object):
     def page(self, template_name):
         self.interpolate(template_name, {})
 
-    def article(self, article_id):
-        self.interpolate('templates/article.html', {
-            'meta': article_by_id(article_id),
-            'body': sys.stdin.read(),
-        })
+    def md(self, md_path):
+        result = compile_md(md_path)
+        self.interpolate(result['meta']['template'], result)
+
+    def article(self, md_path):
+        result = compile_md(md_path)
+        self.interpolate('templates/article.html', result)
 
     def articles(self):
+        def go():
+            for md_path in glob.glob('articles/*.md'):
+                yield {
+                    'meta': get_md_meta(md_path),
+                    'id': re.compile(r'articles/(.*)\.md').match(md_path).group(1)
+                    }
         self.interpolate('templates/articles.html', {
-            'articles': articles.articles,
+            'articles': list(sorted(go(), key=lambda x: x['meta']['date'], reverse=True)),
         })
 
 def main():

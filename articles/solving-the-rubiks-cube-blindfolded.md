@@ -1,3 +1,10 @@
+---
+title: Solving the Rubik's Cube Blindfolded
+desc: A math-based explanation from scratch.
+date: 2018-02-02
+has_math: true
+...
+
 Solving the cube blindfolded is a meditative exercise. Contrary to what you might expect, it doesn't even require an above-average memory. All that's necessary is a solid understanding of the basic properties of the cube, and some practice.
 
 This article doesn't assume any knowledge of cube theory, but a reader will find some basic undergraduate math (e.g. group theory) useful.
