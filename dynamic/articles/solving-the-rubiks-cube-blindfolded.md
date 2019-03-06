@@ -6,9 +6,9 @@ date: 2018-02-02
 has_math: true
 ...
 
-Solving the cube blindfolded is a meditative exercise. Contrary to what you might expect, it doesn't even require an above-average memory. All that's necessary is a solid understanding of the basic properties of the cube, and some practice.
+Solving the cube blindfolded isn't as hard as you'd expect. All that's necessary is a solid understanding of the basic properties of the cube, and some practice.
 
-This article doesn't assume any knowledge of cube theory, but a reader will find some basic undergraduate math (e.g. group theory) useful.
+This article doesn't assume any knowledge of cube theory, but a reader will find some undergraduate math (e.g. group theory) useful.
 
 Furthermore, this article is not a tutorial, but rather an in-depth exploration.
 
@@ -20,8 +20,6 @@ Furthermore, this article is not a tutorial, but rather an in-depth exploration.
 * You inspect the cube (the *memorization* phase)
 * You don the blindfold
 * You solve the cube (the *execution* phase)
-
-It's that simple.
 
 ### Notation
 
