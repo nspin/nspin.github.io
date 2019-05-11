@@ -13,7 +13,7 @@ It doesn't seem as though much has been done with XHB yet.
 In fact, at the time of writing (Aug 22, 2016), exactly two packages on Hackage depend on xhb.
 Nevertheless, I believe it hold great promise in the future of X programming in Haskell.
 
-I've been working on a set of libraries that allows for layers of abstraction to be staked on top of the low-level xhb bindings.
+I've been working on a set of libraries that allows for layers of abstraction to be stacked on top of the low-level xhb bindings.
 This post will become more fleshed out as I find time to finish up and document the actual libraries, but here's an overview.
 
 ## xhb-requests
