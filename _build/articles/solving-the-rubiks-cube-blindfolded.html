@@ -66,10 +66,10 @@
 <li><code>F</code>ront</li>
 <li><code>B</code>ack</li>
 </ul>
-<p>Each face contains 9 stickers locations. A sticker location is either a center (at the center of the face), an edge (adjascent to the center by an edge), or a corner (adjascent to the center by a corner). We specify sticker locations of each type differently:</p>
+<p>Each face contains 9 stickers locations. A sticker location is either a center (at the center of the face), an edge (adjacent to the center by an edge), or a corner (adjacent to the center by a corner). We specify sticker locations of each type differently:</p>
 <ul>
 <li>Center stickers are specified by the face they lie on (e.g. <code>L</code> is the sticker location at the center of the <code>L</code> face).</li>
-<li>Edge stickers are specified by the face they lie on, and then the face they boarder (e.g. <code>LU</code> is the sticker location on the <code>L</code> face adjascent the the <code>U</code> face).</li>
+<li>Edge stickers are specified by the face they lie on, and then the face they boarder (e.g. <code>LU</code> is the sticker location on the <code>L</code> face adjacent the the <code>U</code> face).</li>
 <li>Corner stickers are specified by the face they lie on, and then the two faces they boarder, in clockwise order around the corner piece (e.g. <code>LUF</code> is the sticker location on the <code>L</code> that boarders both the <code>U</code> and <code>F</code> faces).</li>
 </ul>
 <p>The cube is composed of 26 piece locations. Center piece locations contain one sticker location, edges two, and corners three. One sticker location on each piece location is designated as the primay sticker location, which we use to specify that piece location. Primary sticker locations are determined as follows:</p>

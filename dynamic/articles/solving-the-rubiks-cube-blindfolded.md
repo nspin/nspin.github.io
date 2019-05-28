@@ -33,11 +33,11 @@ The cube has 6 faces:
 * `B`ack
 
 Each face contains 9 stickers locations.
-A sticker location is either a center (at the center of the face), an edge (adjascent to the center by an edge), or a corner (adjascent to the center by a corner).
+A sticker location is either a center (at the center of the face), an edge (adjacent to the center by an edge), or a corner (adjacent to the center by a corner).
 We specify sticker locations of each type differently:
 
 * Center stickers are specified by the face they lie on (e.g. `L` is the sticker location at the center of the `L` face).
-* Edge stickers are specified by the face they lie on, and then the face they boarder (e.g. `LU` is the sticker location on the `L` face adjascent the the `U` face).
+* Edge stickers are specified by the face they lie on, and then the face they boarder (e.g. `LU` is the sticker location on the `L` face adjacent the the `U` face).
 * Corner stickers are specified by the face they lie on, and then the two faces they boarder, in clockwise order around the corner piece (e.g. `LUF` is the sticker location on the `L` that boarders both the `U` and `F` faces).
 
 The cube is composed of 26 piece locations.
