@@ -36,6 +36,11 @@ a[href] {
     border-bottom: 1px solid #555;
 }
 
+.fake-a {
+    color: #000;
+    border-bottom: 1px solid #555;
+}
+
 ul {
     padding-left: 18px;
 }

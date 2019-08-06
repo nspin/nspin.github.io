@@ -9,10 +9,9 @@
 <div class="project-list">
 
   <p>
-    This is an incomplete list of libraries, tools, and experiments I’ve worked on.
-    Most exist for for personal use or educational purposes.
+    This is an incomplete list of libraries, tools, and experiments I’ve worked on outside of work.
     Some are well documented, others are not.
-    All can be found on my <a href="https://github.com/nspin">GitHub</a> page.
+    Most can be found on my <a href="https://github.com/nspin">GitHub</a> page.
   </p>
 
   <h2>Newer</h2>
@@ -33,18 +32,58 @@
 
   <ul>
     <li>
-      <a href="https://github.com/nspin/synthol">synthol</a>
-      - Unikernel base layer for Xen based on musl-libc and the HaLVM runtime.
+      <a href="https://github.com/nspin/regl">regl</a>
+      - Haskell library for applicative-style regular expressions.
+        Features uncommon yet useful primitives such as regular expression complement and disjunction.
+        Based on regular expression derivatives.
     </li>
   </ul>
 
   <ul>
+    <li>
+      <a href="https://github.com/nspin/synthol">synthol</a>
+      - Unikernel base layer for Xen based on musl-libc and the HaLVM runtime (abandoned).
+    </li>
+  </ul>
+
+  <h2>Soon-to-be open source</h2>
+
+  <ul>
+    <li>
+      <span class=fake-a>pyxendbg</span>
+      - GDB server for virtual machine introspection under Xen. Inspired by <a href=https://github.com/nccgroup/xendbg>xendbg</a>, but with Arm in mind.
+        Designed for debugging paravirtutalized unikernel guests.
+    </li>
+  </ul>
+  
+  <ul>
+    <li>
+      <span class=fake-a>gboot</span>
+      - `kexec` implemented in pure Go, with some extra flexibility.
+        Designed to boot a type 1 hypervisor such as Xen or Hafnium.
+    </li>
+  </ul>
+  
+  <ul>
+    <li>
+      <span class=fake-a>Isabelle + Nix</span>
+      - The Isabelle developers suggest that trying to repackage, let alone port, Isabelle would be insane:
+        <a href=https://mailman46.in.tum.de/pipermail/isabelle-dev/2019-June/016943.html>[1]</a>
+        <a href=https://mailman46.in.tum.de/pipermail/isabelle-dev/2019-June/016945.html>[2]</a>.
+        Nix provides a realistic and satisfying means to such a port.
+        To prove it, I've used Nix to port Isabelle to Arm.
+    </li>
+  </ul>
+
+  <h2>Older</h2>
+
+  <ul>
+    <li><a href="https://github.com/nspin/chuck-compositions">chuck-compositions</a> - Some bad music written in the strongly-timed programming language ChucK</li>
     <li><a href="https://github.com/nspin/routor">routor</a> - Tor controller that allows paths to be chosen on a stream-by-stream basis.</li>
     <li><a href="https://github.com/nspin/uttyl">uttyl</a> - Some useful tty/pty-related hacks.</li>
-    <li><a href="https://github.com/nspin/botnet">botnet</a> - Infrastructure for an experimental JavaScript botnet.</li>
-    <li><a href="https://github.com/nspin/bus-data">bus-data</a> - Code used to reverse engineer a compressed and obfuscated AJAX protocol.</li>
-    <li><a href="https://github.com/nspin/leftpad.ko">leftpad.ko</a> - The infamous leftPad() implemented as a kernel module.</li>
-    {# <li><a href="https://github.com/nspin/vim-signed-local-rc">vim-signed-local-rc</a> - Vim plugin for loading an RSA-signed project-local vimrc.</li> #}
+    <!-- <li><a href="https://github.com/nspin/botnet">botnet</a> - Infrastructure for an experimental JavaScript botnet.</li> -->
+    <!-- <li><a href="https://github.com/nspin/bus-data">bus-data</a> - Code used to reverse engineer a compressed and obfuscated AJAX protocol.</li> -->
+    <!-- <li><a href="https://github.com/nspin/leftpad.ko">leftpad.ko</a> - The infamous leftPad() implemented as a kernel module.</li> -->
   </ul>
 
   <p>For <a href="https://github.com/nspin/wmonad">wmonad</a> (<a href="{{ path_to('/articles/pure-x11-logic-in-haskell.html') }}">article about these libraries</a>):</p>
@@ -55,11 +94,6 @@
     <li><a href="https://github.com/nspin/xhb-mapping-state">xhb-mapping-state</a> - Monad transformer over xhb-monad for keeping track of key, mod, and pointer mappings.</li>
   </ul>
 
-  <h2>Older</h2>
-
-  <ul>
-    <li><a href="https://github.com/nspin/chuck-compositions">chuck-compositions</a> - Some bad music written in the strongly-timed programming language ChucK</li>
-  </ul>
   <p>Haskell libraries:</p>
   <ul>
     <li><a href="https://github.com/nspin/bigword">bigword</a> - Library for treating bit arrays with statically known size as heterogeneous Church-encoded vectors.</li>
@@ -70,14 +104,14 @@
     <li><a href="https://github.com/nspin/24-bit">24-bit</a> - Word24 and Int24 types, build from GHC.Prim.</li>
     {# <li><a href="https://github.com/nspin/rc4">rc4</a> - The RC4 stream cipher implemented in pure Haskell.</li> #}
   </ul>
-  <p>Hackathon projects:</p>
-  <ul>
-    <li><a href="https://github.com/nspin/git-audio">git-audio</a> - Allows a developer to record and play back verbal commit messages.</li>
-  </ul>
-  <p>Fun things:</p>
-  <ul>
-    <li><a href="https://www.twitch.tv/twitchpokemongo">TwitchPlaysPokemonGo</a> - A Pokemon Go playing bot that was a meme for a short period of time. Created with some 2016 <a href="http://hackny.org">hackNY</a> fellows.</li>
-  </ul>
+  <!-- <p>Hackathon projects:</p> -->
+  <!-- <ul> -->
+  <!--   <li><a href="https://github.com/nspin/git-audio">git-audio</a> - Allows a developer to record and play back verbal commit messages.</li> -->
+  <!-- </ul> -->
+  <!-- <p>Fun things:</p> -->
+  <!-- <ul> -->
+  <!--   <li><a href="https://www.twitch.tv/twitchpokemongo">TwitchPlaysPokemonGo</a> - A Pokemon Go playing bot that was a meme for a short period of time. Created with some 2016 <a href="http://hackny.org">hackNY</a> fellows.</li> -->
+  <!-- </ul> -->
 
 </div>
 
