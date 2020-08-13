@@ -5,3 +5,4 @@
 * local mathjax, but keep version up to date with pandoc
 * switch to gcp once gcp load balancer supports managed certs
 * no js
+* projects -> activity
