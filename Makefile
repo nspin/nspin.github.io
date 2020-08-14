@@ -23,7 +23,7 @@ clean: auxclean
 
 .PHONY: auxclean
 auxclean:
-	-rm -f $(addprefix dynamic/resume/main.,aux log out)
+	-rm -f $(addprefix resume/main.,aux log out)
 
 
 dir_guard = @mkdir -p $(@D)
@@ -51,7 +51,7 @@ $(BUILD_DIR)/articles.html: $(ARTICLE_SRCS) $(TEMPLATES) main.py
 	$(dir_guard)
 	$(py) articles
 
-$(BUILD_DIR)/resume.pdf: dynamic/resume/main.tex dynamic/resume/resume.cls
+$(BUILD_DIR)/resume.pdf: resume/main.tex resume/resume.cls
 	$(dir_guard)
 	TEXINPUTS=$(<D):$$TEXINPUTS $(latex) --output-dir=$(<D) $<
 	mv $(patsubst %.tex,%.pdf,$<) $@
