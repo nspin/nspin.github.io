@@ -2,6 +2,8 @@ import re
 import sys
 import glob
 import os.path
+from datetime import datetime
+from pathlib import Path
 from subprocess import check_output
 
 import yaml
@@ -64,6 +66,67 @@ class Interpolator(object):
         self.interpolate('templates/redirect.html', {
             'target': target
             })
+
+    def sitemap(self, root, include_yaml, exclude_yaml, *html):
+        def load_yaml(path):
+            with open(path) as f:
+                return yaml.load(f, Loader=yaml.FullLoader)
+        def exclude(path):
+            for clude in load_yaml(path):
+                yield re.compile(clude)
+        def include(path):
+            for clude in load_yaml(path):
+                assert len(clude) == 1
+                clude, info = next(iter(clude.items()))
+                yield re.compile(clude), info
+        include = list(include(include_yaml))
+        exclude = list(exclude(exclude_yaml))
+
+        paths = {}
+        for path, mtime in http_paths():
+            skip = False
+            for r in exclude:
+                if r.fullmatch(path) is not None:
+                    skip = True
+                    break
+            if skip:
+                continue
+            for r, info in include:
+                if r.fullmatch(path) is not None:
+                    if path not in paths:
+                        paths[path] = {
+                            'lastmod': mtime,
+                            'images': [],
+                            }
+                    if info is not None:
+                        if 'priority' in info:
+                            paths[path]['priority'] = info['priority']
+                        if 'images' in info:
+                            for image_path, image_info in info['images'].items():
+                                loc = root + image_path
+                                paths[path]['images'].append(dict(loc=loc, **image_info))
+
+        def urls():
+            for path, info in paths.items():
+                loc = root + path
+                yield dict(loc=loc, **info)
+
+        self.interpolate('templates/sitemap.xml', {
+            'urls': urls(),
+            })
+
+def http_paths():
+    build = Path('_build')
+    for root, dirs, files in os.walk(build):
+        root = Path(root)
+        for f in files:
+            path = root / f
+            mtime = path.stat().st_mtime
+            mtime = datetime.utcfromtimestamp(mtime).isoformat(timespec='seconds')
+            path = '/' + str(path.relative_to(build))
+            if path.endswith('/index.html'):
+                path = path.rsplit('index.html', 1)[0]
+            yield path, mtime
 
 def main():
     build_dir = sys.argv[1]
