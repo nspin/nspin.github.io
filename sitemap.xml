@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    
+    <url>
+        <loc>https://nickspinale.com/</loc>
+        <lastmod>2020-08-14T23:04:43</lastmod>
+        <priority>1.0</priority>
+        
+        <image:image>
+            <image:loc>https://nickspinale.com/images/portrait.jpg</image:loc>
+            <image:title>Nick Spinale</image:title>
+            <image:caption>Nick Spinale</image:caption>
+        </image:image>
+        
+    </url>
+    
+    <url>
+        <loc>https://nickspinale.com/articles.html</loc>
+        <lastmod>2020-08-14T23:04:45</lastmod>
+        
+        
+    </url>
+    
+    <url>
+        <loc>https://nickspinale.com/resume.pdf</loc>
+        <lastmod>2020-08-14T17:38:58</lastmod>
+        
+        
+    </url>
+    
+    <url>
+        <loc>https://nickspinale.com/portfolio.html</loc>
+        <lastmod>2020-08-14T23:04:43</lastmod>
+        
+        
+    </url>
+    
+    <url>
+        <loc>https://nickspinale.com/misc/unikernel-resources.html</loc>
+        <lastmod>2020-08-14T23:04:44</lastmod>
+        
+        
+    </url>
+    
+    <url>
+        <loc>https://nickspinale.com/articles/unikernel-resources.html</loc>
+        <lastmod>2020-08-14T23:04:43</lastmod>
+        
+        
+    </url>
+    
+    <url>
+        <loc>https://nickspinale.com/articles/solving-the-rubiks-cube-blindfolded.html</loc>
+        <lastmod>2020-08-14T23:04:44</lastmod>
+        
+        
+    </url>
+    
+    <url>
+        <loc>https://nickspinale.com/articles/pure-x11-logic-in-haskell.html</loc>
+        <lastmod>2020-08-14T23:04:44</lastmod>
+        
+        
+    </url>
+    
+</urlset>
