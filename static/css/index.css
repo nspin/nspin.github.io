@@ -15,8 +15,9 @@
     text-align: left;
 }
 
-a.contact-entry {
-    border: none;
+#content a[href].contact-entry {
+    color: #333;
+    text-decoration: none;
 }
 
 a.pgp-info {

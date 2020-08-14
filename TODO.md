@@ -7,3 +7,8 @@
 * no js
 * projects -> activity
 * shrink portrait
+* article abstracts:
+    - foo-article.md/
+        - head.md
+        - body.md
+* articles -> blog

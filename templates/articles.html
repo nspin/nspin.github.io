@@ -18,4 +18,21 @@
     </a>
 {% endfor %}
 
+{#
+{% for article in articles %}
+    <a class="no-ul" href="{{ path_to('/articles/{}.html'.format(article.id)) }}">
+        <h3>
+            {{ article.meta.title }}
+            <span class="soft">
+                &mdash;
+                {{ article.meta.date.__format__('%Y, %b %e') }}
+            </span>
+        </h3>
+        <p>
+            {{ article.meta.desc }}
+        </p>
+    </a>
+{% endfor %}
+#}
+
 {% endblock %}
