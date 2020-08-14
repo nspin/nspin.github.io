@@ -1,40 +1,10 @@
-<!doctype html>
-<html>
-    <head>
-        <title>Nick Spinale - Projects</title>
-        <meta charset="utf-8">
-        <meta name="description" content="Personal website of Nick Spinale.">
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-            ga('create', 'UA-86175905-1', 'auto');
-            ga('send', 'pageview');
-        </script>
-        <link rel="stylesheet" type="text/css" href="css/base.css">
+{% extends 'templates/content.html' %}
 
+{% block title %}Portfolio{% endblock %}
 
+{% block content %}
 
-    </head>
-    <body>
-        <div id="top-level">
-            <div id="navigation">
-                <div id="navigation-content">
-                    <a href="."><div id="navigation-logo"><h2 class="navigation-header">Nick Spinale</h2></div></a>
-                    <div id="navigation-list">
-                        <a class="navigation-entry" href="articles.html">Articles</a>
-                        <a class="navigation-entry" href="projects.html">Portfolio</a>
-                        <a class="navigation-entry" href="resume.pdf">Resume</a>
-                    </div>
-                </div>
-            </div>
-            <div id="content">
-
-
-
-<h1>Projects</h1>
+<h1>Portfolio</h1>
 
 <div class="project-list">
 
@@ -123,7 +93,7 @@
     <!-- <li><a href="https://github.com/nspin/leftpad.ko">leftpad.ko</a> - The infamous leftPad() implemented as a kernel module.</li> -->
   </ul>
 
-  <p>For <a href="https://github.com/nspin/wmonad">wmonad</a> (<a href="articles/pure-x11-logic-in-haskell.html">article about these libraries</a>):</p>
+  <p>For <a href="https://github.com/nspin/wmonad">wmonad</a> (<a href="{{ path_to('/articles/pure-x11-logic-in-haskell.html') }}">article about these libraries</a>):</p>
   <ul>
     <li><a href="https://github.com/nspin/xhb-monad">xhb-monad</a> - Monad transformer for <a href="https://hackage.haskell.org/package/xhb">xhb</a> server connections.</li>
     <li><a href="https://github.com/nspin/xhb-requests">xhb-requests</a> - Classes and generated instances for a uniform interface to <a href="https://hackage.haskell.org/package/xhb">xhb</a>.</li>
@@ -139,7 +109,7 @@
     <li><a href="https://github.com/nspin/n-vector">n-vector</a> - Fixed-length unboxed vectors.</li>
     <li><a href="https://github.com/nspin/recall">recall</a> - A typeclass for memoization, based on a paper by Simon Peyton Jones.</li>
     <li><a href="https://github.com/nspin/24-bit">24-bit</a> - Word24 and Int24 types, build from GHC.Prim.</li>
-    
+    {# <li><a href="https://github.com/nspin/rc4">rc4</a> - The RC4 stream cipher implemented in pure Haskell.</li> #}
   </ul>
   <!-- <p>Hackathon projects:</p> -->
   <!-- <ul> -->
@@ -152,9 +122,4 @@
 
 </div>
 
-
-
-            </div>
-        </div>
-    </body>
-</html>
+{% endblock %}
