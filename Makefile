@@ -10,7 +10,7 @@ MD_TARGS      := $(patsubst dynamic/%.md,$(BUILD_DIR)/%.html,$(shell find dynami
 
 ALL_TARGS     := $(STATIC_TARGS) $(REDIR_TARGS) $(HTML_TARGS) $(MD_TARGS) $(EXTRA_TARGS) 
 
-ARTICLE_SRCS  := $(wildcard dynamic/articles/*.html)
+ARTICLES      := $(wildcard articles/*.md)
 TEMPLATES     := $(wildcard templates/*.html)
 
 
@@ -47,7 +47,7 @@ $(BUILD_DIR)/%.html: dynamic/%.md $(TEMPLATES) main.py
 	$(dir_guard)
 	$(py) md $<
 
-$(BUILD_DIR)/articles.html: $(ARTICLE_SRCS) $(TEMPLATES) main.py
+$(BUILD_DIR)/articles.html: $(ARTICLES) $(TEMPLATES) main.py
 	$(dir_guard)
 	$(py) articles
 

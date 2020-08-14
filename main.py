@@ -45,12 +45,16 @@ class Interpolator(object):
         result = compile_md(md_path)
         self.interpolate(result['meta']['template'], result)
 
+    # HACK
     def articles(self):
         def go():
-            for md_path in glob.glob('dynamic/articles/*.md'):
+            for summary_path in glob.glob('articles/*.md'):
+                article_id = re.compile(r'articles/(.*)\.md').match(summary_path).group(1)
+                article_path = 'dynamic/articles/{}.md'.format(article_id)
                 yield {
-                    'meta': get_md_meta(md_path),
-                    'id': re.compile(r'dynamic/articles/(.*)\.md').match(md_path).group(1)
+                    'meta': get_md_meta(article_path),
+                    'id': article_id,
+                    'body': compile_md(summary_path)['body'],
                     }
         self.interpolate('templates/articles.html', {
             'articles': list(sorted(go(), key=lambda x: x['meta']['date'], reverse=True)),

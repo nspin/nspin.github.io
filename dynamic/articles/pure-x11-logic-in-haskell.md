@@ -1,7 +1,6 @@
 ---
 template: templates/article.html
 title: Pure X11 Logic in Haskell
-desc: A set of libraries providing a pure interface to XHB.
 date: 2016-07-22
 ...
 
