@@ -1,4 +1,5 @@
 {% extends 'templates/content.html' %}
+{% set navigation_current = "articles" %}
 
 {% block title %} Articles {% endblock %}
 
@@ -8,7 +9,8 @@
 
 {% block content %}
 
-<h1>Articles</h1>
+<!-- <h1>Articles</h1> -->
+<h1></h1>
 
     <hr class="article-div">
 {% for article in articles %}

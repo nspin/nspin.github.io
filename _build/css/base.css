@@ -17,13 +17,14 @@ body {
     /*font-family: serif;*/
 }
 
-h1, h2, h3, h4 {
-    /*font-family: medium-content-sans-serif-font, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;*/
-}
+/* h1, h2, h3, h4 { */
+/*     font-family: "Lucida Grande", Geneva, Arial, sans-serif; */
+/* } */
 
-h1, h2 {
-    font-weight: normal;
-}
+/* h1, h2 { */
+/* h1 { */
+/*     font-weight: normal; */
+/* } */
 
 h1 { font-size: 28px; }
 h2 { font-size: 25px; }
@@ -74,6 +75,21 @@ pre code {
 
 /* *** */
 
+a.navigation-entry-current span.navigation-entry-text {
+    /* text-decoration: underline; */
+    /* border: 1px solid #000; */
+    background-color: #ddd;
+}
+
+/* a.navigation-entry span { */
+/*     /1* text-decoration: underline; *1/ */
+/*     border: 1px solid #fff; */
+/* } */
+
+#navigation h2 {
+    font-weight: normal;
+}
+
 a.navigation-entry {
     color: #333;
     border-bottom: none;
@@ -84,9 +100,9 @@ a.navigation-entry {
     padding-bottom: 12px;
 }
 
-#content h2 {
-    border-bottom: 1px solid #aaa;
-}
+/* #content h2 { */
+/*     border-bottom: 1px solid #aaa; */
+/* } */
 
 /* *** */
 

@@ -24,9 +24,10 @@
                 <div id="navigation-content">
                     <a href="{{ path_to('/') }}"><div id="navigation-logo"><h2 class="navigation-header">Nick Spinale</h2></div></a>
                     <div id="navigation-list">
-                        <a class="navigation-entry" href="{{ path_to('/articles.html') }}">Articles</a>
-                        <a class="navigation-entry" href="{{ path_to('/portfolio.html') }}">Portfolio</a>
-                        <a class="navigation-entry" href="{{ path_to('/resume.pdf') }}">Resume</a>
+                        <a class="navigation-entry {% if navigation_current == "about" %} navigation-entry-current {% endif %}" href="{{ path_to('/') }}"><span class="navigation-entry-text">Home</span></a>
+                        <a class="navigation-entry {% if navigation_current == "articles" %} navigation-entry-current {% endif %}" href="{{ path_to('/articles.html') }}"><span class="navigation-entry-text">Articles</span></a>
+                        <a class="navigation-entry {% if navigation_current == "portfolio" %} navigation-entry-current {% endif %}" href="{{ path_to('/portfolio.html') }}"><span class="navigation-entry-text">Portfolio</span></a>
+                        <a class="navigation-entry" href="{{ path_to('/resume.pdf') }}"><span class="navigation-entry-text">Resume</span></a>
                     </div>
                 </div>
             </div>
