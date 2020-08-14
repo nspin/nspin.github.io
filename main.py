@@ -9,7 +9,7 @@ from jinja2 import Environment, FileSystemLoader, Markup
 
 def get_md_meta(md_path):
     with open(md_path) as f:
-        return next(yaml.load_all(f))
+        return next(yaml.load_all(f, Loader=yaml.FullLoader))
 
 def compile_md(md_path):
     meta = get_md_meta(md_path)
