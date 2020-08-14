@@ -122,7 +122,7 @@ def http_paths():
         for f in files:
             path = root / f
             mtime = path.stat().st_mtime
-            mtime = datetime.utcfromtimestamp(mtime).isoformat(timespec='seconds')
+            mtime = datetime.utcfromtimestamp(mtime).isoformat(timespec='seconds') + '+00:00' # TODO HACK
             path = '/' + str(path.relative_to(build))
             if path.endswith('/index.html'):
                 path = path.rsplit('index.html', 1)[0]
