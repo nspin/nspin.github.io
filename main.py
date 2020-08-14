@@ -29,13 +29,14 @@ class Interpolator(object):
             return Markup(self.env.loader.get_source(self.env, path)[0])
         self.env.globals['include_raw'] = include_raw
 
+    def path_to(self, abs_path):
+        assert abs_path.startswith('/')
+        rel_path = os.path.relpath(self.build_dir + abs_path, os.path.dirname(self.output_path))
+        return rel_path
+
     def interpolate(self, template_name, data):
-        def path_to(abs_path):
-            assert abs_path.startswith('/')
-            rel_path = os.path.relpath(self.build_dir + abs_path, os.path.dirname(self.output_path))
-            return rel_path
         with open(self.output_path, 'w') as f:
-            self.env.get_template(template_name).stream(dict(path_to=path_to, **data)).dump(f)
+            self.env.get_template(template_name).stream(dict(path_to=self.path_to, **data)).dump(f)
 
     def html(self, template_name):
         self.interpolate(template_name, {})
