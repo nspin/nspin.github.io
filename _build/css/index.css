@@ -16,12 +16,14 @@
 }
 
 a.contact-entry {
+    text-decoration: none;
     color: #333;
 }
 
-a.contact-entry:hover {
-    color: rgb(6, 69, 173);
-    text-decoration: none;
+@media (hover: hover) {
+  a.contact-entry:hover {
+      color: rgb(6, 69, 173);
+  }
 }
 
 @media all and (max-width: 739px) {
