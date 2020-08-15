@@ -7,3 +7,9 @@
         '/images/portrait.jpg':
             title: "Nick Spinale"
             caption: "Nick Spinale"
+- '/portfolio.html':
+    priority: 0.8
+- '/articles.html':
+    priority: 0.8
+- '/resume.html':
+    priority: 0.8
