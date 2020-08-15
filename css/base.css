@@ -27,8 +27,10 @@ a {
     color: rgb(6, 69, 173);
 }
 
-a:hover {
+@media (hover: hover) {
+  a:hover {
     text-decoration: underline;
+  }
 }
 
 ul {
@@ -69,8 +71,10 @@ pre code {
     color: #333;
 }
 
-#navigation a:hover {
-    color: rgb(6, 69, 173);
+@media (hover: hover) {
+  #navigation a:hover {
+      color: rgb(6, 69, 173);
+  }
 }
 
 a.navigation-entry-current span {

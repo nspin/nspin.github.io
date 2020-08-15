@@ -3,11 +3,14 @@ h3.article-title {
 }
 
 a.article-title {
+    text-decoration: none;
     color: #000;
 }
 
-a.article-title:hover {
-    color: rgb(6, 69, 173);
+@media (hover: hover) {
+  a.article-title:hover {
+      color: rgb(6, 69, 173);
+  }
 }
 
 a.read-more {
