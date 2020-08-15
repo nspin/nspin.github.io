@@ -22,14 +22,7 @@ Furthermore, this article is not a tutorial, but rather an in-depth exploration.
 
 ### Notation
 
-The cube has 6 faces:
-
-* `U`p
-* `D`own
-* `L`eft
-* `R`ight
-* `F`ront
-* `B`ack
+The cube has 6 faces: `U`p, `D`own, `L`eft, `R`ight, `F`ront, and `B`ack.
 
 Each face contains 9 stickers locations.
 A sticker location is either a center (at the center of the face), an edge (adjacent to the center by an edge), or a corner (adjacent to the center by a corner).
