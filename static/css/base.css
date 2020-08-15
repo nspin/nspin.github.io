@@ -62,12 +62,16 @@ pre code {
     font-weight: normal;
 }
 
+#navigation h2 a {
+    outline: none;
+}
+
 #navigation a {
     text-decoration: none;
     color: #000;
 }
 
-#navigation a.navigation-entry {
+#navigation span.navigation-entry a {
     color: #333;
 }
 
@@ -75,9 +79,12 @@ pre code {
   #navigation a:hover {
       color: rgb(6, 69, 173);
   }
+  #navigation span.navigation-entry a:hover {
+      color: rgb(6, 69, 173);
+  }
 }
 
-a.navigation-entry-current span {
+#navigation a.navigation-entry-current {
     text-decoration: underline;
 }
 
@@ -104,7 +111,7 @@ a.navigation-entry-current span {
         line-height: 1;
     }
 
-    a.navigation-entry {
+    span.navigation-entry {
         margin-top: 6px;
         margin-bottom: 6px;
         display: block;
@@ -150,7 +157,7 @@ a.navigation-entry-current span {
         line-height: 1;
     }
 
-    a.navigation-entry {
+    span.navigation-entry {
         margin-left: 6px;
         margin-right: 6px;
     }
