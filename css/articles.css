@@ -2,16 +2,16 @@ h3.article-title {
     margin-bottom: 0px;
 }
 
-a.article-title {
-    text-decoration: none;
-    color: #000;
-}
+/* a.article-title { */
+/*     text-decoration: none; */
+/*     color: #000; */
+/* } */
 
-@media (hover: hover) {
-  a.article-title:hover {
-      color: rgb(6, 69, 173);
-  }
-}
+/* @media (hover: hover) { */
+/*   a.article-title:hover { */
+/*       color: rgb(6, 69, 173); */
+/*   } */
+/* } */
 
 a.read-more {
     text-transform: uppercase;
