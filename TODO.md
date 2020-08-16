@@ -9,3 +9,4 @@
 * sans serif for headers
 * template function for compiling markdown
 * outer h1 line height = 1 to align with logo
+* consider light headers with border-bottom
