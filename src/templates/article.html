@@ -4,9 +4,7 @@
 
 {% block before %}
     <link rel="stylesheet" type="text/css" href="{{ path_to('/css/article.css') }}">
-    {% if meta.has_math %}
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
-    {% endif %}
+    {{ pandoc_before }}
 {% endblock %}
 
 {% block content %}

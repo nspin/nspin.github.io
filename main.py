@@ -15,9 +15,13 @@ def get_md_meta(md_path):
 
 def compile_md(md_path):
     meta = get_md_meta(md_path)
-    body = check_output(['pandoc', '--read=markdown', '--write=html', '--highlight-style', 'pygments', '--mathjax', md_path], encoding='utf8')
+    args = ('pandoc', '--read=markdown', '--write=html', '--highlight-style', 'pygments', '--mathjax', md_path)
+    body = check_output(args, encoding='utf8')
+    # TODO HACK
+    before = check_output(args + ('--metadata', 'title=x', '--template=src/pandoc.html'), encoding='utf8')
     return {
         'meta': meta,
+        'pandoc_before': before,
         'body': body
         }
 
