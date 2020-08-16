@@ -1,71 +1,78 @@
-BUILD_DIR     := _build
+BUILD_DIR     := _site
+SRC_DIR       := src
+TMP_DIR       := _tmp
 
 EXTRA_TARGS   := $(BUILD_DIR)/articles.html $(BUILD_DIR)/resume.pdf \
                  $(BUILD_DIR)/robots.txt $(BUILD_DIR)/sitemap.xml
 
-STATIC_TARGS  := $(patsubst static/%,$(BUILD_DIR)/%,$(shell find static -type f -not -path '*/\.*'))
-REDIR_TARGS   := $(patsubst redirects/%,$(BUILD_DIR)/%,$(shell find redirects -type f -not -path '*/\.*'))
+STATIC_TARGS  := $(patsubst $(SRC_DIR)/static/%,$(BUILD_DIR)/%,$(shell find $(SRC_DIR)/static -type f -not -path '*/\.*'))
+REDIR_TARGS   := $(patsubst $(SRC_DIR)/redirects/%,$(BUILD_DIR)/%,$(shell find $(SRC_DIR)/redirects -type f -not -path '*/\.*'))
 
-HTML_TARGS    := $(patsubst dynamic/%.html,$(BUILD_DIR)/%.html,$(shell find dynamic -name '*.html'))
-MD_TARGS      := $(patsubst dynamic/%.md,$(BUILD_DIR)/%.html,$(shell find dynamic -name '*.md'))
+HTML_TARGS    := $(patsubst $(SRC_DIR)/dynamic/%.html,$(BUILD_DIR)/%.html,$(shell find $(SRC_DIR)/dynamic -name '*.html'))
+MD_TARGS      := $(patsubst $(SRC_DIR)/dynamic/%.md,$(BUILD_DIR)/%.html,$(shell find $(SRC_DIR)/dynamic -name '*.md'))
 
 ALL_TARGS     := $(STATIC_TARGS) $(REDIR_TARGS) $(HTML_TARGS) $(MD_TARGS) $(EXTRA_TARGS) 
 
-ARTICLES      := $(wildcard articles/*.md)
-TEMPLATES     := $(wildcard templates/*.html)
+ARTICLES      := $(wildcard $(SRC_DIR)/articles/*.md)
+TEMPLATES     := $(wildcard $(SRC_DIR)/templates/*.html)
 
-ROOT          := $(file <robots/root.txt)
+ROOT          := $(file <$(SRC_DIR)/robots/root.txt)
+
+
+dir_guard = @mkdir -p $(@D)
+py = python3 main.py $(BUILD_DIR) $(SRC_DIR) $(http_path)
+latex = lualatex
+
+
+in_tmp = $(patsubst $(SRC_DIR)/%,$(TMP_DIR)/%,$(1))
+in_site = $(patsubst $(SRC_DIR)/%,$(BUILD_DIR)/%,$(1))
+
+rel_to_src = $(patsubst $(SRC_DIR)/%,%,$(1))
+rel_to_build = $(patsubst $(BUILD_DIR)/%,%,$(1))
+http_path = /$(call rel_to_build,$@)
 
 
 .PHONY: all
 all: $(ALL_TARGS)
 
 .PHONY: clean
-clean: auxclean
-	-rm -rf $(BUILD_DIR)
-
-.PHONY: auxclean
-auxclean:
-	-rm -f $(addprefix resume/main.,aux log out)
+clean:
+	-rm -rf $(BUILD_DIR) $(TMP_DIR)
 
 
-dir_guard = @mkdir -p $(@D)
-py = python3 main.py $(BUILD_DIR) $@
-latex = lualatex
-
-
-$(BUILD_DIR)/%: static/%
+$(BUILD_DIR)/%: $(SRC_DIR)/static/%
 	$(dir_guard)
 	cp $< $@
 
-$(BUILD_DIR)/%: redirects/% $(TEMPLATES) main.py
+$(BUILD_DIR)/%: $(SRC_DIR)/redirects/% $(TEMPLATES) main.py
 	$(dir_guard)
 	$(py) redirect $(shell cat $<)
 
-$(BUILD_DIR)/%.html: dynamic/%.html $(TEMPLATES) main.py
+$(BUILD_DIR)/%.html: $(SRC_DIR)/dynamic/%.html $(TEMPLATES) main.py
 	$(dir_guard)
-	$(py) html $<
+	$(py) html $(call rel_to_src,$<)
 
-$(BUILD_DIR)/%.html: dynamic/%.md $(TEMPLATES) main.py
+$(BUILD_DIR)/%.html: $(SRC_DIR)/dynamic/%.md $(TEMPLATES) main.py
 	$(dir_guard)
-	$(py) md $<
+	$(py) md $(call rel_to_src,$<)
 
 $(BUILD_DIR)/articles.html: $(ARTICLES) $(TEMPLATES) main.py
 	$(dir_guard)
 	$(py) articles
 
-$(BUILD_DIR)/resume.pdf: resume/main.tex resume/resume.cls
+$(BUILD_DIR)/resume.pdf: $(SRC_DIR)/resume/main.tex $(SRC_DIR)/resume/resume.cls
 	$(dir_guard)
-	TEXINPUTS=$(<D):$$TEXINPUTS $(latex) --output-dir=$(<D) $<
-	mv $(patsubst %.tex,%.pdf,$<) $@
+	mkdir -p $(call in_tmp,$(<D))
+	TEXINPUTS=$(<D):$$TEXINPUTS $(latex) --output-dir=$(call in_tmp,$(<D)) $<
+	mv $(patsubst %.tex,%.pdf,$(call in_tmp,$<)) $@
 
-$(BUILD_DIR)/robots.txt: robots/robots.txt.in robots/root.txt
+$(BUILD_DIR)/robots.txt: $(SRC_DIR)/robots/robots.txt.in $(SRC_DIR)/robots/root.txt
 	$(dir_guard)
 	sed "s|@ROOT@|$(ROOT)|g" $< > $@
 
-SITEMAP_YAML := robots/include.yaml robots/exclude.yaml
+SITEMAP_YAML := $(SRC_DIR)/robots/include.yaml $(SRC_DIR)/robots/exclude.yaml
 SITEMAP_PATHS := $(filter-out $(BUILD_DIR)/sitemap.xml,$(ALL_TARGS))
 
-$(BUILD_DIR)/sitemap.xml: $(SITEMAP_YAML) main.py robots/root.txt templates/sitemap.xml $(SITEMAP_PATHS)
+$(BUILD_DIR)/sitemap.xml: $(SITEMAP_YAML) main.py $(SRC_DIR)/robots/root.txt $(SRC_DIR)/templates/sitemap.xml $(SITEMAP_PATHS)
 	$(dir_guard)
 	$(py) sitemap $(ROOT) $(SITEMAP_YAML)

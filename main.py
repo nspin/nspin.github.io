@@ -1,7 +1,7 @@
 import re
+import os
 import sys
-import glob
-import os.path
+from os.path import relpath
 from datetime import datetime
 from pathlib import Path
 from subprocess import check_output
@@ -23,36 +23,49 @@ def compile_md(md_path):
 
 class Interpolator(object):
 
-    def __init__(self, build_dir, output_path):
+    def __init__(self, build_dir, src_dir, output_path):
         self.build_dir = build_dir
+        self.src_dir = src_dir
         self.output_path = output_path
-        self.env = Environment(loader=FileSystemLoader('.'))
-        def include_raw(path):
-            return Markup(self.env.loader.get_source(self.env, path)[0])
-        self.env.globals['include_raw'] = include_raw
+
+        self.env = Environment(loader=FileSystemLoader(self.src_dir))
+        self.env.globals['include_raw'] = self.include_raw
+        self.env.globals['path_to'] = self.path_to
+
+    # template env
+
+    def include_raw(self, path):
+        return Markup(self.env.loader.get_source(self.env, path)[0])
 
     def path_to(self, abs_path):
-        assert abs_path.startswith('/')
-        rel_path = os.path.relpath(self.build_dir + abs_path, os.path.dirname(self.output_path))
-        return rel_path
+        abs_path = Path(abs_path)
+        assert abs_path.is_absolute()
+        return relpath(abs_path, self.output_path.parent)
+
+    # utils
+
+    def real_output_path(self):
+        return self.build_dir / self.output_path.relative_to(self.output_path.root)
 
     def interpolate(self, template_name, data):
-        with open(self.output_path, 'w') as f:
-            self.env.get_template(template_name).stream(dict(path_to=self.path_to, **data)).dump(f)
+        with self.real_output_path().open('w') as f:
+            self.env.get_template(template_name).stream(data).dump(f)
+
+    # ops
 
     def html(self, template_name):
         self.interpolate(template_name, {})
 
     def md(self, md_path):
-        result = compile_md(md_path)
+        result = compile_md(self.src_dir / md_path)
         self.interpolate(result['meta']['template'], result)
 
     # HACK
     def articles(self):
         def go():
-            for summary_path in glob.glob('articles/*.md'):
-                article_id = re.compile(r'articles/(.*)\.md').match(summary_path).group(1)
-                article_path = 'dynamic/articles/{}.md'.format(article_id)
+            for summary_path in (self.src_dir / 'articles').glob('*.md'):
+                article_id = summary_path.stem
+                article_path = self.src_dir / 'dynamic/articles/{}.md'.format(article_id)
                 yield {
                     'meta': get_md_meta(article_path),
                     'id': article_id,
@@ -116,7 +129,7 @@ class Interpolator(object):
             })
 
 def http_paths():
-    build = Path('_build')
+    build = Path('_site')
     for root, dirs, files in os.walk(build):
         root = Path(root)
         for f in files:
@@ -129,11 +142,14 @@ def http_paths():
             yield path, mtime
 
 def main():
-    build_dir = sys.argv[1]
-    output_path = sys.argv[2]
-    op = sys.argv[3]
-    interpolator = Interpolator(build_dir, output_path)
-    getattr(interpolator, op)(*sys.argv[4:])
+    args = iter(sys.argv)
+    next(args)
+    build_dir = Path(next(args))
+    src_dir = Path(next(args))
+    output_path = Path(next(args))
+    op = next(args)
+    interpolator = Interpolator(build_dir, src_dir, output_path)
+    getattr(interpolator, op)(*args)
 
 if __name__ == '__main__':
     main()
