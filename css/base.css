@@ -43,13 +43,20 @@ pre {
     padding-left: 18px;
 }
 
-code {
-    background-color: #e7e7e0;
-}
+/* code { */
+/*     background-color: #e7e7e0; */
+/* } */
 
 pre code {
-    font-size: 16px;
-    background-color: transparent;
+    font-size: 15px;
+/*     background-color: transparent; */
+}
+
+div.sourceCode {
+    background-color: #fafafa;
+    border-color: #e0e0e0;
+    border-width: 1px;
+    border-style: solid;
 }
 
 .soft, .caption {
