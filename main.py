@@ -9,42 +9,73 @@ from subprocess import check_output
 import yaml
 from jinja2 import Environment, FileSystemLoader, Markup
 
+DEFAULT_PANDOC_CODE_STYLE = 'pygments'
+
 def get_md_meta(md_path):
     with open(md_path) as f:
         return next(yaml.load_all(f, Loader=yaml.FullLoader))
 
-def compile_md(md_path):
+def compile_md(md_path, code_style=DEFAULT_PANDOC_CODE_STYLE):
     meta = get_md_meta(md_path)
-    args = ('pandoc', '--read=markdown', '--write=html', '--highlight-style', 'pygments', '--mathjax', md_path)
+    args = ('pandoc', '--read=markdown', '--write=html', '--highlight-style', code_style, '--mathjax', md_path)
     body = check_output(args, encoding='utf8')
-    # TODO HACK
-    before = check_output(args + ('--metadata', 'title=x', '--template=src/pandoc.html'), encoding='utf8')
     return {
         'meta': meta,
-        'pandoc_before': before,
-        'body': body
+        'body': body,
+        'pandoc': {
+            'has_math': meta.get('has_math', False),
+            'has_code': True, # HACK
+            'code_style': code_style,
+            },
         }
+
+def wrap_css_tag(css):
+    return '<style>' + css + '</style>'
 
 class Interpolator(object):
 
     def __init__(self, build_dir, src_dir, output_path):
         self.build_dir = build_dir
         self.src_dir = src_dir
+        self.tmp_dir = Path('_tmp') # TODO
         self.output_path = output_path
 
         self.env = Environment(loader=FileSystemLoader(self.src_dir))
-        self.env.globals['include_raw'] = self.include_raw
         self.env.globals['path_to'] = self.path_to
+        self.env.globals['read_build'] = self.read_build
+        self.env.globals['read_src'] = self.read_src
+        self.env.globals['read_tmp'] = self.read_tmp
+        self.env.globals['include_pandoc_css_base'] = self.include_pandoc_css_base
+        self.env.globals['include_pandoc_css_code'] = self.include_pandoc_css_code
+        self.env.globals['include_pandoc_math'] = self.include_pandoc_math
 
     # template env
-
-    def include_raw(self, path):
-        return Markup(self.env.loader.get_source(self.env, path)[0])
 
     def path_to(self, abs_path):
         abs_path = Path(abs_path)
         assert abs_path.is_absolute()
         return relpath(abs_path, self.output_path.parent)
+
+    def read_tmp(self, path):
+        return (self.tmp_dir / path).read_text()
+
+    def read_src(self, path):
+        return (self.src_dir / path).read_text()
+
+    def read_build(self, path):
+        return (self.build_dir / path).read_text()
+
+    def include_pandoc_math(self):
+        return self.read_tmp('pandoc/math.fragment.html')
+
+    def include_pandoc_css_base(self):
+        return wrap_css_tag(self.read_build('css/pandoc/base.css'))
+
+    def include_pandoc_css_code(self, style):
+        return wrap_css_tag(self.read_build('css/pandoc/code.{}.css'.format(style)))
+
+    def include_pandoc_css_code_default(self):
+        return include_pandoc_css_code(DEFAULT_PANDOC_CODE_STYLE)
 
     # utils
 

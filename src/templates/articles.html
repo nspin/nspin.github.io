@@ -4,6 +4,7 @@
 {% block title %} Articles {% endblock %}
 
 {% block before %}
+    {{ super() }}
     <link rel="stylesheet" type="text/css" href="{{ path_to('/css/articles.css') }}">
 {% endblock %}
 

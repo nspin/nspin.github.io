@@ -2,8 +2,14 @@ BUILD_DIR     := _site
 SRC_DIR       := src
 TMP_DIR       := _tmp
 
-EXTRA_TARGS   := $(BUILD_DIR)/articles.html $(BUILD_DIR)/resume.pdf \
-                 $(BUILD_DIR)/robots.txt $(BUILD_DIR)/sitemap.xml
+HIGHLIGHT_STYLE := pygments
+
+PANDOC_CSS := $(BUILD_DIR)/css/pandoc/base.css $(BUILD_DIR)/css/pandoc/code.$(HIGHLIGHT_STYLE).css
+PANDOC_HELPERS := $(PANDOC_CSS) $(TMP_DIR)/pandoc/math.fragment.html
+
+EXTRA_TARGS   := $(BUILD_DIR)/robots.txt $(BUILD_DIR)/sitemap.xml \
+				 $(PANDOC_CSS) \
+				 $(BUILD_DIR)/articles.html $(BUILD_DIR)/resume.pdf
 
 STATIC_TARGS  := $(patsubst $(SRC_DIR)/static/%,$(BUILD_DIR)/%,$(shell find $(SRC_DIR)/static -type f -not -path '*/\.*'))
 REDIR_TARGS   := $(patsubst $(SRC_DIR)/redirects/%,$(BUILD_DIR)/%,$(shell find $(SRC_DIR)/redirects -type f -not -path '*/\.*'))
@@ -11,6 +17,7 @@ REDIR_TARGS   := $(patsubst $(SRC_DIR)/redirects/%,$(BUILD_DIR)/%,$(shell find $
 HTML_TARGS    := $(patsubst $(SRC_DIR)/dynamic/%.html,$(BUILD_DIR)/%.html,$(shell find $(SRC_DIR)/dynamic -name '*.html'))
 MD_TARGS      := $(patsubst $(SRC_DIR)/dynamic/%.md,$(BUILD_DIR)/%.html,$(shell find $(SRC_DIR)/dynamic -name '*.md'))
 
+# TODO assert no repeats
 ALL_TARGS     := $(STATIC_TARGS) $(REDIR_TARGS) $(HTML_TARGS) $(MD_TARGS) $(EXTRA_TARGS) 
 
 ARTICLES      := $(wildcard $(SRC_DIR)/articles/*.md)
@@ -40,6 +47,11 @@ clean:
 	-rm -rf $(BUILD_DIR) $(TMP_DIR)
 
 
+$(TMP_DIR)/pandoc/math.fragment.html: $(SRC_DIR)/pandoc/math.template $(SRC_DIR)/pandoc/math.md
+	$(dir_guard)
+	pandoc --read=markdown --write=html --metadata title=x --template=$^ > $@ --mathjax
+
+
 $(BUILD_DIR)/%: $(SRC_DIR)/static/%
 	$(dir_guard)
 	cp $< $@
@@ -48,17 +60,25 @@ $(BUILD_DIR)/%: $(SRC_DIR)/redirects/% $(TEMPLATES) main.py
 	$(dir_guard)
 	$(py) redirect $(shell cat $<)
 
-$(BUILD_DIR)/%.html: $(SRC_DIR)/dynamic/%.html $(TEMPLATES) main.py
+$(BUILD_DIR)/%.html: $(SRC_DIR)/dynamic/%.html $(TEMPLATES) main.py $(PANDOC_HELPERS)
 	$(dir_guard)
 	$(py) html $(call rel_to_src,$<)
 
-$(BUILD_DIR)/%.html: $(SRC_DIR)/dynamic/%.md $(TEMPLATES) main.py
+$(BUILD_DIR)/%.html: $(SRC_DIR)/dynamic/%.md $(TEMPLATES) main.py $(PANDOC_HELPERS)
 	$(dir_guard)
 	$(py) md $(call rel_to_src,$<)
 
-$(BUILD_DIR)/articles.html: $(ARTICLES) $(TEMPLATES) main.py
+$(BUILD_DIR)/articles.html: $(ARTICLES) $(TEMPLATES) main.py $(PANDOC_HELPERS)
 	$(dir_guard)
 	$(py) articles
+
+$(BUILD_DIR)/css/pandoc/base.css: $(SRC_DIR)/pandoc/style.template $(SRC_DIR)/pandoc/empty.md
+	$(dir_guard)
+	pandoc --read=markdown --write=html --metadata title=x --template=$^ > $@
+
+$(BUILD_DIR)/css/pandoc/code.%.css: $(SRC_DIR)/pandoc/style.template $(SRC_DIR)/pandoc/code.md
+	$(dir_guard)
+	pandoc --read=markdown --write=html --metadata title=x --template=$^ > $@ --highlight-style $*
 
 $(BUILD_DIR)/resume.pdf: $(SRC_DIR)/resume/main.tex $(SRC_DIR)/resume/resume.cls
 	$(dir_guard)
