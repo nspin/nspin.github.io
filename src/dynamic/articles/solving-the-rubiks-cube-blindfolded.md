@@ -106,7 +106,7 @@ This group is of particular interest because it contains exactly all of the real
 
 Below are the elements of the piece rearrangement group corresponding to the basic face turns:
 
-```
+```txt
                                                      o_e                               o_c
        \pi, \sigma, and \tau         UL UR UF UB DL DR DF DB FL FR BL BR ULB URF UFL UBR DLF DRB DFR DBL 
 U | (UL UB UR UF)(ULB UBR URF UFL) | 0  0  0  0  0  0  0  0  0  0  0  0 | 0   0   0   0   0   0   0   0
