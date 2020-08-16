@@ -1,4 +1,12 @@
-with import <nixpkgs> {}; stdenv.mkDerivation {
+let
+  nixpkgs = builtins.fetchGit {
+    url = "https://github.com/NixOS/nixpkgs";
+    ref = "master";
+    rev = "b7ddbd52bd1ab9365436573c0c5b6d1edcc1919f";
+  };
+in
+with import nixpkgs {};
+stdenv.mkDerivation {
   name = "env";
   buildInputs = [
     pandoc
