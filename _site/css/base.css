@@ -17,6 +17,14 @@ body {
 /*     font-family: "Lucida Grande", Geneva, Arial, sans-serif; */
 /* } */
 
+#content h1, #content h2 {
+    font-weight: normal;
+}
+
+#content h2 {
+    border-bottom: 1px solid #aaa;
+}
+
 h1 { font-size: 28px; }
 h2 { font-size: 25px; }
 h3 { font-size: 20px; }

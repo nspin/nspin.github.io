@@ -5,8 +5,12 @@
 - shrink portrait?
 - "more" in home
 - pbk in resume
-- wiki colors
+- awards in portfolio
+- better bg+fg colors
 - sans serif for headers
 - template function for compiling markdown
-- outer h1 line height = 1 to align with logo
+- special syntax for markdown chunks
+- src/dynamic/foo.html.d/{main.html,helper.md,helper.py}
+- first line top line-height = 1 to align top with top of logo
 - consider light headers with border-bottom
+- make this list private
