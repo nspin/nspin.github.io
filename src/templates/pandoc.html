@@ -2,12 +2,11 @@
 
 {% block before %}
     {{ super() }}
-    {% if pandoc.has_math %}
-        {{ include_pandoc_math() }}
-    {% endif %}
+    {{ include_pandoc_css_base() }}
     {% if pandoc.has_code %}
         {{ include_pandoc_css_code(pandoc.code_style) }}
-    {% else %}
-        {{ include_pandoc_css_base() }}
+    {% endif %}
+    {% if pandoc.has_math %}
+        {{ include_pandoc_math() }}
     {% endif %}
 {% endblock %}

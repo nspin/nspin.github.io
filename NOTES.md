@@ -1,0 +1,1 @@
+- keep //src/static/css/pandoc/base.css up to date with pandoc://data/templates/styles.html

@@ -4,8 +4,8 @@ TMP_DIR       := _tmp
 
 HIGHLIGHT_STYLE := pygments
 
-PANDOC_CSS := $(BUILD_DIR)/css/pandoc/base.css $(BUILD_DIR)/css/pandoc/code.$(HIGHLIGHT_STYLE).css
-PANDOC_HELPERS := $(PANDOC_CSS) $(TMP_DIR)/pandoc/math.fragment.html
+PANDOC_CSS := $(BUILD_DIR)/css/pandoc/code.$(HIGHLIGHT_STYLE).css
+PANDOC_HELPERS := $(PANDOC_CSS) $(BUILD_DIR)/css/pandoc/base.css $(TMP_DIR)/pandoc/math.fragment.html
 
 EXTRA_TARGS   := $(BUILD_DIR)/robots.txt $(BUILD_DIR)/sitemap.xml \
 				 $(PANDOC_CSS) \
@@ -72,11 +72,7 @@ $(BUILD_DIR)/articles.html: $(ARTICLES) $(TEMPLATES) main.py $(PANDOC_HELPERS)
 	$(dir_guard)
 	$(py) articles
 
-$(BUILD_DIR)/css/pandoc/base.css: $(SRC_DIR)/pandoc/style.template $(SRC_DIR)/pandoc/empty.md
-	$(dir_guard)
-	pandoc --read=markdown --write=html --metadata title=x --template=$^ > $@
-
-$(BUILD_DIR)/css/pandoc/code.%.css: $(SRC_DIR)/pandoc/style.template $(SRC_DIR)/pandoc/code.md
+$(BUILD_DIR)/css/pandoc/code.%.css: $(SRC_DIR)/pandoc/code.template $(SRC_DIR)/pandoc/code.md
 	$(dir_guard)
 	pandoc --read=markdown --write=html --metadata title=x --template=$^ > $@ --highlight-style $*
 
