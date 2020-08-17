@@ -98,13 +98,13 @@ class Interpolator(object):
     # HACK
     def articles(self):
         def go():
-            for summary_path in (self.src_dir / 'articles').glob('*.md'):
-                article_id = summary_path.stem
+            for preview_path in (self.src_dir / 'previews').glob('*.md'):
+                article_id = preview_path.stem
                 article_path = self.src_dir / 'dynamic/articles/{}.md'.format(article_id)
                 yield {
                     'meta': get_md_meta(article_path),
                     'id': article_id,
-                    'body': compile_md(summary_path)['body'],
+                    'body': compile_md(preview_path)['body'],
                     }
         self.interpolate('templates/articles.html', {
             'articles': list(sorted(go(), key=lambda x: x['meta']['date'], reverse=True)),
