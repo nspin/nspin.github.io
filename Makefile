@@ -42,6 +42,9 @@ http_path = /$(call rel_to_build,$@)
 .PHONY: all
 all: $(ALL_TARGS)
 
+.PHONY: most
+most: $(filter-out $(BUILD_DIR)/sitemap.xml,$(ALL_TARGS))
+
 .PHONY: clean
 clean:
 	-rm -rf $(BUILD_DIR) $(TMP_DIR)
