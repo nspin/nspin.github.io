@@ -23,7 +23,7 @@
         {{ article.meta.date.__format__('%Y, %b %e') }}
     </span>
     {{ article.body }}
-    <a href="{{ path_to('/articles/{}.html'.format(article.id)) }}" class="read-more">Read More</a>
+    <a href="{{ path_to('/articles/{}.html'.format(article.id)) }}" class="read-more">read more</a>
     <hr class="article-div">
 {% endfor %}
 

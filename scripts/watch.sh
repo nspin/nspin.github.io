@@ -2,8 +2,10 @@
 
 set -e
 
+targets=${@:-most}
+
 # lol
 while true; do
-    make most
+    make $targets
     sleep .2
-done | grep -v "make: Nothing to be done for 'all'."
+done | grep -Ev "make: (Nothing to be done for '[^']+'|'[^']+' is up to date)."

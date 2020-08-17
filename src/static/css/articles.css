@@ -14,8 +14,7 @@ h3.article-title {
 /* } */
 
 a.read-more {
-    text-transform: uppercase;
-    font-size: 14px;
+    font-variant: small-caps;
 }
 
 hr.article-div {
