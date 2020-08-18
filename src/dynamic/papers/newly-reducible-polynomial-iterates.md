@@ -4,7 +4,9 @@ title: Newly reducible polynomial iterates
 has_math: true
 ...
 
-## Newly reducible polynomial iterates
+<div style="text-align: center;">
+
+## Newly reducible polynomial iterates {.top-line-flush}
 
 _Peter Illig, Rafe Jones, Eli Orvis, Yukihiko Segawa, Nick Spinale_
 
@@ -12,7 +14,11 @@ _Peter Illig, Rafe Jones, Eli Orvis, Yukihiko Segawa, Nick Spinale_
 [[arXiv:2008.01222]](https://arxiv.org/abs/2008.01222)
 [doi coming soon]
 
+</div>
+
 ### Abstract
+
+<!-- _Abstract._ -->
 
 Given a field $K$ and $n > 1$, we say that a polynomial $f \in K[x]$ has
 newly reducible $n$th iterate over $K$ if $f^{n-1}$ is irreducible over $K$,

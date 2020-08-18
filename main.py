@@ -17,7 +17,7 @@ def get_md_meta(md_path):
 
 def compile_md(md_path, code_style=DEFAULT_PANDOC_CODE_STYLE):
     meta = get_md_meta(md_path)
-    args = ('pandoc', '--read=markdown', '--write=html', '--highlight-style', code_style, '--mathjax', md_path)
+    args = ('pandoc', '--read=markdown+raw_html', '--write=html', '--highlight-style', code_style, '--mathjax', md_path)
     body = check_output(args, encoding='utf8')
     return {
         'meta': meta,
