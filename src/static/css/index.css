@@ -1,3 +1,8 @@
+#contact {
+    /* TODO different when small */
+    margin-bottom: 26px;
+}
+
 #contact-left {
     padding-right: 20px;
     display: inline-block;
