@@ -51,6 +51,10 @@ div.sourceCode {
 
 /* *** */
 
+#content {
+  padding-bottom: 12px;
+}
+
 /* HACK */
 #content > :first-child {
     margin-top: 0px;
