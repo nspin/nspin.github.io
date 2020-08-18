@@ -9,10 +9,12 @@
 
 {% block content %}
 
-<h1 class="article-title">{{ meta.title }}</h1>
-<span class="soft">
-    {{ meta.date.__format__('%b %e, %Y') }}
-</span>
+<!-- <div class="header"> -->
+  <h1 class="article-title">{{ meta.title }}</h1>
+  <span class="soft">
+      {{ meta.date.__format__('%b %e, %Y') }}
+  </span>
+<!-- </div> -->
 <div class="article-body">
 
 {{ body }}

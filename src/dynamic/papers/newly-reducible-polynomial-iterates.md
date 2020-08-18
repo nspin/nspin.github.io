@@ -4,7 +4,7 @@ title: Newly reducible polynomial iterates
 has_math: true
 ...
 
-# Newly reducible polynomial iterates
+## Newly reducible polynomial iterates
 
 _Peter Illig, Rafe Jones, Eli Orvis, Yukihiko Segawa, Nick Spinale_
 
