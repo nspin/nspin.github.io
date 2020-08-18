@@ -45,6 +45,10 @@ div.sourceCode {
     color: #555;
 }
 
+.no-margin-top {
+    margin-bottom: 0px;
+}
+
 .no-margin-bottom {
     margin-bottom: 0px;
 }
@@ -238,6 +242,8 @@ div.sourceCode {
   .small-center {
     text-align: center;
   }
+
+  .top-line-flush { margin-top: 0px !important; }
 
 }
 
