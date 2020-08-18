@@ -12,8 +12,8 @@
 
     <hr class="article-div">
 {% for article in articles %}
-    <h3 class="article-title">
-        <a class="article-title" href="{{ path_to('/articles/{}.html'.format(article.id)) }}">
+    <h3 class="article-title no-margin-bottom">
+        <a href="{{ path_to('/articles/{}.html'.format(article.id)) }}">
             {{ article.meta.title }}
         </a>
     </h3>

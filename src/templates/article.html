@@ -2,19 +2,13 @@
 
 {% block title %}{{ meta.title }}{% endblock %}
 
-{% block before %}
-    {{ super() }}
-    <link rel="stylesheet" type="text/css" href="{{ path_to('/css/article.css') }}">
-{% endblock %}
-
 {% block content %}
 
-<!-- <div class="header"> -->
-  <h1 class="article-title">{{ meta.title }}</h1>
-  <span class="soft">
-      {{ meta.date.__format__('%b %e, %Y') }}
-  </span>
-<!-- </div> -->
+<h1 class="top-line-flush no-margin-bottom">{{ meta.title }}</h1>
+<span class="soft">
+    {{ meta.date.__format__('%b %e, %Y') }}
+</span>
+
 <div class="article-body">
 
 {{ body }}

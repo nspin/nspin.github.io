@@ -1,5 +1,12 @@
-h3.article-title {
-    margin-bottom: 0px;
+a.read-more {
+    font-variant: small-caps;
+}
+
+hr.article-div {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #aaa;
 }
 
 /* a.article-title { */
@@ -12,14 +19,3 @@ h3.article-title {
 /*       color: rgb(6, 69, 173); */
 /*   } */
 /* } */
-
-a.read-more {
-    font-variant: small-caps;
-}
-
-hr.article-div {
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1px solid #aaa;
-}
