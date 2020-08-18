@@ -1,74 +1,10 @@
 body {
     margin: 0px;
     padding: 0px;
-
-    /* background-color: #fdf6e3; */
-    /* background-color: #fffcf3; */
-    /* background-color: #fffff8; */
-
-    font-size: 18px;
-    line-height: 1.4;
-    font-family: Palatino, Georgia, sans-serif;
     color: #000;
+    font-family: Palatino, Georgia, sans-serif;
+    line-height: 1.4;
 }
-
-div.header h1 {
-    font-size: 25px;
-    /* line-height: 1; */
-    margin-top: 0px;
-    font-weight: normal;
-}
-
-div.header {
-
-    border-top-color: #e0e0e0;
-    border-top-width: 1px;
-    border-top-style: solid;
-
-    border-bottom-color: #e0e0e0;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-
-    /* background-color: #fafafa; */
-    /* border-color: #e0e0e0; */
-    /* border-width: 1px; */
-    /* border-style: solid; */
-    /* padding-left: 8px; */
-    /* padding-right: 8px; */
-    /* padding-top: 3px; */
-
-    margin-bottom: 25px;
-}
-
-#content > :first-child {
-    margin-top: 0px;
-}
-
-/* #content :first-child * { */
-/*     margin-top: 0px; */
-/* } */
-
-/* /1* TODO doesn't work on firefox *1/ */
-/* #content :first-child::first-line { */
-/*     line-height: 100% !important; */
-/* } */
-
-/* h1, h2, h3, h4 { */
-/*     font-family: "Lucida Grande", Geneva, Arial, sans-serif; */
-/* } */
-
-/* #content h1, #content h2 { */
-/*     font-weight: normal; */
-/* } */
-
-/* #content h2 { */
-/*     border-bottom: 1px solid #aaa; */
-/* } */
-
-h1 { font-size: 28px; }
-h2 { font-size: 25px; }
-h3 { font-size: 20px; }
-h4 { font-size: 18px; }
 
 a {
     text-decoration: none;
@@ -81,36 +17,17 @@ a {
   }
 }
 
-ul {
-    padding-left: 18px;
-}
-
-pre {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 18px;
-}
-
 code {
-    font-size: 15px;
     background-color: #e7e7e0;
     border-color: #c0c0c0;
-    /* background-color: #fafafa; */
-    /* border-color: #e0e0e0; */
     border-style: solid;
     border-width: 1px;
-    border-radius: 3px;
-
-    padding-left: 2px;
-    padding-right: 2px;
 }
 
 pre code {
-    font-size: 15px;
     background-color: transparent;
     border-style: none;
     border-width: 0px;
-
     padding: 0px;
 }
 
@@ -125,14 +42,11 @@ div.sourceCode {
     color: #555;
 }
 
-/* navigation */
+/* *** */
 
-/* #navigation { */
-/*     background-color: #fafafa; */
-/*     border-color: #e0e0e0; */
-/*     border-width: 1px; */
-/*     border-style: solid; */
-/* } */
+#content > :first-child {
+    margin-top: 0px;
+}
 
 #navigation a {
     text-decoration: none;
@@ -158,46 +72,6 @@ div.sourceCode {
 
 /* *** */
 
-@media all and (min-width: 900px) {
-
-    #content {
-        padding-top: 32px;
-    }
-
-    #navigation {
-        padding-top: 32px;
-        position: sticky;
-        float: left;
-        /*top: 12px;*/
-        top: 0px;
-        width: 110px;
-        text-align: right;
-
-        padding-right: 25px;
-        /* background-color: #ccc; */
-        /* border-right-style: solid; */
-        /* border-right-width: 1px; */
-        /* border-right-color: #000; */
-    }
-
-    #navigation-logo {
-        line-height: 1;
-        font-size: 25px;
-        margin-bottom: 21px;
-    }
-
-    div.navigation-entry {
-        margin-top: 6px;
-        margin-bottom: 6px;
-    }
-
-    #content {
-        width: 740px;
-        padding-left: 160px;
-    }
-
-}
-
 @media all and (min-width: 1060px) {
     body {
         overflow-y: scroll;
@@ -218,44 +92,22 @@ div.sourceCode {
     }
 }
 
-@media all and (max-width: 899px) {
+@media all and (min-width: 900px) {
 
     #content {
-        padding-top: 16px;
+        width: 740px;
+        padding-left: 160px;
+        padding-top: 32px;
     }
 
     #navigation {
-        padding-top: 27px;
-        padding-bottom: 16px;
-        /*top: 12px;*/
-        /* top: 0px; */
-        /* width: 110px; */
-        /* text-align: right; */
-
-        /* padding-right: 25px; */
-        /* background-color: #ccc; */
-        /* border-right-style: solid; */
-        /* border-right-width: 1px; */
-        /* border-right-color: #000; */
-
-        /*position: sticky;*/
-        /*TODO: (100% - 220px)/2*/
-        /*left: 0;*/
-        /*width: 235px;*/
-        /*margin: 0 auto;*/
-        /* padding-top: 7px; */
-        text-align: center;
-        line-height: 1;
-        /* display: inline; */
-
-        /* border-style: solid; */
-        /* border-width: 1px; */
-        /* background-color: #f0f0f0; */
-        /* border-color: #c0c0c0; */
-
-        /* border-color: #000; */
-        /* background-color: #ccc; */
-
+        float: left;
+        position: sticky;
+        top: 0px;
+        width: 110px;
+        padding-top: 32px;
+        padding-right: 25px;
+        text-align: right;
     }
 
     #navigation-logo {
@@ -264,33 +116,105 @@ div.sourceCode {
         margin-bottom: 21px;
     }
 
-    /* #navigation-list { */
-    /*   display: grid; */
-    /*   grid-template-columns: 1fr 1fr 1fr 1fr; */
-    /*   grid-gap: 0; */
-    /* } */
-
     div.navigation-entry {
-        margin-left: 6px;
-        margin-right: 6px;
-        /* float: left; */
-        display: inline;
-    }
-
-    #content {
-        padding-left: 12px;
-        padding-right: 12px;
+        margin-top: 6px;
+        margin-bottom: 6px;
     }
 
 }
 
-@media all and (max-width: 739px) {
+@media all and (max-width: 899px) {
+
     #content {
-        font-size: 16px;
+        padding-top: 16px;
+        padding-left: 12px;
+        padding-right: 12px;
     }
-    pre code {
-        font-size: 14px;
+
+    #navigation {
+        padding-top: 27px;
+        padding-bottom: 11px;
+        text-align: center;
     }
+
+    #navigation-logo {
+        font-size: 25px;
+        margin-bottom: 18px;
+        line-height: 1;
+    }
+
+    #navigation-list {
+        font-size: 18px;
+    }
+
+    div.navigation-entry {
+        margin-left: 6px;
+        margin-right: 6px;
+        display: inline;
+    }
+
+}
+
+/* *** */
+
+@media all and (min-width: 740px) {
+
+  body {
+    font-size: 18px;
+  }
+
+  h1 { font-size: 28px; }
+  h2 { font-size: 25px; }
+  h3 { font-size: 20px; }
+  h4 { font-size: 18px; }
+
+  ul {
+    padding-left: 18px;
+  }
+
+  pre {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 10px;
+  }
+
+  code {
+    font-size: 15px;
+    border-radius: 3px;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+}
+
+@media all and (max-width: 739px) {
+
+  body {
+    font-size: 16px;
+  }
+
+  h1 { font-size: 25px; }
+  h2 { font-size: 22px; }
+  h3 { font-size: 18px; }
+  h4 { font-size: 16px; }
+
+  ul {
+    padding-left: 16px;
+  }
+
+  pre {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 8px;
+  }
+
+  code {
+    font-size: 14px;
+    border-radius: 3px;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
 }
 
 /* *** */
@@ -311,3 +235,54 @@ div.sourceCode {
     width: 100%;
     height: 100%;
 }
+
+/* div.header h1 { */
+/*     font-size: 25px; */
+/*     /1* line-height: 1; *1/ */
+/*     margin-top: 0px; */
+/*     font-weight: normal; */
+/* } */
+
+/* div.header { */
+
+/*     border-top-color: #e0e0e0; */
+/*     border-top-width: 1px; */
+/*     border-top-style: solid; */
+
+/*     border-bottom-color: #e0e0e0; */
+/*     border-bottom-width: 1px; */
+/*     border-bottom-style: solid; */
+
+/*     /1* background-color: #fafafa; *1/ */
+/*     /1* border-color: #e0e0e0; *1/ */
+/*     /1* border-width: 1px; *1/ */
+/*     /1* border-style: solid; *1/ */
+/*     /1* padding-left: 8px; *1/ */
+/*     /1* padding-right: 8px; *1/ */
+/*     /1* padding-top: 3px; *1/ */
+
+/*     margin-bottom: 25px; */
+/* } */
+
+/* body { */
+    /* background-color: #fdf6e3; */
+    /* background-color: #fffcf3; */
+    /* background-color: #fffff8; */
+/* } */
+
+/* /1* TODO doesn't work on firefox *1/ */
+/* #content :first-child::first-line { */
+/*     line-height: 100% !important; */
+/* } */
+
+/* h1, h2, h3, h4 { */
+/*     font-family: "Lucida Grande", Geneva, Arial, sans-serif; */
+/* } */
+
+/* #content h1, #content h2 { */
+/*     font-weight: normal; */
+/* } */
+
+/* #content h2 { */
+/*     border-bottom: 1px solid #aaa; */
+/* } */
