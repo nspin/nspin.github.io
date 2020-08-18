@@ -1,6 +1,6 @@
-{% if navigation_absolute is defined -%}
+{% if absolute_links is defined -%}
 {% else %}
-  {% set navigation_absolute = false -%}
+  {% set absolute_links = false -%}
 {% endif -%}
 <!doctype html>
 <html>
@@ -10,7 +10,7 @@
         <meta name="description" content="Nick Spinale is a computer security researcher based in Cambridge, UK.">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
         <script>{{ read_src('static/js/ga.js') }}</script>
-        <link rel="stylesheet" type="text/css" href="{{ path_to('/css/base.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ path_to('/css/base.css', absolute=absolute_links) }}">
 
 {% block before %}{% endblock %}
 
@@ -18,12 +18,12 @@
     <body>
         <div id="top-level">
             <div id="navigation">
-                <div id="navigation-logo"><a href="{{ path_to('/') }}">Nick Spinale</a></div>
+                <div id="navigation-logo"><a href="{{ path_to('/', absolute=absolute_links) }}">Nick Spinale</a></div>
                 <div id="navigation-list">
-                  <div class="navigation-entry"><a class="{% if navigation_current == "home" %} navigation-entry-current {% endif %}" href="{{ path_to('/', absolute=navigation_absolute) }}">Home</a></div>
-                  <div class="navigation-entry"><a class="{% if navigation_current == "articles" %} navigation-entry-current {% endif %}" href="{{ path_to('/articles.html', absolute=navigation_absolute) }}">Articles</a></div>
-                  <div class="navigation-entry"><a class="{% if navigation_current == "portfolio" %} navigation-entry-current {% endif %}" href="{{ path_to('/portfolio.html', absolute=navigation_absolute) }}">Portfolio</a></div>
-                  <div class="navigation-entry"><a href="{{ path_to('/resume.pdf') }}">Resume</a></div>
+                  <div class="navigation-entry"><a class="{% if navigation_current == "home" %} navigation-entry-current {% endif %}" href="{{ path_to('/', absolute=absolute_links) }}">Home</a></div>
+                  <div class="navigation-entry"><a class="{% if navigation_current == "articles" %} navigation-entry-current {% endif %}" href="{{ path_to('/articles.html', absolute=absolute_links) }}">Articles</a></div>
+                  <div class="navigation-entry"><a class="{% if navigation_current == "portfolio" %} navigation-entry-current {% endif %}" href="{{ path_to('/portfolio.html', absolute=absolute_links) }}">Portfolio</a></div>
+                  <div class="navigation-entry"><a href="{{ path_to('/resume.pdf', absolute=absolute_links) }}">Resume</a></div>
                 </div>
             </div>
             <div id="content">
