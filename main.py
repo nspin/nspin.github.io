@@ -51,10 +51,13 @@ class Interpolator(object):
 
     # template env
 
-    def path_to(self, abs_path):
+    def path_to(self, abs_path, absolute=False):
         abs_path = Path(abs_path)
         assert abs_path.is_absolute()
-        return relpath(abs_path, self.output_path.parent)
+        if absolute:
+            return abs_path
+        else:
+            return relpath(abs_path, self.output_path.parent)
 
     def read_tmp(self, path):
         return (self.tmp_dir / path).read_text()
