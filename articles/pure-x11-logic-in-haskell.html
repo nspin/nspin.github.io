@@ -16,7 +16,6 @@ ga('send', 'pageview');
 
 
     
-    
     <style>/* NOTE keep up to date with pandoc://data/templates/styles.html */
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -94,8 +93,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     
     
 
-    <link rel="stylesheet" type="text/css" href="../css/article.css">
-
 
     </head>
     <body>
@@ -113,12 +110,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<!-- <div class="header"> -->
-  <h1 class="article-title">Pure X11 Logic in Haskell</h1>
-  <span class="soft">
-      Jul 22, 2016
-  </span>
-<!-- </div> -->
+<h1 class="top-line-flush no-margin-bottom">Pure X11 Logic in Haskell</h1>
+<span class="soft">
+    Jul 22, 2016
+</span>
+
 <div class="article-body">
 
 <p>X11 programming in Haskell has traditionally been done using the <a href="https://hackage.haskell.org/package/X11-1.6.1.2">X11 package</a>. Many of these bindings were written by hand and, due to their reliance on FFI, are susceptible to some threading issues. <a href="https://hackage.haskell.org/package/xhb">xhb</a>, a newer package, provides low-level bindings to X11 based on the same XML as <a href="https://xcb.freedesktop.org/">xcb</a>.</p>
