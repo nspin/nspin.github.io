@@ -103,12 +103,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <div id="top-level">
             <div id="navigation">
                 <div id="navigation-content">
-                    <div id="navigation-logo"><h2 class="navigation-header"><a href="..">Nick Spinale</a></h2></div>
+                    <div id="navigation-logo"><a href="..">Nick Spinale</a></div>
                     <div id="navigation-list">
-                      <span class="navigation-entry"><a class="" href="..">Home</a></span>
-                      <span class="navigation-entry"><a class="" href="../articles.html">Articles</a></span>
-                      <span class="navigation-entry"><a class="" href="../portfolio.html">Portfolio</a></span>
-                      <span class="navigation-entry"><a href="../resume.pdf">Resume</a></span>
+                      <div class="navigation-entry"><a class="" href="..">Home</a></div>
+                      <div class="navigation-entry"><a class="" href="../articles.html">Articles</a></div>
+                      <div class="navigation-entry"><a class="" href="../portfolio.html">Portfolio</a></div>
+                      <div class="navigation-entry"><a href="../resume.pdf">Resume</a></div>
                     </div>
                 </div>
             </div>
@@ -116,10 +116,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<h1 class="article-title">Pure X11 Logic in Haskell</h1>
-<span class="soft">
-    Jul 22, 2016
-</span>
+<!-- <div class="header"> -->
+  <h1 class="article-title">Pure X11 Logic in Haskell</h1>
+  <span class="soft">
+      Jul 22, 2016
+  </span>
+<!-- </div> -->
 <div class="article-body">
 
 <p>X11 programming in Haskell has traditionally been done using the <a href="https://hackage.haskell.org/package/X11-1.6.1.2">X11 package</a>. Many of these bindings were written by hand and, due to their reliance on FFI, are susceptible to some threading issues. <a href="https://hackage.haskell.org/package/xhb">xhb</a>, a newer package, provides low-level bindings to X11 based on the same XML as <a href="https://xcb.freedesktop.org/">xcb</a>.</p>

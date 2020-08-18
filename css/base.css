@@ -6,24 +6,64 @@ body {
     /*background-color: #fffcf3;*/
     /*background-color: #fffff8;*/
 
-    color: #000;
-    /* color: rgb(32, 33, 34); */
     font-size: 18px;
     line-height: 1.4;
     font-family: Palatino, Georgia, sans-serif;
+    color: #000;
 }
+
+div.header h1 {
+    font-size: 25px;
+    /* line-height: 1; */
+    margin-top: 0px;
+    font-weight: normal;
+}
+
+div.header {
+
+    border-top-color: #e0e0e0;
+    border-top-width: 1px;
+    border-top-style: solid;
+
+    border-bottom-color: #e0e0e0;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+
+    /* background-color: #fafafa; */
+    /* border-color: #e0e0e0; */
+    /* border-width: 1px; */
+    /* border-style: solid; */
+    /* padding-left: 8px; */
+    /* padding-right: 8px; */
+    /* padding-top: 3px; */
+
+    margin-bottom: 25px;
+}
+
+#content > :first-child {
+    margin-top: 0px;
+}
+
+/* #content :first-child * { */
+/*     margin-top: 0px; */
+/* } */
+
+/* /1* TODO doesn't work on firefox *1/ */
+/* #content :first-child::first-line { */
+/*     line-height: 100% !important; */
+/* } */
 
 /* h1, h2, h3, h4 { */
 /*     font-family: "Lucida Grande", Geneva, Arial, sans-serif; */
 /* } */
 
-#content h1, #content h2 {
-    font-weight: normal;
-}
+/* #content h1, #content h2 { */
+/*     font-weight: normal; */
+/* } */
 
-#content h2 {
-    border-bottom: 1px solid #aaa;
-}
+/* #content h2 { */
+/*     border-bottom: 1px solid #aaa; */
+/* } */
 
 h1 { font-size: 28px; }
 h2 { font-size: 25px; }
@@ -87,20 +127,19 @@ div.sourceCode {
 
 /* navigation */
 
-#navigation h2 {
-    font-weight: normal;
-}
-
-#navigation h2 a {
-    outline: none;
-}
+/* #navigation { */
+/*     background-color: #fafafa; */
+/*     border-color: #e0e0e0; */
+/*     border-width: 1px; */
+/*     border-style: solid; */
+/* } */
 
 #navigation a {
     text-decoration: none;
     color: #000;
 }
 
-#navigation span.navigation-entry a {
+#navigation div.navigation-entry a {
     color: #333;
 }
 
@@ -108,7 +147,7 @@ div.sourceCode {
   #navigation a:hover {
       color: rgb(6, 69, 173);
   }
-  #navigation span.navigation-entry a:hover {
+  #navigation div.navigation-entry a:hover {
       color: rgb(6, 69, 173);
   }
 }
@@ -117,33 +156,39 @@ div.sourceCode {
     text-decoration: underline;
 }
 
-#content {
-    padding-top: 12px;
-    padding-bottom: 12px;
-}
-
 /* *** */
 
 @media all and (min-width: 900px) {
 
+    #content {
+        padding-top: 32px;
+    }
+
     #navigation {
+        padding-top: 32px;
         position: sticky;
         float: left;
         /*top: 12px;*/
         top: 0px;
-        padding-top: 12px;
         width: 110px;
         text-align: right;
+
+        padding-right: 25px;
+        /* background-color: #ccc; */
+        /* border-right-style: solid; */
+        /* border-right-width: 1px; */
+        /* border-right-color: #000; */
     }
 
     #navigation-logo {
         line-height: 1;
+        font-size: 25px;
+        margin-bottom: 21px;
     }
 
-    span.navigation-entry {
-        margin-top: 6px;
-        margin-bottom: 6px;
-        display: block;
+    div.navigation-entry {
+        margin-top: 7px;
+        margin-bottom: 7px;
     }
 
     #content {
@@ -175,6 +220,30 @@ div.sourceCode {
 
 @media all and (max-width: 899px) {
 
+    #content {
+        padding-top: 32px;
+    }
+
+    #navigation {
+        padding-top: 20px;
+        /*top: 12px;*/
+        /* top: 0px; */
+        /* width: 110px; */
+        /* text-align: right; */
+
+        /* padding-right: 25px; */
+        /* background-color: #ccc; */
+        /* border-right-style: solid; */
+        /* border-right-width: 1px; */
+        /* border-right-color: #000; */
+    }
+
+    #navigation-logo {
+        line-height: 1;
+        font-size: 25px;
+        margin-bottom: 21px;
+    }
+
     #navigation-content {
         /*position: sticky;*/
         /*TODO: (100% - 220px)/2*/
@@ -184,11 +253,20 @@ div.sourceCode {
         padding-top: 7px;
         text-align: center;
         line-height: 1;
+        /* display: inline; */
     }
 
-    span.navigation-entry {
+    /* #navigation-list { */
+    /*   display: grid; */
+    /*   grid-template-columns: 1fr 1fr 1fr 1fr; */
+    /*   grid-gap: 0; */
+    /* } */
+
+    div.navigation-entry {
         margin-left: 6px;
         margin-right: 6px;
+        /* float: left; */
+        display: inline;
     }
 
     #content {
