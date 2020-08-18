@@ -1,6 +1,6 @@
 #contact {
     /* TODO different when small */
-    margin-bottom: 26px;
+    /* margin-bottom: 26px; */
 }
 
 #contact-left {
@@ -12,7 +12,7 @@
 #portrait {
     height: 256px;
     border-radius: 5%;
-    display: block;
+    /* display: block; */
 }
 
 #contact-right {
