@@ -5,7 +5,7 @@ date: 2018-02-02
 has_math: true
 ...
 
-Solving the cube blindfolded isn't as hard as you'd expect. All that's necessary is a solid understanding of the basic properties of the cube, and some practice.
+Solving the cube blindfolded isn't as hard as many expect. All that's necessary is a solid understanding of the basic properties of the cube, and some practice.
 
 This article doesn't assume any knowledge of cube theory, but a reader will find some undergraduate math (e.g. group theory) useful.
 
