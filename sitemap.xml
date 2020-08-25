@@ -34,7 +34,7 @@
     
     <url>
         <loc>https://nickspinale.com/portfolio.html</loc>
-        <lastmod>2020-08-25T02:07:17+00:00</lastmod>
+        <lastmod>2020-08-25T02:24:48+00:00</lastmod>
         <priority>0.8</priority>
         
     </url>
@@ -76,7 +76,14 @@
     
     <url>
         <loc>https://nickspinale.com/articles/pure-x11-logic-in-haskell.html</loc>
-        <lastmod>2020-08-25T00:50:57+00:00</lastmod>
+        <lastmod>2020-08-25T02:22:11+00:00</lastmod>
+        
+        
+    </url>
+    
+    <url>
+        <loc>https://nickspinale.com/portfolio/more/open-source-projects.html</loc>
+        <lastmod>2020-08-25T02:11:47+00:00</lastmod>
         
         
     </url>
