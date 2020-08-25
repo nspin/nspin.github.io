@@ -120,7 +120,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <p>X11 programming in Haskell has traditionally been done using the <a href="https://hackage.haskell.org/package/X11-1.6.1.2">X11 package</a>. Many of these bindings were written by hand and, due to their reliance on FFI, are susceptible to some threading issues. <a href="https://hackage.haskell.org/package/xhb">xhb</a>, a newer package, provides low-level bindings to X11 based on the same XML as <a href="https://xcb.freedesktop.org/">xcb</a>.</p>
 <p>It doesn’t seem as though much has been done with XHB yet. In fact, at the time of writing (Aug 22, 2016), exactly two packages on Hackage depend on xhb. Nevertheless, I believe it hold great promise in the future of X programming in Haskell.</p>
-<p>I’ve been working on a set of libraries that allows for layers of abstraction to be stacked on top of the low-level xhb bindings. This post will become more fleshed out as I find time to finish up and document the actual libraries, but here’s an overview.</p>
+<p>I’ve been working on a set of libraries that allows for layers of abstraction to be stacked on top of the low-level xhb bindings. This post will become more fleshed out as I find time to finish up and document the actual libraries.</p>
+<p>Here’s an overview of the libraries and their relationships:</p>
+<ul>
+<li><a href="https://github.com/nspin/xhb-monad">xhb-monad</a> - Monad transformer for xhb server connections.</li>
+<li><a href="https://github.com/nspin/xhb-requests">xhb-requests</a> - Classes and generated instances for a uniform interface to xhb.</li>
+<li><a href="https://github.com/nspin/xhb-event-queue">xhb-event-queue</a> - Monad transformer over xhb-monad for event handling.</li>
+<li><a href="https://github.com/nspin/xhb-mapping-state">xhb-mapping-state</a> - Monad transformer over xhb-monad for keeping track of key, mod, and pointer mappings.</li>
+<li><a href="https://github.com/nspin/wmonad">wmonad</a> - Prototype of a window manager in the XMonad tradition to demonstrate these libraries.</li>
+</ul>
 <h2 id="xhb-requests">xhb-requests</h2>
 <p>(<em><a href="https://github.com/nspin/xhb-requests">source</a>, <a href="https://nspin.github.io/xhb-requests">docs</a></em>)</p>
 <p>Most generated functions in xhb have types similar to those below:</p>

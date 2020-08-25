@@ -13,7 +13,15 @@ In fact, at the time of writing (Aug 22, 2016), exactly two packages on Hackage 
 Nevertheless, I believe it hold great promise in the future of X programming in Haskell.
 
 I've been working on a set of libraries that allows for layers of abstraction to be stacked on top of the low-level xhb bindings.
-This post will become more fleshed out as I find time to finish up and document the actual libraries, but here's an overview.
+This post will become more fleshed out as I find time to finish up and document the actual libraries.
+
+Here's an overview of the libraries and their relationships:
+
+- [xhb-monad](https://github.com/nspin/xhb-monad) - Monad transformer for xhb server connections.
+- [xhb-requests](https://github.com/nspin/xhb-requests) - Classes and generated instances for a uniform interface to xhb.
+- [xhb-event-queue](https://github.com/nspin/xhb-event-queue) - Monad transformer over xhb-monad for event handling.
+- [xhb-mapping-state](https://github.com/nspin/xhb-mapping-state) - Monad transformer over xhb-monad for keeping track of key, mod, and pointer mappings.
+- [wmonad](https://github.com/nspin/wmonad) - Prototype of a window manager in the XMonad tradition to demonstrate these libraries.
 
 ## xhb-requests
 
