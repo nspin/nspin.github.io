@@ -20,7 +20,7 @@ MD_TARGS      := $(patsubst $(SRC_DIR)/dynamic/%.md,$(BUILD_DIR)/%.html,$(shell 
 # TODO assert no repeats
 ALL_TARGS     := $(STATIC_TARGS) $(REDIR_TARGS) $(HTML_TARGS) $(MD_TARGS) $(EXTRA_TARGS) 
 
-ARTICLES      := $(wildcard $(SRC_DIR)/articles/*.md)
+ARTICLES      := $(wildcard $(SRC_DIR)/previews/*.md)
 TEMPLATES     := $(wildcard $(SRC_DIR)/templates/*.html)
 
 ROOT          := $(file <$(SRC_DIR)/robots/root.txt)
