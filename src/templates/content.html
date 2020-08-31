@@ -22,8 +22,7 @@
                 <div id="navigation-list">
                   <div class="navigation-entry"><a class="{% if navigation_current == "home" %} navigation-entry-current {% endif %}" href="{{ path_to('/', absolute=absolute_links) }}">Home</a></div>
                   <div class="navigation-entry"><a class="{% if navigation_current == "articles" %} navigation-entry-current {% endif %}" href="{{ path_to('/articles.html', absolute=absolute_links) }}">Articles</a></div>
-                  <div class="navigation-entry"><a class="{% if navigation_current == "portfolio" %} navigation-entry-current {% endif %}" href="{{ path_to('/portfolio.html', absolute=absolute_links) }}">Portfolio</a></div>
-                  <div class="navigation-entry"><a href="{{ path_to('/resume.pdf', absolute=absolute_links) }}">Resume</a></div>
+                  <div class="navigation-entry"><a class="{% if navigation_current == "cv" %} navigation-entry-current {% endif %}" href="{{ path_to('/cv.html', absolute=absolute_links) }}">CV</a></div>
                 </div>
             </div>
             <div id="content">
