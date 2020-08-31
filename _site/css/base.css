@@ -316,3 +316,38 @@ div.sourceCode {
 /* #content h2 { */
 /*     border-bottom: 1px solid #aaa; */
 /* } */
+
+@media all and (min-width: 740px) {
+
+  .big-header {
+
+      /* border-top-color: #e0e0e0; */
+      /* border-top-width: 1px; */
+      /* border-top-style: solid; */
+
+      border-bottom-color: #c0c0c0;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+
+      /* background-color: #fafafa; */
+
+      /* border-color: #e0e0e0; */
+      /* border-width: 1px; */
+      /* border-style: solid; */
+      /* padding-left: 8px; */
+      /* padding-right: 8px; */
+      /* padding-top: 3px; */
+
+  }
+
+}
+
+@media all and (max-width: 739px) {
+
+  .big-header {
+
+    text-align: center;
+
+  }
+
+}
