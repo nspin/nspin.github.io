@@ -1,7 +1,7 @@
 {% extends 'templates/content.html' %}
 {% set navigation_current = "cv" %}
 
-{% block title %}Curriculum vitae{% endblock %}
+{% block title %}About{% endblock %}
 
 {% block before %}
     <link rel="stylesheet" type="text/css" href="{{ path_to('/css/cv.css') }}">
@@ -10,7 +10,7 @@
 {% block content %}
 
 <!-- <h1 class="top-line-flush">Curriculum vitae</h2> -->
-<h1 class="big-header top-line-flush">Curriculum vitae</h2>
+<h1 class="big-header top-line-flush">About</h2>
 
 <p>
   I work at Arm Research.  My interests include privacy, confidential computing,
@@ -180,6 +180,17 @@
 
 <p>
   <strong>
+    <a href="https://hackny.org/about">HackNY Fellow</a>
+  </strong>
+  <br>
+  2016 &ndash;
+  <em>
+    hackNY
+  </em>
+</p>
+
+<p>
+  <strong>
     <a href="https://en.wikipedia.org/wiki/Presidential_Scholars_Program">United States Presidential Scholar</a>
   </strong>
   <br>
@@ -188,5 +199,13 @@
     United States Department of Education
   </em>
 </p>
+
+<h2>Academic Services</h2>
+
+Session Chair: Arm Research Summit 2020
+
+<h2>Education</h2>
+
+<h2>Selected Professional Experience</h2>
 
 {% endblock %}
