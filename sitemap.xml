@@ -7,7 +7,7 @@
     
     <url>
         <loc>https://nickspinale.com/</loc>
-        <lastmod>2020-10-15T23:10:44+00:00</lastmod>
+        <lastmod>2020-10-16T00:11:28+00:00</lastmod>
         <priority>1.0</priority>
         
         <image:image>
@@ -20,77 +20,84 @@
     
     <url>
         <loc>https://nickspinale.com/articles.html</loc>
-        <lastmod>2020-10-15T23:10:46+00:00</lastmod>
+        <lastmod>2020-10-16T00:11:30+00:00</lastmod>
+        <priority>0.8</priority>
+        
+    </url>
+    
+    <url>
+        <loc>https://nickspinale.com/about.html</loc>
+        <lastmod>2020-10-16T00:15:59+00:00</lastmod>
         <priority>0.8</priority>
         
     </url>
     
     <url>
         <loc>https://nickspinale.com/resume.pdf</loc>
-        <lastmod>2020-10-15T23:10:47+00:00</lastmod>
+        <lastmod>2020-10-16T00:11:31+00:00</lastmod>
         
         
     </url>
     
     <url>
         <loc>https://nickspinale.com/cv.html</loc>
-        <lastmod>2020-10-16T00:09:29+00:00</lastmod>
-        <priority>0.8</priority>
+        <lastmod>2020-10-16T00:11:28+00:00</lastmod>
+        
         
     </url>
     
     <url>
         <loc>https://nickspinale.com/portfolio.html</loc>
-        <lastmod>2020-10-15T23:10:43+00:00</lastmod>
+        <lastmod>2020-10-16T00:11:28+00:00</lastmod>
         
         
     </url>
     
     <url>
         <loc>https://nickspinale.com/misc/unikernel-resources.html</loc>
-        <lastmod>2020-10-15T23:10:45+00:00</lastmod>
+        <lastmod>2020-10-16T00:11:29+00:00</lastmod>
         
         
     </url>
     
     <url>
         <loc>https://nickspinale.com/papers/2008.01222.pdf</loc>
-        <lastmod>2020-10-15T23:10:42+00:00</lastmod>
+        <lastmod>2020-10-16T00:11:27+00:00</lastmod>
         
         
     </url>
     
     <url>
         <loc>https://nickspinale.com/papers/newly-reducible-polynomial-iterates.html</loc>
-        <lastmod>2020-10-15T23:10:45+00:00</lastmod>
+        <lastmod>2020-10-16T00:11:29+00:00</lastmod>
         
         
     </url>
     
     <url>
         <loc>https://nickspinale.com/articles/unikernel-resources.html</loc>
-        <lastmod>2020-10-15T23:10:43+00:00</lastmod>
+        <lastmod>2020-10-16T00:11:28+00:00</lastmod>
         
         
     </url>
     
     <url>
         <loc>https://nickspinale.com/articles/solving-the-rubiks-cube-blindfolded.html</loc>
-        <lastmod>2020-10-15T23:10:45+00:00</lastmod>
+        <lastmod>2020-10-16T00:11:29+00:00</lastmod>
         
         
     </url>
     
     <url>
         <loc>https://nickspinale.com/articles/pure-x11-logic-in-haskell.html</loc>
-        <lastmod>2020-10-15T23:10:45+00:00</lastmod>
+        <lastmod>2020-10-16T00:11:29+00:00</lastmod>
         
         
     </url>
     
     <url>
         <loc>https://nickspinale.com/talks/seL4-trustzone.html</loc>
-        <lastmod>2020-10-15T23:21:48+00:00</lastmod>
+        <lastmod>2020-10-16T00:11:29+00:00</lastmod>
         
         
     </url>
