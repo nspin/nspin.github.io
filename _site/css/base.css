@@ -98,7 +98,6 @@ div.sourceCode {
     }
 }
 
-
 @media all and (max-width: 899px) and (min-width: 740px) {
     body {
         overflow-y: scroll;
@@ -170,9 +169,6 @@ div.sourceCode {
         display: inline;
     }
 
-    .only-big {
-        display: none;
-    }
 }
 
 /* *** */

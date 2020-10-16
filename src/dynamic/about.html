@@ -1,0 +1,245 @@
+{% extends 'templates/content.html' %}
+{% set navigation_current = "cv" %}
+
+{% block title %}About{% endblock %}
+
+{% block before %}
+    <link rel="stylesheet" type="text/css" href="{{ path_to('/css/cv.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- <h1 class="top-line-flush">Curriculum vitae</h2> -->
+<h1 class="big-header top-line-flush">About</h2>
+
+<p>
+  I work at Arm Research.  My interests include privacy, confidential computing,
+  formal methods, trusted execution environments, operating systems, programming
+  languages, and reverse engineering.  Right now, I'm exploring system software
+  foundations to enable the trust models necessary for general-purpose
+  confidential computing.
+</p>
+
+<p>
+  <em>Resume</em> <a href="resume.pdf">[pdf]</a>
+</p>
+
+<h2>Papers and talks</h2>
+
+<!-- <h2 class="top-line-flush">Papers</h2> -->
+
+<p>
+  <strong>
+    <a href="talks/seL4-trustzone.html">seL4 + TrustZone: Spanning both worlds</a>
+  </strong>
+  <br>
+  <em>(Upcoming)</em> <a href="https://www.sel4-us.org/summit2020/">seL4 Summit 2020</a> &ndash;
+  <em>Nick Spinale</em>
+</p>
+
+<p>
+  <strong>
+    <a href="{{ path_to('/papers/newly-reducible-polynomial-iterates.html') }}">Newly reducible polynomial iterates</a>
+  </strong>
+  <br>
+  TBA &ndash;
+  <em>Peter Illig, Rafe Jones, Eli Orvis, Yukihiko Segawa, Nick Spinale</em>
+</p>
+
+<p>
+  <!-- <strong> -->
+  <em>
+    (more preprints coming soon)
+  </em>
+  <!-- </strong> -->
+</p>
+
+<h2>Selected Open Source Activity</h2>
+
+<p>
+  <strong><a href="https://ts.data61.csiro.au/projects/seL4/">seL4</a></strong>
+  - I'm an active contributor to seL4, the formally verified microkernel.
+    My contributions span <a href="https://github.com/seL4/seL4">the kernel itself</a> and <a href="https://github.com/seL4/capdl">CapDL</a>.
+</p>
+
+<p>
+  <strong><a href="https://github.com/nspin/nix-isabelle">Isabelle + Nix</a></strong>
+  - The Isabelle developers suggested that trying to repackage, let alone port, Isabelle would be insane:
+    <a href=https://mailman46.in.tum.de/pipermail/isabelle-dev/2019-June/016943.html>[1]</a>
+    <a href=https://mailman46.in.tum.de/pipermail/isabelle-dev/2019-June/016945.html>[2]</a>.
+    Nix provides a realistic and satisfying means to such a port.
+    To prove it, I've used Nix to port Isabelle to Arm.
+    This port has just recently become relevant due to the MacOS transition to
+    Arm.
+</p>
+
+<p>
+  <a href="https://github.com/nixos/nixpkgs">Nixpkgs</a>
+  - I'm an active contributor to the Nix packages collection.
+</p>
+
+<h2>Selected Open Source Projects</h2>
+
+<p>
+  <a href="https://github.com/nspin/hs-arm">hs-arm</a>
+  - ARM (dis)assembler and analyzer Haskell library generated from the machine-readable ARMv8.3-A specification.
+</p>
+
+<p>
+  <a href="https://github.com/nspin/malice">Malice</a>
+  - Haskell framework that provides abstractions and protocol-specific attacks for intercepting and modifying network traffic. It leverages the power of Haskell’s type system to define an embedded DSL for describing the actions of Eve and Mallory. In effect, it allows a person in the middle to write code that is as close to pure evil as possible.
+</p>
+
+<p>
+  <a href="https://github.com/nspin/pyxendbg">pyxendbg</a>
+  - GDB server for virtual machine introspection under Xen. Inspired by <a href=https://github.com/nccgroup/xendbg>xendbg</a>, but with Arm in mind.
+    Designed for debugging paravirtutalized unikernel guests.
+</p>
+
+<p>
+  <a href="https://github.com/nspin/regl">regl</a>
+  - Haskell library for applicative-style regular expressions.
+    Features uncommon yet useful primitives such as regular expression complement and disjunction.
+    Based on regular expression derivatives.
+</p>
+
+{#
+
+<!-- <ul> -->
+<!--   <li> -->
+<!--     <a href="https://github.com/nspin/nixpkgs-linux-ng">nixpkgs-linux-ng</a> -->
+<!--     - Framework for configuring and building Linux using <a href="https://github.com/NixOS/nixpkgs">Nixpkgs</a>. -->
+<!--   </li> -->
+<!-- </ul> -->
+
+<!-- <ul> -->
+<!--   <li> -->
+<!--     <a href="https://github.com/nspin/synthol">synthol</a> -->
+<!--     - Unikernel base layer for Xen based on musl-libc and the HaLVM runtime (abandoned and not documented). -->
+<!--   </li> -->
+<!-- </ul> -->
+
+<!-- <h2>Soon-to-be open source</h2> -->
+
+#}
+
+<p>
+  <a href="https://github.com/nspin/kgo">kgo</a>
+  - <code>kexec</code> implemented in pure Go, with some extra flexibility.
+    Designed to boot a type-1 hypervisor such as Xen or Hafnium, with <a href="https://www.linuxboot.org">LinuxBoot</a> in mind.
+</p>
+
+<p>
+  <a href="https://github.com/nspin/routor">routor</a>
+  - Tor controller that allows circuit paths to be chosen on a stream-by-stream basis.
+</p>
+
+<p>
+  <a href="{{ path_to('/articles/pure-x11-logic-in-haskell.html') }}">wmonad</a>
+  - A set of Haskell libraries encapsulating interaction with the X11 server, enabling the expression of pure X11 logic.
+</p>
+
+{#
+
+<!-- <a href="{{ path_to('/portfolio/more/open-source-projects.html') }}" style="font-variant: small-caps;">more</a> -->
+
+<!-- <h4>Older</h4> -->
+
+<!-- <ul> -->
+<!--   <!-1- <li><a href="https://github.com/nspin/chuck-compositions">chuck-compositions</a> - Some bad music written in the strongly-timed programming language ChucK</li> -1-> -->
+<!--   <li><a href="https://github.com/nspin/uttyl">uttyl</a> - Some useful tty/pty-related hacks.</li> -->
+<!--   <!-1- <li><a href="https://github.com/nspin/botnet">botnet</a> - Infrastructure for an experimental JavaScript botnet.</li> -1-> -->
+<!--   <!-1- <li><a href="https://github.com/nspin/bus-data">bus-data</a> - Code used to reverse engineer a compressed and obfuscated AJAX protocol.</li> -1-> -->
+<!--   <!-1- <li><a href="https://github.com/nspin/leftpad.ko">leftpad.ko</a> - The infamous leftPad() implemented as a kernel module.</li> -1-> -->
+<!-- </ul> -->
+
+<!-- <p>Haskell libraries:</p> -->
+<!-- <ul> -->
+<!--   <li><a href="https://github.com/nspin/bigword">bigword</a> - Library for treating bit arrays with statically known size as heterogeneous Church-encoded vectors.</li> -->
+<!--   <li><a href="https://github.com/nspin/bencode">bencode</a> - Fast and flexible parsers and builders for BEncoded data.</li> -->
+<!--   <li><a href="https://github.com/nspin/mod-n">mod-n</a> - Integers under a modulus, using GHC’s type-level naturals.</li> -->
+<!--   <li><a href="https://github.com/nspin/n-vector">n-vector</a> - Fixed-length unboxed vectors.</li> -->
+<!--   <li><a href="https://github.com/nspin/recall">recall</a> - A typeclass for memoization, based on a paper by Simon Peyton Jones.</li> -->
+<!--   <li><a href="https://github.com/nspin/24-bit">24-bit</a> - Word24 and Int24 types, build from GHC.Prim.</li> -->
+<!--   <li><a href="https://github.com/nspin/rc4">rc4</a> - The RC4 stream cipher implemented in pure Haskell.</li> -->
+<!-- </ul> -->
+
+<!-- <p>Hackathon projects:</p> -->
+<!-- <ul> -->
+<!--   <li><a href="https://github.com/nspin/git-audio">git-audio</a> - Allows a developer to record and play back verbal commit messages.</li> -->
+<!-- </ul> -->
+<!-- <p>Fun things:</p> -->
+<!-- <ul> -->
+<!--   <li><a href="https://www.twitch.tv/twitchpokemongo">TwitchPlaysPokemonGo</a> - A Pokemon Go playing bot that was a meme for a short period of time. Created with some 2016 <a href="http://hackny.org">hackNY</a> fellows.</li> -->
+<!-- </ul> -->
+
+#}
+
+<h2>Honors</h2>
+
+<p>
+  <strong>
+    <a href="https://www.carleton.edu/computer-science/major/awards/pollatsek/">David Pollatsek Prize in Computer Science</a>
+  </strong>
+  <br>
+  2018 &ndash;
+  <em>
+    Carleton College
+  </em>
+</p>
+
+<p>
+  <strong>
+    <a href="https://www.carleton.edu/phi-beta-kappa/">Phi Beta Kappa</a>
+  </strong>
+  <br>
+  2018 &ndash;
+  <em>
+    Carleton College
+  </em>
+</p>
+
+<p>
+  <strong>
+    <a href="https://hackny.org/about">HackNY Fellow</a>
+  </strong>
+  <br>
+  2016 &ndash;
+  <em>
+    hackNY
+  </em>
+</p>
+
+<p>
+  <strong>
+    <a href="https://en.wikipedia.org/wiki/Presidential_Scholars_Program">United States Presidential Scholar</a>
+  </strong>
+  <br>
+  2014 &ndash;
+  <em>
+    United States Department of Education
+  </em>
+</p>
+
+<h2>Academic Services</h2>
+
+<p class="hanging-indent">
+<strong><em>(Session chair)</em> Morello: Investigating hardware capabilities in the Arm architecture</strong>
+<br>
+Arm Research Summit 2020 &ndash;
+<em>Chief Architect at Arm Richard Grisenthwaite and Robert Watson and Peter Sewell of University of Cambridge</em>
+</p>
+
+<h2>Education</h2>
+
+<p>
+	<em>Resume</em> <a href="resume.pdf">[pdf]</a>
+</p>
+
+<h2>Selected Professional Experience</h2>
+
+<p>
+	<em>Resume</em> <a href="resume.pdf">[pdf]</a>
+</p>
+
+{% endblock %}

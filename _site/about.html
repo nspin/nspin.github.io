@@ -1,13 +1,38 @@
-{% extends 'templates/content.html' %}
-{% set navigation_current = "cv" %}
 
-{% block title %}About{% endblock %}
+  <!doctype html>
+<html>
+    <head>
+        <title>Nick Spinale - About</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Nick Spinale is a computer security researcher based in Cambridge, UK.">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+        <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-86175905-1', 'auto');
+ga('send', 'pageview');
+</script>
+        <link rel="stylesheet" type="text/css" href="css/base.css">
 
-{% block before %}
-    <link rel="stylesheet" type="text/css" href="{{ path_to('/css/cv.css') }}">
-{% endblock %}
 
-{% block content %}
+    <link rel="stylesheet" type="text/css" href="css/cv.css">
+
+
+    </head>
+    <body>
+        <div id="top-level">
+            <div id="navigation">
+                <div id="navigation-logo"><a href=".">Nick Spinale</a></div>
+                <div id="navigation-list">
+                  <div class="navigation-entry"><a class="" href=".">Home</a></div>
+                  <div class="navigation-entry"><a class="" href="about.html">About</a></div>
+                  <div class="navigation-entry"><a class="" href="articles.html">Articles</a></div>
+                </div>
+            </div>
+            <div id="content">
+
+
 
 <!-- <h1 class="top-line-flush">Curriculum vitae</h2> -->
 <h1 class="big-header top-line-flush">About</h2>
@@ -39,7 +64,7 @@
 
 <p>
   <strong>
-    <a href="{{ path_to('/papers/newly-reducible-polynomial-iterates.html') }}">Newly reducible polynomial iterates</a>
+    <a href="papers/newly-reducible-polynomial-iterates.html">Newly reducible polynomial iterates</a>
   </strong>
   <br>
   TBA &ndash;
@@ -103,21 +128,7 @@
     Based on regular expression derivatives.
 </p>
 
-<!-- <ul> -->
-<!--   <li> -->
-<!--     <a href="https://github.com/nspin/nixpkgs-linux-ng">nixpkgs-linux-ng</a> -->
-<!--     - Framework for configuring and building Linux using <a href="https://github.com/NixOS/nixpkgs">Nixpkgs</a>. -->
-<!--   </li> -->
-<!-- </ul> -->
 
-<!-- <ul> -->
-<!--   <li> -->
-<!--     <a href="https://github.com/nspin/synthol">synthol</a> -->
-<!--     - Unikernel base layer for Xen based on musl-libc and the HaLVM runtime (abandoned and not documented). -->
-<!--   </li> -->
-<!-- </ul> -->
-
-<!-- <h2>Soon-to-be open source</h2> -->
 
 <p>
   <a href="https://github.com/nspin/kgo">kgo</a>
@@ -131,41 +142,11 @@
 </p>
 
 <p>
-  <a href="{{ path_to('/articles/pure-x11-logic-in-haskell.html') }}">wmonad</a>
+  <a href="articles/pure-x11-logic-in-haskell.html">wmonad</a>
   - A set of Haskell libraries encapsulating interaction with the X11 server, enabling the expression of pure X11 logic.
 </p>
 
-<!-- <a href="{{ path_to('/portfolio/more/open-source-projects.html') }}" style="font-variant: small-caps;">more</a> -->
 
-<!-- <h4>Older</h4> -->
-
-<!-- <ul> -->
-<!--   <!-1- <li><a href="https://github.com/nspin/chuck-compositions">chuck-compositions</a> - Some bad music written in the strongly-timed programming language ChucK</li> -1-> -->
-<!--   <li><a href="https://github.com/nspin/uttyl">uttyl</a> - Some useful tty/pty-related hacks.</li> -->
-<!--   <!-1- <li><a href="https://github.com/nspin/botnet">botnet</a> - Infrastructure for an experimental JavaScript botnet.</li> -1-> -->
-<!--   <!-1- <li><a href="https://github.com/nspin/bus-data">bus-data</a> - Code used to reverse engineer a compressed and obfuscated AJAX protocol.</li> -1-> -->
-<!--   <!-1- <li><a href="https://github.com/nspin/leftpad.ko">leftpad.ko</a> - The infamous leftPad() implemented as a kernel module.</li> -1-> -->
-<!-- </ul> -->
-
-<!-- <p>Haskell libraries:</p> -->
-<!-- <ul> -->
-<!--   <li><a href="https://github.com/nspin/bigword">bigword</a> - Library for treating bit arrays with statically known size as heterogeneous Church-encoded vectors.</li> -->
-<!--   <li><a href="https://github.com/nspin/bencode">bencode</a> - Fast and flexible parsers and builders for BEncoded data.</li> -->
-<!--   <li><a href="https://github.com/nspin/mod-n">mod-n</a> - Integers under a modulus, using GHC’s type-level naturals.</li> -->
-<!--   <li><a href="https://github.com/nspin/n-vector">n-vector</a> - Fixed-length unboxed vectors.</li> -->
-<!--   <li><a href="https://github.com/nspin/recall">recall</a> - A typeclass for memoization, based on a paper by Simon Peyton Jones.</li> -->
-<!--   <li><a href="https://github.com/nspin/24-bit">24-bit</a> - Word24 and Int24 types, build from GHC.Prim.</li> -->
-<!--   {# <li><a href="https://github.com/nspin/rc4">rc4</a> - The RC4 stream cipher implemented in pure Haskell.</li> #} -->
-<!-- </ul> -->
-
-<!-- <p>Hackathon projects:</p> -->
-<!-- <ul> -->
-<!--   <li><a href="https://github.com/nspin/git-audio">git-audio</a> - Allows a developer to record and play back verbal commit messages.</li> -->
-<!-- </ul> -->
-<!-- <p>Fun things:</p> -->
-<!-- <ul> -->
-<!--   <li><a href="https://www.twitch.tv/twitchpokemongo">TwitchPlaysPokemonGo</a> - A Pokemon Go playing bot that was a meme for a short period of time. Created with some 2016 <a href="http://hackny.org">hackNY</a> fellows.</li> -->
-<!-- </ul> -->
 
 <h2>Honors</h2>
 
@@ -216,7 +197,7 @@
 <h2>Academic Services</h2>
 
 <p class="hanging-indent">
-<b><em>(Session chair)</em> Morello: Investigating hardware capabilities in the Arm architecture</b>
+<strong><em>(Session chair)</em> Morello: Investigating hardware capabilities in the Arm architecture</strong>
 <br>
 Arm Research Summit 2020 &ndash;
 <em>Chief Architect at Arm Richard Grisenthwaite and Robert Watson and Peter Sewell of University of Cambridge</em>
@@ -234,4 +215,9 @@ Arm Research Summit 2020 &ndash;
 	<em>Resume</em> <a href="resume.pdf">[pdf]</a>
 </p>
 
-{% endblock %}
+
+
+            </div>
+        </div>
+    </body>
+</html>
