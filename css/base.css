@@ -169,6 +169,16 @@ div.sourceCode {
         display: inline;
     }
 
+    .only-big {
+        display: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .only-big-first {
+        margin-top: 0px;
+    }
+
 }
 
 /* *** */
