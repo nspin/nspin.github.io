@@ -5,25 +5,64 @@
 
 {% block before %}
     <link rel="stylesheet" type="text/css" href="{{ path_to('/css/about.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ path_to('/css/index.css') }}">
+    <link rel="stylesheet" href="{{ path_to('/third-party/fontawesome/css/fontawesome-all.min.css') }}">
 {% endblock %}
 
 {% block content %}
 
-<!-- <!-1- <!-2- <h1 class="top-line-flush">Curriculum vitae</h2> -2-> -1-> -->
-<!-- <!-1- <h1 class="big-header top-line-flush">About</h2> -1-> -->
-<!-- <h1 class="only-big big-header top-line-flush">About</h2> -->
-<h1 class="only-big top-line-flush">About</h2>
+<div id="contact" class="small-center">
+    <div id="contact-left">
+        <img id="portrait" src="{{ path_to('/images/portrait.jpg') }}" alt="Portrait">
+    </div>
+    <div id="contact-right">
+        <!-- <p> -->
+            <a class="contact-entry" href="mailto:nick@nickspinale.com">
+                <i class="fas fa-fw fa-envelope"></i>
+                nick@nickspinale.com
+            </a>
+            <br />
+            <a class="contact-entry" href="https://github.com/nspin">
+                <i class="fab fa-fw fa-github"></i>
+                github.com/nspin
+            </a>
+            <br />
+            <a class="contact-entry" href="https://twitter.com/nick_spinale">
+                <i class="fab fa-fw fa-twitter"></i>
+                twitter.com/nick_spinale
+            </a>
+            <br />
+            <a class="contact-entry" href="https://www.linkedin.com/in/nickspinale">
+                <i class="fab fa-fw fa-linkedin-in"></i>
+                linkedin.com/in/nickspinale
+            </a>
+        <!-- </p> -->
+    </div>
+</div>
 
-<p class="only-big-first">
-  I work at Arm Research.  My interests include privacy, confidential computing,
-  formal methods, trusted execution environments, operating systems, programming
-  languages, and reverse engineering.  Right now, I'm exploring system software
-  foundations to enable the trust models necessary for general-purpose
-  confidential computing.
-</p>
+<div id="bio">
+    <p>
+        I work at Arm Research.
+    </p>
+    <p>
+        My interests include privacy, confidential computing, formal methods, trusted execution environments, operating systems, programming languages, and reverse engineering.
+    </p>
+    <p>
+        Right now, I'm exploring system software foundations to enable the trust models necessary for general-purpose confidential computing.
+    </p>
+    <p>
+        Please feel free to reach out using any of the links above.
+    </p>
+    <!-- <p> -->
+    <!--     To see what I've been working on (outside of work), check out -->
+    <!--     <a href="https://github.com/nspin/malice">Malice</a>, -->
+    <!--     <a href="https://github.com/nspin/hs-arm">hs-arm</a>, or -->
+    <!--     <a href="https://github.com/nspin/synthol">synthol</a>. -->
+    <!-- </p> -->
+</div>
 
 <p>
-  <em>Resume</em> <a href="resume.pdf">[pdf]</a>
+  <a href="resume.pdf"><strong>Resume</strong> (pdf)</a>
 </p>
 
 <h2>Papers and talks</h2>
