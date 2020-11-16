@@ -7,11 +7,12 @@ title: 'seL4 + TrustZone: Spanning both worlds'
 
 ## seL4 + TrustZone: Spanning both worlds {.top-line-flush}
 
-_(Upcoming)_ [seL4 Summit 2020](https://www.sel4-us.org/summit2020/)
+[seL4 Summit 2020](https://www.sel4-us.org/summit2020/)
 
 _Nick Spinale_
 
-[slides and recording coming soon]
+[[slides]](./sel4-trustzone.pdf)
+[recording coming soon]
 
 </div>
 
