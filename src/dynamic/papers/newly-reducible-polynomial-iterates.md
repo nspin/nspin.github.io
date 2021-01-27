@@ -8,11 +8,13 @@ has_math: true
 
 ## Newly reducible polynomial iterates {.top-line-flush}
 
+[International Journal of Number Theory](https://www.worldscientific.com/doi/abs/10.1142/S1793042121500433)
+
 _Peter Illig, Rafe Jones, Eli Orvis, Yukihiko Segawa, Nick Spinale_
 
 [[pdf]](./2008.01222.pdf)
 [[arXiv:2008.01222]](https://arxiv.org/abs/2008.01222)
-[doi coming soon]
+[[doi:10.1142/S1793042121500433]](https://doi.org/10.1142/S1793042121500433)
 
 </div>
 
