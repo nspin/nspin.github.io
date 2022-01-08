@@ -7,7 +7,7 @@ title: 'The Supervisionary proof-checking kernel'
 
 ## The Supervisionary proof-checking kernel, or: a work-in-progress toward proof-generating code {.top-line-flush}
 
-[PriSC 2022](https://popl22.sigplan.org/home/prisc-2022) as [POPL 2022](https://popl22.sigplan.org/)
+[PriSC 2022](https://popl22.sigplan.org/home/prisc-2022) at [POPL 2022](https://popl22.sigplan.org/)
 
 _Dominic P. Mulligan and Nick Spinale_
 
