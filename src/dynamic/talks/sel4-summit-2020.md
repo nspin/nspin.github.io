@@ -11,7 +11,7 @@ title: 'seL4 + TrustZone: Spanning both worlds'
 
 _Nick Spinale_
 
-[[slides]](./sel4-summit-2020.pdf)
+[[slides]](./icecap-sel4-summit-2020.pdf)
 
 <div class="content-auto-resizable-iframe-full">
 <div>
