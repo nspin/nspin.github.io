@@ -26,7 +26,7 @@ TEMPLATES     := $(wildcard $(SRC_DIR)/templates/*.html)
 ROOT          := $(file <$(SRC_DIR)/robots/root.txt)
 
 
-dir_guard = @mkdir -p $(@D)
+ensure_dir = @mkdir -p $(@D)
 py = python3 main.py $(BUILD_DIR) $(SRC_DIR) $(http_path)
 latex = lualatex
 
@@ -51,47 +51,47 @@ clean:
 
 
 $(TMP_DIR)/pandoc/math.fragment.html: $(SRC_DIR)/pandoc/math.template $(SRC_DIR)/pandoc/math.md
-	$(dir_guard)
+	$(ensure_dir)
 	pandoc --read=markdown --write=html --metadata title=x --template=$^ > $@ --mathjax
 
 
 $(BUILD_DIR)/%: $(SRC_DIR)/static/%
-	$(dir_guard)
+	$(ensure_dir)
 	cp $< $@
 
 $(BUILD_DIR)/%: $(SRC_DIR)/redirects/% $(TEMPLATES) main.py
-	$(dir_guard)
+	$(ensure_dir)
 	$(py) redirect $(shell cat $<)
 
 $(BUILD_DIR)/%.html: $(SRC_DIR)/dynamic/%.html $(TEMPLATES) main.py $(PANDOC_HELPERS)
-	$(dir_guard)
+	$(ensure_dir)
 	$(py) html $(call rel_to_src,$<)
 
 $(BUILD_DIR)/%.html: $(SRC_DIR)/dynamic/%.md $(TEMPLATES) main.py $(PANDOC_HELPERS)
-	$(dir_guard)
+	$(ensure_dir)
 	$(py) md $(call rel_to_src,$<)
 
 $(BUILD_DIR)/articles.html: $(ARTICLES) $(TEMPLATES) main.py $(PANDOC_HELPERS)
-	$(dir_guard)
+	$(ensure_dir)
 	$(py) articles
 
 $(BUILD_DIR)/css/pandoc/code.%.css: $(SRC_DIR)/pandoc/code.template $(SRC_DIR)/pandoc/code.md
-	$(dir_guard)
+	$(ensure_dir)
 	pandoc --read=markdown --write=html --metadata title=x --template=$^ > $@ --highlight-style $*
 
 $(BUILD_DIR)/resume.pdf: $(SRC_DIR)/resume/main.tex $(SRC_DIR)/resume/resume.cls
-	$(dir_guard)
+	$(ensure_dir)
 	mkdir -p $(call in_tmp,$(<D))
 	TEXINPUTS=$(<D):$$TEXINPUTS $(latex) --output-dir=$(call in_tmp,$(<D)) $<
 	mv $(patsubst %.tex,%.pdf,$(call in_tmp,$<)) $@
 
 $(BUILD_DIR)/robots.txt: $(SRC_DIR)/robots/robots.txt.in $(SRC_DIR)/robots/root.txt
-	$(dir_guard)
+	$(ensure_dir)
 	sed "s|@ROOT@|$(ROOT)|g" $< > $@
 
 SITEMAP_YAML := $(SRC_DIR)/robots/include.yaml $(SRC_DIR)/robots/exclude.yaml
 SITEMAP_PATHS := $(filter-out $(BUILD_DIR)/sitemap.xml,$(ALL_TARGS))
 
 $(BUILD_DIR)/sitemap.xml: $(SITEMAP_YAML) main.py $(SRC_DIR)/robots/root.txt $(SRC_DIR)/templates/sitemap.xml $(SITEMAP_PATHS)
-	$(dir_guard)
+	$(ensure_dir)
 	$(py) sitemap $(ROOT) $(SITEMAP_YAML)
