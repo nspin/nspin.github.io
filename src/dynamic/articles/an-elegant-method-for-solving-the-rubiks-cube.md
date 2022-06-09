@@ -37,7 +37,7 @@ A state in $G_1$ is also in $G_2$ if and only if all E-slice edge pieces are in 
 
 Observe that $L$, $L^{-1}$, $R$, and $R^{-1}$ each change the orientation of four corner pieces and replace two edge pieces in the E-slice. Furthermore, observe that moves like $RUR^{-1}$ change the orientation of three corner pieces and replace one edge piece in the E-slice.
 
-Here is one approach to reaching $G_2$: first, place three of the four E-slice edge pieces in the E-slice. Next, using setup moves in $G_2$ around moves like $RUR^{-1}$ (choosing those which affect only the E-slice slot which is not filled with an E-slice piece) flip all but three corner pieces, being careful not to insert the final E-slice piece. Finally, setup to one last $RUR^{-1}$-like move to flip the last three corners and insert the last E-slice piece.
+Here is one approach to reaching $G_2$: First, place three of the four E-slice edge pieces in the E-slice. Next, using setup moves in $G_2$ around moves like $RUR^{-1}$ (choosing those which affect only the E-slice slot which is not filled with an E-slice piece) flip all but three corner pieces, being careful not to insert the final E-slice piece. Finally, setup to one last $RUR^{-1}$-like move to flip the last three corners and insert the last E-slice piece.
 
 This step can be tricky. Like a puzzle(!).
 
@@ -45,11 +45,11 @@ From now on, use only moves in $G_2$.
 
 ### Phase 3: $\langle U, D, L^2, R^2, F^2, B^2 \rangle \rightarrow \langle U, R^2 \rangle$
 
-A state in $G_2$ is also in $G_3$ if and only if the $2\times 2\times 3$ block around the D/L edge of the cube is solved and the permutation of corner pieces satisfies the following: if moves in $G_3$ are used to solve any three corner pieces, the other three end up also being solved. `TODO: provide explanation and proof sketch`.
+A state in $G_2$ is also in $G_3$ if and only if the $2\times 2\times 3$ block around the DL edge of the cube is solved and the permutation of corner pieces satisfies the following: if moves in $G_3$ are used to solve any three corner pieces, the other three end up also being solved. `TODO: provide explanation and proof sketch`.
 
-First, solve the $2\times 2\times 3$ block around the D/L edge of the cube. Next, using moves from $G_3$, solve the DLF and DLB corners. Now, the remaining four corners are one transposition away from being solved relative to one another.
+First, solve the $2\times 2\times 3$ block around the DL edge of the cube. Next, using moves from $G_3$, solve the DLF and DLB corners. Now, the remaining four corners are one transposition away from being solved relative to one another. Set this transposition up to ULF and URF, and then perform $F^2U^{-1}F^2U^{-1}F^2U^2F^2$.
 
-Let $a = F^2U^{-1}F^2U^{-1}F^2U^2F^2$ and $b = R^2U^{-1}R^2UR^2UR^2U^2$. Observe that $ab$ is a double transposition which swaps the ULF and URF corners and the UL and DR edges. Setting up our desired transposition to ULF and URF with moves in $G_3$, performing $ab$, and then undoing those setup moves would bring the cube into $G_3$. However, $b$ and the undoing of the setup moves are both in $G_3$, so all that is necessary to bring the cube into $G_3$ are to perform the setup moves and then perform $a$.
+That last step, explained: Let $a = F^2U^{-1}F^2U^{-1}F^2U^2F^2$ and $b = R^2U^{-1}R^2UR^2UR^2U^2$. Observe that $ab$ is a double transposition which swaps the ULF and URF corners and the UL and DR edges. Setting up our desired transposition to ULF and URF with moves in $G_3$, performing $ab$, and then undoing those setup moves would bring the cube into $G_3$. However, $b$ and the undoing of the setup moves are both in $G_3$, so all that is necessary to bring the cube into $G_3$ are to perform the setup moves and then perform $a$.
 
 From now on, use only moves in $G_3$.
 
