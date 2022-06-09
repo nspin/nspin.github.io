@@ -31,7 +31,7 @@ Observe that moves in $G_1$ do not change the orientation of any edge pieces, wh
 
 From now on, use only moves in $G_1$.
 
-### Phase 2: $\langle U, D, L, R, F^2, B^2 \rangle \rightarrow \langle U, D, L^2, R2, F^2, B^2 \rangle$
+### Phase 2: $\langle U, D, L, R, F^2, B^2 \rangle \rightarrow \langle U, D, L^2, R^2, F^2, B^2 \rangle$
 
 A state in $G_1$ is also in $G_2$ if and only if all E-slice edge pieces are in the E-slice and all corner pieces are oriented correctly according to the following definition: a corner piece is correctly oriented if its U- or D-colored sticker is on the U or D face.
 
