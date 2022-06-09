@@ -53,6 +53,8 @@ Now, a procedure for reaching $G_3$ from $G_2$: First, solve the $2\times 2\time
 
 That last step, explained: Let $a = F^2U'F^2U'F^2U^2F^2$ and $b = R^2U'R^2UR^2UR^2U^2$. Observe that $ab$ is a double transposition which swaps the ULF and URF corners and the UL and DR edges. Setting up our desired transposition to ULF and URF with moves in $G_3$, performing $ab$, and then undoing those setup moves would bring the cube into $G_3$. However, $b$ and the undoing of the setup moves are both in $G_3$, so all that is necessary to bring the cube into $G_3$ are to perform the setup moves and then perform $a$.
 
+$a$ works by breaking and then restoring the $2\times 2\times 3$ block, disrupting the U and R layers in the process. $b$ restores the DRF and DRB corner pieces and then does as $U$ turn to place the remaining four corner pieces. You can think of $a$ as having the effect of causing the cube's state to jump between left cosets of $G_3$ in the containing group of states in $G_2$ with a solved $2\times 2\times 3$ block around DL. $b$ just helps us identify which left coset we have landed in.
+
 From now on, use only turns in $G_3$.
 
 ### Phase 4: $\langle U, R^2 \rangle \rightarrow \langle U^2, R^2 \rangle$
