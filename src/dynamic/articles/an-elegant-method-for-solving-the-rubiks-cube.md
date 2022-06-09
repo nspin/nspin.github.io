@@ -25,7 +25,7 @@ Each phase of this method corresponds to a reduction from $G_{n-1}$ to $G_n$ usi
 
 ### Phase 1: $\langle U, D, L, R, F, B \rangle \rightarrow \langle U, D, L, R, F^2, B^2 \rangle$
 
-A state in $G_0$ is also in $G_1$ if and only if all edge pieces are oriented correctly according to the following definition: an edge pieces is oriented correctly if and only if its primary sticker is on its primary face. An edge piece's primary sticker is its U- or D-colored sticker if it has one, otherwise its F- or B-colored sticker. An edge piece's primary face is U or D if it is located on U or D, otherwise F or B. Equivalently, from another perspective, and edge is piece is oriented correctly if and only if it can be solved using $U$, $D$, $L$, $R$, $F^2$, and $R^2$. The number of misoriented edge pieces is always even.
+A state in $G_0$ is also in $G_1$ if and only if all edge pieces are oriented correctly according to the following definition: an edge pieces is oriented correctly if and only if its primary sticker is on its primary face. An edge piece's primary sticker is its U- or D-colored sticker if it has one, otherwise its F- or B-colored sticker. An edge piece's primary face is U or D if it is located on U or D, otherwise F or B. Equivalently, from another perspective, and edge is piece is oriented correctly if and only if it can be solved using $U$, $D$, $L$, $R$, $F^2$, and $B^2$. The number of misoriented edge pieces is always even.
 
 Observe that moves in $G_1$ do not change the orientation of any edge pieces, whereas $F$, $F'$, $B$, and $B'$ each change the orientation of four edge pieces. Furthermore, gadgets like $FUF'$ change the orientation of two edge pieces. Use setup moves in $G_1$ to position groups of misoriented edge pieces into the positions that get flipped by these basic edge-flipping gadgets until all edge pieces are correctly oriented.
 
@@ -33,7 +33,7 @@ From now on, use only moves in $G_1$.
 
 ### Phase 2: $\langle U, D, L, R, F^2, B^2 \rangle \rightarrow \langle U, D, L^2, R^2, F^2, B^2 \rangle$
 
-A state in $G_1$ is also in $G_2$ if and only if all E-slice edge pieces are in the E-slice and all corner pieces are oriented correctly according to the following definition: a corner piece is correctly oriented if its U- or D-colored sticker is on the U or D face.
+A state in $G_1$ is also in $G_2$ if and only if all E-slice edge pieces are in the E-slice and all corner pieces are oriented correctly according to the following definition: a corner piece is correctly oriented if and only if its U- or D-colored sticker is on the U or D face.
 
 Observe that $L$, $L'$, $R$, and $R'$ each change the orientation of four corner pieces and replace two edge pieces in the E-slice. Furthermore, observe that gadgets like $RUR'$ change the orientation of three corner pieces and replace one edge piece in the E-slice.
 
