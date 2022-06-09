@@ -59,9 +59,13 @@ From now on, use only turns in $G_3$.
 
 ### Phase 4: $\langle U, R^2 \rangle \rightarrow \langle U^2, R^2 \rangle$
 
-Using intuition, form a pair around each of the three remaining S-slice edge pieces one at a time. The first and second pairs should face in opposite directions. Next, position these pairs so that each S-slice edge piece is in the S-slice. Now, the cube is in $G_4$.
+Consider the appearance of the U and R layers in states in $G_4$: two $1\times 1\times 3$ blocks consisting of one center piece and two edge pieces, and three $1\times 1\times 3$ blocks consisting of one edge piece and two corner pieces. Although we will reach $G_4$ using blockbuilding, thanks to the properties of $G_3$, we will only have to focus on three $1\times 1\times 2$ blocks consisting of one S-slice edge piece and one corner piece. Once we have created and aligned these three smaller blocks, the rest of the pieces will already be positioned correctly(!).
 
-`TODO: provide explanation and techniques`
+Our blockbuilding goal will be to place each S-slice edge piece in the S-slice as part of a corner-edge pair. Note that ever since $G_2$, E-slice edge pieces have been restricted to the E-slice. So, once the three remaining S-slice edge pieces are in the S-slice, the only two remaining edge pieces, which are M-slice edge pieces, will be in the M-slice. Furthermore, as we know from the characterization of $G_4$, the positions of the three remaining corner pieces are determined by the positions of the three corner pieces that are part of our blocks. So, once we reach this blockbuilding goal, we will already be in $G_4$.
+
+Form each of the three corner-edge pairs one at a time. Avoid breaking up formed pairs while forming subsequent pairs. The first two pairs should be chosen so that they face in opposite directions. That is, when they are on opposite sides of the same layer, they should not be able to be interchaged with a half-turn. Finally, position the three pairs so that each S-slice edge piece is in the S-slice. Now, the cube is in $G_4$.
+
+From now on, use only turns in $G_4$.
 
 ### Phase 5: $\langle U^2, R^2 \rangle \rightarrow \{ e \}$
 
