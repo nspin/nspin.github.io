@@ -27,7 +27,7 @@ Each phase of this method corresponds to a reduction from $G_{n-1}$ to $G_n$ usi
 
 A state in $G_0$ is also in $G_1$ if and only if all edge pieces are oriented correctly according to the following definition: an edge pieces is oriented correctly if and only if its primary sticker is on its primary face. An edge piece's primary sticker is its U- or D-colored sticker if it has one, otherwise its F- or B-colored sticker. An edge piece's primary face is U or D if it is located on U or D, otherwise F or B. Equivalently, from another perspective, and edge is piece is oriented correctly if and only if it can be solved using $U$, $D$, $L$, $R$, $F^2$, and $R^2$. The number of misoriented edge pieces is always even.
 
-Observe that moves in $G_1$ do not change the orientation of any edge pieces, whereas $F$, $F^{-1}$, $B$, and $B^{-1}$ each change the orientation of four edge pieces. Furthermore, gadgets like $FUF^{-1}$ change the orientation of two edge pieces. Use setup moves in $G_1$ to position groups of misoriented edge pieces into the positions that get flipped by these basic edge-flipping gadgets until all edge pieces are correctly oriented.
+Observe that moves in $G_1$ do not change the orientation of any edge pieces, whereas $F$, $F'$, $B$, and $B'$ each change the orientation of four edge pieces. Furthermore, gadgets like $FUF'$ change the orientation of two edge pieces. Use setup moves in $G_1$ to position groups of misoriented edge pieces into the positions that get flipped by these basic edge-flipping gadgets until all edge pieces are correctly oriented.
 
 From now on, use only moves in $G_1$.
 
@@ -35,9 +35,9 @@ From now on, use only moves in $G_1$.
 
 A state in $G_1$ is also in $G_2$ if and only if all E-slice edge pieces are in the E-slice and all corner pieces are oriented correctly according to the following definition: a corner piece is correctly oriented if its U- or D-colored sticker is on the U or D face.
 
-Observe that $L$, $L^{-1}$, $R$, and $R^{-1}$ each change the orientation of four corner pieces and replace two edge pieces in the E-slice. Furthermore, observe that gadgets like $RUR^{-1}$ change the orientation of three corner pieces and replace one edge piece in the E-slice.
+Observe that $L$, $L'$, $R$, and $R'$ each change the orientation of four corner pieces and replace two edge pieces in the E-slice. Furthermore, observe that gadgets like $RUR'$ change the orientation of three corner pieces and replace one edge piece in the E-slice.
 
-Here is one approach to reaching $G_2$: First, place three of the four E-slice edge pieces in the E-slice. Next, using setup moves in $G_2$ around gadgets like $RUR^{-1}$ (choosing those which affect only the E-slice slot which is not filled with an E-slice piece) flip all but three corner pieces, being careful not to insert the final E-slice piece. Finally, setup to one last $RUR^{-1}$-like gadgets to flip the last three corners and insert the last E-slice piece.
+Here is one approach to reaching $G_2$: First, place three of the four E-slice edge pieces in the E-slice. Next, using setup moves in $G_2$ around gadgets like $RUR'$ (choosing those which affect only the E-slice slot which is not filled with an E-slice piece) flip all but three corner pieces, being careful not to insert the final E-slice piece. Finally, setup to one last $RUR'$-like gadgets to flip the last three corners and insert the last E-slice piece.
 
 This step can be tricky. Like a puzzle(!).
 
@@ -49,9 +49,9 @@ A state in $G_2$ is also in $G_3$ if and only if the $2\times 2\times 3$ block a
 
 `TODO: provide explanation and proof sketch`.
 
-First, solve the $2\times 2\times 3$ block around the DL edge of the cube. Next, using moves from $G_3$, solve the DLF and DLB corners. Now, the remaining four corners are one transposition away from being solved relative to one another. Set this transposition up to ULF and URF, and then perform $F^2U^{-1}F^2U^{-1}F^2U^2F^2$.
+First, solve the $2\times 2\times 3$ block around the DL edge of the cube. Next, using moves from $G_3$, solve the DLF and DLB corners. Now, the remaining four corners are one transposition away from being solved relative to one another. Set this transposition up to ULF and URF, and then perform $F^2U'F^2U'F^2U^2F^2$.
 
-That last step, explained: Let $a = F^2U^{-1}F^2U^{-1}F^2U^2F^2$ and $b = R^2U^{-1}R^2UR^2UR^2U^2$. Observe that $ab$ is a double transposition which swaps the ULF and URF corners and the UL and DR edges. Setting up our desired transposition to ULF and URF with moves in $G_3$, performing $ab$, and then undoing those setup moves would bring the cube into $G_3$. However, $b$ and the undoing of the setup moves are both in $G_3$, so all that is necessary to bring the cube into $G_3$ are to perform the setup moves and then perform $a$.
+That last step, explained: Let $a = F^2U'F^2U'F^2U^2F^2$ and $b = R^2U'R^2UR^2UR^2U^2$. Observe that $ab$ is a double transposition which swaps the ULF and URF corners and the UL and DR edges. Setting up our desired transposition to ULF and URF with moves in $G_3$, performing $ab$, and then undoing those setup moves would bring the cube into $G_3$. However, $b$ and the undoing of the setup moves are both in $G_3$, so all that is necessary to bring the cube into $G_3$ are to perform the setup moves and then perform $a$.
 
 From now on, use only moves in $G_3$.
 
