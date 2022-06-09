@@ -10,7 +10,7 @@ This method has the interesting property of ending with intuitive blockbuilding.
 
 For context, see [Thistlethwaite's algorithm](https://www.jaapsch.net/puzzles/thistle.htm) and the [RUP method](https://presleygit.github.io/index_eng.html) .
 
-Consider the following six subgroups of the cube group:
+Consider the following six nested subgroups of the cube group:
 
 ------------------------------------------------- ---------------------------
 $G_0 = \langle U, D, L, R, F, B \rangle$          $\;\;|G_0| = \textrm{43,252,003,274,489,856,000}$
@@ -21,13 +21,13 @@ $G_4 = \langle U^2, R^2 \rangle$                  $\;\;|G_4| = \textrm{         
 $G_5 = \{ e \}$                                   $\;\;|G_5| = \textrm{                         1}$
 ------------------------------------------------- ---------------------------
 
-Each of the five phases of this method corresponds to a reduction from $G_{n-1}$ to $G_n$ using only moves found in $G_{n-1}$.
+Each phase of this method corresponds to a reduction from $G_{n-1}$ to $G_n$ using only moves found in $G_{n-1}$.
 
 ### Phase 1: $\langle U, D, L, R, F, B \rangle \rightarrow \langle U, D, L, R, F^2, B^2 \rangle$
 
 A state in $G_0$ is also in $G_1$ if and only if all edge pieces are oriented correctly according to the following definition: an edge pieces is oriented correctly if and only if its primary sticker is on its primary face. An edge piece's primary sticker is its U- or D-colored sticker if it has one, otherwise its F- or B-colored sticker. An edge piece's primary face is U or D if it is located on U or D, otherwise F or B. Equivalently, from another perspective, and edge is piece is oriented correctly if and only if it can be solved using $U$, $D$, $L$, $R$, $F^2$, and $R^2$. The number of misoriented edge pieces is always even.
 
-Observe that moves in $G_1$ do not change the orientation of any edge pieces, whereas $F$, $F^{-1}$, $B$, and $B^{-1}$ each change the orientation of four edge pieces. Furthermore, moves like $FUF^{-1}$ change the orientation of two edge pieces. Use setup moves in $G_1$ to position groups of misoriented edge pieces into the positions that get flipped by these basic edge-flipping moves until all edge pieces are correctly oriented.
+Observe that moves in $G_1$ do not change the orientation of any edge pieces, whereas $F$, $F^{-1}$, $B$, and $B^{-1}$ each change the orientation of four edge pieces. Furthermore, gadgets like $FUF^{-1}$ change the orientation of two edge pieces. Use setup moves in $G_1$ to position groups of misoriented edge pieces into the positions that get flipped by these basic edge-flipping gadgets until all edge pieces are correctly oriented.
 
 From now on, use only moves in $G_1$.
 
@@ -35,9 +35,9 @@ From now on, use only moves in $G_1$.
 
 A state in $G_1$ is also in $G_2$ if and only if all E-slice edge pieces are in the E-slice and all corner pieces are oriented correctly according to the following definition: a corner piece is correctly oriented if its U- or D-colored sticker is on the U or D face.
 
-Observe that $L$, $L^{-1}$, $R$, and $R^{-1}$ each change the orientation of four corner pieces and replace two edge pieces in the E-slice. Furthermore, observe that moves like $RUR^{-1}$ change the orientation of three corner pieces and replace one edge piece in the E-slice.
+Observe that $L$, $L^{-1}$, $R$, and $R^{-1}$ each change the orientation of four corner pieces and replace two edge pieces in the E-slice. Furthermore, observe that gadgets like $RUR^{-1}$ change the orientation of three corner pieces and replace one edge piece in the E-slice.
 
-Here is one approach to reaching $G_2$: First, place three of the four E-slice edge pieces in the E-slice. Next, using setup moves in $G_2$ around moves like $RUR^{-1}$ (choosing those which affect only the E-slice slot which is not filled with an E-slice piece) flip all but three corner pieces, being careful not to insert the final E-slice piece. Finally, setup to one last $RUR^{-1}$-like move to flip the last three corners and insert the last E-slice piece.
+Here is one approach to reaching $G_2$: First, place three of the four E-slice edge pieces in the E-slice. Next, using setup moves in $G_2$ around gadgets like $RUR^{-1}$ (choosing those which affect only the E-slice slot which is not filled with an E-slice piece) flip all but three corner pieces, being careful not to insert the final E-slice piece. Finally, setup to one last $RUR^{-1}$-like gadgets to flip the last three corners and insert the last E-slice piece.
 
 This step can be tricky. Like a puzzle(!).
 
@@ -57,13 +57,13 @@ From now on, use only moves in $G_3$.
 
 ### Phase 4: $\langle U, R^2 \rangle \rightarrow \langle U^2, R^2 \rangle$
 
-Using intuition, form a pair around each of the three remaining S-slice edge pieces. The first and second pairs should face in opposite directions. Next, position these pairs so that each S-slice edge piece is in the S-slice. Now, the cube is in $G_4$.
+Using intuition, form a pair around each of the three remaining S-slice edge pieces one at a time. The first and second pairs should face in opposite directions. Next, position these pairs so that each S-slice edge piece is in the S-slice. Now, the cube is in $G_4$.
 
 `TODO: provide explanation and techniques`
 
 ### Phase 5: $\langle U^2, R^2 \rangle \rightarrow \{ e \}$
 
-This final phase can be completed using intuition. If in doubt, just remember that $G_4$ is cyclic: $|R^2U^2| = |G_4| = 6$.
+Using intuition, solve the cube. If in doubt, just remember that $G_4$ is cyclic: $|R^2U^2| = |G_4| = 6$.
 
 ### Examples
 
