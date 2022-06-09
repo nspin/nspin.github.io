@@ -55,6 +55,14 @@ From now on, use only moves in $G_3$.
 
 ### Phase 4: $\langle U, R^2 \rangle \rightarrow \langle U^2, R^2 \rangle$
 
+Using intuition, form a pair around each of the three remaining S-slice edge pieces. The first and second pairs should face in opposite directions. Next, position these pairs so that each S-slice edge piece is in the S-slice. Now, the cube is in $G_4$.
+
+`TODO: provide explanation and techniques`
+
 ### Phase 5: $\langle U^2, R^2 \rangle \rightarrow \{ e \}$
 
-This final phase can be solved easily using intuition. However, if in doubt, just remember that $G_4$ is cyclic: $|R^2U^2| = |G_4| = 6$.
+This final phase can be completed using intuition. If in doubt, just remember that $G_4$ is cyclic: $|R^2U^2| = |G_4| = 6$.
+
+### Examples solves
+
+`TODO`
