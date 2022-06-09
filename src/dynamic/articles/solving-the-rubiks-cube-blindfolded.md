@@ -5,6 +5,12 @@ date: 2018-02-02
 has_math: true
 ...
 
+```
+-- -- -- -- -- -- --
+ UNDER CONSTRUCTION
+-- -- -- -- -- -- --
+```
+
 All that's necessary for solving the cube blindfolded is a solid understanding of the basic properties of the cube and some practice.
 
 This article doesn't assume any knowledge of cube theory, but the reader will find some undergraduate math (e.g. basic group theory) useful.
@@ -184,7 +190,7 @@ Which simple permutations are easiest to execute will inform how we choose to br
 
 ## Additional Resources
 
-`IN PROGRESS`
+`UNDER CONSTRUCTION`
 
 In the meantime, check out this video in which a younger version of me solves a 4x4x4 cube blindfolded:
 

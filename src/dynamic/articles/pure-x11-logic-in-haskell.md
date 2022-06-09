@@ -106,10 +106,14 @@ This abstraction allows for *pure* X logic.
 It also lets us isolate unwieldy layers of computation and bits of state in the usual `mtl` way.
 xhb-mapping-state is an example of this.
 
+<!--
+
 ## xhb-mapping-state
 
 (*[source](https://github.com/nspin/xhb-mapping-state), [docs](https://nspin.github.io/xhb-mapping-state)*)
 
-<!-- *   [xhb-keysyms](/xhb-keysyms) -->
+[xhb-keysyms](/xhb-keysyms)
 
 `TODO`
+
+-->
