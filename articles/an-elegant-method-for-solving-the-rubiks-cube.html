@@ -217,7 +217,7 @@ U' R2 U R2 U' R2 U // align pairs
 R2 U2 // finish
 
 -->
-<p><a href="">Example solution #2</a></p>
+<p><a href="https://alg.cubing.net/?setup=R2_B2_R2_B2_U2_R2_D_U2_L2_F2_R2_B_L-_F-_L-_B_F_D2_F2_U_F&amp;type=reconstruction&amp;alg=%2F%2F_Phase_1%0A%0AF_%2F%2F_flip_4_edges%0AB_L-_B-_%2F%2F_flip_remaining_2_edges%0A%0A%2F%2F_Phase_2%0A%0A%2F%2F_three_out_of_four_E%26%2345%3Bslice_edges_are_already_in_the_E%26%2345%3Bslice%0AL-_U_L_%2F%2F_setup_and_flip_three_corners_to_get_to_the_penultimate_corner_orientation_state%0AR2_U_D_M2_D_L-_U_L_%2F%2F_setup_and_flip_final_three_corners_while_inserting_final_E%26%2345%3Bslice_edge%0Ax2_%2F%2F_re%26%2345%3Borient_cube%0A%0A%2F%2F_Phase_3%0A%0AF2_L2R2_D_R2_D2_%2F%2F_create_2x2x2_block%0AU-_R2_U2_F2_%2F%2F_complete_2x2x3_block%0AU_R2_U-_R2_U_R2_U_R2_%2F%2F_solve_DRF_and_DRB%0A%2F%2F_note_that_ULB_and_URB_must_be_swapped_in_order_for_U_corners_to_be_solved_relative_to_one_another%0AU2_%2F%2F_setup_ULB_and_URB_ro_ULF_and_URF%0AF2_U-_F2_U-_F2_U2_F2_%2F%2F_execute_corner_permutation_algorithm%0A%0A%2F%2F_Phase_4%0A%0AU-_R2_%2F%2F_create_first_pair%0AU2_R2_U-_R2_%2F%2F_create_second_pair%0AU_R2_U2_R2_%2F%2F_create_third_pair%0AU2_R2_U-_R2_U_R2_U-_%2F%2F_align_pairs%0A%0A%2F%2F_Phase_5%0A%0AR2_U2_R2_U2_%2F%2F_finish&amp;view=playback">Example solution #2</a></p>
 <!--
 
 # scramble
@@ -239,6 +239,24 @@ R2 U D M2 D L' U L // setup and flip final three corners while inserting final E
 x2 // re-orient cube
 
 // Phase 3
+
+F2 L2R2 D R2 D2 // create 2x2x2 block
+U' R2 U2 F2 // complete 2x2x3 block
+U R2 U' R2 U R2 U R2 // solve DRF and DRB
+// note that ULB and URB must be swapped in order for U corners to be solved relative to one another
+U2 // setup ULB and URB ro ULF and URF
+F2 U' F2 U' F2 U2 F2 // execute corner permutation algorithm
+
+// Phase 4
+
+U' R2 // create first pair
+U2 R2 U' R2 // create second pair
+U R2 U2 R2 // create third pair
+U2 R2 U' R2 U R2 U' // align pairs
+
+// Phase 5
+
+R2 U2 R2 U2 // finish
 
 -->
 
