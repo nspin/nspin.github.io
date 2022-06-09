@@ -5,11 +5,7 @@ date: 2018-02-02
 has_math: true
 ...
 
-```
--- -- -- -- -- -- --
- UNDER CONSTRUCTION
--- -- -- -- -- -- --
-```
+`== == == == UNDER CONSTRUCTION == == == ==`
 
 All that's necessary for solving the cube blindfolded is a solid understanding of the basic properties of the cube and some practice.
 
