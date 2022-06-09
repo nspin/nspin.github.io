@@ -23,6 +23,12 @@ $G_5 = \{ e \}$                                   $\;\;|G_5| = \textrm{         
 
 Each phase of this method corresponds to a reduction from $G_{n-1}$ to $G_n$ using only turns found in $G_{n-1}$.
 
+You may find the following interactive, annotated examples helpful as you read through each phase. Click on a point in the text to bring the virtual cube to that point in the solution.
+
+- [Example solution #1](https://alg.cubing.net/?type=reconstruction&setup=R_D2_L_R_B2_U2_B2_D2_L_B2_U2_B-_U-_F-_R-_U-_B_D-_B_U_F&alg=%2F%2F_Phase_1%0A%0AU_L_B-_%2F%2F_flip_4_edges%0AU_F_L_F-_%2F%2F_flip_2_remaining_edges%0A%0A%2F%2F_Phase_2%0A%0AL_U_L-_%2F%2F_finish_placing_all_but_one_E%26%2345%3Bslice_edge_in_E%26%2345%3Bslice%0AR2_D_R-_U_R_%2F%2F_setup_and_flip_three_corners_to_get_to_an_easier_corner_orientation_state%0AU_R-_U_R_%2F%2F_setup_and_flip_three_corners_to_get_to_the_penultimate_corner_orientation_state%0AM2_D_R-_U-_R_%2F%2F_setup_and_flip_final_three_corners_while_inserting_final_E%26%2345%3Bslice_edge%0Ax2_%2F%2F_re%26%2345%3Borient_cube%0A%0A%2F%2F_Phase_3%0A%0AR2_F2_R2_D_R2_D2_%2F%2F_create_2x2x2_block%0AR2_U2_R2_F2_R2_F2_%2F%2F_complete_2x2x3_block%0AR2_U_R2_U-_R2_U-_R2_%2F%2F_solve_DRF_and_DRB%0A%2F%2F_note_that_ULB_and_URB_must_be_swapped_in_order_for_U_corners_to_be_solved_relative_to_one_another%0AU2_%2F%2F_setup_ULB_and_URB_ro_ULF_and_URF%0AF2_U-_F2_U-_F2_U2_F2_%2F%2F_execute_corner_permutation_algorithm%0A%0A%2F%2F_Phase_4%0A%0AR2_%2F%2F_create_first_pair%0AU_R2_U_R2_U_R2_U_R2_%2F%2F_create_second_pair%0A%2F%2F_third_pair_skip%0AU-_R2_U_R2_U-_R2_U_%2F%2F_align_pairs_%0A%0A%2F%2F_Phase_5%0A%0AR2_U2_%2F%2F_finish&view=playback)
+- [Example solution #2](https://alg.cubing.net/?setup=R2_B2_R2_B2_U2_R2_D_U2_L2_F2_R2_B_L-_F-_L-_B_F_D2_F2_U_F&type=reconstruction&alg=%2F%2F_Phase_1%0A%0AF_%2F%2F_flip_4_edges%0AB_L-_B-_%2F%2F_flip_remaining_2_edges%0A%0A%2F%2F_Phase_2%0A%0A%2F%2F_three_out_of_four_E%26%2345%3Bslice_edges_are_already_in_the_E%26%2345%3Bslice%0AL-_U_L_%2F%2F_setup_and_flip_three_corners_to_get_to_the_penultimate_corner_orientation_state%0AR2_U_D_M2_D_L-_U_L_%2F%2F_setup_and_flip_final_three_corners_while_inserting_final_E%26%2345%3Bslice_edge%0Ax2_%2F%2F_re%26%2345%3Borient_cube%0A%0A%2F%2F_Phase_3%0A%0AF2_L2R2_D_R2_D2_%2F%2F_create_2x2x2_block%0AU-_R2_U2_F2_%2F%2F_complete_2x2x3_block%0AU_R2_U-_R2_U_R2_U_R2_%2F%2F_solve_DRF_and_DRB%0A%2F%2F_note_that_ULB_and_URB_must_be_swapped_in_order_for_U_corners_to_be_solved_relative_to_one_another%0AU2_%2F%2F_setup_ULB_and_URB_ro_ULF_and_URF%0AF2_U-_F2_U-_F2_U2_F2_%2F%2F_execute_corner_permutation_algorithm%0A%0A%2F%2F_Phase_4%0A%0AU-_R2_%2F%2F_create_first_pair%0AU2_R2_U-_R2_%2F%2F_create_second_pair%0AU_R2_U2_R2_%2F%2F_create_third_pair%0AU2_R2_U-_R2_U_R2_U-_%2F%2F_align_pairs%0A%0A%2F%2F_Phase_5%0A%0AR2_U2_R2_U2_%2F%2F_finish&view=playback)
+- [Example solution #3](https://alg.cubing.net/?setup=D_L2_U_L2_U_L2_U2_L2_U-_F2_D-_L_U-_L2_D2_L_B2_U_B-_L2_U&type=reconstruction&alg=%2F%2F_Phase_1%0A%0AU-_L2_B_%2F%2F_setup_and_flip_all_4_misoriented_edges%0A%0A%2F%2F_Phase_2%0A%0AU2_R-_U_R%0A%2F%2F_three_out_of_four_E%26%2345%3Bslice_edges_are_already_in_the_E%26%2345%3Bslice%0AR2_D-_U-__%2F%2F_setup_and_flip_three_corners_to_get_to_an_easier_corner_orientation_state%0AU2_R_U-_R-_%2F%2F_setup_and_flip_three_corners_to_get_to_the_penultimate_corner_orientation_state%0AR-_D_R_%2F%2F_flip_final_three_corners_while_inserting_final_E%26%2345%3Bslice_edge%0A%0A%2F%2F_Phase_3%0A%0AD_U-_B2_D2_L2_%2F%2F_create_2x2x2_block%0AU-_R2_U_R2_U_R2__B2_%2F%2F_complete_2x2x3_block%0AU2_R2_U_R2_%2F%2F_solve_DRF_and_DRB%0A%2F%2F_note_that_URF_and_URB_must_be_swapped_in_order_for_U_corners_to_be_solved_relative_to_one_another%0AU_%2F%2F_setup_ULB_and_URB_ro_ULF_and_URF%0AF2_U-_F2_U-_F2_U2_F2_%2F%2F_execute_corner_permutation_algorithm%0A%0A%2F%2F_Phase_4%0A%0A%2F%2F_first_pair_skip%0AU2_R2_U-_R2_%2F%2F_create_second_pair%0AU_R2_U2_R2_%2F%2F_create_third_pair%0AU2_R2_U-_R2_U_R2_U_%2F%2F_align_pairs%0A%0A%2F%2F_Phase_5%0A%0A%2F%2F_skip&view=playback)
+
 ### Phase 1: $\langle U, D, L, R, F, B \rangle \rightarrow \langle U, D, L, R, F^2, B^2 \rangle$
 
 A state in $G_0$ is also in $G_1$ if and only if all edge pieces are oriented correctly according to the following definition: an edge pieces is oriented correctly if and only if its primary sticker is on its primary face. An edge piece's primary sticker is its U- or D-colored sticker if it has one, otherwise its F- or B-colored sticker. An edge piece's primary face is U or D if it is located on U or D, otherwise F or B. Equivalently, from another perspective, and edge is piece is oriented correctly if and only if it can be solved using $U$, $D$, $L$, $R$, $F^2$, and $B^2$. The number of misoriented edge pieces is always even.
@@ -47,7 +53,7 @@ From now on, use only turns in $G_2$.
 
 States in $G_3$ have a solved $2\times 2\times 3$ block around the DL edge of the cube. The rest of the charactarization of states in $G_3$ pertains to the permutation of the remaining six corner pieces.
 
-Jaap Scherphuis has [proven](https://www.jaapsch.net/puzzles/pgl25.htm) that, in $\langle U, R \rangle$, the permutation of the remaining six corner pieces is isomorphic to $S_5$. By a near identical proof, same turns out to be true for $G_3 = \langle U, R2 \rangle$. If follows, as a corollary whose proof is left as an exercise for the reader, that, in $G_3$, the positions of any three non-DL corners determine the positions of the remaining three.
+Jaap Scherphuis provides a [proof](https://www.jaapsch.net/puzzles/pgl25.htm) that, in $\langle U, R \rangle$, the permutation of the remaining six corner pieces is isomorphic to $S_5$. By a near identical proof, the same turns out to be true for $G_3 = \langle U, R2 \rangle$. If follows, as a corollary whose proof is left as an exercise for the reader, that, in $G_3$, the positions of any three non-DL corners determine the positions of the remaining three.
 
 Now, a procedure for reaching $G_3$ from $G_2$: First, solve the $2\times 2\times 3$ block around the DL edge of the cube. Next, using moves from $G_3$, solve the DLF and DLB corners. Now, the remaining four corners are one transposition away from being solved relative to one another. Set this transposition up to ULF and URF, and then perform $F^2U'F^2U'F^2U^2F^2$.
 
@@ -71,11 +77,9 @@ From now on, use only turns in $G_4$.
 
 Using intuition, solve the cube. If in doubt, just remember that $G_4$ is cyclic: $|R^2U^2| = |G_4| = 6$.
 
-### Examples
-
-[Example solution #1](https://alg.cubing.net/?type=reconstruction&setup=R_D2_L_R_B2_U2_B2_D2_L_B2_U2_B-_U-_F-_R-_U-_B_D-_B_U_F&alg=%2F%2F_Phase_1%0A%0AU_L_B-_%2F%2F_flip_4_edges%0AU_F_L_F-_%2F%2F_flip_2_remaining_edges%0A%0A%2F%2F_Phase_2%0A%0AL_U_L-_%2F%2F_finish_placing_all_but_one_E%26%2345%3Bslice_edge_in_E%26%2345%3Bslice%0AR2_D_R-_U_R_%2F%2F_setup_and_flip_three_corners_to_get_to_an_easier_corner_orientation_state%0AU_R-_U_R_%2F%2F_setup_and_flip_three_corners_to_get_to_the_penultimate_corner_orientation_state%0AM2_D_R-_U-_R_%2F%2F_setup_and_flip_final_three_corners_while_inserting_final_E%26%2345%3Bslice_edge%0Ax2_%2F%2F_re%26%2345%3Borient_cube%0A%0A%2F%2F_Phase_3%0A%0AR2_F2_R2_D_R2_D2_%2F%2F_create_2x2x2_block%0AR2_U2_R2_F2_R2_F2_%2F%2F_complete_2x2x3_block%0AR2_U_R2_U-_R2_U-_R2_%2F%2F_solve_DRF_and_DRB%0A%2F%2F_note_that_ULB_and_URB_must_be_swapped_in_order_for_U_corners_to_be_solved_relative_to_one_another%0AU2_%2F%2F_setup_ULB_and_URB_ro_ULF_and_URF%0AF2_U-_F2_U-_F2_U2_F2_%2F%2F_execute_corner_permutation_algorithm%0A%0A%2F%2F_Phase_4%0A%0AR2_%2F%2F_create_first_pair%0AU_R2_U_R2_U_R2_U_R2_%2F%2F_create_second_pair%0A%2F%2F_third_pair_skip%0AU-_R2_U_R2_U-_R2_U_%2F%2F_align_pairs_%0A%0A%2F%2F_Phase_5%0A%0AR2_U2_%2F%2F_finish&view=playback)
-
 <!--
+
+###
 
 # scramble
 
@@ -116,11 +120,7 @@ U' R2 U R2 U' R2 U // align pairs
 
 R2 U2 // finish
 
--->
-
-[Example solution #2](https://alg.cubing.net/?setup=R2_B2_R2_B2_U2_R2_D_U2_L2_F2_R2_B_L-_F-_L-_B_F_D2_F2_U_F&type=reconstruction&alg=%2F%2F_Phase_1%0A%0AF_%2F%2F_flip_4_edges%0AB_L-_B-_%2F%2F_flip_remaining_2_edges%0A%0A%2F%2F_Phase_2%0A%0A%2F%2F_three_out_of_four_E%26%2345%3Bslice_edges_are_already_in_the_E%26%2345%3Bslice%0AL-_U_L_%2F%2F_setup_and_flip_three_corners_to_get_to_the_penultimate_corner_orientation_state%0AR2_U_D_M2_D_L-_U_L_%2F%2F_setup_and_flip_final_three_corners_while_inserting_final_E%26%2345%3Bslice_edge%0Ax2_%2F%2F_re%26%2345%3Borient_cube%0A%0A%2F%2F_Phase_3%0A%0AF2_L2R2_D_R2_D2_%2F%2F_create_2x2x2_block%0AU-_R2_U2_F2_%2F%2F_complete_2x2x3_block%0AU_R2_U-_R2_U_R2_U_R2_%2F%2F_solve_DRF_and_DRB%0A%2F%2F_note_that_ULB_and_URB_must_be_swapped_in_order_for_U_corners_to_be_solved_relative_to_one_another%0AU2_%2F%2F_setup_ULB_and_URB_ro_ULF_and_URF%0AF2_U-_F2_U-_F2_U2_F2_%2F%2F_execute_corner_permutation_algorithm%0A%0A%2F%2F_Phase_4%0A%0AU-_R2_%2F%2F_create_first_pair%0AU2_R2_U-_R2_%2F%2F_create_second_pair%0AU_R2_U2_R2_%2F%2F_create_third_pair%0AU2_R2_U-_R2_U_R2_U-_%2F%2F_align_pairs%0A%0A%2F%2F_Phase_5%0A%0AR2_U2_R2_U2_%2F%2F_finish&view=playback)
-
-<!--
+###
 
 # scramble
 
@@ -160,11 +160,7 @@ U2 R2 U' R2 U R2 U' // align pairs
 
 R2 U2 R2 U2 // finish
 
--->
-
-[Example solution #3](https://alg.cubing.net/?setup=D_L2_U_L2_U_L2_U2_L2_U-_F2_D-_L_U-_L2_D2_L_B2_U_B-_L2_U&type=reconstruction&alg=%2F%2F_Phase_1%0A%0AU-_L2_B_%2F%2F_setup_and_flip_all_4_misoriented_edges%0A%0A%2F%2F_Phase_2%0A%0AU2_R-_U_R%0A%2F%2F_three_out_of_four_E%26%2345%3Bslice_edges_are_already_in_the_E%26%2345%3Bslice%0AR2_D-_U-__%2F%2F_setup_and_flip_three_corners_to_get_to_an_easier_corner_orientation_state%0AU2_R_U-_R-_%2F%2F_setup_and_flip_three_corners_to_get_to_the_penultimate_corner_orientation_state%0AR-_D_R_%2F%2F_flip_final_three_corners_while_inserting_final_E%26%2345%3Bslice_edge%0A%0A%2F%2F_Phase_3%0A%0AD_U-_B2_D2_L2_%2F%2F_create_2x2x2_block%0AU-_R2_U_R2_U_R2__B2_%2F%2F_complete_2x2x3_block%0AU2_R2_U_R2_%2F%2F_solve_DRF_and_DRB%0A%2F%2F_note_that_URF_and_URB_must_be_swapped_in_order_for_U_corners_to_be_solved_relative_to_one_another%0AU_%2F%2F_setup_ULB_and_URB_ro_ULF_and_URF%0AF2_U-_F2_U-_F2_U2_F2_%2F%2F_execute_corner_permutation_algorithm%0A%0A%2F%2F_Phase_4%0A%0A%2F%2F_first_pair_skip%0AU2_R2_U-_R2_%2F%2F_create_second_pair%0AU_R2_U2_R2_%2F%2F_create_third_pair%0AU2_R2_U-_R2_U_R2_U_%2F%2F_align_pairs%0A%0A%2F%2F_Phase_5%0A%0A%2F%2F_skip&view=playback)
-
-<!--
+###
 
 # scramble
 
