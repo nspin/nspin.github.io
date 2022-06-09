@@ -71,6 +71,12 @@ This final phase can be completed using intuition. If in doubt, just remember th
 
 <!--
 
+# scramble
+
+R D2 L R B2 U2 B2 D2 L B2 U2 B' U' F' R' U' B D' B U F
+
+# solve
+
 // Phase 1
 
 U L B' // flip 4 edges
@@ -103,5 +109,31 @@ U' R2 U R2 U' R2 U // align pairs
 // Phase 5
 
 R2 U2 // finish
+
+-->
+
+[Example solution #2]()
+
+<!--
+
+# scramble
+
+R2 B2 R2 B2 U2 R2 D U2 L2 F2 R2 B L' F' L' B F D2 F2 U F
+
+# solve
+
+// Phase 1
+
+F // flip 4 edges
+B L' B' // flip remaining 2 edges
+
+// Phase 2
+
+// three out of four E-slice edges are already in the E-slice
+L' U L // setup and flip three corners to get to the penultimate corner orientation state
+R2 U D M2 D L' U L // setup and flip final three corners while inserting final E-slice edge
+x2 // re-orient cube
+
+// Phase 3
 
 -->
