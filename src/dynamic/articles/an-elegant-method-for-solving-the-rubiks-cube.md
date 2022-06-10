@@ -53,7 +53,7 @@ From now on, use only turns in $G_2$.
 
 States in $G_3$ have a solved $2\times 2\times 3$ block around the DL edge of the cube. The rest of the charactarization of states in $G_3$ pertains to the permutation of the remaining six corner pieces.
 
-Jaap Scherphuis provides a [proof](https://www.jaapsch.net/puzzles/pgl25.htm) that, in $\langle U, R \rangle$, the permutation of the remaining six corner pieces is isomorphic to $S_5$. By a near identical proof, the same turns out to be true for $G_3 = \langle U, R2 \rangle$. If follows, as a corollary whose proof is left as an exercise for the reader, that, in $G_3$, the positions of any three non-DL corners determine the positions of the remaining three.
+Jaap Scherphuis provides a [proof](https://www.jaapsch.net/puzzles/pgl25.htm) that, in $\langle U, R \rangle$, the permutation of the remaining six corner pieces is isomorphic to $S_5$. By a near identical proof, the same turns out to be true for $G_3 = \langle U, R^2 \rangle$. If follows, as a corollary whose proof is left as an exercise for the reader, that, in $G_3$, the positions of any three non-DL corners determine the positions of the remaining three.
 
 Now, a procedure for reaching $G_3$ from $G_2$: First, solve the $2\times 2\times 3$ block around the DL edge of the cube. Next, using moves from $G_3$, solve the DLF and DLB corners. Now, the remaining four corners are one transposition away from being solved relative to one another. Set this transposition up to ULF and URF, and then perform $F^2U'F^2U'F^2U^2F^2$.
 
