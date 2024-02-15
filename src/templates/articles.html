@@ -12,17 +12,19 @@
 
     <hr class="article-div">
 {% for article in articles %}
-    <h3 class="article-title no-margin-bottom">
-        <a href="{{ path_to('/articles/{}.html'.format(article.id)) }}">
-            {{ article.meta.title }}
-        </a>
-    </h3>
-    <span class="soft">
-        {{ article.meta.date.__format__('%Y, %b %e') }}
-    </span>
-    {{ article.body }}
-    <a href="{{ path_to('/articles/{}.html'.format(article.id)) }}" class="read-more">read more</a>
-    <hr class="article-div">
+    {% if not (article.meta.hide is defined and article.meta.hide) %}
+        <h3 class="article-title no-margin-bottom">
+            <a href="{{ path_to('/articles/{}.html'.format(article.id)) }}">
+                {{ article.meta.title }}
+            </a>
+        </h3>
+        <span class="soft">
+            {{ article.meta.date.__format__('%Y, %b %e') }}
+        </span>
+        {{ article.body }}
+        <a href="{{ path_to('/articles/{}.html'.format(article.id)) }}" class="read-more">read more</a>
+        <hr class="article-div">
+    {% endif %}
 {% endfor %}
 
 {% endblock %}

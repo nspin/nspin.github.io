@@ -3,6 +3,7 @@ template: templates/article.html
 title: Solving the Rubik's Cube Blindfolded
 date: 2018-02-02
 has_math: true
+hide: true
 ...
 
 `== == == == UNDER CONSTRUCTION == == == ==`
