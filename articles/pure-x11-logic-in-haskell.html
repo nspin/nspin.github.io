@@ -29,8 +29,9 @@ q { quotes: "“" "”" "‘" "’"; }
 </style>
     
         <style>pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -65,7 +66,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -78,7 +79,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -117,65 +118,102 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div class="article-body">
 
-<p>X11 programming in Haskell has traditionally been done using the <a href="https://hackage.haskell.org/package/X11-1.6.1.2">X11 package</a>. Many of these bindings were written by hand and, due to their reliance on FFI, are susceptible to some threading issues. <a href="https://hackage.haskell.org/package/xhb">xhb</a>, a newer package, provides low-level bindings to X11 based on the same XML as <a href="https://xcb.freedesktop.org/">xcb</a>.</p>
-<p>It doesn’t seem as though much has been done with XHB yet. In fact, at the time of writing (Aug 22, 2016), exactly two packages on Hackage depend on xhb. Nevertheless, I believe it hold great promise in the future of X programming in Haskell.</p>
-<p>I’ve been working on a set of libraries that allows for layers of abstraction to be stacked on top of the low-level xhb bindings.</p>
+<p>X11 programming in Haskell has traditionally been done using the <a
+href="https://hackage.haskell.org/package/X11-1.6.1.2">X11 package</a>.
+Many of these bindings were written by hand and, due to their reliance
+on FFI, are susceptible to some threading issues. <a
+href="https://hackage.haskell.org/package/xhb">xhb</a>, a newer package,
+provides low-level bindings to X11 based on the same XML as <a
+href="https://xcb.freedesktop.org/">xcb</a>.</p>
+<p>It doesn’t seem as though much has been done with XHB yet. In fact,
+at the time of writing (Aug 22, 2016), exactly two packages on Hackage
+depend on xhb. Nevertheless, I believe it hold great promise in the
+future of X programming in Haskell.</p>
+<p>I’ve been working on a set of libraries that allows for layers of
+abstraction to be stacked on top of the low-level xhb bindings.</p>
 <p>Here’s an overview of the libraries and their relationships:</p>
 <ul>
-<li><a href="https://github.com/nspin/xhb-monad">xhb-monad</a> - Monad transformer for xhb server connections.</li>
-<li><a href="https://github.com/nspin/xhb-requests">xhb-requests</a> - Classes and generated instances for a uniform interface to xhb.</li>
-<li><a href="https://github.com/nspin/xhb-event-queue">xhb-event-queue</a> - Monad transformer over xhb-monad for event handling.</li>
-<li><a href="https://github.com/nspin/xhb-mapping-state">xhb-mapping-state</a> - Monad transformer over xhb-monad for keeping track of key, mod, and pointer mappings.</li>
-<li><a href="https://github.com/nspin/wmonad">wmonad</a> - Prototype of a window manager in the XMonad tradition to demonstrate these libraries.</li>
+<li><a href="https://github.com/nspin/xhb-monad">xhb-monad</a> - Monad
+transformer for xhb server connections.</li>
+<li><a href="https://github.com/nspin/xhb-requests">xhb-requests</a> -
+Classes and generated instances for a uniform interface to xhb.</li>
+<li><a
+href="https://github.com/nspin/xhb-event-queue">xhb-event-queue</a> -
+Monad transformer over xhb-monad for event handling.</li>
+<li><a
+href="https://github.com/nspin/xhb-mapping-state">xhb-mapping-state</a>
+- Monad transformer over xhb-monad for keeping track of key, mod, and
+pointer mappings.</li>
+<li><a href="https://github.com/nspin/wmonad">wmonad</a> - Prototype of
+a window manager in the XMonad tradition to demonstrate these
+libraries.</li>
 </ul>
 <h2 id="xhb-requests">xhb-requests</h2>
-<p>(<em><a href="https://github.com/nspin/xhb-requests">source</a>, <a href="https://nspin.github.io/xhb-requests">docs</a></em>)</p>
-<p>Most generated functions in xhb have types similar to those below:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="ot">createWindow ::</span> <span class="dt">Connection</span> <span class="ot">-&gt;</span> <span class="dt">CreateWindow</span> <span class="ot">-&gt;</span> <span class="dt">IO</span> ()</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="ot">grabKeyboard ::</span> <span class="dt">Connection</span> <span class="ot">-&gt;</span> <span class="dt">GrabKeyboard</span> <span class="ot">-&gt;</span> <span class="dt">IO</span> (<span class="dt">Receipt</span> <span class="dt">GrabStatus</span>)</span></code></pre></div>
-<p>Those requests which expect responses can wait for them as follows:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="ot">getReply ::</span> <span class="dt">Receipt</span> a <span class="ot">-&gt;</span> <span class="dt">IO</span> (<span class="dt">Either</span> <span class="dt">SomeError</span> a)</span></code></pre></div>
-<p>Some functions are a bit different (request parameters don’t live inside a dedicated type, but are passed directly to the function):</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="ot">configureWindow ::</span> <span class="dt">Connection</span> <span class="ot">-&gt;</span> <span class="dt">WINDOW</span> <span class="ot">-&gt;</span> <span class="dt">ValueParam</span> <span class="dt">Word16</span> <span class="ot">-&gt;</span> <span class="dt">IO</span> ()</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="ot">queryTextExtents ::</span> <span class="dt">Connection</span> <span class="ot">-&gt;</span> <span class="dt">FONTABLE</span> <span class="ot">-&gt;</span> [<span class="dt">CHAR2B</span>] <span class="ot">-&gt;</span> <span class="dt">IO</span> (<span class="dt">Receipt</span> <span class="dt">QueryTextExtentsReply</span>)</span></code></pre></div>
-<p>Nevertheless, thanks to disciplined code generation, xhb has a clean and uniform code base. The (in progress) <a href="https://github.com/nspin/xhb-requests">xhb-requests</a> package wraps all of these generated request functions in two classes:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="kw">class</span> <span class="dt">Request</span> a <span class="kw">where</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="ot">    requestIO ::</span> a <span class="ot">-&gt;</span> <span class="dt">Connection</span> <span class="ot">-&gt;</span> <span class="dt">IO</span> ()</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a><span class="kw">class</span> <span class="dt">RequestWithReply</span> a b <span class="op">|</span> a <span class="ot">-&gt;</span> b, b <span class="ot">-&gt;</span> a <span class="kw">where</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a><span class="ot">    requestWithReplyIO ::</span> a <span class="ot">-&gt;</span> <span class="dt">Connection</span> <span class="ot">-&gt;</span> <span class="dt">IO</span> (<span class="dt">IO</span> (<span class="dt">Either</span> <span class="dt">SomeError</span> b))</span></code></pre></div>
-<p>The instances of this class are generated from the xhb code that is itself generated from XML, which sounds ugly, but it worked quite well. This is the foundation for xhb-monad.</p>
+<p>(<em><a href="https://github.com/nspin/xhb-requests">source</a>, <a
+href="https://nspin.github.io/xhb-requests">docs</a></em>)</p>
+<p>Most generated functions in xhb have types similar to those
+below:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ot">createWindow ::</span> <span class="dt">Connection</span> <span class="ot">-&gt;</span> <span class="dt">CreateWindow</span> <span class="ot">-&gt;</span> <span class="dt">IO</span> ()</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ot">grabKeyboard ::</span> <span class="dt">Connection</span> <span class="ot">-&gt;</span> <span class="dt">GrabKeyboard</span> <span class="ot">-&gt;</span> <span class="dt">IO</span> (<span class="dt">Receipt</span> <span class="dt">GrabStatus</span>)</span></code></pre></div>
+<p>Those requests which expect responses can wait for them as
+follows:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ot">getReply ::</span> <span class="dt">Receipt</span> a <span class="ot">-&gt;</span> <span class="dt">IO</span> (<span class="dt">Either</span> <span class="dt">SomeError</span> a)</span></code></pre></div>
+<p>Some functions are a bit different (request parameters don’t live
+inside a dedicated type, but are passed directly to the function):</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ot">configureWindow ::</span> <span class="dt">Connection</span> <span class="ot">-&gt;</span> <span class="dt">WINDOW</span> <span class="ot">-&gt;</span> <span class="dt">ValueParam</span> <span class="dt">Word16</span> <span class="ot">-&gt;</span> <span class="dt">IO</span> ()</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ot">queryTextExtents ::</span> <span class="dt">Connection</span> <span class="ot">-&gt;</span> <span class="dt">FONTABLE</span> <span class="ot">-&gt;</span> [<span class="dt">CHAR2B</span>] <span class="ot">-&gt;</span> <span class="dt">IO</span> (<span class="dt">Receipt</span> <span class="dt">QueryTextExtentsReply</span>)</span></code></pre></div>
+<p>Nevertheless, thanks to disciplined code generation, xhb has a clean
+and uniform code base. The (in progress) <a
+href="https://github.com/nspin/xhb-requests">xhb-requests</a> package
+wraps all of these generated request functions in two classes:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> <span class="dt">Request</span> a <span class="kw">where</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ot">    requestIO ::</span> a <span class="ot">-&gt;</span> <span class="dt">Connection</span> <span class="ot">-&gt;</span> <span class="dt">IO</span> ()</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> <span class="dt">RequestWithReply</span> a b <span class="op">|</span> a <span class="ot">-&gt;</span> b, b <span class="ot">-&gt;</span> a <span class="kw">where</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ot">    requestWithReplyIO ::</span> a <span class="ot">-&gt;</span> <span class="dt">Connection</span> <span class="ot">-&gt;</span> <span class="dt">IO</span> (<span class="dt">IO</span> (<span class="dt">Either</span> <span class="dt">SomeError</span> b))</span></code></pre></div>
+<p>The instances of this class are generated from the xhb code that is
+itself generated from XML, which sounds ugly, but it worked quite well.
+This is the foundation for xhb-monad.</p>
 <h2 id="xhb-monad">xhb-monad</h2>
-<p>(<em><a href="https://github.com/nspin/xhb-monad">source</a>, <a href="https://nspin.github.io/xhb-monad">docs</a></em>)</p>
+<p>(<em><a href="https://github.com/nspin/xhb-monad">source</a>, <a
+href="https://nspin.github.io/xhb-monad">docs</a></em>)</p>
 <p>This package defines the following class:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="kw">class</span> <span class="dt">Monad</span> x <span class="ot">=&gt;</span> <span class="dt">XContext</span> x <span class="kw">where</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="ot">    request ::</span> <span class="dt">Request</span> a <span class="ot">=&gt;</span> a <span class="ot">-&gt;</span> <span class="dt">Connection</span> <span class="ot">-&gt;</span> x ()</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="ot">    requestWithReply ::</span> <span class="dt">RequestWithReply</span> a b <span class="ot">=&gt;</span> a <span class="ot">-&gt;</span> <span class="dt">Connection</span> <span class="ot">-&gt;</span> x (x (<span class="dt">Either</span> <span class="dt">SomeError</span> b))</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a><span class="ot">    awaitEvent ::</span> <span class="dt">Connection</span> <span class="ot">-&gt;</span> x <span class="dt">SomeEvent</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a><span class="kw">instance</span> <span class="dt">XContext</span> <span class="dt">IO</span> <span class="kw">where</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>    request <span class="ot">=</span> requestIO</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a>    requestWithReply <span class="ot">=</span> requestWithReplyIO</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a>    awaitEvent <span class="ot">=</span> waitForEvent</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> <span class="dt">Monad</span> x <span class="ot">=&gt;</span> <span class="dt">XContext</span> x <span class="kw">where</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ot">    request ::</span> <span class="dt">Request</span> a <span class="ot">=&gt;</span> a <span class="ot">-&gt;</span> <span class="dt">Connection</span> <span class="ot">-&gt;</span> x ()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ot">    requestWithReply ::</span> <span class="dt">RequestWithReply</span> a b <span class="ot">=&gt;</span> a <span class="ot">-&gt;</span> <span class="dt">Connection</span> <span class="ot">-&gt;</span> x (x (<span class="dt">Either</span> <span class="dt">SomeError</span> b))</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ot">    awaitEvent ::</span> <span class="dt">Connection</span> <span class="ot">-&gt;</span> x <span class="dt">SomeEvent</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">instance</span> <span class="dt">XContext</span> <span class="dt">IO</span> <span class="kw">where</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    request <span class="ot">=</span> requestIO</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    requestWithReply <span class="ot">=</span> requestWithReplyIO</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    awaitEvent <span class="ot">=</span> waitForEvent</span></code></pre></div>
 <p>and the following monad transformer:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="kw">class</span> (<span class="dt">XContext</span> x, <span class="dt">Monad</span> m) <span class="ot">=&gt;</span> <span class="dt">MonadX</span> x m <span class="op">|</span> m <span class="ot">-&gt;</span> x <span class="kw">where</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="ot">    liftX ::</span> x a <span class="ot">-&gt;</span> m a</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a><span class="ot">    askX ::</span> m <span class="dt">Connection</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a><span class="ot">    catchErrorX ::</span> m a <span class="ot">-&gt;</span> (<span class="dt">SomeError</span> <span class="ot">-&gt;</span> m a) <span class="ot">-&gt;</span> m a</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a><span class="ot">    throwErrorX ::</span> <span class="dt">SomeError</span> <span class="ot">-&gt;</span> m a</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a><span class="kw">newtype</span> <span class="dt">X</span> m a <span class="ot">=</span> <span class="dt">X</span> {<span class="ot"> runX ::</span> <span class="dt">ReaderT</span> <span class="dt">Connection</span> (<span class="dt">ExceptT</span> <span class="dt">SomeError</span> m) a }</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a>    <span class="kw">deriving</span> (<span class="dt">Functor</span>, <span class="dt">Applicative</span>, <span class="dt">Monad</span>, <span class="dt">MonadIO</span>, <span class="dt">Typeable</span>)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a><span class="kw">instance</span> <span class="dt">XContext</span> x <span class="ot">=&gt;</span> <span class="dt">MonadX</span> x (<span class="dt">X</span> x) <span class="kw">where</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a>    liftX <span class="ot">=</span> <span class="dt">X</span> <span class="op">.</span> lift <span class="op">.</span> lift</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a>    askX <span class="ot">=</span> <span class="dt">X</span> ask</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true"></a>    catchErrorX m f <span class="ot">=</span> <span class="dt">X</span> <span class="op">$</span> catchError (runX m) (runX <span class="op">.</span> f)</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true"></a>    throwErrorX <span class="ot">=</span> <span class="dt">X</span> <span class="op">.</span> throwError</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true"></a></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true"></a><span class="co">--- mtl stuff also</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true"></a><span class="kw">instance</span> <span class="dt">MonadFoo</span> <span class="dt">Bar</span> <span class="kw">where</span><span class="op">...</span></span></code></pre></div>
-<p>This abstraction allows for <em>pure</em> X logic. It also lets us isolate unwieldy layers of computation and bits of state in the usual <code>mtl</code> way. xhb-mapping-state is an example of this.</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> (<span class="dt">XContext</span> x, <span class="dt">Monad</span> m) <span class="ot">=&gt;</span> <span class="dt">MonadX</span> x m <span class="op">|</span> m <span class="ot">-&gt;</span> x <span class="kw">where</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ot">    liftX ::</span> x a <span class="ot">-&gt;</span> m a</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ot">    askX ::</span> m <span class="dt">Connection</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ot">    catchErrorX ::</span> m a <span class="ot">-&gt;</span> (<span class="dt">SomeError</span> <span class="ot">-&gt;</span> m a) <span class="ot">-&gt;</span> m a</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ot">    throwErrorX ::</span> <span class="dt">SomeError</span> <span class="ot">-&gt;</span> m a</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="kw">newtype</span> <span class="dt">X</span> m a <span class="ot">=</span> <span class="dt">X</span> {<span class="ot"> runX ::</span> <span class="dt">ReaderT</span> <span class="dt">Connection</span> (<span class="dt">ExceptT</span> <span class="dt">SomeError</span> m) a }</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">deriving</span> (<span class="dt">Functor</span>, <span class="dt">Applicative</span>, <span class="dt">Monad</span>, <span class="dt">MonadIO</span>, <span class="dt">Typeable</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="kw">instance</span> <span class="dt">XContext</span> x <span class="ot">=&gt;</span> <span class="dt">MonadX</span> x (<span class="dt">X</span> x) <span class="kw">where</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    liftX <span class="ot">=</span> <span class="dt">X</span> <span class="op">.</span> lift <span class="op">.</span> lift</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    askX <span class="ot">=</span> <span class="dt">X</span> ask</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    catchErrorX m f <span class="ot">=</span> <span class="dt">X</span> <span class="op">$</span> catchError (runX m) (runX <span class="op">.</span> f)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    throwErrorX <span class="ot">=</span> <span class="dt">X</span> <span class="op">.</span> throwError</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co">--- mtl stuff also</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="kw">instance</span> <span class="dt">MonadFoo</span> <span class="dt">Bar</span> <span class="kw">where</span><span class="op">...</span></span></code></pre></div>
+<p>This abstraction allows for <em>pure</em> X logic. It also lets us
+isolate unwieldy layers of computation and bits of state in the usual
+<code>mtl</code> way. xhb-mapping-state is an example of this.</p>
 <!--
 
 ## xhb-mapping-state
