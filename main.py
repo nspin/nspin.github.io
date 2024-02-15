@@ -7,7 +7,8 @@ from pathlib import Path
 from subprocess import check_output
 
 import yaml
-from jinja2 import Environment, FileSystemLoader, Markup
+from jinja2 import Environment, FileSystemLoader
+from markupsafe import Markup
 
 DEFAULT_PANDOC_CODE_STYLE = 'pygments'
 

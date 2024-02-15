@@ -29,8 +29,9 @@ q { quotes: "“" "”" "‘" "’"; }
 </style>
     
         <style>pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -65,7 +66,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -78,7 +79,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -93,7 +94,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
     
     
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" type="text/javascript"></script>
+        <script
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+type="text/javascript"></script>
 
     
 
@@ -121,9 +124,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="article-body">
 
 <p><code>== == == == UNDER CONSTRUCTION == == == ==</code></p>
-<p>All that’s necessary for solving the cube blindfolded is a solid understanding of the basic properties of the cube and some practice.</p>
-<p>This article doesn’t assume any knowledge of cube theory, but the reader will find some undergraduate math (e.g. basic group theory) useful.</p>
-<p>Furthermore, this article is not a tutorial, but rather an in-depth exploration.</p>
+<p>All that’s necessary for solving the cube blindfolded is a solid
+understanding of the basic properties of the cube and some practice.</p>
+<p>This article doesn’t assume any knowledge of cube theory, but the
+reader will find some undergraduate math (e.g. basic group theory)
+useful.</p>
+<p>Furthermore, this article is not a tutorial, but rather an in-depth
+exploration.</p>
 <h2 id="preliminaries">Preliminaries</h2>
 <h3 id="the-game">The Game</h3>
 <ul>
@@ -133,102 +140,255 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>You solve the cube (the <em>execution</em> phase)</li>
 </ul>
 <h3 id="notation">Notation</h3>
-<p>The cube has 6 faces: <code>U</code>p, <code>D</code>own, <code>L</code>eft, <code>R</code>ight, <code>F</code>ront, and <code>B</code>ack.</p>
-<p>Each face contains 9 stickers locations. A sticker location is either a center (at the center of the face), an edge (adjacent to the center by an edge), or a corner (adjacent to the center by a corner). We specify sticker locations of each type differently:</p>
+<p>The cube has 6 faces: <code>U</code>p, <code>D</code>own,
+<code>L</code>eft, <code>R</code>ight, <code>F</code>ront, and
+<code>B</code>ack.</p>
+<p>Each face contains 9 stickers locations. A sticker location is either
+a center (at the center of the face), an edge (adjacent to the center by
+an edge), or a corner (adjacent to the center by a corner). We specify
+sticker locations of each type differently:</p>
 <ul>
-<li>Center stickers are specified by the face they lie on (e.g. <code>L</code> is the sticker location at the center of the <code>L</code> face).</li>
-<li>Edge stickers are specified by the face they lie on, and then the face they boarder (e.g. <code>LU</code> is the sticker location on the <code>L</code> face adjacent the the <code>U</code> face).</li>
-<li>Corner stickers are specified by the face they lie on, and then the two faces they boarder, in clockwise order around the corner piece (e.g. <code>LUF</code> is the sticker location on the <code>L</code> that boarders both the <code>U</code> and <code>F</code> faces).</li>
+<li>Center stickers are specified by the face they lie on
+(e.g. <code>L</code> is the sticker location at the center of the
+<code>L</code> face).</li>
+<li>Edge stickers are specified by the face they lie on, and then the
+face they boarder (e.g. <code>LU</code> is the sticker location on the
+<code>L</code> face adjacent the the <code>U</code> face).</li>
+<li>Corner stickers are specified by the face they lie on, and then the
+two faces they boarder, in clockwise order around the corner piece
+(e.g. <code>LUF</code> is the sticker location on the <code>L</code>
+that boarders both the <code>U</code> and <code>F</code> faces).</li>
 </ul>
-<p>The cube is composed of 26 piece locations. Center piece locations contain one sticker location, edges two, and corners three. One sticker location on each piece location is designated as the primay sticker location, which we use to specify that piece location. Primary sticker locations are determined as follows:</p>
+<p>The cube is composed of 26 piece locations. Center piece locations
+contain one sticker location, edges two, and corners three. One sticker
+location on each piece location is designated as the primay sticker
+location, which we use to specify that piece location. Primary sticker
+locations are determined as follows:</p>
 <ul>
 <li>Centers: the only sticker location</li>
-<li>Edges: the sticker location on the <code>U</code> or <code>D</code> face if such a sticker location exists, or the sticker location on the <code>F</code> or <code>B</code> face otherwise</li>
-<li>Corners: the sticker location on the <code>U</code> or <code>D</code> face</li>
+<li>Edges: the sticker location on the <code>U</code> or <code>D</code>
+face if such a sticker location exists, or the sticker location on the
+<code>F</code> or <code>B</code> face otherwise</li>
+<li>Corners: the sticker location on the <code>U</code> or
+<code>D</code> face</li>
 </ul>
-<p>We can modify the state of the cube by the turns its mechanism permits. The most basic turns correspond to the 6 faces. We denote the clockwise turn of a face by the name of the face itself. For example, the turn denoted <code>U</code> is a clockwise turn of <code>U</code> face from the perspective of looking at that face from outside of the cube.</p>
-<p>We also consider rotations of the entire cube about its axes as modifying the its state. We denote the clockwise rotations about the <code>x</code>, <code>y</code>, and <code>z</code> axes in the directions of <code>R</code>, <code>U</code>, and <code>F</code> respectively as <code>x</code>, <code>y</code>, and <code>z</code>.</p>
-<p>To invert a turn, we append a <code>'</code>, which we pronounce “inverse” or “prime”. For example, <code>U'</code> denotes a counter-clockwise turn of the <code>U</code> face. A numerical suffix denotes repetition of a turn. We can also invert and repeat sequences of turns. For example, <code>x' (U F)3 = x' U F U F U F</code> and <code>(U F' z R')' = R z' F U'</code>.</p>
-<p>I will mention a few additional turns, but their mechanics, along with those already mentioned, are best observed in the widget below.</p>
-<p>Double layer turns effect both a face and the layer behind that face. They are denoted by the lower-case equivalent of their corresponding face turn. For example, <code>u</code> denotes a simultaneous clockwise turn of the <code>U</code> face and the layer beneath it.</p>
+<p>We can modify the state of the cube by the turns its mechanism
+permits. The most basic turns correspond to the 6 faces. We denote the
+clockwise turn of a face by the name of the face itself. For example,
+the turn denoted <code>U</code> is a clockwise turn of <code>U</code>
+face from the perspective of looking at that face from outside of the
+cube.</p>
+<p>We also consider rotations of the entire cube about its axes as
+modifying the its state. We denote the clockwise rotations about the
+<code>x</code>, <code>y</code>, and <code>z</code> axes in the
+directions of <code>R</code>, <code>U</code>, and <code>F</code>
+respectively as <code>x</code>, <code>y</code>, and <code>z</code>.</p>
+<p>To invert a turn, we append a <code>'</code>, which we pronounce
+“inverse” or “prime”. For example, <code>U'</code> denotes a
+counter-clockwise turn of the <code>U</code> face. A numerical suffix
+denotes repetition of a turn. We can also invert and repeat sequences of
+turns. For example, <code>x' (U F)3 = x' U F U F U F</code> and
+<code>(U F' z R')' = R z' F U'</code>.</p>
+<p>I will mention a few additional turns, but their mechanics, along
+with those already mentioned, are best observed in the widget below.</p>
+<p>Double layer turns effect both a face and the layer behind that face.
+They are denoted by the lower-case equivalent of their corresponding
+face turn. For example, <code>u</code> denotes a simultaneous clockwise
+turn of the <code>U</code> face and the layer beneath it.</p>
 <p>Slice turns just effect an inner layer:</p>
 <ul>
-<li><code>M</code>: Turn the <em>middle</em> layer behind the <code>L</code> face in the same direction as <code>L</code></li>
-<li><code>E</code>: Turn the <em>equator</em> layer behind the <code>D</code> face in the same direction as <code>D</code></li>
-<li><code>S</code>: Turn the <em>slice</em> layer behind the <code>F</code> face in the same direction as <code>F</code></li>
+<li><code>M</code>: Turn the <em>middle</em> layer behind the
+<code>L</code> face in the same direction as <code>L</code></li>
+<li><code>E</code>: Turn the <em>equator</em> layer behind the
+<code>D</code> face in the same direction as <code>D</code></li>
+<li><code>S</code>: Turn the <em>slice</em> layer behind the
+<code>F</code> face in the same direction as <code>F</code></li>
 </ul>
 <p style="text-align: center;">
 <iframe height="530px" width="300px" scrolling="no" frameborder="0" src="https://ruwix.com/widget/notation-3d/">
 </iframe>
 </p>
-<p>The effects of certain turns can be achieved by combinations of different turns. For example, <code>M = x' L' R</code>. It is not hard to see how <code>z</code> can be written in terms of <code>x</code> and <code>y</code>. Furthermore, it is both interesting and non-obvious that any face turn can be written in terms of the five others. So, the effect of any sequence of moves can be achieved with a sequence of turns drawn only from <code>&lt;U, D, L, R, F, x, y&gt;</code>.</p>
+<p>The effects of certain turns can be achieved by combinations of
+different turns. For example, <code>M = x' L' R</code>. It is not hard
+to see how <code>z</code> can be written in terms of <code>x</code> and
+<code>y</code>. Furthermore, it is both interesting and non-obvious that
+any face turn can be written in terms of the five others. So, the effect
+of any sequence of moves can be achieved with a sequence of turns drawn
+only from <code>&lt;U, D, L, R, F, x, y&gt;</code>.</p>
 <h3 id="the-cube-group">The Cube Group</h3>
-<p>Let <span class="math inline">\(K\)</span> denote the set containing the 54 sticker locations on the cube. The cube’s state is a map from <span class="math inline">\(K\)</span> to physical stickers. The objects we wish to study are the effects on this state that can be realized within the mechanical constraints of the cube. Such effects can be thought of as permutations of <span class="math inline">\(K\)</span>. For example, the <code>U</code> turn corresponds to the permutation <code>(UL UF UR UB)(LU FU RU BU)(ULB UFL URF UBR)(LBU FLU RFU BRU)(BUL LUF FUR RUB)</code>.</p>
-<p>However, there are many permutations of <span class="math inline">\(K\)</span> that do not make sense in the context of the puzzle. For example, there is no sequence of turns to swap the <code>FD</code> sticker with the <code>BDR</code> sticker. We are really only interested in certain subgroups of <span class="math inline">\(S_K\)</span> (the symmetric group on <span class="math inline">\(K\)</span>), such as those generated by the turns <code>&lt;U, D, L, R, F, B&gt;</code> or <code>&lt;U, D, L, R, F, B, x, y, z&gt;</code>.</p>
-<p>Consider the subgroup of <span class="math inline">\(S_K\)</span> whose elements are effects achievable by disassembling the cube into its 26 pieces (6 centers, 12 edges, and 8 corners) and then rearranging them. In order to understand this structure of this group, we must consider piece permutation and piece orientation separately.</p>
-<p>For example, the <code>R</code> turn causes the following piece permutation, where pieces are specified by their primary sticker locations as described above: <code>(URF UBR DRB DFR)(UR BR DR FR)</code>. Additionally, for each edge piece moved, the sticker that was in the primary sticker location of that piece location may or may not be in the primary sticker location of its new piece location. For each corner piece moved, the sticker that was in the primary sticker location of that piece location may be either 0, 1, or 2 clockwise piece twists removed from the primary sticker location of its new piece location. This representation of group elements is a bit unweildy, but it will soon shed light on some important properties of the subgroups we care about.</p>
-<p>Let <span class="math inline">\(P_t\)</span> denote the set of center pieces, <span class="math inline">\(P_e\)</span> the edges, and <span class="math inline">\(P_c\)</span> the corners. We can specify an element of the piece rearrangement subgroup as <span class="math inline">\((\pi, \sigma, \tau, o_e, o_c)\)</span> where:</p>
+<p>Let <span class="math inline">\(K\)</span> denote the set containing
+the 54 sticker locations on the cube. The cube’s state is a map from
+<span class="math inline">\(K\)</span> to physical stickers. The objects
+we wish to study are the effects on this state that can be realized
+within the mechanical constraints of the cube. Such effects can be
+thought of as permutations of <span class="math inline">\(K\)</span>.
+For example, the <code>U</code> turn corresponds to the permutation
+<code>(UL UF UR UB)(LU FU RU BU)(ULB UFL URF UBR)(LBU FLU RFU BRU)(BUL LUF FUR RUB)</code>.</p>
+<p>However, there are many permutations of <span
+class="math inline">\(K\)</span> that do not make sense in the context
+of the puzzle. For example, there is no sequence of turns to swap the
+<code>FD</code> sticker with the <code>BDR</code> sticker. We are really
+only interested in certain subgroups of <span
+class="math inline">\(S_K\)</span> (the symmetric group on <span
+class="math inline">\(K\)</span>), such as those generated by the turns
+<code>&lt;U, D, L, R, F, B&gt;</code> or
+<code>&lt;U, D, L, R, F, B, x, y, z&gt;</code>.</p>
+<p>Consider the subgroup of <span class="math inline">\(S_K\)</span>
+whose elements are effects achievable by disassembling the cube into its
+26 pieces (6 centers, 12 edges, and 8 corners) and then rearranging
+them. In order to understand this structure of this group, we must
+consider piece permutation and piece orientation separately.</p>
+<p>For example, the <code>R</code> turn causes the following piece
+permutation, where pieces are specified by their primary sticker
+locations as described above:
+<code>(URF UBR DRB DFR)(UR BR DR FR)</code>. Additionally, for each edge
+piece moved, the sticker that was in the primary sticker location of
+that piece location may or may not be in the primary sticker location of
+its new piece location. For each corner piece moved, the sticker that
+was in the primary sticker location of that piece location may be either
+0, 1, or 2 clockwise piece twists removed from the primary sticker
+location of its new piece location. This representation of group
+elements is a bit unweildy, but it will soon shed light on some
+important properties of the subgroups we care about.</p>
+<p>Let <span class="math inline">\(P_t\)</span> denote the set of center
+pieces, <span class="math inline">\(P_e\)</span> the edges, and <span
+class="math inline">\(P_c\)</span> the corners. We can specify an
+element of the piece rearrangement subgroup as <span
+class="math inline">\((\pi, \sigma, \tau, o_e, o_c)\)</span> where:</p>
 <ul>
-<li><span class="math inline">\(\pi \in S_{P_t}\)</span> is a permutation of center pieces</li>
-<li><span class="math inline">\(\sigma \in S_{P_e}\)</span> is a permutation of edge pieces</li>
-<li><span class="math inline">\(\tau \in S_{P_c}\)</span> is a permutation of corner pieces</li>
-<li><span class="math inline">\(o_e : P_e \rightarrow \mathbb{Z}/2\mathbb{Z}\)</span> maps edge pieces to their new orientations</li>
-<li><span class="math inline">\(o_c : P_c \rightarrow \mathbb{Z}/3\mathbb{Z}\)</span> maps corner pieces to their new orientations</li>
+<li><span class="math inline">\(\pi \in S_{P_t}\)</span> is a
+permutation of center pieces</li>
+<li><span class="math inline">\(\sigma \in S_{P_e}\)</span> is a
+permutation of edge pieces</li>
+<li><span class="math inline">\(\tau \in S_{P_c}\)</span> is a
+permutation of corner pieces</li>
+<li><span class="math inline">\(o_e : P_e \rightarrow
+\mathbb{Z}/2\mathbb{Z}\)</span> maps edge pieces to their new
+orientations</li>
+<li><span class="math inline">\(o_c : P_c \rightarrow
+\mathbb{Z}/3\mathbb{Z}\)</span> maps corner pieces to their new
+orientations</li>
 </ul>
-<p>Applying <span class="math inline">\((\pi_1, \sigma_1, \tau_1, {o_e}_1, {o_c}_1)\)</span> and then <span class="math inline">\((\pi_2, \sigma_2, \tau_2, {o_e}_2, {o_c}_2)\)</span> is equivalent to applying <span class="math inline">\((\pi_2 \circ \pi_1, \sigma_2 \circ \sigma_1, \tau_2 \circ \tau_1, {o_e}_1 + ({o_e}_2 \circ \sigma_1), {o_c}_1 + ({o_c}_2 \circ \tau_1))%formytexteditor_\)</span></p>
-<p>We will now investigate a subgroup of the piece rearrangement group which is often called the cube group. It is the group generated by <code>&lt;U, D, L, R, F, B&gt;</code>. This group is of particular interest because it contains exactly all of the realizable effects on the cube that do not affect the center pieces.</p>
-<p>Below are the elements of the piece rearrangement group corresponding to the basic face turns:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode txt"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>                                                     o_e                               o_c</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>       \pi, \sigma, and \tau         UL UR UF UB DL DR DF DB FL FR BL BR ULB URF UFL UBR DLF DRB DFR DBL </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>U | (UL UB UR UF)(ULB UBR URF UFL) | 0  0  0  0  0  0  0  0  0  0  0  0 | 0   0   0   0   0   0   0   0</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>D | (DL DF DR DB)(DLF DBL DFR DRB) | 0  0  0  0  0  0  0  0  0  0  0  0 | 0   0   0   0   0   0   0   0</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>L | (UL FL DL BL)(ULB UFL DLF DBL) | 0  0  0  0  0  0  0  0  0  0  0  0 | 1   0   2   0   1   0   0   2</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>R | (UR BR DR FR)(URF UBR DRB DFR) | 0  0  0  0  0  0  0  0  0  0  0  0 | 0   1   0   2   0   1   2   0</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>F |</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>B |                                             ... TODO ...</span></code></pre></div>
-<p>The table above reveals some important properties of the cube group. First of all, every piece permutation of this generating set is even, so all piece permutations in the subgroup are even. This means that there is no sequence of face turns that swaps the positions of just two pieces with no side effects.</p>
-<p>Secondly, for each face turn, the total edge flip is 0 modulo 2 and the total corner twist is 0 modulo 3. The total edge flip of the composition of two elements is the sum of those elements’ edge flips, and the same is true for corner twists. So, all elements have total edge flip of 0 modulo 2 and total corner twist of 0 modulo 3. This means that there is no sequence of face turns that only flips a single edge or twists a single corner.</p>
-<p>There do exist, however, sequences of face turns, which we will examine later, to accomplish the following:</p>
+<p>Applying <span class="math inline">\((\pi_1, \sigma_1, \tau_1,
+{o_e}_1, {o_c}_1)\)</span> and then <span class="math inline">\((\pi_2,
+\sigma_2, \tau_2, {o_e}_2, {o_c}_2)\)</span> is equivalent to applying
+<span class="math inline">\((\pi_2 \circ \pi_1, \sigma_2 \circ \sigma_1,
+\tau_2 \circ \tau_1, {o_e}_1 + ({o_e}_2 \circ \sigma_1), {o_c}_1 +
+({o_c}_2 \circ \tau_1))%formytexteditor_\)</span></p>
+<p>We will now investigate a subgroup of the piece rearrangement group
+which is often called the cube group. It is the group generated by
+<code>&lt;U, D, L, R, F, B&gt;</code>. This group is of particular
+interest because it contains exactly all of the realizable effects on
+the cube that do not affect the center pieces.</p>
+<p>Below are the elements of the piece rearrangement group corresponding
+to the basic face turns:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode txt"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>                                                     o_e                               o_c</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>       \pi, \sigma, and \tau         UL UR UF UB DL DR DF DB FL FR BL BR ULB URF UFL UBR DLF DRB DFR DBL </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>U | (UL UB UR UF)(ULB UBR URF UFL) | 0  0  0  0  0  0  0  0  0  0  0  0 | 0   0   0   0   0   0   0   0</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>D | (DL DF DR DB)(DLF DBL DFR DRB) | 0  0  0  0  0  0  0  0  0  0  0  0 | 0   0   0   0   0   0   0   0</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>L | (UL FL DL BL)(ULB UFL DLF DBL) | 0  0  0  0  0  0  0  0  0  0  0  0 | 1   0   2   0   1   0   0   2</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>R | (UR BR DR FR)(URF UBR DRB DFR) | 0  0  0  0  0  0  0  0  0  0  0  0 | 0   1   0   2   0   1   2   0</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>F |</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>B |                                             ... TODO ...</span></code></pre></div>
+<p>The table above reveals some important properties of the cube group.
+First of all, every piece permutation of this generating set is even, so
+all piece permutations in the subgroup are even. This means that there
+is no sequence of face turns that swaps the positions of just two pieces
+with no side effects.</p>
+<p>Secondly, for each face turn, the total edge flip is 0 modulo 2 and
+the total corner twist is 0 modulo 3. The total edge flip of the
+composition of two elements is the sum of those elements’ edge flips,
+and the same is true for corner twists. So, all elements have total edge
+flip of 0 modulo 2 and total corner twist of 0 modulo 3. This means that
+there is no sequence of face turns that only flips a single edge or
+twists a single corner.</p>
+<p>There do exist, however, sequences of face turns, which we will
+examine later, to accomplish the following:</p>
 <ul>
 <li>Cycle any three edges</li>
 <li>Cycle any three corners</li>
-<li>Transpose any two edges and transpose any two corners simultaneously</li>
+<li>Transpose any two edges and transpose any two corners
+simultaneously</li>
 <li>Flip any two edges</li>
 <li>Twist one corner clockwise and another counter-clockwise</li>
 </ul>
-<p>From these fundimental sequences of turns, we can construct elements of the <code>&lt;U, D, L, R, F, B&gt;</code> subgroup with arbitrary even permutations and arbitrary corner and edge orientations that sum to 0. There are <span class="math inline">\(\frac{8!12!}{2}\)</span> even permutations, <span class="math inline">\(2^{11}\)</span> legal edge orientations, and <span class="math inline">\(3^7\)</span> legal corner orientations. So, the order of the <code>&lt;U, D, L, R, F, B&gt;</code> subgroup is:</p>
-<p><span class="math display">\[\frac{8! 12!}{2} 2^{11} 3^7 = 43,252,003,274,489,856,000\]</span></p>
-<p>To summarize, we’ve considered the following groups, each a subgroup of the last:</p>
+<p>From these fundimental sequences of turns, we can construct elements
+of the <code>&lt;U, D, L, R, F, B&gt;</code> subgroup with arbitrary
+even permutations and arbitrary corner and edge orientations that sum to
+0. There are <span class="math inline">\(\frac{8!12!}{2}\)</span> even
+permutations, <span class="math inline">\(2^{11}\)</span> legal edge
+orientations, and <span class="math inline">\(3^7\)</span> legal corner
+orientations. So, the order of the <code>&lt;U, D, L, R, F, B&gt;</code>
+subgroup is:</p>
+<p><span class="math display">\[\frac{8! 12!}{2} 2^{11} 3^7 =
+43,252,003,274,489,856,000\]</span></p>
+<p>To summarize, we’ve considered the following groups, each a subgroup
+of the last:</p>
 <ul>
 <li><span class="math inline">\(S_K\)</span></li>
 <li>The piece rearrangement group</li>
-<li>The cube group, which is generated by <code>&lt;U, D, L, R, F, B&gt;</code></li>
+<li>The cube group, which is generated by
+<code>&lt;U, D, L, R, F, B&gt;</code></li>
 </ul>
-<p>The elements of <span class="math inline">\(S_K\)</span> act on the states of the cube. However, in general, we specify states of the cube relative to a particular “solved” state (for example, that in which the entire <code>U</code> face is white, the entire <code>F</code> face is green, etc.). In this sense, states are in direct correspondence with effects. For example, the state specified by the sequence of turns <code>(U F)3 D'</code> is the state resulting the application of that sequence of turns to the solved state.</p>
+<p>The elements of <span class="math inline">\(S_K\)</span> act on the
+states of the cube. However, in general, we specify states of the cube
+relative to a particular “solved” state (for example, that in which the
+entire <code>U</code> face is white, the entire <code>F</code> face is
+green, etc.). In this sense, states are in direct correspondence with
+effects. For example, the state specified by the sequence of turns
+<code>(U F)3 D'</code> is the state resulting the application of that
+sequence of turns to the solved state.</p>
 <h2 id="strategy-overview">Strategy Overview</h2>
-<p>When I hand you a scrambled cube, you need to gather enough information about its state to be able to execute a solution once you don the blindfold. Here, a solution is a group element whose effect on the scrambled state is returning it to the solved state. To execute a group element means to express it as a sequence of turns (and perhaps physically execute those turns).</p>
-<p>A very difficult approach is to use the memorization phase to construct a solution as a sequence of turns by solving the cube using a normal method in your imagination. This approach might be good for minimizing execution time (you could spend a really long time in the memorization phase finding a short solution), but requires special talents. While some people are capable of using this approach, I am not.</p>
-<p>An easier approach, which the remainder of this article describes, involves memorizing the solution (that is, the group element corresponding to the inverse of the state of the cube) as a permutation of stickers, breaking that permutation down into the product of simpler permutations (elements which have a small effect on the state of the cube), and then executing those permutation one at a time.</p>
+<p>When I hand you a scrambled cube, you need to gather enough
+information about its state to be able to execute a solution once you
+don the blindfold. Here, a solution is a group element whose effect on
+the scrambled state is returning it to the solved state. To execute a
+group element means to express it as a sequence of turns (and perhaps
+physically execute those turns).</p>
+<p>A very difficult approach is to use the memorization phase to
+construct a solution as a sequence of turns by solving the cube using a
+normal method in your imagination. This approach might be good for
+minimizing execution time (you could spend a really long time in the
+memorization phase finding a short solution), but requires special
+talents. While some people are capable of using this approach, I am
+not.</p>
+<p>An easier approach, which the remainder of this article describes,
+involves memorizing the solution (that is, the group element
+corresponding to the inverse of the state of the cube) as a permutation
+of stickers, breaking that permutation down into the product of simpler
+permutations (elements which have a small effect on the state of the
+cube), and then executing those permutation one at a time.</p>
 <p>To accomplish this, we need to nail down a few details:</p>
 <ul>
-<li>How to actually observe this permutation given the scrambled cube</li>
-<li>How to encode this permutation in a way that is easy to remember</li>
-<li>How to express this permutation as a product of 3-cycles that we know how to execute</li>
+<li>How to actually observe this permutation given the scrambled
+cube</li>
+<li>How to encode this permutation in a way that is easy to
+remember</li>
+<li>How to express this permutation as a product of 3-cycles that we
+know how to execute</li>
 <li>How to execute 3-cycles</li>
 </ul>
-<p>We’ll encounter many other details as we go along, but this is the general idea.</p>
-<h2 id="executing-simple-permutations">Executing Simple Permutations</h2>
-<p>First, let’s consider ways of executing simple permutations (permutations that don’t involve many stickers or pieces). Which simple permutations are easiest to execute will inform how we choose to break up solutions.</p>
+<p>We’ll encounter many other details as we go along, but this is the
+general idea.</p>
+<h2 id="executing-simple-permutations">Executing Simple
+Permutations</h2>
+<p>First, let’s consider ways of executing simple permutations
+(permutations that don’t involve many stickers or pieces). Which simple
+permutations are easiest to execute will inform how we choose to break
+up solutions.</p>
 <h3 id="algorithms">“Algorithms”</h3>
 <h3 id="commutators">Commutators</h3>
 <h3 id="conjugation">Conjugation</h3>
-<h3 id="cycles-from-conjugated-double-transpositions">3-Cycles from Conjugated Double-Transpositions</h3>
+<h3 id="cycles-from-conjugated-double-transpositions">3-Cycles from
+Conjugated Double-Transpositions</h3>
 <h2 id="executing-a-solution">Executing a Solution</h2>
 <h2 id="memorization">Memorization</h2>
 <h2 id="larger-cubes">Larger Cubes</h2>
 <h2 id="additional-resources">Additional Resources</h2>
 <p><code>UNDER CONSTRUCTION</code></p>
-<p>In the meantime, check out this video in which a younger version of me solves a 4x4x4 cube blindfolded:</p>
+<p>In the meantime, check out this video in which a younger version of
+me solves a 4x4x4 cube blindfolded:</p>
 <div class="content-auto-resizable-iframe-full">
 <div>
 <iframe src="https://www.youtube-nocookie.com/embed/UA_jAeGeYKY?rel=0&amp;showinfo=0" frameborder="0" allow="encrypted-media" allowfullscreen>
